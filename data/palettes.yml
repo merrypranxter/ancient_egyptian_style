@@ -1,0 +1,161 @@
+palettes:
+- id: new_kingdom_classic
+  name: New Kingdom Classic
+  period: New Kingdom
+  hex_values:
+  - '#C8A84B'
+  - '#1A5276'
+  - '#2E7D32'
+  - '#C0392B'
+  - '#F5F5DC'
+  - '#2E2E2E'
+  - '#4A90C4'
+  - '#8B6914'
+  primary_colors:
+  - Egyptian gold
+  - lapis blue
+  - malachite green
+  - red ochre
+  - bone white
+  - carbon black
+  symbolic_meanings:
+    '#C8A84B': divinity, solar power, incorruptibility
+    '#1A5276': the heavens, water, fertility from the Nile
+    '#2E7D32': vegetation, resurrection, new life
+    '#C0392B': blood, fire, destructive power, vitality
+    '#F5F5DC': purity, sacred linen, cleanliness
+    '#2E2E2E': the fertile Nile silt, rebirth, the underworld
+  usage_context:
+  - tomb_painting
+  - temple_wall
+  - papyrus_illustration
+  notes: The canonical palette of Eighteenth Dynasty painting; most associated with
+    Tutankhamun-era aesthetics
+- id: old_kingdom_muted
+  name: Old Kingdom Muted
+  period: Old Kingdom
+  hex_values:
+  - '#B8956A'
+  - '#6B8E6E'
+  - '#A0522D'
+  - '#D4C5A9'
+  - '#3D3D3D'
+  - '#C4A882'
+  primary_colors:
+  - warm ochre
+  - sage green
+  - sienna brown
+  - parchment
+  - dark grey
+  - sandstone
+  symbolic_meanings:
+    '#B8956A': earth, sand, endurance
+    '#6B8E6E': vegetation, Lower Egypt
+    '#A0522D': red land desert, Set
+    '#D4C5A9': limestone base, natural surface
+    '#3D3D3D': soot-based carbon, outlines
+    '#C4A882': sandstone relief unpainted areas
+  usage_context:
+  - mastaba_relief
+  - pyramid_complex
+  - funerary_stele
+  notes: Subdued palette reflecting natural mineral pigments available in early period;
+    less blue due to limited Egyptian blue production
+- id: ptolemaic_vivid
+  name: Ptolemaic Vivid
+  period: Ptolemaic
+  hex_values:
+  - '#DAA520'
+  - '#00468B'
+  - '#00843D'
+  - '#CF1020'
+  - '#FFFFFF'
+  - '#1C1C1C'
+  - '#9B2D30'
+  - '#4682B4'
+  primary_colors:
+  - bright gold
+  - deep royal blue
+  - vivid green
+  - bright red
+  - stark white
+  - deep black
+  - burgundy
+  - steel blue
+  symbolic_meanings:
+    '#DAA520': divine royalty, Ptolemaic solar worship
+    '#00468B': intensified lapis, Greek influence on blue
+    '#00843D': fertility, Osirian green
+    '#CF1020': blood red, solar intensity
+    '#FFFFFF': purity, Isis white linen
+    '#1C1C1C': Osiris black, resurrection soil
+  usage_context:
+  - temple_decoration
+  - cult_statue_painting
+  - coffin_cartonnage
+  notes: Intensified palette reflecting Hellenistic influence; greater use of pure
+    white backgrounds and higher contrast
+- id: papyrus_natural
+  name: Papyrus Natural
+  period: New Kingdom
+  hex_values:
+  - '#D4B483'
+  - '#8B7355'
+  - '#4A7C59'
+  - '#8B3A3A'
+  - '#F5DEB3'
+  - '#2F2F2F'
+  primary_colors:
+  - papyrus tan
+  - warm brown
+  - reed green
+  - terracotta red
+  - wheat
+  - near-black
+  symbolic_meanings:
+    '#D4B483': papyrus background, document surface
+    '#8B7355': earth pigment outlines
+    '#4A7C59': vegetation pigment
+    '#8B3A3A': red ochre figure color
+    '#F5DEB3': highlight areas and linen
+    '#2F2F2F': carbon ink for text
+  usage_context:
+  - papyrus_scroll
+  - book_of_the_dead
+  - administrative_document
+  notes: Warm reduced palette suited to papyrus as a ground material; fewer pigments
+    used due to portability requirements
+- id: ceremonial_gold
+  name: Ceremonial Gold
+  period: New Kingdom
+  hex_values:
+  - '#FFD700'
+  - '#B8860B'
+  - '#C8A84B'
+  - '#8B6914'
+  - '#1C1C1C'
+  - '#FFFFF0'
+  - '#C0392B'
+  primary_colors:
+  - bright gold
+  - dark goldenrod
+  - Egyptian gold
+  - antique gold
+  - near-black
+  - ivory white
+  - ceremonial red
+  symbolic_meanings:
+    '#FFD700': pure gold, divine solar flesh
+    '#B8860B': aged gold, eternal duration
+    '#C8A84B': gilded surface, incorruptibility
+    '#8B6914': bronze gold, earthly manifestation
+    '#1C1C1C': black outlines framing gold
+    '#FFFFF0': white contrast highlights
+    '#C0392B': red accents on regalia
+  usage_context:
+  - gilded_shrine
+  - royal_jewelry
+  - golden_coffin
+  - ceremonial_object
+  notes: Monochromatic gold palette for sacred objects; red and black provide essential
+    contrast against dominant gold ground

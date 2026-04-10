@@ -1,0 +1,221 @@
+glyphs:
+- id: hieroglyph_a1_man
+  name: Seated Man (A1)
+  motif_type: glyph
+  glyph_class: determinative
+  usage_mode:
+  - narrative
+  - decorative
+  visual_complexity: 2
+  primary_shapes:
+  - seated_figure
+  - bent_knees
+  - hand_to_mouth
+  prompt_tokens:
+  - Egyptian hieroglyph seated man
+  - glyph A1
+  - determinative man glyph
+  - seated human hieroglyph
+  canonical_constraints:
+  - figure seated with knees bent at 90 degrees
+  - one hand raised to mouth
+  - profile view strictly left-facing
+  - proportions follow canonical grid
+- id: hieroglyph_g17_owl
+  name: Owl (G17)
+  motif_type: glyph
+  glyph_class: phonetic
+  usage_mode:
+  - narrative
+  - decorative
+  visual_complexity: 2
+  primary_shapes:
+  - owl_body
+  - frontal_face
+  - tucked_wings
+  prompt_tokens:
+  - Egyptian owl hieroglyph
+  - glyph G17
+  - horned owl Egypt
+  - m phoneme glyph
+  canonical_constraints:
+  - body in profile but face frontal
+  - wings folded tightly
+  - talons visible at base
+  - large eye prominent
+- id: hieroglyph_n1_sky
+  name: Sky (N1)
+  motif_type: glyph
+  glyph_class: ideographic
+  usage_mode:
+  - border
+  - narrative
+  - decorative
+  visual_complexity: 1
+  primary_shapes:
+  - horizontal_bar
+  - downward_curve
+  - hanging_dots
+  prompt_tokens:
+  - Egyptian sky hieroglyph
+  - glyph N1
+  - pt sky symbol
+  - heaven glyph Egypt
+  canonical_constraints:
+  - flat bar with slightly curved underside
+  - two hanging vertical lines at ends
+  - used at top of registers to denote sky domain
+- id: hieroglyph_r4_loaf
+  name: Bread Loaf on Mat (R4)
+  motif_type: glyph
+  glyph_class: logographic
+  usage_mode:
+  - narrative
+  - decorative
+  visual_complexity: 1
+  primary_shapes:
+  - oval_loaf
+  - flat_mat
+  - profile_view
+  prompt_tokens:
+  - Egyptian bread loaf hieroglyph
+  - offering loaf glyph
+  - glyph R4
+  - hetep glyph
+  canonical_constraints:
+  - loaf shown in profile on a mat
+  - mat represented as flat rectangle
+  - loaf is oval and domed
+- id: hieroglyph_d36_arm
+  name: Arm (D36)
+  motif_type: glyph
+  glyph_class: phonetic
+  usage_mode:
+  - narrative
+  - decorative
+  visual_complexity: 1
+  primary_shapes:
+  - outstretched_arm
+  - open_hand
+  - profile_view
+  prompt_tokens:
+  - Egyptian arm hieroglyph
+  - glyph D36
+  - a phoneme glyph
+  - outstretched arm Egypt
+  canonical_constraints:
+  - arm shown in strict profile
+  - hand open palm upward
+  - elbow at right angle
+  - no shoulder shown
+- id: hieroglyph_f4_head
+  name: Head of Bovine (F4)
+  motif_type: glyph
+  glyph_class: determinative
+  usage_mode:
+  - narrative
+  - decorative
+  visual_complexity: 2
+  primary_shapes:
+  - bovine_head
+  - curved_horns
+  - frontal_face
+  prompt_tokens:
+  - Egyptian ox head hieroglyph
+  - bovine head glyph
+  - glyph F4
+  - cattle determinative Egypt
+  canonical_constraints:
+  - head shown frontally
+  - horns curve outward symmetrically
+  - neck cut flat at bottom
+  - ears flanking head
+- id: hieroglyph_m17_reed
+  name: Reed (M17)
+  motif_type: glyph
+  glyph_class: phonetic
+  usage_mode:
+  - narrative
+  - decorative
+  - border
+  visual_complexity: 1
+  primary_shapes:
+  - vertical_reed
+  - leaf_tip
+  - straight_stem
+  prompt_tokens:
+  - Egyptian reed hieroglyph
+  - glyph M17
+  - i phoneme glyph
+  - reed plant Egypt
+  canonical_constraints:
+  - stem perfectly vertical
+  - leaf tip pointed
+  - single reed shown
+  - no branching
+- id: hieroglyph_t28_bread
+  name: Bread Mold (T28)
+  motif_type: glyph
+  glyph_class: phonetic
+  usage_mode:
+  - narrative
+  - decorative
+  visual_complexity: 1
+  primary_shapes:
+  - semicircle
+  - flat_base
+  - pointed_top
+  prompt_tokens:
+  - Egyptian bread mold glyph
+  - T28 hieroglyph
+  - di offering glyph
+  - pottery bread form
+  canonical_constraints:
+  - semicircular profile
+  - flat base
+  - uniform curved upper edge
+- id: hieroglyph_v1_coil
+  name: Rope Coil (V1)
+  motif_type: glyph
+  glyph_class: phonetic
+  usage_mode:
+  - narrative
+  - decorative
+  - cartouche
+  visual_complexity: 2
+  primary_shapes:
+  - circular_coil
+  - spiral_center
+  - rope_texture
+  prompt_tokens:
+  - Egyptian rope coil hieroglyph
+  - glyph V1
+  - 100 numeral glyph
+  - shen coil Egypt
+  canonical_constraints:
+  - coil shown from above as flat spiral
+  - multiple wind lines visible
+  - center dot or tight spiral
+  - used as 100 numeral and shen-ring element
+- id: hieroglyph_w24_pot
+  name: Pot (W24)
+  motif_type: glyph
+  glyph_class: logographic
+  usage_mode:
+  - narrative
+  - decorative
+  visual_complexity: 1
+  primary_shapes:
+  - rounded_body
+  - narrow_neck
+  - flat_base
+  prompt_tokens:
+  - Egyptian pot hieroglyph
+  - glyph W24
+  - nw pot sign
+  - vessel glyph Egypt
+  canonical_constraints:
+  - profile view
+  - body widest at midpoint
+  - neck narrows toward top
+  - no handles shown

@@ -1,0 +1,209 @@
+{
+  "materials_and_techniques": [
+    {
+      "id": "painted_plaster_fresco",
+      "name": "Painted Plaster Fresco",
+      "technique_type": "wall_painting",
+      "visual_qualities": [
+        "flat matte color",
+        "bold black outlines",
+        "smooth uniform surfaces",
+        "vivid pigment saturation",
+        "no glazing or varnish sheen"
+      ],
+      "canonical_constraints": [
+        "pigments applied to dry or semi-dry plaster",
+        "outlines drawn first in red then corrected in black",
+        "no impasto or texture",
+        "no highlight or shadow modeling"
+      ],
+      "prompt_tokens": [
+        "Egyptian wall painting",
+        "painted plaster fresco",
+        "tomb fresco Egypt",
+        "matte pigment painting",
+        "Egyptian mural"
+      ],
+      "period_typical": "All periods; New Kingdom examples finest"
+    },
+    {
+      "id": "sunken_relief_limestone",
+      "name": "Sunken Relief in Limestone",
+      "technique_type": "carved_relief",
+      "visual_qualities": [
+        "figures carved into the surface plane",
+        "crisp cut edges casting shadow within figure",
+        "naturally lit surfaces read as silhouette in raking light",
+        "often left unpainted in tomb chapels"
+      ],
+      "canonical_constraints": [
+        "contour is incised into stone, not raised",
+        "depth of cut is uniform",
+        "background plane remains flush",
+        "detail lines also incised within figure outline"
+      ],
+      "prompt_tokens": [
+        "sunken relief limestone",
+        "incised Egyptian relief",
+        "relief carving Egypt",
+        "kheker carved relief",
+        "Egyptian stone carving"
+      ],
+      "period_typical": "New Kingdom; especially Ramesside period"
+    },
+    {
+      "id": "raised_relief_sandstone",
+      "name": "Raised Relief in Sandstone",
+      "technique_type": "carved_relief",
+      "visual_qualities": [
+        "figures project above the background plane",
+        "background cut away around figures",
+        "smooth modeling within figures possible",
+        "colored with mineral pigments after carving"
+      ],
+      "canonical_constraints": [
+        "projection is shallow (bas-relief)",
+        "figures do not overlap in high dimensionality",
+        "background is flat and painted (usually white or ochre)",
+        "detail lines painted or lightly incised"
+      ],
+      "prompt_tokens": [
+        "raised relief sandstone",
+        "bas-relief Egypt",
+        "Egyptian temple relief",
+        "carved and painted sandstone",
+        "New Kingdom temple wall"
+      ],
+      "period_typical": "Old Kingdom through Middle Kingdom; also Ptolemaic"
+    },
+    {
+      "id": "papyrus_painting",
+      "name": "Papyrus Painting",
+      "technique_type": "document_painting",
+      "visual_qualities": [
+        "warm tan background",
+        "thin fluid brushwork",
+        "smaller scale figures",
+        "vignette compositions",
+        "text columns adjacent to images"
+      ],
+      "canonical_constraints": [
+        "figures confined within vertical columns",
+        "scale is miniaturized relative to wall art",
+        "ground line used but simplified",
+        "pigment applied thinly due to absorbent surface"
+      ],
+      "prompt_tokens": [
+        "Book of the Dead papyrus",
+        "Egyptian papyrus painting",
+        "papyrus scroll illustration",
+        "funerary papyrus",
+        "hieratic papyrus scene"
+      ],
+      "period_typical": "New Kingdom through Late Period"
+    },
+    {
+      "id": "wooden_panel_painting",
+      "name": "Wooden Panel Painting",
+      "technique_type": "portable_painting",
+      "visual_qualities": [
+        "gesso ground over wood",
+        "smooth painted surface",
+        "vivid colors with gilding possible",
+        "portable scale",
+        "sometimes with incised details beneath paint"
+      ],
+      "canonical_constraints": [
+        "gesso applied as preparation layer",
+        "painting follows canonical grid on prepared surface",
+        "gilded areas reserved for divine and royal elements",
+        "pigments bound with gum arabic or egg"
+      ],
+      "prompt_tokens": [
+        "Egyptian wooden panel",
+        "painted wooden stele",
+        "wooden sarcophagus panel",
+        "coffin lid painting",
+        "Egyptian panel painting"
+      ],
+      "period_typical": "Middle Kingdom through Roman Period (Fayum portraits)"
+    },
+    {
+      "id": "faience_tile",
+      "name": "Faience Tile",
+      "technique_type": "ceramic_surface",
+      "visual_qualities": [
+        "glazed surface with distinctive sheen",
+        "turquoise or blue-green dominant color",
+        "relief or flat designs",
+        "small scale detailed imagery",
+        "bright saturated glaze"
+      ],
+      "canonical_constraints": [
+        "core of quartz paste with glaze overlay",
+        "colors limited to faience palette (turquoise, blue, green, white, yellow, black)",
+        "motifs simplified for small format",
+        "outlines in manganese black"
+      ],
+      "prompt_tokens": [
+        "Egyptian faience tile",
+        "faience glazed tile",
+        "turquoise faience",
+        "Egyptian tile decoration",
+        "faience amulet tile"
+      ],
+      "period_typical": "New Kingdom; also common in Late Period and Ptolemaic"
+    },
+    {
+      "id": "gilded_surface",
+      "name": "Gilded Surface",
+      "technique_type": "metalwork",
+      "visual_qualities": [
+        "reflective gold surface",
+        "thin gold leaf or gold foil",
+        "incised line detail under gold",
+        "high contrast with dark outlines",
+        "sacred objects and divine regalia"
+      ],
+      "canonical_constraints": [
+        "applied over wooden or plaster substrate",
+        "details incised before gilding or painted in black on top",
+        "divine flesh is gold, human flesh is painted ochre",
+        "chased or repouss\u00e9 work for metalwork objects"
+      ],
+      "prompt_tokens": [
+        "gilded Egyptian surface",
+        "gold leaf Egypt",
+        "Egyptian gilding",
+        "golden shrine Egypt",
+        "divine gold flesh"
+      ],
+      "period_typical": "New Kingdom; Tutankhamun-era examples"
+    },
+    {
+      "id": "bronze_inlay",
+      "name": "Bronze Inlay",
+      "technique_type": "metalwork",
+      "visual_qualities": [
+        "dark bronze base with inlaid colored materials",
+        "high contrast between base and inlay",
+        "precise geometric or figural inlay designs",
+        "precious stones, glass, or faience set in metal"
+      ],
+      "canonical_constraints": [
+        "inlay cells cut into base metal",
+        "inlay materials flush with surface",
+        "color contrast is the primary visual element",
+        "outlines provided by bronze dividers (cloisons)"
+      ],
+      "prompt_tokens": [
+        "Egyptian bronze inlay",
+        "cloisonne Egypt",
+        "inlaid bronze statue",
+        "pectoral inlay work",
+        "Egyptian inlaid metalwork"
+      ],
+      "period_typical": "Late Period through Ptolemaic"
+    }
+  ]
+}

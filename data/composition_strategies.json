@@ -1,0 +1,179 @@
+{
+  "composition_strategies": [
+    {
+      "id": "register_composition",
+      "name": "Register Composition",
+      "strategy_type": "register",
+      "description": "The scene is divided into horizontal bands (registers) stacked vertically. Each register represents a separate action, time period, or spatial zone. Figures stand on a ground line within each band.",
+      "usage_context": [
+        "tomb_wall_painting",
+        "temple_wall",
+        "papyrus_scroll",
+        "sarcophagus_decoration"
+      ],
+      "prompt_tokens": [
+        "horizontal registers",
+        "stacked scene bands",
+        "Egyptian register composition",
+        "multi-level scene Egypt",
+        "ground line figures"
+      ],
+      "examples": [
+        "Book of the Dead vignettes arranged in bands",
+        "Karnak temple battle reliefs",
+        "tomb of Nebamun hunting scene"
+      ],
+      "avoid": [
+        "overlapping figures between registers",
+        "perspective depth implying recession",
+        "diagonal ground lines"
+      ]
+    },
+    {
+      "id": "hierarchical_scale",
+      "name": "Hierarchical Scale",
+      "strategy_type": "hierarchical",
+      "description": "Figure size indicates social or divine status, not spatial proximity. The pharaoh or primary deity is rendered largest; servants, enemies, and attendants progressively smaller.",
+      "usage_context": [
+        "royal_battle_scene",
+        "offering_scene",
+        "divine_audience",
+        "ceremonial_procession"
+      ],
+      "prompt_tokens": [
+        "hierarchical scale",
+        "Egyptian scale by status",
+        "pharaoh larger than attendants",
+        "dominant central figure",
+        "size hierarchy Egypt"
+      ],
+      "examples": [
+        "Narmer Palette",
+        "Ramesses battle reliefs at Abu Simbel",
+        "temple donation scenes"
+      ],
+      "avoid": [
+        "equal-size figures of different status",
+        "perspective scaling (near=large, far=small)",
+        "cropping of large figures to fit"
+      ]
+    },
+    {
+      "id": "axial_symmetry",
+      "name": "Axial Symmetry",
+      "strategy_type": "axial",
+      "description": "Scene is arranged symmetrically around a vertical central axis, with mirror-image elements on left and right. Common for divine, cosmic, and heraldic compositions.",
+      "usage_context": [
+        "heraldic_panel",
+        "throne_back",
+        "temple_facade",
+        "divine_shrine"
+      ],
+      "prompt_tokens": [
+        "axial symmetry Egypt",
+        "mirrored Egyptian composition",
+        "symmetrical flanking figures",
+        "heraldic arrangement",
+        "bilateral symmetry"
+      ],
+      "examples": [
+        "Sema-tawy heraldic motif",
+        "double-Thoth flanking cartouche",
+        "twin Horus figures flanking solar disk"
+      ],
+      "avoid": [
+        "off-center placement of the axial element",
+        "asymmetric flanking figures of same type",
+        "left-right directional narrative within symmetric frame"
+      ]
+    },
+    {
+      "id": "ground_line_arrangement",
+      "name": "Ground Line Arrangement",
+      "strategy_type": "decorative",
+      "description": "All figures stand on a common horizontal ground line. There is no floor perspective; the ground line simply anchors figures to the same plane.",
+      "usage_context": [
+        "procession_scene",
+        "offering_bearer_row",
+        "funerary_procession",
+        "market_scene"
+      ],
+      "prompt_tokens": [
+        "ground line arrangement",
+        "Egyptian baseline figures",
+        "figures on single line",
+        "procession on ground line",
+        "flat floor Egypt"
+      ],
+      "examples": [
+        "offering bearer processions",
+        "funeral procession scenes",
+        "Amarna princesses on ground line"
+      ],
+      "avoid": [
+        "figures at different heights suggesting terrain",
+        "figures floating above the ground line",
+        "overlapping feet suggesting depth"
+      ]
+    },
+    {
+      "id": "narrative_sequence",
+      "name": "Narrative Sequence",
+      "strategy_type": "narrative",
+      "description": "A story or ritual is told through sequential scenes arranged in reading order (right to left in hieroglyphic order, or left to right for figures facing right). Time progresses across the wall or within registers.",
+      "usage_context": [
+        "hunt_scene",
+        "battle_scene",
+        "funerary_ritual",
+        "agricultural_cycle",
+        "divine_journey"
+      ],
+      "prompt_tokens": [
+        "narrative sequence Egypt",
+        "sequential Egyptian scene",
+        "story told in registers",
+        "left to right narrative",
+        "temporal progression"
+      ],
+      "examples": [
+        "Tomb of Menna agricultural cycle",
+        "Ramesses Kadesh campaign",
+        "Amduat sequential scenes"
+      ],
+      "avoid": [
+        "mixing temporal moments in a single undifferentiated mass",
+        "realistic perspective depth suggesting a stage-like space",
+        "modern comic-book panel framing"
+      ]
+    },
+    {
+      "id": "divine_focal_point",
+      "name": "Divine Focal Point",
+      "strategy_type": "hierarchical",
+      "description": "A single divine or royal figure is placed at the center or terminus of the composition, with all other elements directed toward or flanking that focal figure. Commonly used in cult image settings.",
+      "usage_context": [
+        "naos_interior",
+        "divine_barque_shrine",
+        "temple_sanctuary",
+        "offering_chapel"
+      ],
+      "prompt_tokens": [
+        "divine focal point",
+        "central deity figure",
+        "all elements face deity",
+        "enthroned god Egypt",
+        "cult statue setting"
+      ],
+      "examples": [
+        "seated Osiris receiving ka-spirits",
+        "enthroned Amun in Karnak sanctuary",
+        "pharaoh seated as Osiris"
+      ],
+      "avoid": [
+        "dividing attention between multiple equal focal points",
+        "placing subsidiary figures at the same scale as the deity",
+        "backgrounds that compete with the focal figure"
+      ]
+    }
+  ]
+}

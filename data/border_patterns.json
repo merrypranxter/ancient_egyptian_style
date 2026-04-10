@@ -1,0 +1,272 @@
+{
+  "border_patterns": [
+    {
+      "id": "lotus_and_papyrus_frieze",
+      "name": "Lotus and Papyrus Frieze",
+      "pattern_type": "floral",
+      "visual_structure": "Alternating lotus buds and open papyrus umbels connected by a continuous stem line along the bottom edge",
+      "colors": [
+        "#4A90C4",
+        "#2E7D32",
+        "#F5E642",
+        "#FFFFFF"
+      ],
+      "period": "New Kingdom",
+      "usage_context": [
+        "wall_top_border",
+        "column_base",
+        "ceiling_edge"
+      ],
+      "prompt_tokens": [
+        "lotus papyrus frieze",
+        "Egyptian floral border",
+        "alternating lotus papyrus",
+        "Egyptian plant border"
+      ],
+      "variants": [
+        "lotus_only_frieze",
+        "papyrus_only_frieze",
+        "lotus_papyrus_with_buds"
+      ],
+      "avoid": [
+        "naturalistic stem curves",
+        "three-dimensional rendering",
+        "irregular spacing"
+      ]
+    },
+    {
+      "id": "kheker_ornament",
+      "name": "Kheker Ornament",
+      "pattern_type": "geometric",
+      "visual_structure": "Row of stylized tied reed bundles forming a crenellated top edge; each unit is a vertical shaft topped with a fan of reeds bound at the waist",
+      "colors": [
+        "#F5C542",
+        "#C8A84B",
+        "#FFFFFF",
+        "#2E2E2E"
+      ],
+      "period": "Old Kingdom",
+      "usage_context": [
+        "cornice_border",
+        "register_top_divider",
+        "shrine_edge"
+      ],
+      "prompt_tokens": [
+        "kheker ornament",
+        "Egyptian reed bundle border",
+        "kheker frieze",
+        "Egyptian crown ornament border"
+      ],
+      "variants": [
+        "single_kheker_row",
+        "double_kheker_row",
+        "kheker_with_color_alternation"
+      ],
+      "avoid": [
+        "rounded tops",
+        "diagonal orientation",
+        "irregular bundle spacing"
+      ]
+    },
+    {
+      "id": "running_spiral",
+      "name": "Running Spiral",
+      "pattern_type": "geometric",
+      "visual_structure": "Continuous S-curve spiral band, each loop connected to the next, forming a flowing horizontal chain",
+      "colors": [
+        "#1A5276",
+        "#F0E68C",
+        "#FFFFFF",
+        "#2E2E2E"
+      ],
+      "period": "New Kingdom",
+      "usage_context": [
+        "furniture_border",
+        "chariot_decoration",
+        "jewelry_border",
+        "textile_border"
+      ],
+      "prompt_tokens": [
+        "Egyptian running spiral border",
+        "continuous spiral band Egypt",
+        "Aegean spiral Egypt",
+        "scroll band border"
+      ],
+      "variants": [
+        "simple_single_spiral",
+        "double_interlocking_spiral",
+        "spiral_with_dot_centers"
+      ],
+      "avoid": [
+        "three-dimensional spiral",
+        "perspective foreshortening",
+        "irregular loop sizes"
+      ]
+    },
+    {
+      "id": "cable_pattern",
+      "name": "Cable Pattern",
+      "pattern_type": "geometric",
+      "visual_structure": "Two intertwined rope strands forming a twisted cable effect; each strand alternates over and under in a regular repeat",
+      "colors": [
+        "#C8A84B",
+        "#8B6914",
+        "#F5F5DC"
+      ],
+      "period": "Middle Kingdom",
+      "usage_context": [
+        "column_shaft_border",
+        "sarcophagus_edge",
+        "architectural_molding"
+      ],
+      "prompt_tokens": [
+        "Egyptian cable pattern",
+        "rope twist border Egypt",
+        "interlaced band Egypt",
+        "cable molding Egypt"
+      ],
+      "variants": [
+        "two_strand_cable",
+        "three_strand_cable",
+        "cable_with_color_bands"
+      ],
+      "avoid": [
+        "loose or slack appearance",
+        "shadow rendering",
+        "irregular twist spacing"
+      ]
+    },
+    {
+      "id": "feather_pattern",
+      "name": "Feather Pattern",
+      "pattern_type": "floral",
+      "visual_structure": "Rows of overlapping scale-like feather or petal forms arranged in offset rows, creating a fish-scale or rishi pattern",
+      "colors": [
+        "#1A5276",
+        "#C8A84B",
+        "#2E7D32",
+        "#C0392B"
+      ],
+      "period": "New Kingdom",
+      "usage_context": [
+        "coffin_surface",
+        "divine_garment_decoration",
+        "canopic_shrine"
+      ],
+      "prompt_tokens": [
+        "Egyptian feather pattern",
+        "rishi coffin pattern",
+        "overlapping feather scale Egypt",
+        "iridescent feather coffin"
+      ],
+      "variants": [
+        "single_color_feather",
+        "multicolor_feather",
+        "feather_with_central_vein"
+      ],
+      "avoid": [
+        "naturalistic feather detail",
+        "three-dimensional perspective",
+        "irregular scale sizes"
+      ]
+    },
+    {
+      "id": "rope_border",
+      "name": "Rope Border",
+      "pattern_type": "geometric",
+      "visual_structure": "Simple twisted rope depicted in two strands, forming a linear divider between registers or framing a cartouche",
+      "colors": [
+        "#C8A84B",
+        "#8B6914"
+      ],
+      "period": "Old Kingdom",
+      "usage_context": [
+        "register_divider",
+        "cartouche_frame",
+        "stele_border"
+      ],
+      "prompt_tokens": [
+        "Egyptian rope border",
+        "twisted rope divider Egypt",
+        "rope frame Egypt",
+        "shen rope border"
+      ],
+      "variants": [
+        "single_rope",
+        "double_rope",
+        "rope_with_knot_terminals"
+      ],
+      "avoid": [
+        "fraying or loose ends",
+        "shadow on rope",
+        "irregular twist"
+      ]
+    },
+    {
+      "id": "palm_leaf_border",
+      "name": "Palm Leaf Border",
+      "pattern_type": "floral",
+      "visual_structure": "Stylized palm fronds arranged as a fan or frieze, with straight radiating leaves from a central axis point",
+      "colors": [
+        "#2E7D32",
+        "#F5C542",
+        "#8B6914"
+      ],
+      "period": "Ptolemaic",
+      "usage_context": [
+        "column_capital",
+        "ceiling_border",
+        "doorway_top"
+      ],
+      "prompt_tokens": [
+        "Egyptian palm leaf border",
+        "palm frond frieze",
+        "date palm capital Egypt",
+        "palm leaf column"
+      ],
+      "variants": [
+        "full_fan_palm",
+        "half_fan_palm",
+        "alternating_palm_lotus"
+      ],
+      "avoid": [
+        "drooping fronds",
+        "naturalistic trunk texture",
+        "perspective foreshortening"
+      ]
+    },
+    {
+      "id": "wave_pattern",
+      "name": "Wave Pattern",
+      "pattern_type": "geometric",
+      "visual_structure": "Repeating undulating wave line with chevron-like crest forms, representing water (nu)",
+      "colors": [
+        "#1A5276",
+        "#4A90C4",
+        "#FFFFFF"
+      ],
+      "period": "Old Kingdom",
+      "usage_context": [
+        "water_ground_line",
+        "border_below_marsh_scene",
+        "pool_representation"
+      ],
+      "prompt_tokens": [
+        "Egyptian wave pattern",
+        "nu water hieroglyph border",
+        "Egyptian water lines",
+        "zigzag water pattern Egypt"
+      ],
+      "variants": [
+        "simple_zigzag",
+        "undulating_wave",
+        "stacked_wave_lines"
+      ],
+      "avoid": [
+        "realistic wave foam",
+        "gradient blue",
+        "three-dimensional water"
+      ]
+    }
+  ]
+}

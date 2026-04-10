@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "composition.schema.json",
+  "title": "Composition strategies dataset schema",
+  "type": "object",
+  "required": [
+    "composition_strategies"
+  ],
+  "properties": {
+    "composition_strategies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "strategy_type",
+          "description",
+          "usage_context",
+          "prompt_tokens"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "strategy_type": {
+            "type": "string",
+            "enum": [
+              "register",
+              "hierarchical",
+              "axial",
+              "narrative",
+              "decorative"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "usage_context": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "prompt_tokens": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "avoid": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

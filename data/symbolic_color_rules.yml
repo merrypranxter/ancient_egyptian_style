@@ -1,0 +1,177 @@
+symbolic_color_rules:
+- id: color_red_desher
+  color_name: Red
+  egyptian_name: desher
+  hex_approximate: '#C0392B'
+  symbolic_meanings:
+  - fire
+  - sun at horizon
+  - blood
+  - dangerous power
+  - Set
+  - desert (red land)
+  - vitality
+  associations:
+  - Set god
+  - desert
+  - dangerous animals
+  - solar heat
+  - sacrificial blood
+  - enemy lands
+  usage_rules:
+  - use for male skin tones (alongside brown ochre)
+  - use for desert or hostile landscape ground
+  - use for fire depictions
+  - use for enemy figures in battle scenes
+  - apply to the red crown of Lower Egypt
+  avoid:
+  - using red as a neutral or background fill
+  - applying to sacred or benevolent deity figures without specific red deity context
+- id: color_white_hedj
+  color_name: White
+  egyptian_name: hedj
+  hex_approximate: '#F5F5F5'
+  symbolic_meanings:
+  - purity
+  - sacredness
+  - silver moonlight
+  - cleanliness
+  - ritual purity
+  - bones
+  - the White Crown
+  associations:
+  - Nekhbet goddess
+  - Upper Egypt White Crown
+  - linen wrappings
+  - alabaster
+  - ritual purification
+  - moon
+  - silver
+  usage_rules:
+  - use for linen garments and wrappings
+  - use for the White Crown (hedjet)
+  - use for sacred animals (white bull, ibis)
+  - use for alabaster vessels
+  - use as background for divine or funerary papyri
+  avoid:
+  - mixing with black for grey (grey was not a canonical Egyptian color)
+  - using as a neutral ground in place of actual background color
+- id: color_black_kem
+  color_name: Black
+  egyptian_name: kem
+  hex_approximate: '#1C1C1C'
+  symbolic_meanings:
+  - fertility
+  - Nile silt
+  - rebirth
+  - the underworld
+  - Osiris
+  - death leading to new life
+  - night
+  - resurrection
+  associations:
+  - Osiris
+  - Anubis
+  - fertile Nile mud
+  - the Black Land (Kemet)
+  - kohl eye paint
+  - carbon black
+  - the duat
+  usage_rules:
+  - use for outlines of all figures and hieroglyphs
+  - use for Osiris's skin to indicate regeneration
+  - use for Anubis's jackal body
+  - use for kohl markings around eyes
+  - use for fertile ground in agricultural scenes
+  avoid:
+  - using black as a shadow color
+  - implying black means evil or death in a purely negative sense (it also means fertile
+    life)
+- id: color_blue_irtyu
+  color_name: Blue
+  egyptian_name: irtyu
+  hex_approximate: '#1A5276'
+  symbolic_meanings:
+  - the heavens
+  - primordial water (nun)
+  - the Nile
+  - fertility
+  - creation
+  - divinity
+  - lapis lazuli
+  associations:
+  - Amun
+  - sky
+  - Nile inundation
+  - lapis lazuli
+  - Egyptian blue pigment
+  - faience
+  - Aten sky disk
+  usage_rules:
+  - use for sky backgrounds and celestial register
+  - use for gods' hair and wigs
+  - use for the Nile and water elements
+  - use for faience objects
+  - use for Amun's skin in some representations
+  - apply as dominant color in lapis-grade divine jewelry
+  avoid:
+  - using as a skin tone for mortal humans
+  - applying gradient blue (sky should be flat Egyptian blue)
+- id: color_green_wadj
+  color_name: Green
+  egyptian_name: wadj
+  hex_approximate: '#2E7D32'
+  symbolic_meanings:
+  - vegetation
+  - new growth
+  - resurrection
+  - fertility
+  - health
+  - Osiris in life aspect
+  - Lower Egypt
+  - malachite
+  associations:
+  - Osiris (living vegetation aspect)
+  - Hathor
+  - papyrus marshes
+  - malachite mineral
+  - eye paint (udju)
+  - new crops
+  usage_rules:
+  - use for vegetation in all scenes
+  - use for Osiris's skin when depicted in living/regenerated form
+  - use for the face paint of some deities
+  - use for eye makeup (udju)
+  - apply to papyrus, lotus, and plant elements
+  avoid:
+  - confusing Osiris's black (kem) and green (wadj) forms — each has distinct symbolism
+  - using as a general fill color without specific meaning
+- id: color_yellow_gold_nebw
+  color_name: Yellow / Gold
+  egyptian_name: nebw
+  hex_approximate: '#C8A84B'
+  symbolic_meanings:
+  - gold
+  - the sun
+  - divinity
+  - eternal and incorruptible flesh of the gods
+  - Ra
+  - light
+  - permanence
+  associations:
+  - Ra
+  - solar deities
+  - divine flesh
+  - gold funerary objects
+  - the eternal
+  - Hathor's golden skin
+  - royal regalia
+  usage_rules:
+  - use for divine skin tones of solar gods
+  - use for gold jewelry and regalia
+  - use for solar disks
+  - use for gilded surfaces in tomb depictions
+  - apply to Hathor's skin and instruments
+  avoid:
+  - using as a substitute for brown human skin tones
+  - applying without divine or solar context unless depicting actual gold objects

@@ -1,0 +1,79 @@
+motif_types:
+- iconographic
+- decorative
+- symbolic
+- glyph
+glyph_classes:
+- determinative
+- phonetic
+- ideographic
+- logographic
+- composite
+periods:
+- Predynastic
+- Early Dynastic
+- Old Kingdom
+- Middle Kingdom
+- New Kingdom
+- Third Intermediate
+- Late Period
+- Ptolemaic
+- Roman
+categories:
+- solar_deity
+- funerary
+- vegetation
+- animal
+- protection
+- royalty
+- cosmic
+- ritual
+- warfare
+- fertility
+- water
+- sky
+- earth
+- underworld
+- writing
+- architecture
+- body_parts
+- geometric
+- composite_creature
+- divine_attribute
+usage_modes:
+- border
+- field_fill
+- focal_point
+- narrative
+- decorative
+- cartouche
+- vignette
+- register_divider
+- throne_base
+- costume_element
+composition_positions:
+- upper_register
+- middle_register
+- lower_register
+- left_facing
+- right_facing
+- centered
+- frieze
+- column_header
+- ground_line
+materials:
+- painted_plaster
+- relief_carved
+- sunken_relief
+- papyrus
+- gilded
+- faience
+- stone_inlay
+- painted_wood
+- bronze_inlay
+visual_complexity_levels:
+- 1
+- 2
+- 3
+- 4
+- 5

@@ -1,62 +1,61 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "motifs.schema.json",
-  "title": "Motif dataset schema",
+  "$id": "border_patterns.schema.json",
+  "title": "Border patterns dataset schema",
   "type": "object",
   "required": [
-    "motifs"
+    "border_patterns"
   ],
   "properties": {
-    "motifs": {
+    "border_patterns": {
       "type": "array",
       "items": {
         "type": "object",
         "required": [
           "id",
           "name",
-          "motif_type",
-          "category",
-          "usage_mode",
+          "pattern_type",
+          "visual_structure",
+          "colors",
+          "period",
+          "usage_context",
           "prompt_tokens"
         ],
         "properties": {
           "id": {
-            "type": "string",
-            "pattern": "^[a-z][a-z0-9_]*$",
-            "description": "snake_case identifier"
+            "type": "string"
           },
           "name": {
             "type": "string"
           },
-          "motif_type": {
+          "pattern_type": {
             "type": "string",
             "enum": [
-              "iconographic",
-              "decorative",
-              "symbolic"
+              "geometric",
+              "floral",
+              "hieroglyphic",
+              "composite"
             ]
           },
-          "category": {
+          "visual_structure": {
             "type": "string"
           },
-          "usage_mode": {
+          "colors": {
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "minItems": 1
+            }
+          },
+          "period": {
+            "type": "string"
+          },
+          "usage_context": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "prompt_tokens": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "minItems": 1
-          },
-          "visual_description": {
-            "type": "string"
-          },
-          "canonical_constraints": {
             "type": "array",
             "items": {
               "type": "string"
@@ -68,34 +67,13 @@
               "type": "string"
             }
           },
-          "composition_roles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "avoid": {
             "type": "array",
             "items": {
               "type": "string"
             }
           },
-          "safe_remix_knobs": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "aliases": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "notes": {
-            "type": "string"
-          },
-          "period": {
             "type": "string"
           }
         }
