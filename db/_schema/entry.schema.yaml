@@ -1,0 +1,238 @@
+# db/_schema/entry.schema.yaml
+# Universal schema describing the structure of all entries in this database.
+# Every YAML file under db/entries/**/*.yaml should conform to this schema.
+# Fields marked REQUIRED must be present. OPTIONAL fields may be omitted.
+
+schema_version: "1.0"
+description: >
+  Universal entry schema for the Ancient Egyptian Style Database.
+  All entries share this common structure regardless of category.
+
+fields:
+
+  id:
+    type: string
+    required: true
+    pattern: "^egy\\.[a-z0-9_]+$"
+    description: >
+      Unique identifier with the `egy.` prefix.
+      Use lowercase snake_case after the prefix.
+      Example: egy.ankh, egy.register_composition
+
+  type:
+    type: string
+    required: true
+    enum:
+      - style
+      - symbol_motif
+      - composition
+      - canonical_pose
+      - typography_rule
+      - material_texture
+      - color_system
+      - print_artifact
+      - rendering_shader
+      - remix
+      - pipeline
+      - reference
+    description: >
+      Category type of the entry. Determines which db/entries/ subfolder
+      the file should live in.
+
+  name:
+    type: string
+    required: true
+    description: "Human-readable canonical name for the entry."
+
+  aliases:
+    type: array
+    items:
+      type: string
+    required: false
+    description: >
+      Alternate names, transliterations, or variant spellings.
+      Example: ["Udjat", "Wedjat", "Eye of Ra"]
+
+  summary:
+    type: string
+    required: true
+    description: "One- or two-sentence plain-language summary (max ~200 chars)."
+
+  description:
+    type: string
+    required: true
+    description: >
+      Extended prose description. Include historical context, visual
+      characteristics, cultural significance, and usage guidance.
+
+  tags:
+    type: object
+    required: true
+    description: >
+      Tag axes from db/_schema/tagsets.yaml. Include every axis that is
+      relevant; omit axes that do not apply.
+    properties:
+      period:
+        type: array
+        items:
+          type: string
+      medium:
+        type: array
+        items:
+          type: string
+      motif_type:
+        type: array
+        items:
+          type: string
+      composition:
+        type: array
+        items:
+          type: string
+      linework:
+        type: array
+        items:
+          type: string
+      palette:
+        type: array
+        items:
+          type: string
+      surface:
+        type: array
+        items:
+          type: string
+      artifact:
+        type: array
+        items:
+          type: string
+      mood:
+        type: array
+        items:
+          type: string
+      remix:
+        type: array
+        items:
+          type: string
+      shader_ops:
+        type: array
+        items:
+          type: string
+
+  constraints:
+    type: object
+    required: false
+    description: >
+      Explicit do / avoid guidance for respectful and visually accurate use.
+    properties:
+      do:
+        type: array
+        items:
+          type: string
+        description: "Practices that maintain historical accuracy and respect."
+      avoid:
+        type: array
+        items:
+          type: string
+        description: >
+          Practices that misrepresent, trivialise, or are culturally disrespectful.
+          This field is especially important for hieroglyphic-inspired typography
+          and sacred motif entries.
+
+  parameters:
+    type: object
+    required: false
+    description: >
+      Entry-specific parameters (colours, dimensions, ratios, shader values, etc.).
+      Keys and value types are entry-specific. Document each key inline.
+
+  compat:
+    type: object
+    required: false
+    description: >
+      Compatibility: which other entry IDs pair well with this one,
+      and which should be avoided or used with care.
+    properties:
+      pairs_with:
+        type: array
+        items:
+          type: string
+        description: "Entry IDs that complement this entry."
+      avoid_with:
+        type: array
+        items:
+          type: string
+        description: "Entry IDs that clash or are contradictory with this entry."
+
+  prompt_fragment:
+    type: string
+    required: false
+    description: >
+      A reusable natural-language prompt fragment for use in AI image generation
+      or generative art pipelines. Should be concise and composable.
+
+  provenance:
+    type: object
+    required: false
+    description: "Source attribution for the entry's content."
+    properties:
+      sources:
+        type: array
+        items:
+          type: string
+        description: >
+          Academic or museum references supporting this entry.
+          Use author–date format where possible.
+      notes:
+        type: string
+        description: "Any caveats, disputed attributions, or scope limitations."
+
+  version:
+    type: string
+    required: true
+    default: "1.0"
+    description: "Semantic version of this entry. Increment on substantive edits."
+
+  created_at:
+    type: string
+    required: true
+    format: "YYYY-MM-DD"
+    description: "ISO 8601 date the entry was first created."
+
+  updated_at:
+    type: string
+    required: false
+    format: "YYYY-MM-DD"
+    description: "ISO 8601 date of the most recent substantive update."
+
+example: |
+  id: egy.ankh
+  type: symbol_motif
+  name: "Ankh"
+  aliases: ["Key of Life", "crux ansata"]
+  summary: >
+    The loop-topped cross symbol of life, used ubiquitously across all periods
+    of ancient Egyptian art to denote life, immortality, and divine power.
+  description: >
+    The ankh appears in the hands of nearly every deity and in tomb and temple
+    art from the Early Dynastic period onward. Its form — a teardrop loop atop
+    a T-shaped cross — is immediately recognisable. It was carried by gods as
+    a gift of life to pharaohs, placed near the mouth of the deceased in funerary
+    contexts, and incorporated into royal names.
+  tags:
+    period: [early_dynastic, general_ancient_egypt]
+    medium: [tomb_painting, temple_relief, faience, gold]
+    motif_type: [deity, funerary, royal]
+    linework: [ink_outline, carved_relief]
+    palette: [gold_accent, mineral_pigments]
+    mood: [solemn, mythic, luminous]
+  constraints:
+    do:
+      - "Use as a standalone emblem or held in a deity's hand."
+      - "Maintain the characteristic loop-over-T proportions."
+    avoid:
+      - "Do not combine with non-Egyptian sacred geometry without clear remix labelling."
+      - "Do not use as a generic 'Egyptian' filler without contextual grounding."
+  prompt_fragment: >
+    "ankh symbol, Egyptian loop-cross, gold and turquoise, carved relief style,
+    solemn and luminous, ancient Egyptian tomb painting aesthetic"
+  version: "1.0"
+  created_at: "2026-04-10"

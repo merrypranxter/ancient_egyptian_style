@@ -1,0 +1,4536 @@
+[
+  {
+    "id": "egy.ai_tomb_painting_pipeline",
+    "type": "pipeline",
+    "name": "AI → Egyptian Tomb Painting Pipeline",
+    "aliases": [
+      "tomb painting AI pipeline",
+      "Egyptian flat art pipeline",
+      "canonical figure pipeline"
+    ],
+    "summary": "A step-by-step pipeline for producing period-accurate Egyptian tomb painting aesthetic output from AI image generation, covering prompt engineering, post- processing shader steps, and quality checks.\n",
+    "description": "This pipeline produces output in the style of New Kingdom Egyptian tomb wall painting from an AI text-to-image model, then refines it through post-process shader passes to achieve period accuracy.\nSTAGE 1: PROMPT CONSTRUCTION Build a composite prompt from entries in this DB: - Base style: egy.tomb_painting_style → prompt_fragment - Composition: egy.register_composition → prompt_fragment - Figure(s): select from egy.profile_canon_composition, egy.deity_holding_pose,\n  egy.offering_bearer_pose as relevant\n- Motif(s): one or more of egy.ankh, egy.scarab, egy.eye_of_horus, etc. - Palette: egy.mineral_pigment_palette → parameters.canonical_pigments - Mood: solemn, funerary, luminous (select) - Negative prompt: \"photorealistic, shadow, perspective, 3D, medieval,\n  Western, decorative scrollwork, purple, gradient\"\n\nSTAGE 2: AI GENERATION (1–3 passes) - Generate at 2x target resolution (upscale later). - Use a model with style-lock if available (same seed + style for consistency). - Select the generation closest to: flat fills, visible black outline,\n  register structure, profile figures.\n\nSTAGE 3: PALETTE MAP PASS Apply egy.palette_map_shader to force all colours to the 6-pigment palette. Preserve outline layer separately before mapping.\nSTAGE 4: EDGE INK PASS Apply egy.edge_ink_shader to reinforce or regenerate outline at target weight.\nSTAGE 5: AGING ARTIFACTS (optional) - Apply egy.papyrus_fiber_artifact or egy.dust_patina_artifact per target medium. - Apply egy.pigment_flake_artifact at 5–15% coverage for aged effect.\nSTAGE 6: QUALITY CHECK - Verify: flat fills (no gradients in colour zones). - Verify: black outline present and consistent. - Verify: register structure (horizontal bands readable). - Verify: no anachronistic elements (modern objects, Western perspective). - Verify: palette within 6-colour range (use histogram).\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "papyrus"
+      ],
+      "composition": [
+        "registers",
+        "profile_canon"
+      ],
+      "mood": [
+        "solemn",
+        "mythic"
+      ],
+      "remix": [
+        "modern_overlay"
+      ],
+      "shader_ops": [
+        "palette_map",
+        "edge_ink",
+        "noise"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Always apply palette map as STAGE 3 — this is the most impactful correction step.",
+        "Check for profile figure canon compliance before final output.",
+        "Document which DB entries were used in the prompt for reproducibility."
+      ],
+      "avoid": [
+        "Avoid skipping the palette map step — AI models produce non-period colours by default.",
+        "Avoid using a single mega-prompt — break into composable fragments from DB entries."
+      ]
+    },
+    "parameters": {
+      "generation_resolution_multiplier": 2,
+      "target_medium": "tomb_painting_or_papyrus",
+      "artifact_coverage_percent": [
+        5,
+        15
+      ],
+      "quality_checks": [
+        "flat_fills",
+        "black_outline",
+        "register_structure",
+        "no_anachronism",
+        "palette_range"
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.tomb_painting_style",
+        "egy.palette_map_shader",
+        "egy.edge_ink_shader",
+        "egy.mineral_pigment_palette"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"ancient Egyptian tomb painting, flat mineral pigment fills, bold black ink outline, horizontal register composition, white plaster ground, New Kingdom, composite profile figures, solemn funerary atmosphere\"\n",
+    "provenance": {
+      "notes": "This pipeline is a recommended workflow, not a definitive specification. Results will vary by AI model; manual curation of STAGE 2 output is essential.\n"
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/pipelines/ai_tomb_painting_pipeline.yaml"
+  },
+  {
+    "id": "egy.amarna_style",
+    "type": "style",
+    "name": "Amarna Style",
+    "aliases": [
+      "Akhenaten period style",
+      "Amarna art",
+      "Atenist art"
+    ],
+    "summary": "The revolutionary naturalistic style of the Amarna Period under Akhenaten (c. 1353–1336 BCE), marked by elongated forms, soft contours, and solar intimacy.\n",
+    "description": "The Amarna Period produced the most dramatic stylistic rupture in Egyptian art history. Under Akhenaten (Amenhotep IV), royal iconography was transformed: figures became elongated with large heads, full lips, distended bellies, and wide hips. Compositions introduced informal domestic scenes — the royal family playing, eating, sitting beneath the Aten sun disc. Light and divine radiance were depicted as the Aten's rays ending in hands holding ankhs. Contour lines became softer and more curved; the rigid Old Kingdom angularity was replaced with organic fluidity. After Akhenaten's death the style was suppressed and destroyed by subsequent rulers, making it rare and controversial. Surviving examples include the Amarna palace frescoes, stelae, and colossi.\n",
+    "tags": {
+      "period": [
+        "new_kingdom"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "stone"
+      ],
+      "composition": [
+        "centered_emblem",
+        "vignette",
+        "radial"
+      ],
+      "linework": [
+        "ink_outline",
+        "carved_relief",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "gold_accent",
+        "ochre_red",
+        "lapis_turquoise"
+      ],
+      "surface": [
+        "painted",
+        "carved"
+      ],
+      "mood": [
+        "luminous",
+        "intimate",
+        "mythic"
+      ],
+      "shader_ops": [
+        "bloom",
+        "edge_ink",
+        "palette_map"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Elongate head, neck, and limbs — especially the cranium and chin.",
+        "Show the Aten as a disc with radiating rays ending in human hands.",
+        "Include intimate domestic scenes as thematic grounding.",
+        "Use softer, more rounded contours than canonical Egyptian style."
+      ],
+      "avoid": [
+        "Avoid the strict angular rigidity of Old/Middle Kingdom canon.",
+        "Avoid traditional multi-deity iconography — Aten monotheism excludes other gods.",
+        "Do not exaggerate deformity for shock value — the forms are idealised, not grotesque."
+      ]
+    },
+    "parameters": {
+      "figure_elongation_ratio": 1.35,
+      "aten_rays_end_in_hands": true,
+      "cranium_exaggeration": "prominent"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.solar_radiance_shader",
+        "egy.winged_sun_disc"
+      ],
+      "avoid_with": [
+        "egy.old_kingdom_relief_style"
+      ]
+    },
+    "prompt_fragment": "\"Amarna Period Egyptian art, Akhenaten style, elongated figures, soft rounded contours, Aten sun disc with hand rays, intimate royal domestic scene, luminous and warm, New Kingdom revolutionary style\"\n",
+    "provenance": {
+      "sources": [
+        "Aldred, C. (1988). Akhenaten: King of Egypt. Thames and Hudson.",
+        "Kemp, B. (2012). The City of Akhenaten and Nefertiti. Thames and Hudson."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/styles/amarna_style.yaml"
+  },
+  {
+    "id": "egy.ankh",
+    "type": "symbol_motif",
+    "name": "Ankh",
+    "aliases": [
+      "Key of Life",
+      "crux ansata",
+      "ansate cross"
+    ],
+    "summary": "The loop-topped cross symbol of life, used ubiquitously across all periods as the Egyptian hieroglyph and emblem for life, immortality, and divine power.\n",
+    "description": "The ankh is among the most recognisable symbols of ancient Egyptian culture. Its form — a teardrop loop above a T-shaped cross — appears in every medium from the Early Dynastic period to the Roman era. Deities carry ankhs to nose or mouth of the deceased to bestow life; pharaohs receive ankhs from gods as gifts of divine mandate. It features in royal names, jewellery (gold and faience amulets), temple wall paintings, and papyri. The loop may derive from a sandal strap knot, though its precise origin is debated. In funerary contexts, bundles of ankhs symbolise the eternal life of the deceased. Later, the Coptic Christian cross (crux ansata) adopted its form.\n",
+    "tags": {
+      "period": [
+        "early_dynastic",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "faience",
+        "gold",
+        "papyrus"
+      ],
+      "motif_type": [
+        "deity",
+        "funerary",
+        "royal"
+      ],
+      "linework": [
+        "ink_outline",
+        "carved_relief"
+      ],
+      "palette": [
+        "gold_accent",
+        "mineral_pigments",
+        "lapis_turquoise"
+      ],
+      "mood": [
+        "solemn",
+        "mythic",
+        "luminous"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "bloom"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Maintain the characteristic loop-over-T cross proportions.",
+        "Show deities holding ankh at the loop, arm extended forward.",
+        "Use gold or gold-yellow as primary colour; faience turquoise as alternate."
+      ],
+      "avoid": [
+        "Avoid decorating the ankh with non-Egyptian patterns without remix labelling.",
+        "Avoid using as a generic 'Egyptian' filler without contextual grounding.",
+        "Do not confuse with the Latin cross — the loop is structurally essential."
+      ]
+    },
+    "parameters": {
+      "loop_to_arm_ratio": 1,
+      "arm_length_equal": true,
+      "primary_colour": "#C8922A",
+      "alternate_colour": "#3B6FA0"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.was_scepter",
+        "egy.djed_pillar",
+        "egy.deity_holding_pose"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"ankh symbol, Egyptian loop-cross, gold on turquoise, carved relief or tomb painting style, held by deity, solemn and luminous, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Andrews, C. (1994). Amulets of Ancient Egypt. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/ankh.yaml"
+  },
+  {
+    "id": "egy.bilateral_symmetry_composition",
+    "type": "composition",
+    "name": "Bilateral Symmetry Composition",
+    "aliases": [
+      "heraldic symmetry",
+      "mirror composition",
+      "antithetical grouping"
+    ],
+    "summary": "Mirror-symmetrical arrangements used for heraldic emblems, divine throne scenes, and protective motifs — the two sides reflecting each other across a central axis.\n",
+    "description": "Bilateral (left-right mirror) symmetry is a fundamental compositional principle in Egyptian formal art, particularly for emblematic and divine contexts. Classic examples: two sphinxes flanking an entrance; two uraei flanking a winged sun disc; two Nile gods performing sema-tawy (union of two lands) on a throne base; paired deities presenting offerings to a central pharaoh; the double-Maat seated on either side of the solar barque. The central axis is typically occupied by the highest- ranking figure (pharaoh, deity) or an abstract emblem (disc, pillar). Symmetrical compositions convey stability, divine order (maat), and cosmic balance. The convention applies at multiple scales: full wall scenes, architectural elements, jewellery, stelae, and amulets. It is especially characteristic of apotropaic (protective) imagery where balance = protection.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "temple_relief",
+        "tomb_painting",
+        "stone",
+        "gold"
+      ],
+      "composition": [
+        "bilateral_symmetry",
+        "centered_emblem"
+      ],
+      "mood": [
+        "regal",
+        "solemn",
+        "mythic",
+        "monumental"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "relief_shading"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Place the primary emblem or figure on the central vertical axis.",
+        "Mirror flanking elements precisely — same pose, same scale, same detail.",
+        "Use for heraldic and formal scenes: entrance gates, throne bases, stelae headers."
+      ],
+      "avoid": [
+        "Avoid near-symmetry where small differences read as error — be precise or fully asymmetric.",
+        "Avoid applying bilateral symmetry to narrative/action scenes (battle, hunting) — those are asymmetric."
+      ]
+    },
+    "parameters": {
+      "axis": "vertical_centre",
+      "flanking_elements": "mirrored_pair",
+      "typical_contexts": [
+        "entrance_lintel",
+        "stela_header",
+        "throne_base",
+        "jewelry_pectoral"
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.winged_sun_disc",
+        "egy.sphinx",
+        "egy.ptolemaic_temple_style"
+      ],
+      "avoid_with": [
+        "egy.narrative_sequence_composition"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian bilateral symmetry, heraldic mirror composition, central axis emblem, flanking matched figures, formal and divine, ancient Egypt stela or temple relief\"\n",
+    "provenance": {
+      "sources": [
+        "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/composition/bilateral_symmetry_composition.yaml"
+  },
+  {
+    "id": "egy.border_frieze_composition",
+    "type": "composition",
+    "name": "Border Frieze and Banding",
+    "aliases": [
+      "kheker frieze",
+      "frieze band",
+      "decorative border",
+      "ceiling band"
+    ],
+    "summary": "Horizontal decorative banding systems used to frame, separate, and enrich Egyptian wall surfaces — from the kheker frieze at the top of tomb walls to coloured stripe registers below baselines.\n",
+    "description": "Egyptian architectural surfaces use a sophisticated system of decorative bands and friezes to organise and enrich the visual field. Key elements: - Kheker frieze: a row of tied reed or plant forms at the top of a wall,\n  derived from actual plant bundles tied to early wooden/reed architecture.\n  The kheker appears as a row of stylised bundled tops, often in alternating colours.\n- Cavetto cornice: the characteristic concave-curved molding at the top of pylons,\n  naos shrines, and stelae, often with a torus roll below.\n- Ceiling bands: strips of stars (five-pointed in yellow on blue), vulture wings,\n  or serpentine patterns across ceiling surfaces.\n- Baseline stripes: coloured horizontal bands (typically alternating black, red,\n  and green strips) below figure baselines, often representing the earth or ground.\n- Dado panels: the lower wall zone often features a coloured dado (ochre, red)\n  below the figural register zone.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief"
+      ],
+      "motif_type": [
+        "border_pattern"
+      ],
+      "composition": [
+        "frieze",
+        "registers"
+      ],
+      "linework": [
+        "painted_fill",
+        "ink_outline"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "gold_accent",
+        "lapis_turquoise"
+      ],
+      "mood": [
+        "solemn",
+        "instructional"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "palette_map"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Place kheker frieze at the top of register zone, below the ceiling band.",
+        "Include cavetto cornice on architectural elements (pylons, naos, stelae top).",
+        "Use star bands (yellow on blue) for ceiling decoration.",
+        "Layer baselines with coloured stripe bands below figures."
+      ],
+      "avoid": [
+        "Avoid organic/curvilinear border forms — Egyptian banding is geometric and repetitive.",
+        "Avoid mixing border systems from wildly different periods in a single surface."
+      ]
+    },
+    "parameters": {
+      "kheker_pattern": "tied_reed_tops",
+      "cavetto_present": true,
+      "star_band_colour": "#D4A82A",
+      "star_band_background": "#3B6FA0"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.register_composition",
+        "egy.tomb_painting_style",
+        "egy.temple_relief_style"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian border frieze, kheker frieze band, cavetto cornice, star ceiling band, coloured baseline stripes, tomb or temple wall banding, decorative register frame, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Arnold, D. (1991). Building in Egypt. Oxford University Press.",
+        "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/composition/border_frieze_composition.yaml"
+  },
+  {
+    "id": "egy.canopic_set",
+    "type": "symbol_motif",
+    "name": "Canopic Jars and Four Sons of Horus",
+    "aliases": [
+      "canopic jar",
+      "Sons of Horus",
+      "Imsety",
+      "Hapy",
+      "Duamutef",
+      "Qebehsenuef"
+    ],
+    "summary": "The four funerary vessels housing the embalmed internal organs, each stoppered by the head of one of the Four Sons of Horus — a key funerary iconographic set.\n",
+    "description": "Canopic jars are funerary containers used from the Old Kingdom to the Ptolemaic period to house the embalmed viscera of the deceased. The set of four corresponds to the Four Sons of Horus, each protecting a specific organ and each guarded by a protective goddess: Imsety (human head) = liver / Isis; Hapy (baboon head) = lungs / Nephthys; Duamutef (jackal head) = stomach / Neith; Qebehsenuef (falcon head) = intestines / Selket. In New Kingdom and later periods, the stoppers take the form of these distinctive animal/human heads. The jars are arranged at the four cardinal/intercardinal points around the mummified body. Visually, the canopic set forms a powerful quaternary emblem of completeness and protection. Individual jar forms are tall vessels with rounded shoulder and distinctive head-stopper.\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "new_kingdom",
+        "ptolemaic",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "stone",
+        "faience",
+        "gold",
+        "wood"
+      ],
+      "motif_type": [
+        "funerary",
+        "deity"
+      ],
+      "composition": [
+        "vignette",
+        "registers"
+      ],
+      "linework": [
+        "carved_relief",
+        "ink_outline"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "gold_accent",
+        "lapis_turquoise"
+      ],
+      "mood": [
+        "solemn",
+        "mythic"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "relief_shading"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Show all four jars together as a set for completeness.",
+        "Use correct head-to-organ-to-goddess correspondence.",
+        "Distinguish the four heads: human, baboon, jackal, falcon."
+      ],
+      "avoid": [
+        "Avoid single canopic jar without context — the set of four is the canonical form.",
+        "Avoid mixing head types — each jar has one specific animal/human head."
+      ]
+    },
+    "parameters": {
+      "jar_count": 4,
+      "heads": [
+        "human_imsety",
+        "baboon_hapy",
+        "jackal_duamutef",
+        "falcon_qebehsenuef"
+      ],
+      "arrangement": "quadrilateral"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.funerary_vignette_composition",
+        "egy.scarab",
+        "egy.ankh"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian canopic jars, Four Sons of Horus, human/baboon/jackal/falcon head stoppers, funerary vessel set, gold and faience, tomb context, solemn protective quartet, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Taylor, J.H. (2001). Death and the Afterlife in Ancient Egypt. British Museum Press.",
+        "Andrews, C. (1994). Amulets of Ancient Egypt. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/canopic_set.yaml"
+  },
+  {
+    "id": "egy.cartouche",
+    "type": "symbol_motif",
+    "name": "Cartouche",
+    "aliases": [
+      "shenu",
+      "royal name ring",
+      "royal oval"
+    ],
+    "summary": "The oval rope-border enclosure used to frame the birth name and throne name of Egyptian royalty, signifying eternal solar protection of the royal name.\n",
+    "description": "The cartouche (French: \"cartridge\") is the ancient Egyptian shenu (from sheni, \"to encircle\") — an elongated oval formed by a rope tied at its base, encircling and protecting the two primary royal names: the prenomen (throne name, Nesw-bit title) and nomen (birth name, Sa-Ra title). It first appears in the Fourth Dynasty (Old Kingdom) and remains in use through the Roman period. Mythologically, the oval represents the sun's daily circuit — eternal protection for the name. Visually: a stretched oval with a horizontal bar at one end (the knot of the rope). The enclosed name is written in hieroglyphic signs. In artistic contexts, cartouches appear on stelae, temple walls, obelisks, jewellery, and scarab bases. An empty cartouche (for decoration) is a useful compositional framing device; however, filling it with invented or decorative pseudo-glyphs should be clearly labelled as artistic invention.\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "stone",
+        "gold",
+        "papyrus",
+        "temple_relief",
+        "faience"
+      ],
+      "motif_type": [
+        "royal",
+        "funerary"
+      ],
+      "composition": [
+        "centered_emblem",
+        "vignette"
+      ],
+      "linework": [
+        "carved_relief",
+        "ink_outline",
+        "painted_fill"
+      ],
+      "palette": [
+        "gold_accent",
+        "mineral_pigments"
+      ],
+      "mood": [
+        "regal",
+        "solemn"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "relief_shading",
+        "bloom"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Maintain the characteristic elongated oval with a horizontal base bar.",
+        "Leave cartouche empty or use clearly invented abstract forms if filling it.",
+        "Use cartouche as a framing device for names, titles, or abstract emblems."
+      ],
+      "avoid": [
+        "Do not fill a cartouche with random mixed glyphs intended to look like real names.",
+        "Do not reproduce actual royal names in cartouches unless quoting historical record.",
+        "Avoid circular (rather than oval) cartouche shapes — the elongation is essential."
+      ]
+    },
+    "parameters": {
+      "shape": "elongated_oval",
+      "base_bar": true,
+      "interior": "empty_or_abstract"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.hieroglyphic_inspired_marks",
+        "egy.scale_hierarchy_composition",
+        "egy.gold_leaf_gilded_surface"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian cartouche, royal name oval, rope border with base bar, gold carved relief, empty or abstract interior, solemn and regal, ancient Egypt pharaonic emblem\"\n",
+    "provenance": {
+      "sources": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Allen, J.P. (2010). Middle Egyptian: An Introduction to the Language and Culture of Hieroglyphs. Cambridge University Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/cartouche.yaml"
+  },
+  {
+    "id": "egy.deity_holding_pose",
+    "type": "canonical_pose",
+    "name": "Deity Holding Scepter Pose",
+    "aliases": [
+      "divine holding pose",
+      "god standing with scepter",
+      "standard deity pose"
+    ],
+    "summary": "The canonical standing pose for deities: profile stance, one arm extended forward holding an ankh or was scepter, the other arm hanging with a second scepter — expressing divine authority and the gift of life.\n",
+    "description": "The standard deity standing pose in Egyptian art has been remarkably consistent across 3,000 years. The figure stands in canonical profile with left foot advanced (the conventional \"walking\" or active stance). One hand (typically the one facing the viewer) is raised or extended forward, holding an ankh; the trailing hand holds a was scepter (or staff, crook, flail). The figure may face left or right depending on orientation relative to the scene's central figure or shrine. The deity's identity is conveyed primarily by the headdress and specific attributes (falcon head = Horus/Ra; ibis head = Thoth; cow horns + disc = Hathor/Isis; etc.). The body follows the composite-profile canon. Skin colours vary by deity: Osiris green or black; Amun blue-black; male gods red-brown; goddesses yellow-ochre. Garment: typically a white or colour-banded kilt (shendyt) for male deities, a tight sheath dress for female deities.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "papyrus"
+      ],
+      "motif_type": [
+        "deity"
+      ],
+      "composition": [
+        "profile_canon",
+        "registers"
+      ],
+      "linework": [
+        "ink_outline",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "gold_accent"
+      ],
+      "mood": [
+        "solemn",
+        "regal",
+        "mythic"
+      ],
+      "shader_ops": [
+        "edge_ink"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Left foot forward in the canonical active/walking stance.",
+        "Identify deity by headdress — do not rely on generic 'Egyptian look' alone.",
+        "Hold appropriate attributes in each hand (ankh + was is standard).",
+        "Apply period-correct skin colour per deity identity."
+      ],
+      "avoid": [
+        "Avoid Western standing pose with weight on one hip — this breaks the Egyptian canon.",
+        "Avoid casual hand positions — every hand in Egyptian art holds something or gestures formally."
+      ]
+    },
+    "parameters": {
+      "foot_forward": "left",
+      "primary_hand_item": "ankh",
+      "secondary_hand_item": "was_scepter",
+      "garment_male": "shendyt_kilt",
+      "garment_female": "sheath_dress"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.register_composition",
+        "egy.ankh",
+        "egy.was_scepter",
+        "egy.tomb_painting_style"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian deity standing pose, profile stance, left foot forward, holding ankh and was scepter, canonical figure, headdress identity, tomb painting or temple relief, solemn and divine\"\n",
+    "provenance": {
+      "sources": [
+        "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press.",
+        "Wilkinson, R.H. (2003). The Complete Gods and Goddesses of Ancient Egypt."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/canonical_poses/deity_holding_pose.yaml"
+  },
+  {
+    "id": "egy.digital_glitch_remix",
+    "type": "remix",
+    "name": "Digital Glitch / Data Corruption Remix",
+    "aliases": [
+      "glitch art remix",
+      "databending Egyptian",
+      "pixel corruption overlay",
+      "digital decay"
+    ],
+    "summary": "A contemporary remix that applies digital glitch and data-corruption aesthetics as a metaphor for the degradation of ancient records — pixel displacement, RGB channel splitting, and scan artefacts over period-accurate motifs.\n",
+    "description": "This remix uses glitch art and data-corruption visual language as a thematic metaphor: the fragmentation of digital data mirrors the physical degradation of ancient Egyptian artefacts. The \"historical-first\" base: an accurately rendered Egyptian figure, motif, or scene in period style. The remix overlay: horizontal scan-line disruption (mimicking damaged video playback), RGB channel offset (chromatic aberration pushed to extremes), pixel displacement noise, blocky JPEG compression artefacts, and occasional total pixel-block corruption.\nThematic resonance: the glitch reads as the gaps, lacunae, and fragmentation of the historical record — the parts of the wall that are missing, the papyri that are lost, the names that were erased (damnatio memoriae). This is a high- integrity remix because it treats digital corruption as an analogue for physical destruction rather than as mere decoration.\nKey constraint: the underlying Egyptian element must be readable — the glitch is partial, not total. At least 60% of the base composition must be intact.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "remix": [
+        "digital_glitch",
+        "modern_overlay"
+      ],
+      "mood": [
+        "mythic",
+        "solemn"
+      ],
+      "shader_ops": [
+        "chromatic_aberration",
+        "noise",
+        "displacement"
+      ],
+      "artifact": [
+        "lacuna",
+        "abrasion"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Maintain at least 60% of the base composition intact and legible.",
+        "Apply glitch as a metaphor for historical loss, not random decoration.",
+        "Use scan-line disruption aligned with the horizontal register structure.",
+        "Reference physical lacunae (missing plaster zones) as glitch block positions."
+      ],
+      "avoid": [
+        "Avoid total glitch covering — the Egyptian base must remain dominant.",
+        "Avoid colourful rainbow glitch that overwhelms the period palette.",
+        "Avoid using glitch to obscure or mock sacred imagery."
+      ]
+    },
+    "parameters": {
+      "base_intact_percent": 60,
+      "channel_offset_px": [
+        3,
+        8
+      ],
+      "scan_line_disruption": true,
+      "jpeg_artefact_block_size": 16,
+      "displacement_amplitude": 5
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.pigment_flake_artifact",
+        "egy.edge_ink_shader",
+        "egy.tomb_painting_style"
+      ],
+      "avoid_with": [
+        "egy.museum_label_remix"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian digital glitch remix, scan-line disruption over canonical figure, RGB channel offset, pixel corruption metaphor for historical loss, base motif 60% intact, contemporary data-decay over ancient art\"\n",
+    "provenance": {
+      "notes": "Reference: Rosa Menkman's glitch art theory, 'The Glitch Moment(um)', Institute of Network Cultures (2011), for thematic grounding.\n"
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/remix_modern/digital_glitch_remix.yaml"
+  },
+  {
+    "id": "egy.djed_pillar",
+    "type": "symbol_motif",
+    "name": "Djed Pillar",
+    "aliases": [
+      "Djed column",
+      "backbone of Osiris",
+      "stability pillar"
+    ],
+    "summary": "The multi-ringed column symbol associated with Osiris and stability, representing the god's backbone and the concept of enduring permanence (djed = stability).\n",
+    "description": "The djed is a pillar-like hieroglyphic sign (Gardiner sign R11) meaning \"stability\" (Egyptian: dd). It is associated with Osiris — some sources identify it as his backbone or the trunk of the tamarisk tree in which Osiris's body was hidden. The djed consists of a broad column with a distinct capital of horizontal bands surmounted by four vertical ribs or flanges, sometimes with further ring-like elements. It was used as a protective amulet (especially in mummy wrappings), featured in the annual \"Raising the Djed\" ritual performed by the pharaoh at Memphis, and appeared as a decorative register element on coffins, sarcophagi, and funerary furniture. Often paired with the was scepter and ankh in triadic formulas representing \"stability, power, and life.\"\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "faience",
+        "gold",
+        "wood"
+      ],
+      "motif_type": [
+        "deity",
+        "funerary"
+      ],
+      "linework": [
+        "ink_outline",
+        "carved_relief",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "gold_accent",
+        "lapis_turquoise"
+      ],
+      "mood": [
+        "solemn",
+        "mythic"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "relief_shading"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Show four horizontal ribs/flanges at the capital — this is the defining feature.",
+        "Include a broad rectangular base and stepped column shaft.",
+        "Pair with ankh and was scepter in triadic compositions."
+      ],
+      "avoid": [
+        "Avoid reducing to a simple striped column — the distinct capital ribs identify it.",
+        "Avoid confusing with generic column capital — the djed is a free-standing emblem."
+      ]
+    },
+    "parameters": {
+      "capital_ribs": 4,
+      "ring_elements_below_capital": 3,
+      "gold_coloured": true
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.ankh",
+        "egy.was_scepter",
+        "egy.register_composition"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"djed pillar of Osiris, Egyptian stability column, four-ribbed capital, gold and lapis colourway, funerary amulet form, carved relief or flat painted style, solemn and mythic, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Pinch, G. (1994). Magic in Ancient Egypt. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/djed_pillar.yaml"
+  },
+  {
+    "id": "egy.dust_patina_artifact",
+    "type": "print_artifact",
+    "name": "Dust Patina and Calcium Bloom Artifact",
+    "aliases": [
+      "dust deposit",
+      "calcium carbonate bloom",
+      "desert patina",
+      "surface deposit"
+    ],
+    "summary": "The pale, muting deposit of dust, calcium carbonate, and mineral residue that settles on and into Egyptian stone surfaces — desaturating colour and softening detail over centuries.\n",
+    "description": "In the dry desert environment of Egypt, surfaces accumulate fine dust, wind-blown sand particles, and mineral deposits over centuries. Additionally, water evaporating through porous stone leaves behind calcium carbonate deposits (calcite bloom) that form a pale, slightly whitish or yellowish veil over painted surfaces. Together, these deposits desaturate and lighten pigment colours, blur fine detail slightly, and create an even, atmospheric haze particularly visible in shadowed zones.\nCharacteristically: areas not regularly cleaned show a pale buff or yellowish grey veil; deeper recesses (carved letters, incised lines) trap darker accumulation; the overall effect is a gentle desaturation and lightening toward a neutral buff-grey.\nFor digital simulation: a multiply-blended pale warm-grey or buff layer at low opacity (10–30%) over the entire image, with slightly denser accumulation in recessed zones. Colour saturation reduction of 15–25% produces the characteristic muted palette of in-situ photography of Egyptian monuments.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "temple_relief",
+        "stone"
+      ],
+      "surface": [
+        "weathered"
+      ],
+      "artifact": [
+        "dust_patina",
+        "abrasion"
+      ],
+      "shader_ops": [
+        "noise",
+        "vignette_burn"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Apply as a layer over entire surface — dust is uniform, not localized.",
+        "Desaturate underlying colour by 15–25% for in-situ simulation.",
+        "Increase density in recesses and lower wall zones."
+      ],
+      "avoid": [
+        "Avoid cold grey deposits — desert dust is warm buff/ochre toned.",
+        "Avoid overapplication — heavy patina simulation completely masks the art underneath."
+      ]
+    },
+    "parameters": {
+      "deposit_colour": "#E0D4B0",
+      "blend_mode": "multiply",
+      "opacity": 0.2,
+      "saturation_reduction_percent": 20
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.stone_surface_texture",
+        "egy.temple_relief_style",
+        "egy.pigment_flake_artifact"
+      ],
+      "avoid_with": [
+        "egy.papyrus_fiber_artifact"
+      ]
+    },
+    "prompt_fragment": "\"dust patina artifact, calcium bloom deposit, desert surface haze, desaturated muted palette, pale buff veil over painted stone, in-situ Egyptian monument aged look\"\n",
+    "provenance": {
+      "sources": [
+        "Mora, P., Mora, L., & Philippot, P. (1984). Conservation of Wall Paintings. Butterworths.",
+        "Weeks, K.R. (ed.) (2001). The Valley of the Kings: A Site Management Handbook."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/print_artifacts/dust_patina_artifact.yaml"
+  },
+  {
+    "id": "egy.edge_ink_shader",
+    "type": "rendering_shader",
+    "name": "Edge Ink Shader",
+    "aliases": [
+      "ink outline shader",
+      "contour extraction shader",
+      "ink line pass",
+      "cartoon outline"
+    ],
+    "summary": "A post-process shader that extracts and renders the characteristic bold black ink contour lines of Egyptian flat-colour painting, applicable to 3D renders or photographic sources to produce an Egyptian wall-art style.\n",
+    "description": "The ink outline is the defining visual element of Egyptian painted art — a consistent-weight black line that bounds every figure and major internal form. This shader extracts or synthesises that line pass:\nInputs: a colour image or 3D render, optionally a separate normal/depth map.\nOperations: 1. Sobel or Laplacian edge detection on the colour/depth image. 2. Threshold the edge map to a binary mask. 3. Dilate or process to achieve target line weight (typically 1.5–3px at 300dpi). 4. Tint line to near-black (carbon black #1A1208, not pure black). 5. Optionally: blend the outline over a flat-colour simplified version\n   of the source image for full Egyptian flat-art effect.\n\nAdvanced variant: detect edge direction and taper line weight (thicker at outer contour, thinner at internal detail) to match the natural variation of a brush-drawn ink line. Add slight jitter for organic quality.\nThis shader can also be applied as a style-transfer step in AI pipelines to \"Egyptian-ise\" generated imagery.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "papyrus",
+        "temple_relief"
+      ],
+      "linework": [
+        "ink_outline"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "palette_map"
+      ],
+      "mood": [
+        "solemn",
+        "instructional"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use warm near-black (#1A1208) not pure #000000 for the outline — matches carbon black ink.",
+        "Target 1.5–3px line at final output resolution for correct visual weight.",
+        "Taper at detail interiors — outer contour heavier than inner form lines."
+      ],
+      "avoid": [
+        "Avoid uniform single-weight lines for all edges — varies with distance and detail level.",
+        "Avoid cold blue-black — the ink is warm charcoal-black."
+      ]
+    },
+    "parameters": {
+      "edge_algorithm": "sobel_or_laplacian",
+      "line_colour": "#1A1208",
+      "line_weight_outer_px": 3,
+      "line_weight_inner_px": 1.5,
+      "threshold": 0.3,
+      "jitter_amplitude": 0.5
+    },
+    "shader_code_reference": "// Fragment shader pseudocode\n// uniform sampler2D colourTex;\n// uniform vec2 texelSize;\n// const vec3 inkColour = vec3(0.098, 0.071, 0.031); // #1A1208\n//\n// float edge = sobelEdge(colourTex, uv, texelSize);\n// float line = step(0.3, edge);\n// gl_FragColor = mix(texture2D(colourTex, uv), vec4(inkColour, 1.0), line);\n",
+    "compat": {
+      "pairs_with": [
+        "egy.tomb_painting_style",
+        "egy.papyrus_scroll_style",
+        "egy.relief_shading_shader"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian ink outline shader, bold black contour lines, carbon black ink, edge detection pass, flat colour with ink line, warm dark outline, tomb painting or papyrus style rendering\"\n",
+    "provenance": {
+      "sources": [
+        "Rasband, W.S. (2021). ImageJ documentation: edge detection filters."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/rendering_shader/edge_ink_shader.yaml"
+  },
+  {
+    "id": "egy.eye_of_horus",
+    "type": "symbol_motif",
+    "name": "Eye of Horus",
+    "aliases": [
+      "Wedjat",
+      "Udjat",
+      "Wadjet eye",
+      "Eye of Ra"
+    ],
+    "summary": "The stylised human eye with falcon markings — one of the most powerful protective and healing symbols in Egyptian religion, representing wholeness, protection, and royal power.\n",
+    "description": "The Eye of Horus (wedjat, meaning \"the sound one\") depicts a human eye combined with the facial markings of a peregrine falcon: a teardrop stripe descending from the outer corner and a spiral or curved stroke beneath. Mythologically, Horus's eye was torn out by Set and restored by Thoth; the restored eye became a symbol of healing, protection, and sacrifice. It was used extensively as an amulet, painted on coffin exteriors (to let the mummified deceased see), placed in mummy wrappings, and inscribed on stelae and papyri. Mathematically, the wedjat's sub-divisions were used in the heqat fraction system for grain measures. The left eye is typically Horus; the right eye is sometimes identified as the Eye of Ra (solar).\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "faience",
+        "papyrus",
+        "gold"
+      ],
+      "motif_type": [
+        "deity",
+        "funerary",
+        "royal"
+      ],
+      "linework": [
+        "ink_outline",
+        "carved_relief",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "lapis_turquoise",
+        "gold_accent"
+      ],
+      "mood": [
+        "solemn",
+        "mythic",
+        "regal",
+        "luminous"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "palette_map",
+        "bloom"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Include the teardrop stripe below the outer corner and the spiral/hook below.",
+        "The eyebrow above should be thick and angular — a key identifying feature.",
+        "Differentiate left (Horus/moon) from right (Ra/sun) where context demands."
+      ],
+      "avoid": [
+        "Avoid using as a generic decorative eye without the falcon marking details.",
+        "Avoid symmetrical mirror pairs without contextual justification."
+      ]
+    },
+    "parameters": {
+      "eye_direction": "right_facing",
+      "teardrop_stripe": true,
+      "eyebrow_present": true,
+      "pupil_shape": "almond"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.ankh",
+        "egy.scarab",
+        "egy.deity_holding_pose"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Eye of Horus, wedjat eye, Egyptian falcon eye marking, teardrop stripe and spiral, bold ink outline, gold and lapis palette, protective amulet style, solemn and luminous\"\n",
+    "provenance": {
+      "sources": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Andrews, C. (1994). Amulets of Ancient Egypt. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/eye_of_horus.yaml"
+  },
+  {
+    "id": "egy.faience_texture",
+    "type": "material_texture",
+    "name": "Faience Glaze Texture",
+    "aliases": [
+      "Egyptian faience",
+      "faience glaze",
+      "glazed composition",
+      "tjehenet"
+    ],
+    "summary": "The characteristic surface quality of ancient Egyptian faience — a quartz-based ceramic covered with a vitreous alkaline glaze that produces brilliant turquoise- blue, green, and blue-grey tones.\n",
+    "description": "Egyptian faience (tjehenet = \"the dazzling one\") is a non-clay ceramic composed of crushed quartz or sand body with an alkaline silica glaze fired to a brilliant vitreous finish. It is not porcelain or earthenware but a distinct material developed in Egypt (and Mesopotamia) from at least the Predynastic period. Faience was associated with fertility, rebirth, and the sun's light due to its brilliant blue-green colour — the colour of the Nile, turquoise, malachite, and the sky. Used extensively for: amulets (ankhs, scarabs, djed pillars, uraei); shabtis (funerary servant figurines); tiles (Saqqara's Step Pyramid faience tiles); bowls, cups, and vessels; inlay in jewellery and composite objects.\nCharacteristic surface qualities: semi-gloss to high-gloss vitreous finish; slight crazing (fine surface cracking) in aged examples; brilliant colour that may fade or shift in hue over millennia; sometimes polychrome (multiple colours in different zones, separated by incised lines). The most common colour is turquoise-blue (copper-based), followed by green, blue, white, black, and red.\n",
+    "tags": {
+      "period": [
+        "predynastic",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "faience"
+      ],
+      "surface": [
+        "painted",
+        "layered"
+      ],
+      "artifact": [
+        "cracks",
+        "dust_patina"
+      ],
+      "palette": [
+        "lapis_turquoise",
+        "mineral_pigments"
+      ],
+      "mood": [
+        "luminous",
+        "solemn"
+      ],
+      "shader_ops": [
+        "noise",
+        "bloom",
+        "chromatic_aberration"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use semi-gloss to high-gloss surface quality — not matte like pottery.",
+        "Apply characteristic turquoise-blue as the dominant colour (#3B9EBF base).",
+        "Add fine crazing crack network for aged pieces.",
+        "Use black incised line to separate colour zones in polychrome pieces."
+      ],
+      "avoid": [
+        "Avoid matte or clay-like surface — faience gleams.",
+        "Avoid warm or brown-toned glazes — faience is cool and brilliant."
+      ]
+    },
+    "parameters": {
+      "dominant_colour": "#3B9EBF",
+      "secondary_colour": "#3A7D44",
+      "surface_quality": "semi_gloss",
+      "crazing": true,
+      "fired_temperature_c": [
+        850,
+        950
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.scarab",
+        "egy.ankh",
+        "egy.lapis_turquoise_palette"
+      ],
+      "avoid_with": [
+        "egy.stone_surface_texture"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian faience glaze, brilliant turquoise-blue vitreous surface, fine crazing, semi-gloss, faience amulet texture, cool and luminous, ancient Egyptian ceramic material\"\n",
+    "provenance": {
+      "sources": [
+        "Nicholson, P.T. (2000). 'Faience and glass.' In Nicholson & Shaw (eds.), Ancient Egyptian Materials and Technology.",
+        "Friedman, F.D. (1998). Gifts of the Nile: Ancient Egyptian Faience. Brown University."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/materials_textures/faience_texture.yaml"
+  },
+  {
+    "id": "egy.funerary_vignette_composition",
+    "type": "composition",
+    "name": "Funerary Vignette",
+    "aliases": [
+      "Book of the Dead vignette",
+      "spell vignette",
+      "isolated funerary scene"
+    ],
+    "summary": "Small illustrative scenes placed above or alongside spell texts in funerary papyri — isolated compositions that illustrate the accompanying text without a full register context.\n",
+    "description": "Vignettes in Egyptian funerary papyri (particularly the Book of the Dead) are compact, self-contained illustrated scenes that accompany specific spells or chapters. Unlike full register compositions, vignettes may be isolated with minimal ground lines, or placed in a narrow strip above a text column. Key types include: the weighing of the heart (Chapter 125); the deceased adoring the sun disc; the fields of Iaru (paradise fields); Osiris on his throne; the Opening of the Mouth ceremony; transformation spells illustrated by the deceased as a bird, scarab, or lotus. Vignette compositions are more compact and gestural than wall-scale work, often without full environmental context. The format allows for tight, symbolic compositions where only the essential iconographic elements are present. This compositional format is highly adaptable for modern AI prompt design: tight symbolic scenes on a plain ground.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "third_intermediate",
+        "ptolemaic"
+      ],
+      "medium": [
+        "papyrus"
+      ],
+      "composition": [
+        "vignette",
+        "registers"
+      ],
+      "linework": [
+        "ink_outline",
+        "painted_fill",
+        "brush_freehand"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "gold_accent",
+        "white_ground",
+        "ochre_red"
+      ],
+      "mood": [
+        "solemn",
+        "mythic",
+        "instructional"
+      ],
+      "artifact": [
+        "ink_bleed",
+        "papyrus_fiber",
+        "edge_wear"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "vignette_burn",
+        "noise"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Isolate scene on minimal ground line — vignette format does not need full environment.",
+        "Keep composition compact and symbolic — only essential iconographic elements.",
+        "Warm the ground to papyrus amber if using digital simulation."
+      ],
+      "avoid": [
+        "Avoid full landscape context — vignettes are extract/highlight scenes.",
+        "Avoid over-stuffing with detail — clarity at small scale is the goal."
+      ]
+    },
+    "parameters": {
+      "ground_line": "minimal_or_none",
+      "text_column_present": true,
+      "scene_isolation": true
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.papyrus_scroll_style",
+        "egy.maat_feather",
+        "egy.canopic_set"
+      ],
+      "avoid_with": [
+        "egy.register_composition"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian funerary vignette, Book of the Dead papyrus scene, weighing of the heart, isolated symbolic composition, warm amber papyrus ground, fine ink outline, solemn and mythic, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Taylor, J.H. (2010). Journey Through the Afterlife. British Museum Press.",
+        "Faulkner, R.O. (1972). The Egyptian Book of the Dead. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/composition/funerary_vignette_composition.yaml"
+  },
+  {
+    "id": "egy.gold_leaf_gilded_surface",
+    "type": "material_texture",
+    "name": "Gold Leaf and Gilded Surfaces",
+    "aliases": [
+      "gold leaf",
+      "gilding",
+      "gold foil",
+      "electrum",
+      "gold cartonnage"
+    ],
+    "summary": "The characteristic appearance of ancient Egyptian gold and gilding — from thin gold leaf on wooden objects to solid gold divine figurines and gilt-bronze to electrum obelisk caps.\n",
+    "description": "Gold (nbw in ancient Egyptian) occupied a unique place in Egyptian cosmology: the flesh of the gods was gold; the sun's light was embodied in gold's permanent gleam. Egyptian goldsmiths were among the world's earliest and most skilled, producing gold leaf as thin as 0.1mm, solid cast gold figures, repousse goldwork on wooden furniture, gold wire inlay, and gold-silver alloy electrum. Key contexts:\n1. Gold leaf on wood: coffins, furniture, divine statuary — the gold is applied\n   over gesso on carved wood, producing a warm, slightly uneven surface with\n   subtle shadow at carved edges.\n\n2. Solid gold: divine figurines, royal jewellery, heart scarabs — small scale,\n   high detail, intense reflectance.\n\n3. Electrum (gold-silver alloy): obelisk cap tips to catch and reflect the sun's\n   first rays; characteristic pale gold colour.\n\n4. Gold cartonnage: mummy masks — layers of linen and plaster covered with gold\n   leaf, with inlaid glass and faience for colour detail.\n\nDigital simulation: warm amber-gold base (#C8922A to #D4A82A range); subtle directional reflectance; gesso undercoat texture visible through thin leaf; tooled surface marks at decorative borders.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "gold",
+        "faience",
+        "wood"
+      ],
+      "surface": [
+        "gilded"
+      ],
+      "palette": [
+        "gold_accent"
+      ],
+      "mood": [
+        "luminous",
+        "regal",
+        "mythic"
+      ],
+      "shader_ops": [
+        "bloom",
+        "relief_shading",
+        "displacement"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use warm amber-gold tone, not cool yellow gold — ancient gold was high-carat warm.",
+        "Add subtle surface undulation texture (gesso base shows through thin leaf).",
+        "Apply bloom/glow effect for digital simulation of gold reflectance."
+      ],
+      "avoid": [
+        "Avoid chrome-yellow or acid-yellow gold — not historically representative.",
+        "Avoid perfectly uniform flat gold — the hand-applied leaf has natural variation."
+      ]
+    },
+    "parameters": {
+      "gold_hex_range": [
+        "#C8922A",
+        "#D4A82A",
+        "#B8841E"
+      ],
+      "electrum_hex": "#E8D080",
+      "leaf_thickness_mm": 0.1,
+      "gesso_texture": true
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.solar_gold_palette",
+        "egy.ptolemaic_temple_style",
+        "egy.winged_sun_disc"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"ancient Egyptian gold leaf surface, warm amber gold, gilded wood or cartonnage, subtle gesso texture, bloom and reflectance, divine luminous quality, New Kingdom gold craftsmanship\"\n",
+    "provenance": {
+      "sources": [
+        "Ogden, J. (2000). 'Metals.' In Nicholson & Shaw (eds.), Ancient Egyptian Materials and Technology.",
+        "Aldred, C. (1971). Jewels of the Pharaohs. Thames and Hudson."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/materials_textures/gold_leaf_gilded_surface.yaml"
+  },
+  {
+    "id": "egy.hieroglyphic_inspired_marks_rules",
+    "type": "typography_rule",
+    "name": "Hieroglyphic-Inspired Marks: Do / Avoid Guidelines",
+    "aliases": [
+      "faux hieroglyphs",
+      "glyph-inspired decoration",
+      "pseudo-hieroglyphs",
+      "inspired marks"
+    ],
+    "summary": "Core principles for using glyph-like visual marks inspired by Egyptian hieroglyphs in artistic contexts — emphasising abstraction over reproduction and cultural respect.\n",
+    "description": "Egyptian hieroglyphic script is a complex, historically grounded writing system with over 700 signs in the classical period (Middle Egyptian), used for real texts in religious, administrative, and funerary contexts. Using hieroglyphs decoratively without understanding their meaning risks creating nonsensical, disrespectful, or accidentally sacrilegious combinations. This entry defines the do/avoid framework for AI generative art, shader art, and design projects that want to evoke the visual aesthetic of hieroglyphic script without reproducing actual inscriptions.\nCore philosophy: use \"glyph-inspired abstract marks\" — forms that are visually influenced by the hieroglyphic tradition (geometric shapes, profile animals, eye forms, architectural marks) but do not attempt to replicate or compose readable Egyptian text. These marks can be arranged in grid columns, cartouches, friezes, and label blocks as a visual texture, as long as they are clearly presented as contemporary artistic invention rather than authentic ancient text.\nFor projects that DO want to include real hieroglyphic elements, consult a trained Egyptologist and use only accurately documented signs with known meaning.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "papyrus",
+        "temple_relief"
+      ],
+      "motif_type": [
+        "hieroglyphic_inspired"
+      ],
+      "mood": [
+        "instructional",
+        "solemn"
+      ],
+      "remix": [
+        "modern_overlay",
+        "museum_label",
+        "street_poster"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use glyph-inspired abstract marks as visual texture rather than legible text.",
+        "Arrange marks in column or grid format to evoke the visual rhythm of inscription.",
+        "Reference documented Gardiner sign list shapes for visual inspiration.",
+        "Label any artwork clearly as 'inspired by' or 'abstract marks' rather than reproduced text.",
+        "If using actual hieroglyphs, verify meaning with an Egyptologist or authoritative source.",
+        "Prefer well-known emblematic signs (ankh, eye, bird silhouettes) as abstracted motifs.",
+        "Use empty cartouches or clearly invented interior signs rather than mixing real signs randomly."
+      ],
+      "avoid": [
+        "Do not combine real hieroglyphic signs randomly — this may produce offensive or nonsensical text.",
+        "Do not present invented marks as if they are authentic ancient inscriptions.",
+        "Do not reproduce actual sacred funerary texts (Pyramid Texts, Coffin Texts, Book of the Dead spells) as decoration.",
+        "Do not claim that AI-generated glyph sequences reproduce historical Egyptian writing.",
+        "Avoid using religious or funerary texts from living/practicing religious traditions without specific permission.",
+        "Do not present generated text as a 'translation' of any name or phrase without expert verification."
+      ]
+    },
+    "parameters": {
+      "abstraction_level": "inspired_not_reproduced",
+      "expert_review_required": true,
+      "cartouche_interior": "empty_or_abstract_only",
+      "gardiner_reference": "https://en.wikipedia.org/wiki/Gardiner%27s_sign_list"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.cartouche",
+        "egy.papyrus_scroll_style",
+        "egy.border_frieze_composition"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"abstract glyph-inspired marks, Egyptian aesthetic visual texture, column arrangement, profile bird and eye forms, geometric sign shapes, clearly artistic invention not authentic text, ancient Egyptian visual language\"\n",
+    "provenance": {
+      "sources": [
+        "Allen, J.P. (2010). Middle Egyptian: An Introduction to the Language and Culture of Hieroglyphs. Cambridge University Press.",
+        "Gardiner, A.H. (1957). Egyptian Grammar. Griffith Institute."
+      ],
+      "notes": "This entry provides guidelines, not linguistic instruction. For any project using actual hieroglyphic text, consultation with a trained Egyptologist is strongly recommended.\n"
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/typography_hieroglyphic_rules/hieroglyphic_inspired_marks_rules.yaml"
+  },
+  {
+    "id": "egy.hieroglyphic_layout_rules",
+    "type": "typography_rule",
+    "name": "Hieroglyphic Layout and Column Conventions",
+    "aliases": [
+      "inscription layout",
+      "glyph column rules",
+      "sign orientation rules",
+      "reading direction"
+    ],
+    "summary": "Visual layout rules for hieroglyphic-inspired typographic columns and sign grids — covering reading direction, sign stacking, column/row spacing, and sign orientation conventions that give the correct Egyptian visual rhythm.\n",
+    "description": "Authentic Egyptian hieroglyphic inscriptions follow specific layout conventions that create their characteristic visual rhythm. Understanding these conventions allows glyph-inspired artwork to read as visually coherent even when the marks are abstract. Key layout principles:\n1. Reading direction: Hieroglyphs can read right-to-left or left-to-right.\n   The direction is indicated by the orientation of animal/human signs — they\n   face toward the beginning of the text. Most commonly, columns read right-to-left.\n\n2. Column vs. row format: Classic inscriptions use narrow vertical columns or\n   horizontal rows. Columns are narrow (2–3 signs wide, many signs deep).\n   Horizontal bands fill the full width in registers.\n\n3. Sign grouping: Signs are grouped into compact \"blocks\" of 2–4 signs that fill\n   a roughly square space, rather than evenly spaced one per line.\n\n4. Sign stacking: Tall thin signs (birds, humans) may share a column space with\n   small signs placed above or below them in the same column slot.\n\n5. Determinatives: Real hieroglyphic text ends words with a silent \"determinative\"\n   sign indicating semantic category (a seated man for person words, etc.).\n\n6. Ground line and column rules: Columns are typically separated by vertical lines.\n   The column height is set by the register height.\n\nThese layout rules are applicable to decorative inscription-like banding in artwork even when using abstract marks — they give the correct visual density and rhythm.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "papyrus",
+        "stone"
+      ],
+      "motif_type": [
+        "hieroglyphic_inspired"
+      ],
+      "composition": [
+        "registers",
+        "frieze"
+      ],
+      "linework": [
+        "ink_outline"
+      ],
+      "mood": [
+        "instructional"
+      ],
+      "remix": [
+        "modern_overlay",
+        "museum_label"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Orient all signs consistently — facing toward the reading start (left or right).",
+        "Use compact sign-block grouping rather than uniform single-sign per row.",
+        "Separate inscription columns with vertical rules.",
+        "Make columns narrow relative to height (tall, not wide).",
+        "Vary sign sizes within a block — tall birds, small determinatives, etc."
+      ],
+      "avoid": [
+        "Avoid equal-sized signs in a rigid grid — this does not resemble real inscription.",
+        "Avoid mixing reading directions within a single inscription column.",
+        "Avoid oversized isolated signs — multiple small grouped signs read as text."
+      ]
+    },
+    "parameters": {
+      "primary_reading_direction": "right_to_left",
+      "column_aspect_ratio": "tall_narrow",
+      "signs_per_block": [
+        2,
+        4
+      ],
+      "column_separator": "vertical_rule"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.hieroglyphic_inspired_marks_rules",
+        "egy.cartouche",
+        "egy.border_frieze_composition"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian hieroglyphic column layout, narrow vertical inscription columns, compact sign blocks, right-to-left orientation, column separators, varied sign sizes, visual text rhythm, abstract marks as decoration\"\n",
+    "provenance": {
+      "sources": [
+        "Gardiner, A.H. (1957). Egyptian Grammar. Griffith Institute.",
+        "Allen, J.P. (2010). Middle Egyptian: An Introduction. Cambridge University Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/typography_hieroglyphic_rules/hieroglyphic_layout_rules.yaml"
+  },
+  {
+    "id": "egy.ink_bleed_artifact",
+    "type": "print_artifact",
+    "name": "Ink Bleed and Feathering Artifact",
+    "aliases": [
+      "ink bleed",
+      "feathering",
+      "paint seep",
+      "pigment spread"
+    ],
+    "summary": "The characteristic spreading and feathering of ink and pigment into the fibrous papyrus or plaster ground — a natural aging artifact that gives Egyptian art its softened, slightly hazy quality around fine lines.\n",
+    "description": "On papyrus, diluted ink and thin pigment washes spread slightly into the fibrous reed-pith ground when applied, creating a soft halo or feathering effect around line edges. On plaster walls, pigment can seep into cracks or spread along mineral surface variations. Over millennia, this bleed effect becomes more pronounced as the paint layers age and the ground absorbs more moisture over cycles of humidity. The result in aged Egyptian papyri: fine lines are not perfectly crisp but have a slight bloom or haze at their outer edges; colour fills may show gradual soft transitions at their edges; very fine hatching or detail may partially merge together.\nFor digital simulation: this effect is applied as a Gaussian blur or directional smear at 2–5% opacity on the line layer, or as a subtle glow at the edges of colour fills. It should be barely perceptible at full scale but add significant authenticity when viewed closely.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "papyrus"
+      ],
+      "artifact": [
+        "ink_bleed"
+      ],
+      "shader_ops": [
+        "noise",
+        "vignette_burn"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Apply very subtly — 2–5% effect; ink bleed should enhance, not obscure.",
+        "Limit to fine line edges and colour fill boundaries.",
+        "Increase effect in areas of lighter, more dilute pigment."
+      ],
+      "avoid": [
+        "Avoid strong blur effects — this reads as out-of-focus, not aged.",
+        "Avoid applying to stone relief contexts — ink bleed is papyrus-specific."
+      ]
+    },
+    "parameters": {
+      "blur_radius_px": [
+        1,
+        3
+      ],
+      "opacity": 0.05,
+      "apply_to": [
+        "line_edges",
+        "colour_fill_boundaries"
+      ],
+      "papyrus_only": true
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.papyrus_fiber_artifact",
+        "egy.papyrus_scroll_style",
+        "egy.funerary_vignette_composition"
+      ],
+      "avoid_with": [
+        "egy.stone_surface_texture"
+      ]
+    },
+    "prompt_fragment": "\"ink bleed artifact, soft feathering at line edges, papyrus paint seep, slightly hazy and aged, pigment spread into fiber ground, subtle degradation, ancient Egyptian papyrus\"\n",
+    "provenance": {
+      "sources": [
+        "Lucas, A. (1962). Ancient Egyptian Materials and Industries. Edward Arnold."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/print_artifacts/ink_bleed_artifact.yaml"
+  },
+  {
+    "id": "egy.lapis_turquoise_palette",
+    "type": "color_system",
+    "name": "Lapis and Turquoise Palette",
+    "aliases": [
+      "blue-green palette",
+      "lapis lazuli palette",
+      "Egyptian blue palette",
+      "celestial blue"
+    ],
+    "summary": "The cool celestial palette centred on Egyptian blue, faience turquoise, and lapis lazuli — evoking sky, water, divinity, and the colour of Amun's divine skin.\n",
+    "description": "The lapis and turquoise palette draws on the most cosmologically significant cool colours in Egyptian art: Egyptian blue (the sky, water, and divine field), turquoise (faience, malachite, Sinai turquoise — associated with Hathor), and the imported precious lapis lazuli (Afghanistan-sourced, its golden pyrite inclusions evoking the star-filled night sky). In Egyptian theology, blue was the colour of the sky (Nut), the primeval waters (Nun), the god Amun (hidden, celestial), and divine healing. The palette pairs these blues with gold accents (solar contrast) and black outlines. Its emotional register is divine, celestial, and luminous. Characteristic uses: temple ceiling astronomical elements, divine headdresses and crowns, water/Nile scenes, faience object surfaces.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "ptolemaic",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "faience",
+        "gold",
+        "tomb_painting",
+        "temple_relief"
+      ],
+      "palette": [
+        "lapis_turquoise",
+        "gold_accent",
+        "mineral_pigments"
+      ],
+      "mood": [
+        "luminous",
+        "mythic",
+        "solemn"
+      ],
+      "shader_ops": [
+        "bloom",
+        "palette_map"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use Egyptian blue (#3B6FA0) as the primary blue field.",
+        "Include faience turquoise (#3B9EBF) as a brighter, warmer blue accent.",
+        "Pair with gold (#D4A82A) as solar accent — the blue-gold contrast is iconic.",
+        "Reserve pure white and black for outline and highlight only."
+      ],
+      "avoid": [
+        "Avoid purple or violet — no stable ancient Egyptian purple existed.",
+        "Avoid cool grey as a neutral — Egyptian neutrals are warm-toned."
+      ]
+    },
+    "parameters": {
+      "primary_blue": "#3B6FA0",
+      "turquoise": "#3B9EBF",
+      "malachite_green": "#3A7D44",
+      "gold_accent": "#D4A82A",
+      "outline": "#1A1208",
+      "highlight": "#F5F0E8",
+      "palette_hex": [
+        "#3B6FA0",
+        "#3B9EBF",
+        "#3A7D44",
+        "#D4A82A",
+        "#1A1208",
+        "#F5F0E8"
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.faience_texture",
+        "egy.solar_gold_palette",
+        "egy.ptolemaic_temple_style"
+      ],
+      "avoid_with": [
+        "egy.tomb_red_ochre_palette"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian lapis and turquoise palette, Egyptian blue and faience turquoise, celestial and divine, gold accent contrast, temple ceiling blue, cool and luminous, ancient Egyptian celestial aesthetic\"\n",
+    "provenance": {
+      "sources": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Cooney, K.M. (2018). The Good Kings. National Geographic."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/color_systems/lapis_turquoise_palette.yaml"
+  },
+  {
+    "id": "egy.lotus_papyrus",
+    "type": "symbol_motif",
+    "name": "Lotus and Papyrus Plants",
+    "aliases": [
+      "blue lotus",
+      "white lotus",
+      "papyrus column",
+      "Nile plants",
+      "sema tawy"
+    ],
+    "summary": "The lotus (Upper Egypt) and papyrus (Lower Egypt) are the heraldic plants of the Two Lands, used individually as rebirth symbols and combined as the sema-tawy \"union of the two lands\" motif.\n",
+    "description": "The lotus (Egyptian: seshen) and papyrus (wadi) are among the most versatile plant motifs in Egyptian art. The blue lotus (Nymphaea caerulea) was a solar and rebirth symbol — it opens at dawn — and appears as the flower from which the young sun god or Nefertum emerges. The white lotus (Nymphaea lotus) has a similar symbolic field. As a column capital form, the lotus appears on many temple columns. The papyrus (Cyperus papyrus) is the heraldic plant of Lower Egypt (the Delta), and its tall, triangular umbel appears as column capitals, border elements, and in scenes of hunting in the marshes. In sema-tawy (\"union of the two lands\") compositions, a trachea/lung hieroglyph is flanked by Horus/Nekhbet on one side (with lotus) and Set/Wadjet on the other (with papyrus), tied together to symbolise the unification of Egypt — a standard throne base motif.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "faience",
+        "stone",
+        "papyrus"
+      ],
+      "motif_type": [
+        "plant",
+        "celestial",
+        "royal"
+      ],
+      "composition": [
+        "bilateral_symmetry",
+        "border_pattern"
+      ],
+      "linework": [
+        "ink_outline",
+        "carved_relief",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "lapis_turquoise",
+        "malachite_green"
+      ],
+      "mood": [
+        "mythic",
+        "solemn",
+        "luminous"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "palette_map"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Distinguish blue lotus (pointed petals, central bud) from papyrus (triangular umbel).",
+        "Use lotus as column capital motif and as border band element.",
+        "Include sema-tawy binding in royal throne base compositions."
+      ],
+      "avoid": [
+        "Avoid conflating lotus with water lily — the Egyptian lotus has distinct characteristics.",
+        "Avoid placing lotus in non-aquatic / desert contexts without mythological framing."
+      ]
+    },
+    "parameters": {
+      "lotus_petal_colour": "#3B6FA0",
+      "lotus_centre_colour": "#D4A82A",
+      "papyrus_stem_colour": "#3A7D44",
+      "sema_tawy_variant": true
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.register_composition",
+        "egy.border_frieze_composition",
+        "egy.mineral_pigment_palette"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian lotus and papyrus plant motifs, blue lotus blossom, papyrus column capital, sema-tawy union of two lands, heraldic plant border, lapis blue and malachite green, tomb painting or temple relief style\"\n",
+    "provenance": {
+      "sources": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Manniche, L. (1989). An Ancient Egyptian Herbal. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/lotus_papyrus.yaml"
+  },
+  {
+    "id": "egy.maat_feather",
+    "type": "symbol_motif",
+    "name": "Maat Feather",
+    "aliases": [
+      "feather of Maat",
+      "ostrich feather of truth",
+      "feather of justice"
+    ],
+    "summary": "The ostrich feather of the goddess Maat — symbol of cosmic order, truth, justice, and the moral standard against which the deceased's heart is weighed in the afterlife.\n",
+    "description": "Maat is the ancient Egyptian concept of cosmic order, truth, justice, and harmony. The goddess Maat is depicted as a woman wearing a single ostrich feather on her head (her identifying attribute). In the weighing of the heart ceremony (psychostasia), the heart of the deceased is weighed against the feather of Maat on a balance scale in the Hall of Two Truths; if the heart is lighter (less burdened by sin), the deceased passes to eternal life. The feather alone (without the goddess) functions as a hieroglyphic ideogram for Maat and as a decorative motif on friezes, stelae, papyri, and jewellery. The ostrich feather form is tall and symmetrically barbed, often rendered in white/cream with a gold quill. In the weighing scene, the jackal- headed Anubis holds the balance, Thoth records the verdict, and Ammit the devourer waits to consume failed hearts.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "papyrus",
+        "tomb_painting",
+        "temple_relief",
+        "gold"
+      ],
+      "motif_type": [
+        "deity",
+        "funerary"
+      ],
+      "composition": [
+        "vignette",
+        "narrative_sequence"
+      ],
+      "linework": [
+        "ink_outline",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "gold_accent",
+        "white_ground"
+      ],
+      "mood": [
+        "solemn",
+        "mythic",
+        "instructional"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "palette_map"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Show feather with symmetrical barbs and a clear quill/rachis.",
+        "Include in weighing-of-the-heart scenes with the balance scale.",
+        "Show the goddess Maat with feather headdress in full-figure depictions."
+      ],
+      "avoid": [
+        "Avoid generic feather depiction — the ostrich feather with symmetric barbs is specific.",
+        "Avoid over-decorating the feather with non-Egyptian patterns."
+      ]
+    },
+    "parameters": {
+      "feather_type": "ostrich",
+      "barbing": "symmetric",
+      "feather_colour": "#F5F0E0",
+      "quill_colour": "#C8922A"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.papyrus_scroll_style",
+        "egy.narrative_sequence_composition",
+        "egy.ankh"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"feather of Maat, ostrich feather of truth and justice, Egyptian cosmic order symbol, white feather with gold quill, weighing of the heart scene, papyrus vignette, solemn and mythic, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Assmann, J. (2001). The Search for God in Ancient Egypt. Cornell University Press.",
+        "Taylor, J.H. (2001). Death and the Afterlife in Ancient Egypt. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/maat_feather.yaml"
+  },
+  {
+    "id": "egy.mineral_pigment_palette",
+    "type": "material_texture",
+    "name": "Ancient Egyptian Mineral Pigments",
+    "aliases": [
+      "Egyptian pigments",
+      "ancient pigment palette",
+      "tomb paint materials"
+    ],
+    "summary": "The six canonical mineral pigments of ancient Egyptian wall painting and papyrus illustration — their historical composition, characteristic colours, and digital simulation values.\n",
+    "description": "Egyptian painters worked with a remarkably stable palette of six mineral-based pigments, which they ground and mixed with binding agents (egg white, gum arabic, animal glue). These pigments are the foundation of the characteristic Egyptian colour palette:\n1. Egyptian Blue (cuprorivaite, CaCuSi₂O₆): The world's first synthetic pigment,\n   produced by firing a mixture of silica, lime, and copper compounds with quartz.\n   Intense, stable blue-green. Characteristic of New Kingdom work.\n\n2. Malachite Green (Cu₂(CO₃)(OH)₂): Ground malachite, producing a variable\n   blue-green. Can shift to turquoise in some contexts.\n\n3. Red Ochre (Fe₂O₃): Iron oxide in red; used for male skin, red outlines, and\n   warm accents.\n\n4. Yellow Ochre (FeO(OH)): Goethite-based yellow; used for female skin, yellow\n   backgrounds, and warm grounds. Orpiment (arsenic trisulfide, As₂S₃) was used\n   for intense yellows later.\n\n5. Carbon Black: Charcoal or lampblack; the primary outline and detail pigment.\n6. Calcite White (CaCO₃): Ground limestone or calcite; used for white grounds and\n   white garments. Also Huntite (Mg₃Ca(CO₃)₄) for brighter whites.\n\nThese pigments do not include purple (no stable ancient Egyptian purple), orange as a primary colour, or bright cool whites. Their characteristic blends and mutual incompatibilities define the authentic Egyptian palette.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "papyrus"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "full_period_canonical"
+      ],
+      "surface": [
+        "painted"
+      ],
+      "mood": [
+        "solemn",
+        "instructional"
+      ],
+      "shader_ops": [
+        "palette_map"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Limit palette to these six pigments for historical accuracy.",
+        "Use Egyptian Blue for sky, water, and divine colour fields.",
+        "Apply red-brown for male skin, yellow-ochre for female skin.",
+        "Carbon black for all outlines and detail marks."
+      ],
+      "avoid": [
+        "Avoid saturated purple, orange, or magenta — these have no authentic Egyptian pigment equivalent.",
+        "Avoid cool bright white — calcite white has a warm, slightly chalky quality.",
+        "Avoid mixing pigments to get colours outside the canonical range without remix labelling."
+      ]
+    },
+    "parameters": {
+      "pigments": [
+        {
+          "name": "Egyptian Blue",
+          "material": "cuprorivaite",
+          "hex": "#3B6FA0"
+        },
+        {
+          "name": "Malachite Green",
+          "material": "malachite",
+          "hex": "#3A7D44"
+        },
+        {
+          "name": "Red Ochre",
+          "material": "iron_oxide_red",
+          "hex": "#B94A2C"
+        },
+        {
+          "name": "Yellow Ochre",
+          "material": "goethite",
+          "hex": "#D4A82A"
+        },
+        {
+          "name": "Carbon Black",
+          "material": "charcoal",
+          "hex": "#1A1208"
+        },
+        {
+          "name": "Calcite White",
+          "material": "calcite",
+          "hex": "#F5F0E8"
+        }
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.tomb_painting_style",
+        "egy.papyrus_scroll_style",
+        "egy.register_composition"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"ancient Egyptian mineral pigment palette, Egyptian blue, malachite green, red ochre, yellow ochre, carbon black, calcite white, historically accurate tomb paint colours, six canonical pigments\"\n",
+    "provenance": {
+      "sources": [
+        "Lee, L. & Quirke, S. (2000). 'Painting materials.' In Nicholson & Shaw (eds.), Ancient Egyptian Materials and Technology.",
+        "Scott, D.A. (2016). 'A Review of Copper Chlorides and Related Salts in Bronze Corrosion and as Painting Pigments.' Studies in Conservation."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/materials_textures/mineral_pigment_palette.yaml"
+  },
+  {
+    "id": "egy.monochrome_black_outline_palette",
+    "type": "color_system",
+    "name": "Monochrome Black Ink Outline Palette",
+    "aliases": [
+      "ink drawing palette",
+      "black line palette",
+      "hieratic sketch palette",
+      "red and black"
+    ],
+    "summary": "The minimal black (or red + black) ink-only palette of Egyptian sketch drawings, papyrus hieratic script, and preliminary underdrawings — pure graphic and highly versatile.\n",
+    "description": "Not all Egyptian art was polychrome. A significant body of drawing exists in pure black ink: satirical papyri (animals playing instruments, mice attacking a cat fortress), ostraca sketches (limestone flakes used as practice surfaces and drafting media), papyrus hieratic script, and preliminary underdrawings. The monochrome ink palette reduces Egyptian visual language to its most essential element: the confident, descriptive contour line. The two-tone red + black variant (used in underdrawings: red chalk preliminary grid and sketches, then black ink final line) is equally characteristic. This palette is the most transferable to modern contexts — ink drawing, vector illustration, printmaking, linocut, screen print — while retaining full Egyptian visual grammar. It is also the most accessible for AI prompt generation and shader rendering.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "papyrus",
+        "stone"
+      ],
+      "palette": [
+        "black_outline_only"
+      ],
+      "linework": [
+        "ink_outline",
+        "brush_freehand",
+        "red_grid_underdrawing"
+      ],
+      "mood": [
+        "instructional",
+        "intimate",
+        "solemn"
+      ],
+      "shader_ops": [
+        "edge_ink"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use a single consistent line weight for the primary contour.",
+        "Vary line weight for emphasis (thicker for outline, thinner for internal detail).",
+        "Consider the two-tone variant: red chalk underdrawing + black ink finish."
+      ],
+      "avoid": [
+        "Avoid halftone shading — this palette is defined by line, not tone.",
+        "Avoid filled black zones larger than small details — keep it graphic and open."
+      ]
+    },
+    "parameters": {
+      "ink_colour": "#1A1208",
+      "ground_colour": "#F5EFD8",
+      "underdrawing_colour": "#B94A2C",
+      "line_weight_primary": "2px_equiv",
+      "line_weight_detail": "1px_equiv"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.papyrus_scroll_style",
+        "egy.hieroglyphic_inspired_marks_rules",
+        "egy.scribe_seated_pose"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian black ink outline drawing, monochrome contour line, papyrus ostraca sketch style, confident descriptive line, no colour fill, red underdrawing variant, instructional and intimate, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "James, T.G.H. (1985). Egyptian Painting. British Museum Press.",
+        "Parkinson, R. (1999). Cracking Codes: The Rosetta Stone and Decipherment. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/color_systems/monochrome_black_outline_palette.yaml"
+  },
+  {
+    "id": "egy.museum_label_remix",
+    "type": "remix",
+    "name": "Museum Label / Archival Card Remix",
+    "aliases": [
+      "museum card aesthetic",
+      "exhibition label style",
+      "archival document remix"
+    ],
+    "summary": "A modern remix that frames Egyptian art elements in contemporary museum exhibition label and archival documentation aesthetics — neutral grounds, sans-serif metadata, accession numbers, conservation notes.\n",
+    "description": "This remix re-contextualises Egyptian motifs within the visual language of contemporary museum display and archival scholarship. The \"historical-first, remix as overlay\" principle: the central motif is rendered in period-accurate style; the surrounding context uses modern exhibition design conventions. Key overlay elements: - Neutral linen or warm grey mount/mat border surrounding the central motif. - Typographic metadata block: accession number, period, medium, dimensions,\n  provenance (can be real or invented).\n- Object label typography: clean serif or neutral sans-serif (e.g., Gill Sans,\n  Futura, or a modern Egyptian/slab revival face).\n- Optional: red \"FRAGILE\" or \"FOR CONSERVATION\" stamp overlay for editorial effect. - Optional: scanner line artifact, ruler/scale bar, colour calibration reference. This format is excellent for social media post templates, editorial illustration, and art book page design — it places the Egyptian element in a framework of intellectual respect and historical grounding while acknowledging modern context.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "remix": [
+        "museum_label",
+        "modern_overlay",
+        "editorial"
+      ],
+      "mood": [
+        "instructional",
+        "solemn",
+        "intimate"
+      ],
+      "shader_ops": [
+        "vignette_burn",
+        "noise"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Place the Egyptian element at high quality and correct proportions in the centre.",
+        "Include accurate or clearly fictional museum metadata.",
+        "Use neutral, cool, or warm-grey mount colours — not vibrant or competing colours.",
+        "Label the composition as contemporary artwork, not an authentic museum document."
+      ],
+      "avoid": [
+        "Avoid creating documents that could be mistaken for authentic museum provenance records.",
+        "Avoid labelling invented motifs with real accession numbers from actual institutions."
+      ]
+    },
+    "parameters": {
+      "mount_colour": "#E8E0D0",
+      "typography_style": "neutral_serif_or_sans",
+      "metadata_fields": [
+        "accession_number",
+        "period",
+        "medium",
+        "dimensions",
+        "provenance"
+      ],
+      "stamp_overlay": false
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.hieroglyphic_inspired_marks_rules",
+        "egy.funerary_vignette_composition",
+        "egy.mineral_pigment_palette"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"museum label remix, Egyptian motif on archival mount, exhibition card aesthetic, accession number and period metadata, neutral linen ground, clean typography, intellectual respect framing\"\n",
+    "provenance": {
+      "notes": "Reference: British Museum, Metropolitan Museum of Art, and Louvre exhibition design as typographic and layout models.\n"
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/remix_modern/museum_label_remix.yaml"
+  },
+  {
+    "id": "egy.offering_bearer_pose",
+    "type": "canonical_pose",
+    "name": "Offering Bearer Pose",
+    "aliases": [
+      "offering carrier",
+      "offering procession figure",
+      "gift bearer"
+    ],
+    "summary": "The canonical pose for figures carrying offerings — striding forward in profile with one arm extended downward (tray/table balance) and one raised (bouquet or vessel) — found in offering procession registers across all periods.\n",
+    "description": "Offering bearer figures populate the upper registers of tomb and temple walls, forming long procession lines. The canonical pose: profile stance with left foot forward (walking stride), one arm lowered to carry or balance a flat tray or stand bearing food items (loaves, fowl, joints of meat, vegetables), the other arm raised to carry a bouquet of lotus flowers, a tall vessel, or a papyrus bundle. The head is in strict profile, facing in the direction of movement. Both arms are visible; no overlapping obscures the offering goods. The goods themselves are shown in their most informative view (e.g., fish from above; bread from the side). Scale is governed by register height. Offering bearers are typically servants or priests, therefore smaller than the tomb owner (scale hierarchy). Garment: simple kilt or linen sheath dress. Wigs are common. These figures form the economic and ritual backbone of funerary imagery.\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief"
+      ],
+      "motif_type": [
+        "funerary",
+        "daily_life",
+        "royal"
+      ],
+      "composition": [
+        "profile_canon",
+        "registers",
+        "narrative_sequence"
+      ],
+      "linework": [
+        "ink_outline",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "white_ground",
+        "ochre_red"
+      ],
+      "mood": [
+        "solemn",
+        "instructional"
+      ],
+      "shader_ops": [
+        "edge_ink"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Show offerings from their most informative view angle.",
+        "Scale offering bearers smaller than the recipient/tomb owner.",
+        "Arrange in continuous procession lines reading left-to-right."
+      ],
+      "avoid": [
+        "Avoid hiding offering objects behind the bearer's body — clarity of goods is essential.",
+        "Avoid non-period offering items (modern food, contemporary objects) without remix labelling."
+      ]
+    },
+    "parameters": {
+      "foot_forward": "left",
+      "lower_arm_item": "offering_tray_or_stand",
+      "upper_arm_item": "bouquet_or_vessel",
+      "figure_relative_scale": "servant_smaller"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.register_composition",
+        "egy.scale_hierarchy_composition",
+        "egy.tomb_painting_style"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian offering bearer procession, profile figure striding with tray of food offerings, bouquet raised, register layout, servant scale, tomb wall painting, ancient Egypt funerary art\"\n",
+    "provenance": {
+      "sources": [
+        "Hartwig, M.K. (2004). Tomb Painting and Identity in Ancient Thebes. Brepols.",
+        "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/canonical_poses/offering_bearer_pose.yaml"
+  },
+  {
+    "id": "egy.old_kingdom_relief_style",
+    "type": "style",
+    "name": "Old Kingdom Painted Limestone Relief Style",
+    "aliases": [
+      "pyramid age relief",
+      "Memphite relief style"
+    ],
+    "summary": "The refined, precise relief style of the Old Kingdom pyramid age, characterised by shallow carving, exquisite proportion, and restrained colour on limestone.\n",
+    "description": "The Old Kingdom (c. 2686–2181 BCE), centred at Memphis and Saqqara, produced what many scholars consider the canonical definition of Egyptian art. Mastaba tomb reliefs (e.g. Ti at Saqqara, Mereruka) and pyramid complex causeways set the formal vocabulary: impeccably proportioned figures; shallow, clean carving; restrained polychromy (often just ochres, blues, greens, and blacks); and a serene, aristocratic calm. The male ideal figure is shown with red-brown skin, the female with yellow-ochre. Movement is implied through posture rather than dramatic gesture. This period establishes the canonical grid proportions later codified in New Kingdom art.\n",
+    "tags": {
+      "period": [
+        "old_kingdom"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "stone"
+      ],
+      "composition": [
+        "registers",
+        "profile_canon",
+        "scale_hierarchy"
+      ],
+      "linework": [
+        "carved_relief",
+        "painted_fill",
+        "ink_outline"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "ochre_red",
+        "limited"
+      ],
+      "surface": [
+        "carved",
+        "painted",
+        "weathered"
+      ],
+      "artifact": [
+        "edge_wear",
+        "abrasion"
+      ],
+      "mood": [
+        "solemn",
+        "regal",
+        "instructional"
+      ],
+      "shader_ops": [
+        "relief_shading",
+        "edge_ink",
+        "palette_map"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use the 18-fist canonical grid for human figure proportions.",
+        "Show male skin as warm red-brown, female skin as yellow ochre.",
+        "Keep carving depth very shallow — Old Kingdom relief is often under 5mm.",
+        "Apply a serenely restrained quality: no drama, no exaggerated gesture."
+      ],
+      "avoid": [
+        "Avoid the intense turquoise-blue saturation of New Kingdom work.",
+        "Avoid crowded compositions — Old Kingdom reliefs prefer spacious arrangement."
+      ]
+    },
+    "parameters": {
+      "male_skin_colour": "#8B3A1A",
+      "female_skin_colour": "#C8922A",
+      "grid_units": 18,
+      "carving_depth_max_mm": 5
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.register_composition",
+        "egy.profile_canon_pose",
+        "egy.stone_surface_texture"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Old Kingdom Egyptian limestone relief, Saqqara mastaba style, shallow carved relief, restrained ochre palette, serene aristocratic figures, canonical 18-grid proportions, pyramid age aesthetic\"\n",
+    "provenance": {
+      "sources": [
+        "Smith, W.S. (1981). The Art and Architecture of Ancient Egypt. Penguin.",
+        "Robins, G. (1994). Proportion and Style in Ancient Egyptian Art. University of Texas Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/styles/old_kingdom_relief_style.yaml"
+  },
+  {
+    "id": "egy.palette_map_shader",
+    "type": "rendering_shader",
+    "name": "Palette Map / LUT Shader",
+    "aliases": [
+      "colour map shader",
+      "LUT shader",
+      "Egyptian colour LUT",
+      "palette quantise"
+    ],
+    "summary": "A colour-mapping shader that quantises any image or render to the six canonical Egyptian mineral pigment colours, producing an authentic period-palette output from arbitrary input imagery.\n",
+    "description": "The palette map shader performs colour quantisation — mapping input pixel colours to the nearest colour in the Egyptian canonical pigment palette. This is the most direct way to \"Egyptianise\" any generated or photographic image:\nInputs: any colour image.\nOperations: 1. For each pixel, compute Euclidean distance to each of the 6 canonical\n   pigment hex values in perceptual colour space (CIE Lab preferred over RGB).\n2. Assign pixel to nearest pigment colour. 3. Optional: dither at colour boundaries (Floyd-Steinberg or ordered dither)\n   to simulate the natural blending of ground-colour show-through.\n4. Optional: preserve black outline layer separately before quantisation\n   and recomposite after.\n\nThe resulting image has only 6 colours (or 7 with the amber papyrus ground) and exactly matches the visual logic of Egyptian flat-colour painting. Adjust pigment definitions to shift between tomb (ochre-warm), scroll (amber-warm), and celestial (lapis-dominant) palette variants.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "papyrus",
+        "temple_relief"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "full_period_canonical",
+        "limited"
+      ],
+      "shader_ops": [
+        "palette_map"
+      ],
+      "mood": [
+        "instructional"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use CIE Lab colour space for distance calculation — RGB distance is perceptually inaccurate.",
+        "Apply ordered dither for boundaries — reduces banding artefacts.",
+        "Preserve outline layer separately and recomposite to prevent outline colour quantisation."
+      ],
+      "avoid": [
+        "Avoid pure posterisation without dithering — produces harsh mechanical gradients.",
+        "Avoid including modern colours in the palette — purples, neons, etc. break the period effect."
+      ]
+    },
+    "parameters": {
+      "colour_space": "CIE_Lab",
+      "dither": "ordered_4x4",
+      "palette_source": "egy.mineral_pigment_palette",
+      "preserve_outline": true,
+      "palette_hex": [
+        "#3B6FA0",
+        "#3A7D44",
+        "#B94A2C",
+        "#D4A82A",
+        "#1A1208",
+        "#F5F0E8"
+      ]
+    },
+    "shader_code_reference": "// Pseudocode: palette mapping\n// vec3 labPalette[6] = { ... }; // convert hex to Lab\n// vec3 pixelLab = rgbToLab(texture2D(src, uv).rgb);\n// float minDist = 1e9; int nearest = 0;\n// for (int i = 0; i < 6; i++) {\n//   float d = distance(pixelLab, labPalette[i]);\n//   if (d < minDist) { minDist = d; nearest = i; }\n// }\n// gl_FragColor = vec4(labToRgb(labPalette[nearest]), 1.0);\n",
+    "compat": {
+      "pairs_with": [
+        "egy.mineral_pigment_palette",
+        "egy.edge_ink_shader",
+        "egy.tomb_painting_style"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian palette map shader, 6-colour mineral pigment quantisation, LUT colour mapping, Egyptian Blue, ochre, malachite, carbon black, flat period-authentic colour, dithered boundaries\"\n",
+    "provenance": {
+      "sources": [
+        "Gonzalez, R.C. & Woods, R.E. (2018). Digital Image Processing (4th ed.). Pearson."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/rendering_shader/palette_map_shader.yaml"
+  },
+  {
+    "id": "egy.papyrus_fiber_artifact",
+    "type": "print_artifact",
+    "name": "Papyrus Fiber Texture Artifact",
+    "aliases": [
+      "papyrus grain",
+      "papyrus weave",
+      "reed fiber texture"
+    ],
+    "summary": "The distinctive surface texture of papyrus — interlaid strips of Cyperus papyrus reed pith — visible as a grid-like fibrous pattern through painted surfaces.\n",
+    "description": "Papyrus is made from the pith of the Cyperus papyrus plant: thin horizontal and vertical strips are laid perpendicular, pressed together, dried, and polished with a smooth stone. The resulting surface shows a subtle but distinct grid-weave pattern of fibrous stripes. This texture is visible through thin washes of ink and pigment, especially in areas where the paint layer is thin or degraded. In digital simulation: the texture appears as a subtle directional weave with slightly warmer stripes where the reed strips lap over each other. The overall ground colour is amber-warm (#D4A84B range); the fiber pattern adds a darker texture grid at roughly 0.5–2mm spacing (scaled to image resolution). This texture is one of the most recognisable authenticating details of papyrus art simulation. It should be subtle — readable but not dominant — visible primarily in lighter colour areas and margins.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "papyrus"
+      ],
+      "surface": [
+        "painted"
+      ],
+      "artifact": [
+        "papyrus_fiber"
+      ],
+      "shader_ops": [
+        "noise",
+        "displacement"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Apply fiber texture as a subtle overlay — not a dominant pattern.",
+        "Warm the ground colour to amber-yellow (#D4A84B) before applying fiber texture.",
+        "Scale fiber spacing to image resolution (finer at higher resolution)."
+      ],
+      "avoid": [
+        "Avoid making the fiber texture too dark or high-contrast — it should feel aged, not new.",
+        "Avoid perfectly regular grid — papyrus fiber is organic and slightly irregular."
+      ]
+    },
+    "parameters": {
+      "ground_hex": "#D4A84B",
+      "fiber_hex": "#B8923A",
+      "fiber_direction": "orthogonal_weave",
+      "fiber_spacing_mm": [
+        0.5,
+        2
+      ],
+      "opacity": 0.3
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.papyrus_scroll_style",
+        "egy.ink_bleed_artifact",
+        "egy.funerary_vignette_composition"
+      ],
+      "avoid_with": [
+        "egy.stone_surface_texture"
+      ]
+    },
+    "prompt_fragment": "\"papyrus fiber texture, woven reed strip surface, amber warm ground, subtle orthogonal fiber grid, aged papyrus, visible through thin paint, ancient Egyptian scroll material\"\n",
+    "provenance": {
+      "sources": [
+        "Lucas, A. (1962). Ancient Egyptian Materials and Industries. Edward Arnold.",
+        "Nicholson, P.T. & Shaw, I. (eds.) (2000). Ancient Egyptian Materials and Technology."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/print_artifacts/papyrus_fiber_artifact.yaml"
+  },
+  {
+    "id": "egy.papyrus_scroll_style",
+    "type": "style",
+    "name": "Papyrus Scroll Style",
+    "aliases": [
+      "Book of the Dead style",
+      "funerary papyrus style",
+      "New Kingdom scroll art"
+    ],
+    "summary": "The intimate illustrated manuscript style of painted papyrus scrolls, combining vignette scenes with hieroglyphic text columns in a warm, amber-toned palette.\n",
+    "description": "Illustrated papyri — especially funerary texts such as the Book of the Dead (Spell collections dating from the New Kingdom onward) — represent a distinct aesthetic register. Figures are smaller and more gestural than temple art; compositions use a mixture of registers and isolated vignettes. The warm amber- yellow of the papyrus ground is integral to the aesthetic: pigments sit against it rather than against white plaster. Black ink lines are finer and more fluid. Colour is applied more thinly, sometimes allowing the ground to show through. Text and image alternate or interweave, with hieroglyphic columns acting as compositional elements. Ink bleed and papyrus fibre texture are characteristic aging artifacts.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "third_intermediate",
+        "late_period",
+        "ptolemaic"
+      ],
+      "medium": [
+        "papyrus"
+      ],
+      "composition": [
+        "registers",
+        "vignette",
+        "narrative_sequence"
+      ],
+      "linework": [
+        "ink_outline",
+        "brush_freehand",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "ochre_red",
+        "gold_accent",
+        "limited"
+      ],
+      "surface": [
+        "painted"
+      ],
+      "artifact": [
+        "ink_bleed",
+        "papyrus_fiber",
+        "cracks",
+        "edge_wear"
+      ],
+      "mood": [
+        "solemn",
+        "mythic",
+        "instructional"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "palette_map",
+        "noise",
+        "vignette_burn"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Warm the ground colour with a papyrus amber-yellow base layer.",
+        "Allow ink bleed and papyrus fibre texture as authentic aging artifacts.",
+        "Use thinner, more gestural ink lines than tomb/temple wall styles.",
+        "Interweave hieroglyphic-inspired text columns with vignette scenes."
+      ],
+      "avoid": [
+        "Avoid cold white grounds — the papyrus amber warmth is essential.",
+        "Avoid thick impasto or heavy paint — papyrus painting is delicate.",
+        "Do not reproduce actual hieroglyphic spell texts as decoration."
+      ]
+    },
+    "parameters": {
+      "ground_colour": "#D4A84B",
+      "outline_colour": "#1A0E05",
+      "ink_line_weight": "fine",
+      "ground_texture": "papyrus_fiber"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.papyrus_fiber_artifact",
+        "egy.ink_bleed_artifact",
+        "egy.funerary_vignette_composition"
+      ],
+      "avoid_with": [
+        "egy.stone_surface_texture"
+      ]
+    },
+    "prompt_fragment": "\"ancient Egyptian papyrus scroll painting, Book of the Dead vignette, warm amber papyrus ground, fine ink line, hieroglyphic columns, register and vignette layout, New Kingdom funerary art, intimate and mythic\"\n",
+    "provenance": {
+      "sources": [
+        "Taylor, J.H. (2010). Journey Through the Afterlife: Ancient Egyptian Book of the Dead. British Museum Press.",
+        "Quirke, S. (1993). Ancient Egyptian Religion. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/styles/papyrus_scroll_style.yaml"
+  },
+  {
+    "id": "egy.pigment_flake_artifact",
+    "type": "print_artifact",
+    "name": "Pigment Flaking and Spalling Artifact",
+    "aliases": [
+      "paint flake",
+      "spalling",
+      "delamination",
+      "plaster loss"
+    ],
+    "summary": "The visual artifact of paint and plaster delaminating from a wall surface — revealing the bare stone or lower plaster layers beneath — characteristic of aged tomb and temple painting.\n",
+    "description": "Over time, Egyptian wall paintings are subject to a range of degradation processes: salt crystallisation in the plaster (from ground moisture), thermal expansion and contraction, earthquake micro-movement, and biological growth. These processes cause the paint layer, the gesso/plaster layer, or both to delaminate and flake away, leaving irregular zones of bare stone or lower plaster layers. Characteristically: flaking follows natural plaster crack networks; paint loss is most severe at the top of register zones (thermal cycling near the ceiling), at corners, and around inscriptions (where the surface was worked more). The flake pattern creates irregular light-coloured (stone or white plaster) patches against the darker surrounding painted surface.\nFor digital simulation: irregular polygon mask areas revealing a stone/white ground layer beneath the painted surface layer, with soft edges at the flake perimeter. Apply at low density (5–20% coverage) unless simulating heavily damaged scenes. Shadow micro-edge inside flake boundaries reads as depth.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief"
+      ],
+      "surface": [
+        "painted",
+        "weathered"
+      ],
+      "artifact": [
+        "pigment_flake",
+        "lacuna",
+        "abrasion"
+      ],
+      "shader_ops": [
+        "noise",
+        "displacement"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Follow plaster crack network as natural flake boundary guide.",
+        "Reveal warm stone or white plaster beneath, not pure white.",
+        "Apply micro-shadow at flake edge interior for depth.",
+        "Concentrate damage at edges, corners, and areas of heavy inscription."
+      ],
+      "avoid": [
+        "Avoid regular or geometric flake patterns — natural delamination is irregular.",
+        "Avoid simulating total paint loss uniformly — damage is patchy."
+      ]
+    },
+    "parameters": {
+      "coverage_percent": [
+        5,
+        20
+      ],
+      "revealed_layer_hex": "#D8C9A3",
+      "flake_edge": "irregular_soft",
+      "shadow_at_edge": true
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.stone_surface_texture",
+        "egy.tomb_painting_style",
+        "egy.dust_patina_artifact"
+      ],
+      "avoid_with": [
+        "egy.papyrus_fiber_artifact"
+      ]
+    },
+    "prompt_fragment": "\"pigment flaking artifact, paint delamination, plaster loss, irregular flake zones, stone ground revealed, aged tomb wall painting, patchy degradation, ancient Egyptian wall art damage simulation\"\n",
+    "provenance": {
+      "sources": [
+        "Mora, P., Mora, L., & Philippot, P. (1984). Conservation of Wall Paintings. Butterworths."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/print_artifacts/pigment_flake_artifact.yaml"
+  },
+  {
+    "id": "egy.profile_canon_composition",
+    "type": "composition",
+    "name": "Egyptian Profile Canon (Composite Figure)",
+    "aliases": [
+      "composite view",
+      "profile canon",
+      "twisted perspective",
+      "canonical figure"
+    ],
+    "summary": "The Egyptian compositional convention for depicting the human figure: profile head and legs combined with a frontal torso and eye — showing the \"most informative\" aspect of each body part simultaneously.\n",
+    "description": "The Egyptian canonical figure is a composite representation that shows each part of the body from its most recognisable or informative angle, regardless of spatial consistency. Rules (from the New Kingdom standardisation): head in strict profile; eye depicted frontally in the profile head; shoulders and torso shown frontally (both shoulders visible); navel and belly button at three-quarter view; arms hanging at sides with both hands visible; hips and lower body in profile; legs in profile with both feet shown from the inside arch (no foreshortened foot). This convention was not a failure of perspective — it was a deliberate informational encoding strategy. A red-grid underdrawing (18-square grid in Old/Middle Kingdom, 21-square grid from Late Period) was used to maintain proportional canon. The result is the immediately recognisable \"walking figure\" that defines Egyptian art.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "papyrus"
+      ],
+      "composition": [
+        "profile_canon"
+      ],
+      "linework": [
+        "ink_outline",
+        "red_grid_underdrawing",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "ochre_red"
+      ],
+      "mood": [
+        "solemn",
+        "instructional",
+        "regal"
+      ],
+      "shader_ops": [
+        "edge_ink"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Profile head with frontal eye — both elements present simultaneously.",
+        "Both shoulders shown (frontal torso) even when figure faces right or left.",
+        "Both feet shown from inner arch — no foreshortened or perspective foot.",
+        "Male skin: warm red-brown. Female skin: yellow-ochre. These are period conventions."
+      ],
+      "avoid": [
+        "Avoid three-quarter facial views — the profile + frontal eye is the canonical form.",
+        "Avoid Western anatomical foreshortening — it breaks the Egyptian convention.",
+        "Avoid casual or relaxed postures unless specifically referencing Amarna period."
+      ]
+    },
+    "parameters": {
+      "head_angle": "profile",
+      "eye_angle": "frontal",
+      "torso_angle": "frontal",
+      "leg_angle": "profile",
+      "grid_squares_old_kingdom": 18,
+      "grid_squares_late_period": 21
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.register_composition",
+        "egy.scale_hierarchy_composition",
+        "egy.tomb_painting_style"
+      ],
+      "avoid_with": [
+        "egy.amarna_style"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian canonical profile figure, composite view, profile head with frontal eye, frontal shoulders, profile legs, red-brown male skin, flat ink outline, tomb painting style, instructional and solemn\"\n",
+    "provenance": {
+      "sources": [
+        "Robins, G. (1994). Proportion and Style in Ancient Egyptian Art. University of Texas Press.",
+        "Davis, W. (1989). The Canonical Tradition in Ancient Egyptian Art. Cambridge University Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/composition/profile_canon_composition.yaml"
+  },
+  {
+    "id": "egy.ptolemaic_temple_style",
+    "type": "style",
+    "name": "Ptolemaic Temple Style",
+    "aliases": [
+      "Graeco-Egyptian style",
+      "late temple style",
+      "Ptolemaic relief"
+    ],
+    "summary": "The dense, hieroglyphically saturated temple relief style of the Ptolemaic period, blending traditional Egyptian conventions with subtle Hellenistic influences under the Greek ruling dynasty.\n",
+    "description": "The Ptolemaic period (332–30 BCE) saw an extraordinary efflorescence of temple building, producing some of the best-preserved ancient Egyptian temples extant today (Edfu, Dendera, Philae, Kom Ombo). Ptolemaic relief style deliberately adhered to — and in many ways intensified — traditional Egyptian conventions, partly as a political legitimation strategy by the Greek ruling dynasty. Characteristics: extremely dense hieroglyphic inscription coverage on walls and ceilings; finer, more deeply cut relief than New Kingdom work; richer colour including more extensive blue and gold; more complex theological scenes and astronomical ceilings. Subtle Hellenistic influence appears in slightly softer facial modelling and more detailed garments, but the overall effect remains unmistakably Egyptian. These temples are among the best reference sources for intact pigmented relief.\n",
+    "tags": {
+      "period": [
+        "ptolemaic"
+      ],
+      "medium": [
+        "temple_relief",
+        "stone"
+      ],
+      "composition": [
+        "registers",
+        "profile_canon",
+        "scale_hierarchy",
+        "bilateral_symmetry"
+      ],
+      "linework": [
+        "carved_relief",
+        "painted_fill",
+        "ink_outline"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "lapis_turquoise",
+        "gold_accent",
+        "full_period_canonical"
+      ],
+      "surface": [
+        "carved",
+        "painted",
+        "gilded"
+      ],
+      "artifact": [
+        "dust_patina",
+        "edge_wear"
+      ],
+      "mood": [
+        "regal",
+        "mythic",
+        "monumental",
+        "luminous"
+      ],
+      "shader_ops": [
+        "relief_shading",
+        "edge_ink",
+        "palette_map",
+        "bloom"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Fill every available wall surface with text and image — density is authentic.",
+        "Use deeper, sharper carving than New Kingdom sunk relief.",
+        "Include astronomical ceiling elements (Nut, zodiac, decanal stars) where appropriate.",
+        "Reference Edfu, Dendera, or Kom Ombo for intact colour reference."
+      ],
+      "avoid": [
+        "Avoid obvious Hellenistic realism in facial features — the style resists assimilation.",
+        "Avoid sparse compositions — Ptolemaic temple walls are saturated with content."
+      ]
+    },
+    "parameters": {
+      "key_temples": [
+        "Edfu (Horus)",
+        "Dendera (Hathor)",
+        "Philae (Isis)",
+        "Kom Ombo (Sobek/Haroeris)"
+      ],
+      "colour_richness": "high"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.register_composition",
+        "egy.scale_hierarchy_composition",
+        "egy.winged_sun_disc",
+        "egy.stone_surface_texture"
+      ],
+      "avoid_with": [
+        "egy.amarna_style"
+      ]
+    },
+    "prompt_fragment": "\"Ptolemaic Egyptian temple relief, Edfu or Dendera style, densely inscribed walls, deep carved relief, rich lapis and gold pigments, astronomical ceiling, regal and mythic, Graeco-Egyptian fusion\"\n",
+    "provenance": {
+      "sources": [
+        "Cauville, S. (2012). Dendara. Institut français d'archéologie orientale.",
+        "Arnold, D. (1999). Temples of the Last Pharaohs. Oxford University Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/styles/ptolemaic_temple_style.yaml"
+  },
+  {
+    "id": "egy.reference_academic_core",
+    "type": "reference",
+    "name": "Core Academic References for Ancient Egyptian Art",
+    "summary": "A curated list of authoritative academic references underpinning the entries in this database — covering art history, iconography, materials, and language.\n",
+    "description": "These works are the primary scholarly foundations for the historical content in this database. Entries should cite from this list where applicable.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "mood": [
+        "instructional"
+      ]
+    },
+    "references": {
+      "art_history": [
+        "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press.",
+        "Robins, G. (1994). Proportion and Style in Ancient Egyptian Art. University of Texas Press.",
+        "Smith, W.S. (1981). The Art and Architecture of Ancient Egypt. Penguin.",
+        "Davis, W. (1989). The Canonical Tradition in Ancient Egyptian Art. Cambridge University Press.",
+        "Hartwig, M.K. (2004). Tomb Painting and Identity in Ancient Thebes. Brepols."
+      ],
+      "iconography": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Wilkinson, R.H. (2003). The Complete Gods and Goddesses of Ancient Egypt. Thames and Hudson.",
+        "Andrews, C. (1994). Amulets of Ancient Egypt. British Museum Press.",
+        "Pinch, G. (1994). Magic in Ancient Egypt. British Museum Press."
+      ],
+      "materials": [
+        "Nicholson, P.T. & Shaw, I. (eds.) (2000). Ancient Egyptian Materials and Technology. Cambridge University Press.",
+        "Lucas, A. (1962). Ancient Egyptian Materials and Industries. Edward Arnold.",
+        "Lee, L. & Quirke, S. (2000). 'Painting materials.' In Nicholson & Shaw (eds.)."
+      ],
+      "funerary": [
+        "Taylor, J.H. (2010). Journey Through the Afterlife: Ancient Egyptian Book of the Dead. British Museum Press.",
+        "Taylor, J.H. (2001). Death and the Afterlife in Ancient Egypt. British Museum Press.",
+        "Hornung, E. (1999). The Ancient Egyptian Books of the Afterlife. Cornell University Press.",
+        "Faulkner, R.O. (1972). The Egyptian Book of the Dead. British Museum Press."
+      ],
+      "language_epigraphy": [
+        "Allen, J.P. (2010). Middle Egyptian: An Introduction to the Language and Culture of Hieroglyphs. Cambridge University Press.",
+        "Gardiner, A.H. (1957). Egyptian Grammar. Griffith Institute."
+      ],
+      "general": [
+        "Shaw, I. & Nicholson, P. (1995). British Museum Dictionary of Ancient Egypt. British Museum Press.",
+        "Quirke, S. & Spencer, J. (1992). The British Museum Book of Ancient Egypt. Thames and Hudson.",
+        "Aldred, C. (1988). Akhenaten: King of Egypt. Thames and Hudson.",
+        "Lehner, M. (1997). The Complete Pyramids. Thames and Hudson."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/references/academic_core.yaml"
+  },
+  {
+    "id": "egy.register_composition",
+    "type": "composition",
+    "name": "Register Composition",
+    "aliases": [
+      "horizontal registers",
+      "banded registers",
+      "tier layout"
+    ],
+    "summary": "The fundamental Egyptian compositional system of stacking narrative scenes in horizontal bands (registers) separated by baseline rules — the universal wall organisation format.\n",
+    "description": "The register system is the defining structural logic of Egyptian wall art. A wall surface is divided into horizontal bands (registers), each with its own baseline on which figures stand. Scenes progress from the bottom (most grounded, earthly) to the top (more celestial/divine), or from left to right within each register as narrative sequence. The number of registers varies by wall size and content; tomb walls typically have 3–6 registers. Each register is a self-contained scene separated from adjacent registers by a thin painted or incised line. Important figures may span two registers (scale hierarchy override). Register baselines are not perspective — all figures stand at the same size regardless of depth. The format gives Egyptian wall art its characteristic \"layered narrative\" quality that modern eyes read almost like a comic strip or storyboard.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "papyrus"
+      ],
+      "composition": [
+        "registers",
+        "narrative_sequence"
+      ],
+      "mood": [
+        "instructional",
+        "solemn"
+      ],
+      "shader_ops": [
+        "edge_ink"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Divide composition into clear horizontal bands with visible or implied baseline.",
+        "Progress narrative left-to-right within each register.",
+        "Stack registers bottom-to-top with earthly content at base, celestial at top.",
+        "Maintain consistent figure scale within each register (except scale hierarchy figures)."
+      ],
+      "avoid": [
+        "Avoid diagonal or zigzag scene boundaries — registers are strictly horizontal.",
+        "Avoid overlapping figures across register lines without clear intent.",
+        "Avoid Western single-scene perspective composition in this format."
+      ]
+    },
+    "parameters": {
+      "register_count_typical": [
+        3,
+        6
+      ],
+      "separator_line": "thin_painted_or_incised",
+      "reading_direction": "left_to_right",
+      "vertical_progression": "bottom_earthly_to_top_celestial"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.tomb_painting_style",
+        "egy.temple_relief_style",
+        "egy.scale_hierarchy_composition",
+        "egy.profile_canon_pose"
+      ],
+      "avoid_with": [
+        "egy.amarna_style"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian register composition, horizontal banded scenes, baseline figures, left-to-right narrative, stacked registers, tomb wall layout, instructional and solemn, ancient Egypt wall art\"\n",
+    "provenance": {
+      "sources": [
+        "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press.",
+        "Hartwig, M.K. (2004). Tomb Painting and Identity in Ancient Thebes. Brepols."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/composition/register_composition.yaml"
+  },
+  {
+    "id": "egy.relief_shading_shader",
+    "type": "rendering_shader",
+    "name": "Relief Shading Shader",
+    "aliases": [
+      "bas-relief shader",
+      "carved relief lighting",
+      "incised relief shader"
+    ],
+    "summary": "A directional shading shader that simulates the appearance of carved stone relief by generating shadow and highlight along carved edges based on a single directional light source.\n",
+    "description": "Egyptian carved relief — both raised (bas-relief) and sunk (intaglio) — is designed to be read under directional desert sunlight, which casts crisp shadows along carved edges. This shader replicates that lighting condition:\nInputs: a greyscale height/depth map (lighter = higher for raised relief; darker = lower for sunk relief), a directional light angle (default: upper-left 45°), and a stone base texture.\nOperations: 1. Normal map generation from height map. 2. Lambertian directional diffuse pass with hard shadow falloff. 3. Optional: ambient occlusion in deep recesses. 4. Composite over stone base texture (limestone/sandstone palette). 5. Optional: overlay painted colour fills at detected flat zones.\nThe key to Egyptian relief shading is the hardness of the shadow edge — unlike gradual rounded modelling, the shadow terminates at the carved edge. For digital use in fragment shaders, the depth map can be derived from a flat painted version by extracting the dark outline as the depth boundary.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "temple_relief",
+        "stone"
+      ],
+      "shader_ops": [
+        "relief_shading",
+        "edge_ink",
+        "noise"
+      ],
+      "surface": [
+        "carved"
+      ],
+      "mood": [
+        "solemn",
+        "monumental",
+        "regal"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use hard shadow edges at carved boundaries — soft gradients are wrong for Egyptian relief.",
+        "Apply light from upper-left as default (canonical desert sun angle).",
+        "Include ambient occlusion in deepest recesses for depth."
+      ],
+      "avoid": [
+        "Avoid soft gradient shading from edge to edge — this produces sculpture, not relief.",
+        "Avoid light angles from below — they read as unnatural and conflict with the convention."
+      ]
+    },
+    "parameters": {
+      "light_direction_degrees": 315,
+      "light_elevation_degrees": 45,
+      "shadow_hardness": 0.85,
+      "ao_strength": 0.3,
+      "ao_radius_px": 8,
+      "base_texture": "limestone"
+    },
+    "shader_code_reference": "// Fragment shader pseudocode\n// uniform sampler2D heightMap;\n// uniform sampler2D baseTexture;\n// uniform vec3 lightDir = normalize(vec3(-1.0, 1.0, 0.8));\n//\n// vec3 normal = normalFromHeightmap(heightMap, uv);\n// float diffuse = max(dot(normal, lightDir), 0.0);\n// float hardDiffuse = step(0.5, diffuse); // hard shadow edge\n// vec4 base = texture2D(baseTexture, uv);\n// gl_FragColor = base * (hardDiffuse * 0.8 + 0.2); // ambient + diffuse\n",
+    "compat": {
+      "pairs_with": [
+        "egy.stone_surface_texture",
+        "egy.temple_relief_style",
+        "egy.edge_ink_shader"
+      ],
+      "avoid_with": [
+        "egy.papyrus_scroll_style"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian relief shading, directional hard shadow at carved edges, upper-left light angle, limestone surface, bas-relief depth simulation, ambient occlusion in recesses, ancient carved stone look\"\n",
+    "provenance": {
+      "sources": [
+        "Pharr, M., Jakob, W., & Humphreys, G. (2016). Physically Based Rendering. MIT Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/rendering_shader/relief_shading_shader.yaml"
+  },
+  {
+    "id": "egy.remix_modern_overlay_pipeline",
+    "type": "pipeline",
+    "name": "Egyptian → Modern Remix Overlay Pipeline",
+    "aliases": [
+      "remix pipeline",
+      "Egyptian modern mashup pipeline",
+      "historical-first overlay workflow"
+    ],
+    "summary": "A pipeline for applying modern remix aesthetics as an overlay on a historically grounded Egyptian base composition, following the \"historical-first, remix as overlay\" design stance of this database.\n",
+    "description": "This pipeline implements the core design philosophy of this database: start with an authentic Egyptian composition, then add modern remix elements as a distinct, clearly-overlay layer. The remix does not replace the historical base — it sits on top of it.\nSTAGE 1: HISTORICAL BASE - Select a base composition from this DB (e.g., egy.register_composition,\n  egy.bilateral_symmetry_composition, egy.funerary_vignette_composition).\n- Populate with period-accurate figures, motifs, and palette. - Run through egy.ai_tomb_painting_pipeline for AI-generated base, or\n  egy.shader_relief_render_pipeline for 3D-to-relief base.\n- Output: a clean, period-accurate Egyptian composition.\nSTAGE 2: REMIX LAYER SELECTION Choose one remix entry from remix_modern/: - egy.techno_hieratic_poster_remix (sci-fi/tech overlay) - egy.museum_label_remix (exhibition context overlay) - egy.street_poster_remix (screen print / poster reduction) - egy.digital_glitch_remix (data corruption / historical loss metaphor)\nSTAGE 3: OVERLAY APPLICATION - The remix elements are applied as additional layers ABOVE the historical base. - They do not modify the underlying Egyptian composition. - Opacity and blend mode are used to maintain base visibility (base: 100%,\n  overlay: 40–80% depending on effect).\n\nSTAGE 4: TYPOGRAPHY / LABEL - Add contemporary typographic element if the remix calls for it. - Must be clearly in modern typeface — no pseudo-hieroglyphic labelling. - Optional: add clear attribution/artist signature and \"inspired by / remix\" label.\nSTAGE 5: QUALITY AND ETHICS CHECK - Verify: Egyptian base is readable beneath remix overlay. - Verify: no fake sacred texts presented as authentic. - Verify: artwork is clearly labelled as contemporary artistic invention. - Verify: no disrespectful treatment of funerary/sacred themes.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "remix": [
+        "modern_overlay",
+        "sci_fi",
+        "street_poster",
+        "museum_label",
+        "digital_glitch"
+      ],
+      "mood": [
+        "regal",
+        "mythic",
+        "luminous"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "palette_map",
+        "noise",
+        "bloom"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Complete the historical base BEFORE adding any remix elements.",
+        "Apply remix as overlay — modifying the historical base layer is not permitted.",
+        "Label all output clearly as contemporary artistic remix.",
+        "Conduct an ethics check before publishing any output involving sacred themes."
+      ],
+      "avoid": [
+        "Avoid 'baking' remix elements into the historical base layer.",
+        "Avoid presenting remix output as authentic historical documentation."
+      ]
+    },
+    "parameters": {
+      "base_opacity": 1,
+      "overlay_opacity_range": [
+        0.4,
+        0.8
+      ],
+      "ethics_check_required": true,
+      "attribution_label_required": true
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.ai_tomb_painting_pipeline",
+        "egy.techno_hieratic_poster_remix",
+        "egy.museum_label_remix",
+        "egy.street_poster_remix",
+        "egy.digital_glitch_remix"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian historical base composition, authentic period style foundation, modern remix overlay applied above, clearly labelled artistic invention, historical-first design stance, remix as non-destructive layer\"\n",
+    "provenance": {
+      "notes": "The \"historical-first, remix as overlay\" principle was established as the design stance for this database in the initial user specification.\n"
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/pipelines/remix_modern_overlay_pipeline.yaml"
+  },
+  {
+    "id": "egy.royal_regalia_pose",
+    "type": "canonical_pose",
+    "name": "Pharaoh in Royal Regalia Pose",
+    "aliases": [
+      "seated pharaoh",
+      "striding pharaoh",
+      "smiting pose",
+      "pharaoh with crook and flail"
+    ],
+    "summary": "The canonical pose set for the pharaoh: seated on throne with crook and flail crossed on chest, striding in the Osiride pose, or in the smiting pose with raised mace — all conveying absolute divine royal authority.\n",
+    "description": "The pharaoh has three primary canonical poses in Egyptian art: 1. Seated throne pose: pharaoh sits on a cube throne, hands on thighs (or\n   holding crook and flail crossed at chest), in frontal-with-profile-face position.\n   This is the most formal, static, and regal pose — used for colossal statues,\n   stelae, and naos shrine figures.\n2. Striding (Osiride) pose: standing with left leg advanced, arms crossed on\n   chest holding heqa crook and nekhakha flail. This pose is associated with\n   royal power and the Osiris identification of the king, common in\n   procession scenes and mummy form.\n3. Smiting pose: the pharaoh raises a mace or weapon in one hand above his head\n   while grasping a kneeling enemy by the hair with the other hand. This iconic\n   pose appears on virtually every pylon gate from the Old Kingdom onward as a\n   statement of royal military and divine power.\nIn all poses, the pharaoh wears appropriate royal regalia: double crown (pschent), blue crown (khepresh), nemes headdress, or white/red crown; uraeus on brow; false beard; shendyt kilt; bull's tail at the back.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "temple_relief",
+        "tomb_painting",
+        "stone"
+      ],
+      "motif_type": [
+        "royal"
+      ],
+      "composition": [
+        "profile_canon",
+        "scale_hierarchy",
+        "centered_emblem"
+      ],
+      "linework": [
+        "carved_relief",
+        "ink_outline",
+        "painted_fill"
+      ],
+      "palette": [
+        "gold_accent",
+        "mineral_pigments",
+        "lapis_turquoise"
+      ],
+      "mood": [
+        "regal",
+        "solemn",
+        "monumental"
+      ],
+      "shader_ops": [
+        "relief_shading",
+        "edge_ink"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Crown type must be contextually appropriate: pschent = unified rule; khepresh = military.",
+        "Include uraeus on the crown brow — essential royal identifier.",
+        "In smiting pose, enemy must be smaller (scale hierarchy).",
+        "Show false beard (straight = living pharaoh; curved = Osiris/divine)."
+      ],
+      "avoid": [
+        "Avoid mixing crown types on a single figure.",
+        "Avoid depicting the pharaoh without royal regalia in formal contexts."
+      ]
+    },
+    "parameters": {
+      "pose_variants": [
+        "seated_throne",
+        "striding_osiride",
+        "smiting"
+      ],
+      "uraeus_present": true,
+      "false_beard": true,
+      "headdress_options": [
+        "pschent",
+        "khepresh",
+        "nemes",
+        "white_hedjet",
+        "red_deshret"
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.scale_hierarchy_composition",
+        "egy.uraeus_cobra",
+        "egy.bilateral_symmetry_composition"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"pharaoh in royal regalia, smiting pose with mace, or seated on throne with crook and flail, nemes headdress with uraeus, false beard, scale hierarchy, ancient Egyptian regal and monumental\"\n",
+    "provenance": {
+      "sources": [
+        "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press.",
+        "Shaw, I. & Nicholson, P. (1995). British Museum Dictionary of Ancient Egypt."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/canonical_poses/royal_regalia_pose.yaml"
+  },
+  {
+    "id": "egy.scale_hierarchy_composition",
+    "type": "composition",
+    "name": "Scale Hierarchy",
+    "aliases": [
+      "hierarchic scale",
+      "conceptual scale",
+      "size hierarchy"
+    ],
+    "summary": "The Egyptian compositional convention where figure size indicates social/divine importance rather than spatial distance — pharaoh and gods are largest, servants smallest.\n",
+    "description": "Egyptian art does not use linear perspective. Instead, importance determines size — a convention modern scholars call \"hierarchic scale.\" The pharaoh is typically the largest figure in any scene, sometimes twice the height of courtiers. Gods depicted in human scale match the pharaoh in size. Servants, workers, prisoners, and enemies are markedly smaller. Children are tiny regardless of age. This system communicates social and cosmic hierarchy at a glance, independent of spatial arrangement. In battle scenes, the pharaoh in his chariot looms over diminutive enemy kings. In offering scenes, the royal figure dwarfs the priests. The scale difference also applies to animals — the pharaoh's horse may be as large as a human. This convention applies in both registers and single-scene compositions. It gives Egyptian art a deliberate, hierarchically organised visual grammar.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief"
+      ],
+      "composition": [
+        "scale_hierarchy",
+        "registers"
+      ],
+      "mood": [
+        "regal",
+        "monumental",
+        "solemn"
+      ],
+      "shader_ops": [
+        "edge_ink"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Make the pharaoh/primary divine figure the largest in the composition.",
+        "Scale servants and minor figures to roughly 1/2 to 1/3 of the royal figure height.",
+        "Apply consistently within a register — do not use perspective foreshortening."
+      ],
+      "avoid": [
+        "Avoid making enemy kings or captured figures the same size as the pharaoh.",
+        "Avoid naturalistic spatial scaling — this breaks the Egyptian conceptual grammar."
+      ]
+    },
+    "parameters": {
+      "pharaoh_to_servant_ratio": [
+        2,
+        3
+      ],
+      "divine_figure_ratio": 1,
+      "child_figure_ratio": 0.25
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.register_composition",
+        "egy.tomb_painting_style",
+        "egy.temple_relief_style",
+        "egy.profile_canon_pose"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian hierarchic scale, pharaoh figure largest in scene, servants half-size, conceptual importance determines figure height, no perspective, register composition, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Robins, G. (1994). Proportion and Style in Ancient Egyptian Art. University of Texas Press.",
+        "Davis, W. (1989). The Canonical Tradition in Ancient Egyptian Art. Cambridge University Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/composition/scale_hierarchy_composition.yaml"
+  },
+  {
+    "id": "egy.scarab",
+    "type": "symbol_motif",
+    "name": "Scarab",
+    "aliases": [
+      "Khepri scarab",
+      "scarab beetle",
+      "dung beetle",
+      "heart scarab"
+    ],
+    "summary": "The sacred dung beetle symbol of solar regeneration, self-creation, and rebirth — one of the most prolific amulet forms in ancient Egypt spanning all periods.\n",
+    "description": "The scarab (dung beetle, genus Scarabaeus) was associated with the god Khepri (\"he who comes into being\"), the manifestation of the rising sun. Just as the beetle rolls its ball of dung across the ground, Khepri was imagined rolling the solar disc across the sky. Scarab amulets were mass-produced in faience, stone, and precious materials from the Middle Kingdom onward. The underside (base) was often inscribed with names, titles, protective texts, or decorative motifs. Heart scarabs (placed on the chest of mummies) bore Chapter 30B of the Book of the Dead. Visually, the scarab is rendered with a domed carapace, outstretched legs, and sometimes shown with wings spread in the winged scarab form. The winged scarab became a heraldic solar emblem, especially on pectorals and coffin lids.\n",
+    "tags": {
+      "period": [
+        "middle_kingdom",
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "faience",
+        "gold",
+        "stone",
+        "papyrus",
+        "tomb_painting"
+      ],
+      "motif_type": [
+        "deity",
+        "funerary",
+        "celestial"
+      ],
+      "linework": [
+        "carved_relief",
+        "ink_outline",
+        "painted_fill"
+      ],
+      "palette": [
+        "lapis_turquoise",
+        "gold_accent",
+        "mineral_pigments"
+      ],
+      "mood": [
+        "solemn",
+        "mythic",
+        "luminous"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "relief_shading",
+        "bloom"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Show carapace with segmented wing-case lines for naturalistic reference.",
+        "For winged scarab: spread wings symmetrically, solar disc above or in foreclaws.",
+        "Faience colourway: bright turquoise-blue glaze with black detailing."
+      ],
+      "avoid": [
+        "Avoid depicting as a realistic entomological illustration — stylise to period canon.",
+        "Avoid using base inscription space with actual hieroglyphic text without expertise."
+      ]
+    },
+    "parameters": {
+      "winged_variant": true,
+      "carapace_segments": 3,
+      "primary_colour_faience": "#3B9EBF",
+      "solar_disc_colour": "#D4A82A"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.winged_sun_disc",
+        "egy.ankh",
+        "egy.solar_gold_palette"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian scarab beetle symbol, Khepri solar emblem, winged scarab spread, faience turquoise and gold, domed carapace, funerary amulet style, solemn and luminous, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Andrews, C. (1994). Amulets of Ancient Egypt. British Museum Press.",
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/scarab.yaml"
+  },
+  {
+    "id": "egy.scribe_seated_pose",
+    "type": "canonical_pose",
+    "name": "Seated Scribe Pose",
+    "aliases": [
+      "cross-legged scribe",
+      "scribal pose",
+      "Hapy-scribe posture"
+    ],
+    "summary": "The cross-legged seated pose of the Egyptian scribe — knees up, papyrus scroll stretched across the lap, brush raised — a symbol of intellectual authority and elite status.\n",
+    "description": "The seated scribe pose is one of the few Egyptian canonical positions that departs from the striding/standing profile: the figure sits cross-legged on the ground with a papyrus scroll stretched taut across the knees and the lap. The upper body is frontal or three-quarter (an unusual allowance in Egyptian canon); the head is in profile. The right hand holds a writing brush, poised or touching the scroll; the left hand steadies the scroll's edge. This pose is found in both sculpture-in-the-round (the famous \"Seated Scribe\" Cairo Antiquities; Louvre E3023) and in relief/painting contexts where scribes record inventories, tallies, and royal decrees. The pose conveys literacy, administrative authority, and proximity to the king or deity. Palettes, pen cases, and water pots may accompany the figure. The pose is also used for the deity Thoth (as ibis-headed divine scribe).\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "stone",
+        "tomb_painting",
+        "temple_relief"
+      ],
+      "motif_type": [
+        "daily_life",
+        "royal",
+        "deity"
+      ],
+      "composition": [
+        "vignette",
+        "registers"
+      ],
+      "linework": [
+        "ink_outline",
+        "carved_relief",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "ochre_red",
+        "white_ground"
+      ],
+      "mood": [
+        "instructional",
+        "solemn",
+        "intimate"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "relief_shading"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Cross-legged seated position with knees up — this is the defining element.",
+        "Stretch papyrus scroll across the lap — it must be taut and clearly readable.",
+        "Include writing implements: brush, palette, water pot."
+      ],
+      "avoid": [
+        "Avoid showing the scribe writing on a table — the lap scroll is the canonical form.",
+        "Avoid filling the scroll with actual hieroglyphic text unless quoting known record."
+      ]
+    },
+    "parameters": {
+      "leg_position": "cross_legged",
+      "scroll_on_lap": true,
+      "brush_in_hand": true,
+      "writing_implement": [
+        "brush_palette",
+        "water_pot"
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.papyrus_scroll_style",
+        "egy.register_composition",
+        "egy.instructional_mood"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian seated scribe, cross-legged with papyrus scroll on lap, brush raised, palette and water pot, inscribed detail, Old Kingdom or New Kingdom, intimate and instructional, tomb painting style\"\n",
+    "provenance": {
+      "sources": [
+        "Strouhal, E. (1992). Life of the Ancient Egyptians. University of Oklahoma Press.",
+        "James, T.G.H. (1985). Egyptian Painting. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/canonical_poses/scribe_seated_pose.yaml"
+  },
+  {
+    "id": "egy.shader_relief_render_pipeline",
+    "type": "pipeline",
+    "name": "3D → Relief Render Pipeline",
+    "aliases": [
+      "relief render pipeline",
+      "3D to relief shader pipeline",
+      "bas-relief render workflow"
+    ],
+    "summary": "A pipeline for converting 3D-rendered or photographic source material into a period-accurate Egyptian bas-relief appearance using a sequence of shader passes.\n",
+    "description": "This pipeline converts any 3D render (Blender, Cinema 4D, etc.) or photographic source into the visual aesthetic of carved Egyptian stone relief.\nSTAGE 1: SOURCE PREPARATION - Input: 3D render with separate passes: colour (beauty), depth, normal map. - Or: photograph of a sculpture, with estimated depth map generated by monocular\n  depth estimation (MiDaS, ZoeDepth, etc.).\n\nSTAGE 2: HEIGHT MAP DERIVATION - Use depth pass or estimated depth to create a normalised height map. - Flatten the height map: boost mid-range, compress extremes — Egyptian relief\n  is shallow, not sculptural.\n- Blur height map slightly (Gaussian σ=1.5px) for smooth transitions.\nSTAGE 3: NORMAL MAP GENERATION From the processed height map, generate a normal map (Sobel-based).\nSTAGE 4: RELIEF SHADING PASS Apply egy.relief_shading_shader with: - Light direction: upper-left 45° (315°) - Hard shadow threshold: 0.85 - Base texture: select stone type from egy.stone_surface_texture\nSTAGE 5: COLOUR FILL (optional) - Assign flat pigment colours to detected flat zones using colour segmentation. - Apply egy.palette_map_shader to colour zones. - Preserve carved edge zones (shadow + highlight from Stage 4) without colour fill.\nSTAGE 6: EDGE INK PASS Apply egy.edge_ink_shader over the composite to add ink-like edge definition.\nSTAGE 7: AGING (optional) Apply egy.dust_patina_artifact or egy.pigment_flake_artifact per target context.\nOUTPUT: A flat-perspective image that reads as carved stone relief painting.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "temple_relief",
+        "stone"
+      ],
+      "surface": [
+        "carved",
+        "painted",
+        "weathered"
+      ],
+      "shader_ops": [
+        "relief_shading",
+        "edge_ink",
+        "palette_map",
+        "noise",
+        "displacement"
+      ],
+      "mood": [
+        "monumental",
+        "regal",
+        "solemn"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Flatten the depth range in STAGE 2 — over-deep maps look sculptural, not relief.",
+        "Apply hard shadow in STAGE 4 — this is the key differentiator from 3D rendering.",
+        "Stone base texture must be warm-toned (limestone or sandstone)."
+      ],
+      "avoid": [
+        "Avoid smooth gradient shading from the 3D source — flatten and threshold.",
+        "Avoid including specular highlights from the original 3D pass — matte only."
+      ]
+    },
+    "parameters": {
+      "height_map_blur_sigma": 1.5,
+      "light_direction_degrees": 315,
+      "shadow_threshold": 0.85,
+      "stone_base": "limestone",
+      "aging_coverage_percent": [
+        0,
+        20
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.relief_shading_shader",
+        "egy.edge_ink_shader",
+        "egy.stone_surface_texture",
+        "egy.palette_map_shader"
+      ],
+      "avoid_with": [
+        "egy.papyrus_scroll_style"
+      ]
+    },
+    "prompt_fragment": "\"3D to Egyptian relief render pipeline, carved limestone relief appearance, hard-edge directional shadow, warm stone base, flat colour zones, period-accurate relief aesthetic\"\n",
+    "provenance": {
+      "notes": "Depth estimation using MiDaS (https://github.com/isl-org/MiDaS) is recommended for photographic inputs when a depth pass is not available.\n"
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/pipelines/shader_relief_render_pipeline.yaml"
+  },
+  {
+    "id": "egy.solar_barque",
+    "type": "symbol_motif",
+    "name": "Solar Barque",
+    "aliases": [
+      "sun boat",
+      "barque of Ra",
+      "Manjet",
+      "Mesektet",
+      "night barque",
+      "day barque"
+    ],
+    "summary": "The divine boat that carries the sun god Ra across the sky by day and through the underworld by night — the fundamental vehicle of Egyptian cosmology.\n",
+    "description": "In ancient Egyptian cosmology, the sun god Ra (or Amun-Ra) traverses the sky in the solar barque (manjet by day, mesektet by night). The day barque sails east to west across the heavenly ocean (Nun); at sunset, Ra boards the night barque and travels through the twelve hours of the underworld (Duat), confronting Apep/Apophis before sunrise resurrection. The solar barque is depicted as a papyrus-reed boat with high prow and stern, carrying the sun disc (often in a shrine), attended by divine crew including Thoth, Maat, Sia, Heka, and others. The motif appears prominently in the Amduat, Book of Gates, and funerary papyri. Votive model barques were placed in temples. The papyrus-bundle hull and solar disc shrine element are the key identifying visual components.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "papyrus",
+        "temple_relief"
+      ],
+      "motif_type": [
+        "deity",
+        "celestial",
+        "funerary"
+      ],
+      "composition": [
+        "registers",
+        "narrative_sequence"
+      ],
+      "linework": [
+        "ink_outline",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "gold_accent",
+        "lapis_turquoise"
+      ],
+      "mood": [
+        "mythic",
+        "solemn",
+        "luminous"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "palette_map",
+        "bloom"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Show papyrus-bundle hull with upturned prow and stern.",
+        "Include solar disc (in a shrine or visible on deck) as identifying element.",
+        "Place in register context alongside text/spells for funerary papyrus use."
+      ],
+      "avoid": [
+        "Avoid realistic water rendering — use Egyptian stylised wave patterns.",
+        "Avoid modern naval or nautical design language on the barque hull."
+      ]
+    },
+    "parameters": {
+      "hull_material": "papyrus_bundle",
+      "solar_disc_on_deck": true,
+      "crew_count": "variable"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.winged_sun_disc",
+        "egy.register_composition",
+        "egy.papyrus_scroll_style"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian solar barque, sun boat of Ra, papyrus-bundle hull, solar disc shrine on deck, divine crew, Book of the Dead vignette, gold and lapis, mythic and luminous, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Hornung, E. (1999). The Ancient Egyptian Books of the Afterlife. Cornell University Press.",
+        "Wilkinson, R.H. (2003). The Complete Gods and Goddesses of Ancient Egypt."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/solar_barque.yaml"
+  },
+  {
+    "id": "egy.solar_gold_palette",
+    "type": "color_system",
+    "name": "Solar Gold Palette",
+    "aliases": [
+      "gold and ochre palette",
+      "sun gold palette",
+      "Amun-Ra colour scheme"
+    ],
+    "summary": "A warm solar palette centred on gold, amber, and yellow ochre accented by deep lapis blue — evoking the sun, divine golden flesh, and celestial light of Egyptian solar theology.\n",
+    "description": "The solar gold palette is anchored in the Egyptian theological identity of gold as the flesh of the gods and the substance of the sun's light. Used for divine figures (especially solar deities — Ra, Amun-Ra, Khepri, Aten), royal jewellery contexts, and luminous funerary art. The palette pairs warm gold and amber tones with deep lapis lazuli blue as the celestial contrast, following the actual combinations found in royal jewellery (Tutankhamun's pectorals, for example). Carbon black outlines and white calcite highlights complete the system. This palette is the most festive and luminous of the Egyptian colour systems — appropriate for divine enthronement, solar barque, and celestial ceiling contexts.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "gold",
+        "tomb_painting",
+        "temple_relief",
+        "faience"
+      ],
+      "palette": [
+        "gold_accent",
+        "lapis_turquoise",
+        "mineral_pigments"
+      ],
+      "mood": [
+        "luminous",
+        "regal",
+        "mythic"
+      ],
+      "shader_ops": [
+        "bloom",
+        "palette_map"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Lead with warm gold (#C8922A–#D4A82A) as the dominant warm tone.",
+        "Contrast with deep lapis blue (#1A3A6B–#2A5B9A) as the celestial cool.",
+        "Use carbon black for outline and deep shadow.",
+        "Include calcite white for sky/light highlights."
+      ],
+      "avoid": [
+        "Avoid cool yellows (lemon yellow) — use only warm amber-gold range.",
+        "Avoid mixing saturated red or green as primaries — gold and lapis are the stars."
+      ]
+    },
+    "parameters": {
+      "primary": "#D4A82A",
+      "secondary": "#C8922A",
+      "accent_blue": "#2A5B9A",
+      "outline": "#1A1208",
+      "highlight": "#F5F0E8",
+      "palette_hex": [
+        "#D4A82A",
+        "#C8922A",
+        "#B8841E",
+        "#2A5B9A",
+        "#1A3A6B",
+        "#1A1208",
+        "#F5F0E8"
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.winged_sun_disc",
+        "egy.gold_leaf_gilded_surface",
+        "egy.scarab"
+      ],
+      "avoid_with": [
+        "egy.tomb_red_ochre_palette"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian solar gold palette, warm amber gold and lapis blue, divine golden flesh, celestial contrast, luminous and regal, royal jewellery colour scheme, ancient Egyptian sun deity aesthetic\"\n",
+    "provenance": {
+      "sources": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Aldred, C. (1971). Jewels of the Pharaohs. Thames and Hudson."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/color_systems/solar_gold_palette.yaml"
+  },
+  {
+    "id": "egy.sphinx",
+    "type": "symbol_motif",
+    "name": "Sphinx",
+    "aliases": [
+      "sphinx",
+      "Great Sphinx",
+      "human-headed lion",
+      "androsphinx",
+      "criosphinx",
+      "hieracosphinx"
+    ],
+    "summary": "The composite creature with lion body and human (or ram or falcon) head — a symbol of royal power, solar guardianship, and the liminal threshold between worlds.\n",
+    "description": "The sphinx is the classic Egyptian composite being: the power of the lion combined with the intelligence and divinity of the human head (androsphinx), ram head (criosphinx, associated with Amun), or falcon head (hieracosphinx, associated with Horus). The Great Sphinx at Giza (c. 2500 BCE) is the most famous example — a colossal limestone androsphinx wearing the nemes headdress, facing east to receive the sunrise. Sphinxes appear as avenue figures lining processional routes to temples (criosphinx avenues at Karnak), as tomb guardians, on amulets, and in relief. The recumbent pose (paws extended, body flat) is canonical. The hieracosphinx appears frequently on royal jewellery (pectorals). Compositionally, paired sphinxes frame an entrance or central emblem as heraldic guardians.\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "stone",
+        "tomb_painting",
+        "temple_relief",
+        "gold"
+      ],
+      "motif_type": [
+        "royal",
+        "deity",
+        "animal"
+      ],
+      "composition": [
+        "bilateral_symmetry",
+        "centered_emblem",
+        "vignette"
+      ],
+      "linework": [
+        "carved_relief",
+        "ink_outline",
+        "painted_fill"
+      ],
+      "palette": [
+        "ochre_red",
+        "gold_accent",
+        "mineral_pigments"
+      ],
+      "surface": [
+        "carved",
+        "weathered"
+      ],
+      "mood": [
+        "regal",
+        "solemn",
+        "monumental",
+        "mythic"
+      ],
+      "shader_ops": [
+        "relief_shading",
+        "edge_ink",
+        "noise"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use recumbent pose (lion body lying down, paws forward) as canonical form.",
+        "Include nemes headdress for androsphinx royal identification.",
+        "Pair as bilateral guardians flanking entrance or central emblem."
+      ],
+      "avoid": [
+        "Avoid standing or crouching poses — the recumbent form is definitively Egyptian.",
+        "Avoid winged variants (more Greek-style) without clear remix/period labelling."
+      ]
+    },
+    "parameters": {
+      "variant": "androsphinx",
+      "pose": "recumbent",
+      "headdress": "nemes"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.bilateral_symmetry_composition",
+        "egy.winged_sun_disc",
+        "egy.stone_surface_texture"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian sphinx, recumbent lion body, human head with nemes headdress, carved limestone, paws extended, monumental guardian, regal and solemn, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Lehner, M. (1997). The Complete Pyramids. Thames and Hudson.",
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/sphinx.yaml"
+  },
+  {
+    "id": "egy.stone_surface_texture",
+    "type": "material_texture",
+    "name": "Egyptian Stone Surface Texture",
+    "aliases": [
+      "limestone texture",
+      "sandstone grain",
+      "granite surface",
+      "carved stone"
+    ],
+    "summary": "The characteristic surface qualities of carved Egyptian stonework — limestone, sandstone, and granite — with their grain, colour, and weathering profiles for digital simulation.\n",
+    "description": "Egyptian monumental art is primarily executed in three stone types, each with distinct surface characteristics:\n1. Limestone: The most common medium for tomb and temple relief in the Memphis\n   region (Giza, Saqqara). Cream-to-warm-white base colour; fine grain;\n   excellent for shallow relief carving; weathers to warm ochre with dust patina.\n   Nummulitic limestone (with visible fossil inclusions) is characteristic of\n   Giza blocks.\n\n2. Sandstone: Dominant in Upper Egypt (Luxor, Karnak, Edfu, Aswan). Warm ochre-\n   to-buff colour; coarser grain than limestone; suitable for deeply cut relief;\n   slightly friable surface. Nubian sandstone (brown-red) at Aswan and Nubian sites.\n\n3. Granite (red/grey): Used for statuary, obelisks, sarcophagi, and high-wear\n   architectural elements. Deep red-pink (Aswan red granite) or grey-blue;\n   crystalline grain visible at close range; highly resistant to weathering.\n\nSurface aging: all three stone types develop dust/calcium patina in desert conditions; limestone erodes more quickly than sandstone; granite retains sharpness the longest. Modern conservation treatments (consolidants) can give an artificially bright surface.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "stone",
+        "temple_relief"
+      ],
+      "surface": [
+        "carved",
+        "weathered"
+      ],
+      "artifact": [
+        "dust_patina",
+        "edge_wear",
+        "abrasion",
+        "lacuna"
+      ],
+      "shader_ops": [
+        "noise",
+        "displacement",
+        "relief_shading"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Warm the base colour: limestone = cream/ochre, sandstone = buff/amber, granite = red-pink.",
+        "Add dust patina and edge wear as default aging simulation.",
+        "Use directional side-lighting to read carved surface as relief."
+      ],
+      "avoid": [
+        "Avoid cold grey stone colour — Egyptian stone is almost always warm-toned.",
+        "Avoid over-polished surfaces for relief work — most Egyptian stone carving is matte."
+      ]
+    },
+    "parameters": {
+      "stone_types": [
+        {
+          "name": "limestone",
+          "base_hex": "#D8C9A3",
+          "grain": "fine",
+          "patina_hex": "#BFA878"
+        },
+        {
+          "name": "sandstone",
+          "base_hex": "#C4A26A",
+          "grain": "medium",
+          "patina_hex": "#A88A50"
+        },
+        {
+          "name": "granite_red",
+          "base_hex": "#8B4E4E",
+          "grain": "crystalline",
+          "patina_hex": "#7A4040"
+        }
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.temple_relief_style",
+        "egy.relief_shading_shader",
+        "egy.old_kingdom_relief_style"
+      ],
+      "avoid_with": [
+        "egy.papyrus_scroll_style"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian carved limestone surface, warm cream-ochre stone, dust patina, directional side-lighting relief, edge wear, sandstone or granite variant, ancient monumental texture\"\n",
+    "provenance": {
+      "sources": [
+        "Nicholson, P.T. & Shaw, I. (eds.) (2000). Ancient Egyptian Materials and Technology. Cambridge University Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/materials_textures/stone_surface_texture.yaml"
+  },
+  {
+    "id": "egy.street_poster_remix",
+    "type": "remix",
+    "name": "Street Poster / Screen Print Remix",
+    "aliases": [
+      "Egyptian street art",
+      "propaganda poster style",
+      "screen print remix",
+      "linocut remix"
+    ],
+    "summary": "A bold, high-contrast remix placing Egyptian canonical figures and symbols in the visual language of screen print, linocut, or propaganda poster design — using limited flat colour, heavy ink, and typographic overlays.\n",
+    "description": "This remix channels the poster and print traditions — Soviet constructivism, WPA prints, Shepard Fairey-style stencil work, and risograph zine culture — to create large-format statement pieces grounded in Egyptian visual language. The \"historical-first\" base: canonical profile figures, register composition, and authentic motifs. The remix layer: dramatic flat-colour reduction (2–4 inks), heavy grain texture from screen print halftone or risograph raster, bold slab- serif or condensed display type, and oversized motifs that bleed to the edge.\nColour palette options: - 2-colour: black + ochre gold (most powerful) - 3-colour: black + ochre + turquoise - 4-colour: full split-fountain or risograph CMYK-adjacent\nThe grammar: Egyptian register structures become horizontal poster divisions; scale hierarchy drives the primary focal point; hieroglyphic-inspired marks fill border bands as texture (not text). The result reads as a political poster but with an ancient Egyptian soul.\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "remix": [
+        "street_poster",
+        "modern_overlay",
+        "popculture"
+      ],
+      "composition": [
+        "registers",
+        "scale_hierarchy",
+        "bilateral_symmetry"
+      ],
+      "linework": [
+        "ink_outline"
+      ],
+      "palette": [
+        "limited",
+        "gold_accent",
+        "lapis_turquoise"
+      ],
+      "mood": [
+        "regal",
+        "monumental",
+        "mythic"
+      ],
+      "shader_ops": [
+        "halftone",
+        "edge_ink",
+        "noise"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Reduce to 2–4 flat ink colours — screen print discipline.",
+        "Apply coarse halftone or risograph grain texture for print authenticity.",
+        "Maintain Egyptian canonical figure proportions even in simplified form.",
+        "Include bold typographic element (title, phrase) using period-adjacent slab or condensed type."
+      ],
+      "avoid": [
+        "Avoid photorealism — screen print is flat, graphic, and high-contrast.",
+        "Avoid more than 4 inks unless specifically targeting full-colour poster look.",
+        "Avoid fake hieroglyphic text in the typographic elements."
+      ]
+    },
+    "parameters": {
+      "ink_count": [
+        2,
+        4
+      ],
+      "halftone_lpi": 55,
+      "grain_type": "risograph_or_screenprint",
+      "type_style": "condensed_slab_serif"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.edge_ink_shader",
+        "egy.monochrome_black_outline_palette",
+        "egy.scale_hierarchy_composition"
+      ],
+      "avoid_with": [
+        "egy.mineral_pigment_palette"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian screen print poster remix, 2-3 flat colour inks, black and gold ochre, risograph grain texture, canonical profile figure, bold condensed type overlay, register composition, graphic and monumental\"\n",
+    "provenance": {
+      "notes": "Reference: WPA Federal Art Project posters (1930s), Shepard Fairey's stencil work, and the Risograph poster community for stylistic grounding.\n"
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/remix_modern/street_poster_remix.yaml"
+  },
+  {
+    "id": "egy.techno_hieratic_poster_remix",
+    "type": "remix",
+    "name": "Techno-Hieratic Poster Remix",
+    "aliases": [
+      "Egyptian sci-fi poster",
+      "cyber-egypt",
+      "techno-pharaoh",
+      "Afrofuturist Egypt"
+    ],
+    "summary": "A modern remix overlay that places Egyptian formal visual grammar — registers, hieroglyphic-inspired marks, canonical figures — in a contemporary technical/sci-fi aesthetic context as poster art.\n",
+    "description": "This remix applies the \"historical-first, remix as overlay\" principle: the underlying composition, proportions, and figure canon remain authentically Egyptian; modern technical or sci-fi elements are added as surface layer. Key overlay elements: - Circuit trace patterns replace decorative border bands (following the\n  horizontal register rhythm).\n- Canonical figures wear both traditional regalia AND technological accessories\n  (holographic ankh amulets, integrated circuit crowns, data-glyph cartouches).\n- Glowing neon colour fills (electric blue, green, or magenta) overlay the\n  canonical mineral pigment zones while maintaining the flat-fill convention.\n- Abstract glyph-mark columns use the correct column-narrow layout but employ\n  invented tech-inspired marks (circuit symbols, binary patterns in column format).\n- The overall composition remains register-structured — the sci-fi elements\n  do not break the horizontal band logic.\nOutput format: contemporary screen-printed or digital poster aesthetic, with bold type (ideally a geometric or Egyptian-revival typeface for labels).\n",
+    "tags": {
+      "period": [
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "temple_relief",
+        "tomb_painting"
+      ],
+      "composition": [
+        "registers",
+        "profile_canon"
+      ],
+      "remix": [
+        "sci_fi",
+        "modern_overlay",
+        "street_poster"
+      ],
+      "mood": [
+        "regal",
+        "mythic",
+        "luminous"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "palette_map",
+        "bloom"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Maintain Egyptian register and profile-canon composition as the structural base.",
+        "Apply sci-fi/tech elements as overlay on top of correctly proportioned canonical figures.",
+        "Label artwork clearly as contemporary artistic invention, not historical reproduction.",
+        "Use circuit/tech border elements to replace (not mix with) period-accurate borders."
+      ],
+      "avoid": [
+        "Avoid replacing the human/deity figure canon with robotic or non-figure elements.",
+        "Avoid fake hieroglyphic texts claiming to be actual Egyptian script.",
+        "Avoid disrespectful treatments of sacred themes (Opening of the Mouth, etc.)."
+      ]
+    },
+    "parameters": {
+      "overlay_palette": [
+        "#00F0FF",
+        "#00FF90",
+        "#FF00A0"
+      ],
+      "maintain_register_structure": true,
+      "glyph_columns": "invented_tech_marks_only"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.edge_ink_shader",
+        "egy.register_composition",
+        "egy.hieroglyphic_inspired_marks_rules"
+      ],
+      "avoid_with": [
+        "egy.mineral_pigment_palette"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian techno-poster remix, canonical profile figures with circuit detail overlay, register layout preserved, neon glow accents on mineral pigment base, hieroglyphic-inspired tech glyph columns, Afrofuturist pharaoh aesthetic, bold poster composition\"\n",
+    "provenance": {
+      "notes": "This remix is explicitly a contemporary artistic invention. Reference the Afrofuturism movement and artists like Lina Iris Viktor for respectful high-profile examples of this aesthetic territory.\n"
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/remix_modern/techno_hieratic_poster_remix.yaml"
+  },
+  {
+    "id": "egy.temple_relief_style",
+    "type": "style",
+    "name": "Temple Relief Style",
+    "aliases": [
+      "bas-relief",
+      "raised relief",
+      "sunken relief",
+      "sunk relief"
+    ],
+    "summary": "Carved and pigmented stone relief work found on temple walls, combining sculptural depth with painted colour, spanning Old Kingdom through Ptolemaic periods.\n",
+    "description": "Temple relief is the monumental public face of Egyptian art. Two techniques dominate: raised relief (figures project above the background) and sunken/sunk relief (figures are carved below the surface, ideal for bright desert sunlight which casts crisp shadows). Both were typically painted after carving. The style is characterised by crisp carved edges, directional side-lighting that reads as line, flat pigment colour zones, and hierarchical composition. Ptolemaic temple reliefs (Edfu, Dendera, Philae) show increased technical complexity with finer detail. The formal register system and composite-profile canon apply throughout.\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "middle_kingdom",
+        "new_kingdom",
+        "ptolemaic",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "temple_relief",
+        "stone"
+      ],
+      "composition": [
+        "registers",
+        "profile_canon",
+        "scale_hierarchy",
+        "bilateral_symmetry"
+      ],
+      "linework": [
+        "carved_relief",
+        "painted_fill",
+        "ink_outline"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "gold_accent",
+        "limited"
+      ],
+      "surface": [
+        "carved",
+        "painted",
+        "weathered"
+      ],
+      "artifact": [
+        "edge_wear",
+        "abrasion",
+        "lacuna",
+        "dust_patina"
+      ],
+      "mood": [
+        "regal",
+        "monumental",
+        "mythic",
+        "solemn"
+      ],
+      "shader_ops": [
+        "relief_shading",
+        "edge_ink",
+        "palette_map",
+        "noise"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use directional side-lighting (typically from upper-left) to read carved edges.",
+        "Apply flat pigment colour fields within carved contour lines.",
+        "Maintain register baseline structure on continuous wall surfaces.",
+        "Add weathering (abrasion, dust patina) for historical grounding."
+      ],
+      "avoid": [
+        "Avoid soft shadow gradients — keep shadow sharp at carved edges.",
+        "Avoid decorative detail that would be unreadable at architectural scale."
+      ]
+    },
+    "parameters": {
+      "light_direction": "upper_left",
+      "stone_types": [
+        "limestone",
+        "sandstone",
+        "granite",
+        "quartzite"
+      ],
+      "relief_depth_mm": [
+        2,
+        15
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.register_composition",
+        "egy.scale_hierarchy_composition",
+        "egy.relief_shading_shader",
+        "egy.stone_surface_texture"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"ancient Egyptian temple relief carving, raised relief, painted stone, directional side-lighting, flat pigment fills, monumental register composition, Ptolemaic temple style, weathered limestone, regal and mythic\"\n",
+    "provenance": {
+      "sources": [
+        "Hawass, Z. (2003). Secrets of the Valley of the Kings. National Geographic.",
+        "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/styles/temple_relief_style.yaml"
+  },
+  {
+    "id": "egy.tomb_painting_style",
+    "type": "style",
+    "name": "Egyptian Tomb Painting Style",
+    "aliases": [
+      "New Kingdom tomb art",
+      "mural painting style"
+    ],
+    "summary": "The canonical flat-colour painted mural style found in New Kingdom rock-cut tombs, characterised by register layouts, composite figures, and mineral pigments on white plaster.\n",
+    "description": "Ancient Egyptian tomb painting reached its apex in the New Kingdom (c. 1550–1070 BCE), particularly in the Theban necropolis (Valley of the Kings, Tombs of the Nobles). The style is defined by: a white or cream plaster ground; flat areas of mineral pigment (Egyptian blue, red ochre, yellow ochre, green, black, white) bounded by black ink outlines; figures arranged in horizontal registers with a baseline; the composite-profile canon (frontal torso, profile head and legs); and scale hierarchy where size denotes rank. Backgrounds are typically plain, leaving the emphasis on figures and hieroglyphic captions. Scenes cover daily life, funerary ritual, offerings, and mythological journeys.\n",
+    "tags": {
+      "period": [
+        "new_kingdom",
+        "middle_kingdom"
+      ],
+      "medium": [
+        "tomb_painting"
+      ],
+      "composition": [
+        "registers",
+        "profile_canon",
+        "scale_hierarchy"
+      ],
+      "linework": [
+        "ink_outline",
+        "painted_fill"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "white_ground",
+        "limited"
+      ],
+      "surface": [
+        "painted"
+      ],
+      "mood": [
+        "solemn",
+        "instructional",
+        "mythic"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "palette_map",
+        "noise"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use flat, even colour fills bounded by a confident black ink outline.",
+        "Organise figures in horizontal baseline registers.",
+        "Apply composite-profile canon to all human and divine figures.",
+        "Limit palette to the six canonical mineral pigments of the period.",
+        "Include a white or cream ground to maximise colour legibility."
+      ],
+      "avoid": [
+        "Avoid atmospheric perspective, cast shadows, or volumetric shading.",
+        "Avoid photorealistic rendering — flatness is the aesthetic principle.",
+        "Avoid mixing unrelated cultural motifs into the same register without remix labelling."
+      ]
+    },
+    "parameters": {
+      "ground_colour": "#F5EFD8",
+      "outline_colour": "#1A1208",
+      "canonical_pigments": [
+        {
+          "name": "Egyptian Blue",
+          "hex": "#3B6FA0"
+        },
+        {
+          "name": "Red Ochre",
+          "hex": "#B94A2C"
+        },
+        {
+          "name": "Yellow Ochre",
+          "hex": "#D4A82A"
+        },
+        {
+          "name": "Malachite Green",
+          "hex": "#3A7D44"
+        },
+        {
+          "name": "Carbon Black",
+          "hex": "#1A1208"
+        },
+        {
+          "name": "Calcite White",
+          "hex": "#F5F0E8"
+        }
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.register_composition",
+        "egy.profile_canon_pose",
+        "egy.scale_hierarchy_composition",
+        "egy.mineral_pigment_palette",
+        "egy.papyrus_fiber_artifact"
+      ],
+      "avoid_with": [
+        "egy.chiaroscuro_shader"
+      ]
+    },
+    "prompt_fragment": "\"ancient Egyptian tomb painting, flat mineral pigment fills, bold black ink outline, horizontal register composition, white plaster ground, New Kingdom, composite profile figures, solemn funerary atmosphere\"\n",
+    "provenance": {
+      "sources": [
+        "Manniche, L. (1997). Egyptian Art. British Museum Press.",
+        "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/styles/tomb_painting_style.yaml"
+  },
+  {
+    "id": "egy.tomb_red_ochre_palette",
+    "type": "color_system",
+    "name": "Tomb Ochre Palette",
+    "aliases": [
+      "ochre and black palette",
+      "red tomb palette",
+      "warm earth palette"
+    ],
+    "summary": "The warm earth-toned palette of ochre red, yellow ochre, carbon black, and calcite white — the workhorse colour system of Egyptian tomb painting.\n",
+    "description": "The tomb ochre palette is the everyday colour system of Egyptian funerary wall painting, emphasising warm mineral earths over the more festive gold and lapis tones. It draws on red ochre for male skin and warm accents, yellow ochre for female skin and grounds, carbon black for outlines and detail, and calcite white for garments and highlights. Egyptian blue and malachite green appear as accents for divine colour zones and vegetation, but the dominant warmth is earth-based. This palette reads as grounded, solemn, and historically authentic at a glance. It is the most legible at small scale and in reproduction, making it useful for print and low-resolution contexts. The palette also includes the warm cream of the plaster ground, which glows through thin paint washes.\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "new_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "papyrus"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "ochre_red",
+        "limited"
+      ],
+      "surface": [
+        "painted"
+      ],
+      "mood": [
+        "solemn",
+        "instructional"
+      ],
+      "shader_ops": [
+        "palette_map",
+        "noise",
+        "vignette_burn"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Use red-brown (#B94A2C) for male skin, yellow-ochre (#C8922A) for female skin.",
+        "Keep the warm plaster-cream ground visible at borders and thin paint zones.",
+        "Add Egyptian blue and malachite green sparingly as divine accents only."
+      ],
+      "avoid": [
+        "Avoid cool blue-dominated overall palette — this palette is warm-earth led.",
+        "Avoid pure black backgrounds — use warm dark brown for depth."
+      ]
+    },
+    "parameters": {
+      "male_skin": "#8B3A1A",
+      "female_skin": "#C8922A",
+      "outline": "#1A1208",
+      "ground_colour": "#F5EFD8",
+      "accent_blue": "#3B6FA0",
+      "accent_green": "#3A7D44",
+      "palette_hex": [
+        "#8B3A1A",
+        "#C8922A",
+        "#B94A2C",
+        "#D4A82A",
+        "#1A1208",
+        "#F5EFD8",
+        "#3B6FA0",
+        "#3A7D44"
+      ]
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.tomb_painting_style",
+        "egy.register_composition",
+        "egy.mineral_pigment_palette"
+      ],
+      "avoid_with": [
+        "egy.solar_gold_palette"
+      ]
+    },
+    "prompt_fragment": "\"Egyptian tomb ochre palette, warm red-brown and yellow ochre, male and female skin tones, carbon black outline, white plaster ground, solemn and earthy, ancient Egyptian wall painting\"\n",
+    "provenance": {
+      "sources": [
+        "Lee, L. & Quirke, S. (2000). 'Painting materials.' In Nicholson & Shaw (eds.), Ancient Egyptian Materials and Technology."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/color_systems/tomb_red_ochre_palette.yaml"
+  },
+  {
+    "id": "egy.uraeus_cobra",
+    "type": "symbol_motif",
+    "name": "Uraeus Cobra",
+    "aliases": [
+      "uraeus",
+      "wadjet cobra",
+      "rearing cobra",
+      "royal cobra"
+    ],
+    "summary": "The rearing Egyptian cobra — emblem of divine royal authority, fire, and protection — worn on the headdress of pharaohs and deities, and placed atop crowns and diadems.\n",
+    "description": "The uraeus (from Greek ouraios, possibly from Egyptian iaret, \"the rearing one\") is the stylised rearing Egyptian cobra (Naja naja or Naja haje), depicted upright with hood spread and body coiled or looped behind. It is the emblem of the serpent goddess Wadjet of Buto (Lower Egypt) and represents the solar fire that destroys the pharaoh's enemies. It is most commonly shown attached to the front of royal crowns and headdresses (White Crown, Red Crown, Blue Crown, Nemes headdress) as the royal diadem element. Deities also wear the uraeus. Pairs of uraei flank the winged sun disc. Triple uraei appear on some divine headdresses. The uraeus is depicted with naturalistically curled hood, occasionally with solar disc on head, and in gold or polychrome faience. Its distinctive rearing silhouette is instantly recognisable as a royal/divine identifier.\n",
+    "tags": {
+      "period": [
+        "early_dynastic",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "gold",
+        "faience",
+        "temple_relief",
+        "tomb_painting",
+        "stone"
+      ],
+      "motif_type": [
+        "deity",
+        "royal"
+      ],
+      "linework": [
+        "carved_relief",
+        "ink_outline",
+        "painted_fill"
+      ],
+      "palette": [
+        "gold_accent",
+        "mineral_pigments",
+        "lapis_turquoise"
+      ],
+      "mood": [
+        "regal",
+        "solemn",
+        "mythic"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "bloom",
+        "relief_shading"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Show in rearing pose with spread cobra hood — not coiled or lying flat.",
+        "Attach to crown or headdress brow for royal/divine figures.",
+        "Depict hood with ribbed or cross-hatched detail for scale texture."
+      ],
+      "avoid": [
+        "Avoid naturalistic snake poses (coiled, hunting) — the rearing upright form is canonical.",
+        "Avoid placing uraeus on non-royal, non-divine figures without specific mythological context."
+      ]
+    },
+    "parameters": {
+      "hood_spread": true,
+      "body_looped": true,
+      "solar_disc_variant": true,
+      "primary_colour": "#C8922A"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.winged_sun_disc",
+        "egy.royal_regalia_pose",
+        "egy.cartouche"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"uraeus cobra, Egyptian royal serpent, rearing cobra with spread hood, gold and faience, crown diadem element, divine protection emblem, regal and solemn, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Wilkinson, R.H. (2003). The Complete Gods and Goddesses of Ancient Egypt."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/uraeus_cobra.yaml"
+  },
+  {
+    "id": "egy.was_scepter",
+    "type": "symbol_motif",
+    "name": "Was Scepter",
+    "aliases": [
+      "Was staff",
+      "wadj scepter",
+      "power scepter"
+    ],
+    "summary": "The animal-headed staff symbol of divine power and dominion, carried by gods and pharaohs as an emblem of authority over sky, earth, and underworld.\n",
+    "description": "The was scepter is a long staff with a distinctive canid animal head at the top (resembling the Seth animal or a stylised dog/jackal) and a forked base that rests on the ground. The hieroglyphic sign (Gardiner S40) carries the meaning \"power\" or \"dominion.\" In tomb and temple art, was scepters are carried by virtually all major deities — Amun, Ra, Thoth, Hathor — often alongside the ankh (in the other hand) or the djed pillar. The pharaoh's throne may rest on a was sign. The staff appears in triadic group formulas (ankh + djed + was = life + stability + power) carved on furniture, coffins, and architectural elements. The animal head shape distinguishes it from the simpler heqa crook scepter.\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "tomb_painting",
+        "temple_relief",
+        "gold",
+        "stone"
+      ],
+      "motif_type": [
+        "deity",
+        "royal"
+      ],
+      "linework": [
+        "ink_outline",
+        "carved_relief",
+        "painted_fill"
+      ],
+      "palette": [
+        "gold_accent",
+        "mineral_pigments"
+      ],
+      "mood": [
+        "regal",
+        "mythic",
+        "solemn"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "relief_shading"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Show the distinctive canid animal head at the top with upright ears.",
+        "Include a forked or bifurcated base foot — essential identifying feature.",
+        "Typically gold-yellow or paired with teal/green staff colour."
+      ],
+      "avoid": [
+        "Avoid confusing with the heqa crook — the was is straight with an animal head.",
+        "Avoid generic staff designs without the canid head and forked base."
+      ]
+    },
+    "parameters": {
+      "head_type": "canid_seth_animal",
+      "base_type": "forked",
+      "staff_colour": "#C8922A"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.ankh",
+        "egy.djed_pillar",
+        "egy.deity_holding_pose"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"was scepter, Egyptian power staff, canid animal head, forked base, gold colour, held by deity, tomb painting or temple relief style, regal and mythic, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Wilkinson, R.H. (2003). The Complete Gods and Goddesses of Ancient Egypt. Thames and Hudson."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/was_scepter.yaml"
+  },
+  {
+    "id": "egy.winged_sun_disc",
+    "type": "symbol_motif",
+    "name": "Winged Sun Disc",
+    "aliases": [
+      "Behdety",
+      "winged solar disc",
+      "Horus of Behdet",
+      "winged disk"
+    ],
+    "summary": "The solar disc flanked by spread falcon wings — an ancient emblem of divine kingship, solar power, and celestial protection displayed above temple doorways.\n",
+    "description": "The winged sun disc (Egyptian: Behdety) represents Horus of Behdet, a solar hawk deity, and by extension the divine power of the sun and the pharaoh. In its canonical form: a central red-brown or gold sun disc, flanked by two spread falcon wings (coloured in banded feather patterns of blue, green, and ochre), and often flanked by two erect cobras (uraeus) wearing the crowns of Upper and Lower Egypt. It appears above virtually every temple doorway and entrance as an apotropaic emblem, on the lintels of naos shrines, on coffin lids, and on royal pectorals. The form is among the most architectural of Egyptian motifs — it functions as a horizontal capstone element. The Assyrians, Persians, and other Near Eastern cultures adopted similar winged-disc iconography, reflecting Egyptian cultural influence.\n",
+    "tags": {
+      "period": [
+        "old_kingdom",
+        "new_kingdom",
+        "ptolemaic",
+        "general_ancient_egypt"
+      ],
+      "medium": [
+        "temple_relief",
+        "stone",
+        "gold",
+        "papyrus"
+      ],
+      "motif_type": [
+        "deity",
+        "royal",
+        "celestial"
+      ],
+      "composition": [
+        "centered_emblem",
+        "bilateral_symmetry"
+      ],
+      "linework": [
+        "carved_relief",
+        "painted_fill",
+        "ink_outline"
+      ],
+      "palette": [
+        "mineral_pigments",
+        "gold_accent",
+        "lapis_turquoise",
+        "ochre_red"
+      ],
+      "surface": [
+        "painted",
+        "carved",
+        "gilded"
+      ],
+      "mood": [
+        "regal",
+        "mythic",
+        "monumental",
+        "luminous"
+      ],
+      "shader_ops": [
+        "edge_ink",
+        "bloom",
+        "palette_map",
+        "relief_shading"
+      ]
+    },
+    "constraints": {
+      "do": [
+        "Centre the disc on a bilateral axis — the wings must be symmetric.",
+        "Include banded feather detail on both wings.",
+        "Include paired uraeus cobras flanking the disc where historically accurate.",
+        "Use above doorways/lintels as architectural capstone element."
+      ],
+      "avoid": [
+        "Avoid asymmetric wing poses — symmetry is structurally essential to this emblem.",
+        "Avoid omitting the disc — wings alone without centre disc lose the solar identity."
+      ]
+    },
+    "parameters": {
+      "disc_colour": "#C8922A",
+      "wing_banding_colours": [
+        "#3B6FA0",
+        "#3A7D44",
+        "#D4A82A"
+      ],
+      "uraeus_pair": true,
+      "placement": "lintel_capstone"
+    },
+    "compat": {
+      "pairs_with": [
+        "egy.scarab",
+        "egy.ptolemaic_temple_style",
+        "egy.bilateral_symmetry_composition"
+      ],
+      "avoid_with": []
+    },
+    "prompt_fragment": "\"Egyptian winged sun disc, Behdety solar emblem, symmetric falcon wings, banded feather detail, gold disc and lapis blue, uraeus cobras, temple lintel, monumental and luminous, ancient Egypt\"\n",
+    "provenance": {
+      "sources": [
+        "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson.",
+        "Quirke, S. & Spencer, J. (1992). The British Museum Book of Ancient Egypt."
+      ]
+    },
+    "version": "1.0",
+    "created_at": "2026-04-10",
+    "__source": "db/entries/symbols_motifs/winged_sun_disc.yaml"
+  }
+]

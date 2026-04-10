@@ -1,0 +1,56 @@
+id: egy.old_kingdom_relief_style
+type: style
+name: "Old Kingdom Painted Limestone Relief Style"
+aliases: ["pyramid age relief", "Memphite relief style"]
+summary: >
+  The refined, precise relief style of the Old Kingdom pyramid age, characterised
+  by shallow carving, exquisite proportion, and restrained colour on limestone.
+description: >
+  The Old Kingdom (c. 2686–2181 BCE), centred at Memphis and Saqqara, produced
+  what many scholars consider the canonical definition of Egyptian art. Mastaba tomb
+  reliefs (e.g. Ti at Saqqara, Mereruka) and pyramid complex causeways set the formal
+  vocabulary: impeccably proportioned figures; shallow, clean carving; restrained
+  polychromy (often just ochres, blues, greens, and blacks); and a serene, aristocratic
+  calm. The male ideal figure is shown with red-brown skin, the female with yellow-ochre.
+  Movement is implied through posture rather than dramatic gesture. This period
+  establishes the canonical grid proportions later codified in New Kingdom art.
+tags:
+  period: [old_kingdom]
+  medium: [tomb_painting, temple_relief, stone]
+  composition: [registers, profile_canon, scale_hierarchy]
+  linework: [carved_relief, painted_fill, ink_outline]
+  palette: [mineral_pigments, ochre_red, limited]
+  surface: [carved, painted, weathered]
+  artifact: [edge_wear, abrasion]
+  mood: [solemn, regal, instructional]
+  shader_ops: [relief_shading, edge_ink, palette_map]
+constraints:
+  do:
+    - "Use the 18-fist canonical grid for human figure proportions."
+    - "Show male skin as warm red-brown, female skin as yellow ochre."
+    - "Keep carving depth very shallow — Old Kingdom relief is often under 5mm."
+    - "Apply a serenely restrained quality: no drama, no exaggerated gesture."
+  avoid:
+    - "Avoid the intense turquoise-blue saturation of New Kingdom work."
+    - "Avoid crowded compositions — Old Kingdom reliefs prefer spacious arrangement."
+parameters:
+  male_skin_colour: "#8B3A1A"
+  female_skin_colour: "#C8922A"
+  grid_units: 18
+  carving_depth_max_mm: 5
+compat:
+  pairs_with:
+    - egy.register_composition
+    - egy.profile_canon_pose
+    - egy.stone_surface_texture
+  avoid_with: []
+prompt_fragment: >
+  "Old Kingdom Egyptian limestone relief, Saqqara mastaba style, shallow
+  carved relief, restrained ochre palette, serene aristocratic figures,
+  canonical 18-grid proportions, pyramid age aesthetic"
+provenance:
+  sources:
+    - "Smith, W.S. (1981). The Art and Architecture of Ancient Egypt. Penguin."
+    - "Robins, G. (1994). Proportion and Style in Ancient Egyptian Art. University of Texas Press."
+version: "1.0"
+created_at: "2026-04-10"

@@ -1,0 +1,57 @@
+id: egy.solar_gold_palette
+type: color_system
+name: "Solar Gold Palette"
+aliases: ["gold and ochre palette", "sun gold palette", "Amun-Ra colour scheme"]
+summary: >
+  A warm solar palette centred on gold, amber, and yellow ochre accented by
+  deep lapis blue — evoking the sun, divine golden flesh, and celestial light
+  of Egyptian solar theology.
+description: >
+  The solar gold palette is anchored in the Egyptian theological identity of gold
+  as the flesh of the gods and the substance of the sun's light. Used for divine
+  figures (especially solar deities — Ra, Amun-Ra, Khepri, Aten), royal jewellery
+  contexts, and luminous funerary art. The palette pairs warm gold and amber tones
+  with deep lapis lazuli blue as the celestial contrast, following the actual
+  combinations found in royal jewellery (Tutankhamun's pectorals, for example).
+  Carbon black outlines and white calcite highlights complete the system.
+  This palette is the most festive and luminous of the Egyptian colour systems —
+  appropriate for divine enthronement, solar barque, and celestial ceiling contexts.
+tags:
+  period: [new_kingdom, general_ancient_egypt]
+  medium: [gold, tomb_painting, temple_relief, faience]
+  palette: [gold_accent, lapis_turquoise, mineral_pigments]
+  mood: [luminous, regal, mythic]
+  shader_ops: [bloom, palette_map]
+constraints:
+  do:
+    - "Lead with warm gold (#C8922A–#D4A82A) as the dominant warm tone."
+    - "Contrast with deep lapis blue (#1A3A6B–#2A5B9A) as the celestial cool."
+    - "Use carbon black for outline and deep shadow."
+    - "Include calcite white for sky/light highlights."
+  avoid:
+    - "Avoid cool yellows (lemon yellow) — use only warm amber-gold range."
+    - "Avoid mixing saturated red or green as primaries — gold and lapis are the stars."
+parameters:
+  primary: "#D4A82A"
+  secondary: "#C8922A"
+  accent_blue: "#2A5B9A"
+  outline: "#1A1208"
+  highlight: "#F5F0E8"
+  palette_hex: ["#D4A82A", "#C8922A", "#B8841E", "#2A5B9A", "#1A3A6B", "#1A1208", "#F5F0E8"]
+compat:
+  pairs_with:
+    - egy.winged_sun_disc
+    - egy.gold_leaf_gilded_surface
+    - egy.scarab
+  avoid_with:
+    - egy.tomb_red_ochre_palette
+prompt_fragment: >
+  "Egyptian solar gold palette, warm amber gold and lapis blue, divine golden
+  flesh, celestial contrast, luminous and regal, royal jewellery colour scheme,
+  ancient Egyptian sun deity aesthetic"
+provenance:
+  sources:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Aldred, C. (1971). Jewels of the Pharaohs. Thames and Hudson."
+version: "1.0"
+created_at: "2026-04-10"

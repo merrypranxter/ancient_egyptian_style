@@ -1,0 +1,60 @@
+id: egy.pigment_flake_artifact
+type: print_artifact
+name: "Pigment Flaking and Spalling Artifact"
+aliases: ["paint flake", "spalling", "delamination", "plaster loss"]
+summary: >
+  The visual artifact of paint and plaster delaminating from a wall surface —
+  revealing the bare stone or lower plaster layers beneath — characteristic of
+  aged tomb and temple painting.
+description: >
+  Over time, Egyptian wall paintings are subject to a range of degradation
+  processes: salt crystallisation in the plaster (from ground moisture), thermal
+  expansion and contraction, earthquake micro-movement, and biological growth.
+  These processes cause the paint layer, the gesso/plaster layer, or both to
+  delaminate and flake away, leaving irregular zones of bare stone or lower plaster
+  layers. Characteristically: flaking follows natural plaster crack networks;
+  paint loss is most severe at the top of register zones (thermal cycling near
+  the ceiling), at corners, and around inscriptions (where the surface was worked
+  more). The flake pattern creates irregular light-coloured (stone or white plaster)
+  patches against the darker surrounding painted surface.
+
+  For digital simulation: irregular polygon mask areas revealing a stone/white
+  ground layer beneath the painted surface layer, with soft edges at the flake
+  perimeter. Apply at low density (5–20% coverage) unless simulating heavily
+  damaged scenes. Shadow micro-edge inside flake boundaries reads as depth.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, temple_relief]
+  surface: [painted, weathered]
+  artifact: [pigment_flake, lacuna, abrasion]
+  shader_ops: [noise, displacement]
+constraints:
+  do:
+    - "Follow plaster crack network as natural flake boundary guide."
+    - "Reveal warm stone or white plaster beneath, not pure white."
+    - "Apply micro-shadow at flake edge interior for depth."
+    - "Concentrate damage at edges, corners, and areas of heavy inscription."
+  avoid:
+    - "Avoid regular or geometric flake patterns — natural delamination is irregular."
+    - "Avoid simulating total paint loss uniformly — damage is patchy."
+parameters:
+  coverage_percent: [5, 20]
+  revealed_layer_hex: "#D8C9A3"
+  flake_edge: "irregular_soft"
+  shadow_at_edge: true
+compat:
+  pairs_with:
+    - egy.stone_surface_texture
+    - egy.tomb_painting_style
+    - egy.dust_patina_artifact
+  avoid_with:
+    - egy.papyrus_fiber_artifact
+prompt_fragment: >
+  "pigment flaking artifact, paint delamination, plaster loss, irregular
+  flake zones, stone ground revealed, aged tomb wall painting, patchy
+  degradation, ancient Egyptian wall art damage simulation"
+provenance:
+  sources:
+    - "Mora, P., Mora, L., & Philippot, P. (1984). Conservation of Wall Paintings. Butterworths."
+version: "1.0"
+created_at: "2026-04-10"

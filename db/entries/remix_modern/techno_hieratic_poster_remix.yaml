@@ -1,0 +1,65 @@
+id: egy.techno_hieratic_poster_remix
+type: remix
+name: "Techno-Hieratic Poster Remix"
+aliases: ["Egyptian sci-fi poster", "cyber-egypt", "techno-pharaoh", "Afrofuturist Egypt"]
+summary: >
+  A modern remix overlay that places Egyptian formal visual grammar — registers,
+  hieroglyphic-inspired marks, canonical figures — in a contemporary technical/sci-fi
+  aesthetic context as poster art.
+description: >
+  This remix applies the "historical-first, remix as overlay" principle: the
+  underlying composition, proportions, and figure canon remain authentically
+  Egyptian; modern technical or sci-fi elements are added as surface layer.
+  Key overlay elements:
+  - Circuit trace patterns replace decorative border bands (following the
+    horizontal register rhythm).
+  - Canonical figures wear both traditional regalia AND technological accessories
+    (holographic ankh amulets, integrated circuit crowns, data-glyph cartouches).
+  - Glowing neon colour fills (electric blue, green, or magenta) overlay the
+    canonical mineral pigment zones while maintaining the flat-fill convention.
+  - Abstract glyph-mark columns use the correct column-narrow layout but employ
+    invented tech-inspired marks (circuit symbols, binary patterns in column format).
+  - The overall composition remains register-structured — the sci-fi elements
+    do not break the horizontal band logic.
+  Output format: contemporary screen-printed or digital poster aesthetic, with
+  bold type (ideally a geometric or Egyptian-revival typeface for labels).
+tags:
+  period: [general_ancient_egypt]
+  medium: [temple_relief, tomb_painting]
+  composition: [registers, profile_canon]
+  remix: [sci_fi, modern_overlay, street_poster]
+  mood: [regal, mythic, luminous]
+  shader_ops: [edge_ink, palette_map, bloom]
+constraints:
+  do:
+    - "Maintain Egyptian register and profile-canon composition as the structural base."
+    - "Apply sci-fi/tech elements as overlay on top of correctly proportioned canonical figures."
+    - "Label artwork clearly as contemporary artistic invention, not historical reproduction."
+    - "Use circuit/tech border elements to replace (not mix with) period-accurate borders."
+  avoid:
+    - "Avoid replacing the human/deity figure canon with robotic or non-figure elements."
+    - "Avoid fake hieroglyphic texts claiming to be actual Egyptian script."
+    - "Avoid disrespectful treatments of sacred themes (Opening of the Mouth, etc.)."
+parameters:
+  overlay_palette: ["#00F0FF", "#00FF90", "#FF00A0"]
+  maintain_register_structure: true
+  glyph_columns: "invented_tech_marks_only"
+compat:
+  pairs_with:
+    - egy.edge_ink_shader
+    - egy.register_composition
+    - egy.hieroglyphic_inspired_marks_rules
+  avoid_with:
+    - egy.mineral_pigment_palette
+prompt_fragment: >
+  "Egyptian techno-poster remix, canonical profile figures with circuit
+  detail overlay, register layout preserved, neon glow accents on mineral
+  pigment base, hieroglyphic-inspired tech glyph columns, Afrofuturist
+  pharaoh aesthetic, bold poster composition"
+provenance:
+  notes: >
+    This remix is explicitly a contemporary artistic invention. Reference
+    the Afrofuturism movement and artists like Lina Iris Viktor for
+    respectful high-profile examples of this aesthetic territory.
+version: "1.0"
+created_at: "2026-04-10"

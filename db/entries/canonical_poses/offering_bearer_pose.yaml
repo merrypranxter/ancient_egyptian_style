@@ -1,0 +1,59 @@
+id: egy.offering_bearer_pose
+type: canonical_pose
+name: "Offering Bearer Pose"
+aliases: ["offering carrier", "offering procession figure", "gift bearer"]
+summary: >
+  The canonical pose for figures carrying offerings — striding forward in profile
+  with one arm extended downward (tray/table balance) and one raised (bouquet or
+  vessel) — found in offering procession registers across all periods.
+description: >
+  Offering bearer figures populate the upper registers of tomb and temple walls,
+  forming long procession lines. The canonical pose: profile stance with left foot
+  forward (walking stride), one arm lowered to carry or balance a flat tray or
+  stand bearing food items (loaves, fowl, joints of meat, vegetables), the other
+  arm raised to carry a bouquet of lotus flowers, a tall vessel, or a papyrus
+  bundle. The head is in strict profile, facing in the direction of movement.
+  Both arms are visible; no overlapping obscures the offering goods. The goods
+  themselves are shown in their most informative view (e.g., fish from above;
+  bread from the side). Scale is governed by register height. Offering bearers
+  are typically servants or priests, therefore smaller than the tomb owner
+  (scale hierarchy). Garment: simple kilt or linen sheath dress. Wigs are common.
+  These figures form the economic and ritual backbone of funerary imagery.
+tags:
+  period: [old_kingdom, new_kingdom, general_ancient_egypt]
+  medium: [tomb_painting, temple_relief]
+  motif_type: [funerary, daily_life, royal]
+  composition: [profile_canon, registers, narrative_sequence]
+  linework: [ink_outline, painted_fill]
+  palette: [mineral_pigments, white_ground, ochre_red]
+  mood: [solemn, instructional]
+  shader_ops: [edge_ink]
+constraints:
+  do:
+    - "Show offerings from their most informative view angle."
+    - "Scale offering bearers smaller than the recipient/tomb owner."
+    - "Arrange in continuous procession lines reading left-to-right."
+  avoid:
+    - "Avoid hiding offering objects behind the bearer's body — clarity of goods is essential."
+    - "Avoid non-period offering items (modern food, contemporary objects) without remix labelling."
+parameters:
+  foot_forward: "left"
+  lower_arm_item: "offering_tray_or_stand"
+  upper_arm_item: "bouquet_or_vessel"
+  figure_relative_scale: "servant_smaller"
+compat:
+  pairs_with:
+    - egy.register_composition
+    - egy.scale_hierarchy_composition
+    - egy.tomb_painting_style
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian offering bearer procession, profile figure striding with tray
+  of food offerings, bouquet raised, register layout, servant scale,
+  tomb wall painting, ancient Egypt funerary art"
+provenance:
+  sources:
+    - "Hartwig, M.K. (2004). Tomb Painting and Identity in Ancient Thebes. Brepols."
+    - "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

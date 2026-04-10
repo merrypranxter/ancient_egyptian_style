@@ -1,0 +1,79 @@
+id: egy.palette_map_shader
+type: rendering_shader
+name: "Palette Map / LUT Shader"
+aliases: ["colour map shader", "LUT shader", "Egyptian colour LUT", "palette quantise"]
+summary: >
+  A colour-mapping shader that quantises any image or render to the six canonical
+  Egyptian mineral pigment colours, producing an authentic period-palette output
+  from arbitrary input imagery.
+description: >
+  The palette map shader performs colour quantisation — mapping input pixel colours
+  to the nearest colour in the Egyptian canonical pigment palette. This is the
+  most direct way to "Egyptianise" any generated or photographic image:
+
+  Inputs: any colour image.
+
+  Operations:
+  1. For each pixel, compute Euclidean distance to each of the 6 canonical
+     pigment hex values in perceptual colour space (CIE Lab preferred over RGB).
+  2. Assign pixel to nearest pigment colour.
+  3. Optional: dither at colour boundaries (Floyd-Steinberg or ordered dither)
+     to simulate the natural blending of ground-colour show-through.
+  4. Optional: preserve black outline layer separately before quantisation
+     and recomposite after.
+
+  The resulting image has only 6 colours (or 7 with the amber papyrus ground)
+  and exactly matches the visual logic of Egyptian flat-colour painting.
+  Adjust pigment definitions to shift between tomb (ochre-warm), scroll (amber-warm),
+  and celestial (lapis-dominant) palette variants.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, papyrus, temple_relief]
+  palette: [mineral_pigments, full_period_canonical, limited]
+  shader_ops: [palette_map]
+  mood: [instructional]
+constraints:
+  do:
+    - "Use CIE Lab colour space for distance calculation — RGB distance is perceptually inaccurate."
+    - "Apply ordered dither for boundaries — reduces banding artefacts."
+    - "Preserve outline layer separately and recomposite to prevent outline colour quantisation."
+  avoid:
+    - "Avoid pure posterisation without dithering — produces harsh mechanical gradients."
+    - "Avoid including modern colours in the palette — purples, neons, etc. break the period effect."
+parameters:
+  colour_space: "CIE_Lab"
+  dither: "ordered_4x4"
+  palette_source: "egy.mineral_pigment_palette"
+  preserve_outline: true
+  palette_hex:
+    - "#3B6FA0"  # Egyptian Blue
+    - "#3A7D44"  # Malachite Green
+    - "#B94A2C"  # Red Ochre
+    - "#D4A82A"  # Yellow Ochre
+    - "#1A1208"  # Carbon Black
+    - "#F5F0E8"  # Calcite White
+shader_code_reference: |
+  // Pseudocode: palette mapping
+  // vec3 labPalette[6] = { ... }; // convert hex to Lab
+  // vec3 pixelLab = rgbToLab(texture2D(src, uv).rgb);
+  // float minDist = 1e9; int nearest = 0;
+  // for (int i = 0; i < 6; i++) {
+  //   float d = distance(pixelLab, labPalette[i]);
+  //   if (d < minDist) { minDist = d; nearest = i; }
+  // }
+  // gl_FragColor = vec4(labToRgb(labPalette[nearest]), 1.0);
+compat:
+  pairs_with:
+    - egy.mineral_pigment_palette
+    - egy.edge_ink_shader
+    - egy.tomb_painting_style
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian palette map shader, 6-colour mineral pigment quantisation,
+  LUT colour mapping, Egyptian Blue, ochre, malachite, carbon black,
+  flat period-authentic colour, dithered boundaries"
+provenance:
+  sources:
+    - "Gonzalez, R.C. & Woods, R.E. (2018). Digital Image Processing (4th ed.). Pearson."
+version: "1.0"
+created_at: "2026-04-10"

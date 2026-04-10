@@ -1,0 +1,58 @@
+id: egy.lotus_papyrus
+type: symbol_motif
+name: "Lotus and Papyrus Plants"
+aliases: ["blue lotus", "white lotus", "papyrus column", "Nile plants", "sema tawy"]
+summary: >
+  The lotus (Upper Egypt) and papyrus (Lower Egypt) are the heraldic plants of the
+  Two Lands, used individually as rebirth symbols and combined as the sema-tawy
+  "union of the two lands" motif.
+description: >
+  The lotus (Egyptian: seshen) and papyrus (wadi) are among the most versatile
+  plant motifs in Egyptian art. The blue lotus (Nymphaea caerulea) was a solar and
+  rebirth symbol — it opens at dawn — and appears as the flower from which the
+  young sun god or Nefertum emerges. The white lotus (Nymphaea lotus) has a similar
+  symbolic field. As a column capital form, the lotus appears on many temple columns.
+  The papyrus (Cyperus papyrus) is the heraldic plant of Lower Egypt (the Delta),
+  and its tall, triangular umbel appears as column capitals, border elements, and
+  in scenes of hunting in the marshes. In sema-tawy ("union of the two lands")
+  compositions, a trachea/lung hieroglyph is flanked by Horus/Nekhbet on one side
+  (with lotus) and Set/Wadjet on the other (with papyrus), tied together to symbolise
+  the unification of Egypt — a standard throne base motif.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, temple_relief, faience, stone, papyrus]
+  motif_type: [plant, celestial, royal]
+  composition: [bilateral_symmetry, border_pattern]
+  linework: [ink_outline, carved_relief, painted_fill]
+  palette: [mineral_pigments, lapis_turquoise, malachite_green]
+  mood: [mythic, solemn, luminous]
+  shader_ops: [edge_ink, palette_map]
+constraints:
+  do:
+    - "Distinguish blue lotus (pointed petals, central bud) from papyrus (triangular umbel)."
+    - "Use lotus as column capital motif and as border band element."
+    - "Include sema-tawy binding in royal throne base compositions."
+  avoid:
+    - "Avoid conflating lotus with water lily — the Egyptian lotus has distinct characteristics."
+    - "Avoid placing lotus in non-aquatic / desert contexts without mythological framing."
+parameters:
+  lotus_petal_colour: "#3B6FA0"
+  lotus_centre_colour: "#D4A82A"
+  papyrus_stem_colour: "#3A7D44"
+  sema_tawy_variant: true
+compat:
+  pairs_with:
+    - egy.register_composition
+    - egy.border_frieze_composition
+    - egy.mineral_pigment_palette
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian lotus and papyrus plant motifs, blue lotus blossom, papyrus
+  column capital, sema-tawy union of two lands, heraldic plant border,
+  lapis blue and malachite green, tomb painting or temple relief style"
+provenance:
+  sources:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Manniche, L. (1989). An Ancient Egyptian Herbal. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

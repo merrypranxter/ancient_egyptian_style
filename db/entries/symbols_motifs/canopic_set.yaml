@@ -1,0 +1,56 @@
+id: egy.canopic_set
+type: symbol_motif
+name: "Canopic Jars and Four Sons of Horus"
+aliases: ["canopic jar", "Sons of Horus", "Imsety", "Hapy", "Duamutef", "Qebehsenuef"]
+summary: >
+  The four funerary vessels housing the embalmed internal organs, each stoppered
+  by the head of one of the Four Sons of Horus — a key funerary iconographic set.
+description: >
+  Canopic jars are funerary containers used from the Old Kingdom to the Ptolemaic
+  period to house the embalmed viscera of the deceased. The set of four corresponds
+  to the Four Sons of Horus, each protecting a specific organ and each guarded by
+  a protective goddess: Imsety (human head) = liver / Isis; Hapy (baboon head) =
+  lungs / Nephthys; Duamutef (jackal head) = stomach / Neith; Qebehsenuef (falcon
+  head) = intestines / Selket. In New Kingdom and later periods, the stoppers take
+  the form of these distinctive animal/human heads. The jars are arranged at the
+  four cardinal/intercardinal points around the mummified body. Visually, the
+  canopic set forms a powerful quaternary emblem of completeness and protection.
+  Individual jar forms are tall vessels with rounded shoulder and distinctive
+  head-stopper.
+tags:
+  period: [old_kingdom, new_kingdom, ptolemaic, general_ancient_egypt]
+  medium: [stone, faience, gold, wood]
+  motif_type: [funerary, deity]
+  composition: [vignette, registers]
+  linework: [carved_relief, ink_outline]
+  palette: [mineral_pigments, gold_accent, lapis_turquoise]
+  mood: [solemn, mythic]
+  shader_ops: [edge_ink, relief_shading]
+constraints:
+  do:
+    - "Show all four jars together as a set for completeness."
+    - "Use correct head-to-organ-to-goddess correspondence."
+    - "Distinguish the four heads: human, baboon, jackal, falcon."
+  avoid:
+    - "Avoid single canopic jar without context — the set of four is the canonical form."
+    - "Avoid mixing head types — each jar has one specific animal/human head."
+parameters:
+  jar_count: 4
+  heads: ["human_imsety", "baboon_hapy", "jackal_duamutef", "falcon_qebehsenuef"]
+  arrangement: "quadrilateral"
+compat:
+  pairs_with:
+    - egy.funerary_vignette_composition
+    - egy.scarab
+    - egy.ankh
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian canopic jars, Four Sons of Horus, human/baboon/jackal/falcon
+  head stoppers, funerary vessel set, gold and faience, tomb context,
+  solemn protective quartet, ancient Egypt"
+provenance:
+  sources:
+    - "Taylor, J.H. (2001). Death and the Afterlife in Ancient Egypt. British Museum Press."
+    - "Andrews, C. (1994). Amulets of Ancient Egypt. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

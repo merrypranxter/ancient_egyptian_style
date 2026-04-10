@@ -1,0 +1,59 @@
+id: egy.museum_label_remix
+type: remix
+name: "Museum Label / Archival Card Remix"
+aliases: ["museum card aesthetic", "exhibition label style", "archival document remix"]
+summary: >
+  A modern remix that frames Egyptian art elements in contemporary museum
+  exhibition label and archival documentation aesthetics — neutral grounds,
+  sans-serif metadata, accession numbers, conservation notes.
+description: >
+  This remix re-contextualises Egyptian motifs within the visual language of
+  contemporary museum display and archival scholarship. The "historical-first,
+  remix as overlay" principle: the central motif is rendered in period-accurate
+  style; the surrounding context uses modern exhibition design conventions.
+  Key overlay elements:
+  - Neutral linen or warm grey mount/mat border surrounding the central motif.
+  - Typographic metadata block: accession number, period, medium, dimensions,
+    provenance (can be real or invented).
+  - Object label typography: clean serif or neutral sans-serif (e.g., Gill Sans,
+    Futura, or a modern Egyptian/slab revival face).
+  - Optional: red "FRAGILE" or "FOR CONSERVATION" stamp overlay for editorial effect.
+  - Optional: scanner line artifact, ruler/scale bar, colour calibration reference.
+  This format is excellent for social media post templates, editorial illustration,
+  and art book page design — it places the Egyptian element in a framework of
+  intellectual respect and historical grounding while acknowledging modern context.
+tags:
+  period: [general_ancient_egypt]
+  remix: [museum_label, modern_overlay, editorial]
+  mood: [instructional, solemn, intimate]
+  shader_ops: [vignette_burn, noise]
+constraints:
+  do:
+    - "Place the Egyptian element at high quality and correct proportions in the centre."
+    - "Include accurate or clearly fictional museum metadata."
+    - "Use neutral, cool, or warm-grey mount colours — not vibrant or competing colours."
+    - "Label the composition as contemporary artwork, not an authentic museum document."
+  avoid:
+    - "Avoid creating documents that could be mistaken for authentic museum provenance records."
+    - "Avoid labelling invented motifs with real accession numbers from actual institutions."
+parameters:
+  mount_colour: "#E8E0D0"
+  typography_style: "neutral_serif_or_sans"
+  metadata_fields: ["accession_number", "period", "medium", "dimensions", "provenance"]
+  stamp_overlay: false
+compat:
+  pairs_with:
+    - egy.hieroglyphic_inspired_marks_rules
+    - egy.funerary_vignette_composition
+    - egy.mineral_pigment_palette
+  avoid_with: []
+prompt_fragment: >
+  "museum label remix, Egyptian motif on archival mount, exhibition card
+  aesthetic, accession number and period metadata, neutral linen ground,
+  clean typography, intellectual respect framing"
+provenance:
+  notes: >
+    Reference: British Museum, Metropolitan Museum of Art, and Louvre
+    exhibition design as typographic and layout models.
+version: "1.0"
+created_at: "2026-04-10"

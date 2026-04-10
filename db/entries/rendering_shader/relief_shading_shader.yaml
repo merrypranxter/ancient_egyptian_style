@@ -1,0 +1,76 @@
+id: egy.relief_shading_shader
+type: rendering_shader
+name: "Relief Shading Shader"
+aliases: ["bas-relief shader", "carved relief lighting", "incised relief shader"]
+summary: >
+  A directional shading shader that simulates the appearance of carved stone
+  relief by generating shadow and highlight along carved edges based on a
+  single directional light source.
+description: >
+  Egyptian carved relief — both raised (bas-relief) and sunk (intaglio) — is
+  designed to be read under directional desert sunlight, which casts crisp
+  shadows along carved edges. This shader replicates that lighting condition:
+
+  Inputs: a greyscale height/depth map (lighter = higher for raised relief;
+  darker = lower for sunk relief), a directional light angle (default:
+  upper-left 45°), and a stone base texture.
+
+  Operations:
+  1. Normal map generation from height map.
+  2. Lambertian directional diffuse pass with hard shadow falloff.
+  3. Optional: ambient occlusion in deep recesses.
+  4. Composite over stone base texture (limestone/sandstone palette).
+  5. Optional: overlay painted colour fills at detected flat zones.
+
+  The key to Egyptian relief shading is the hardness of the shadow edge —
+  unlike gradual rounded modelling, the shadow terminates at the carved edge.
+  For digital use in fragment shaders, the depth map can be derived from a
+  flat painted version by extracting the dark outline as the depth boundary.
+tags:
+  period: [general_ancient_egypt]
+  medium: [temple_relief, stone]
+  shader_ops: [relief_shading, edge_ink, noise]
+  surface: [carved]
+  mood: [solemn, monumental, regal]
+constraints:
+  do:
+    - "Use hard shadow edges at carved boundaries — soft gradients are wrong for Egyptian relief."
+    - "Apply light from upper-left as default (canonical desert sun angle)."
+    - "Include ambient occlusion in deepest recesses for depth."
+  avoid:
+    - "Avoid soft gradient shading from edge to edge — this produces sculpture, not relief."
+    - "Avoid light angles from below — they read as unnatural and conflict with the convention."
+parameters:
+  light_direction_degrees: 315
+  light_elevation_degrees: 45
+  shadow_hardness: 0.85
+  ao_strength: 0.3
+  ao_radius_px: 8
+  base_texture: "limestone"
+shader_code_reference: |
+  // Fragment shader pseudocode
+  // uniform sampler2D heightMap;
+  // uniform sampler2D baseTexture;
+  // uniform vec3 lightDir = normalize(vec3(-1.0, 1.0, 0.8));
+  //
+  // vec3 normal = normalFromHeightmap(heightMap, uv);
+  // float diffuse = max(dot(normal, lightDir), 0.0);
+  // float hardDiffuse = step(0.5, diffuse); // hard shadow edge
+  // vec4 base = texture2D(baseTexture, uv);
+  // gl_FragColor = base * (hardDiffuse * 0.8 + 0.2); // ambient + diffuse
+compat:
+  pairs_with:
+    - egy.stone_surface_texture
+    - egy.temple_relief_style
+    - egy.edge_ink_shader
+  avoid_with:
+    - egy.papyrus_scroll_style
+prompt_fragment: >
+  "Egyptian relief shading, directional hard shadow at carved edges,
+  upper-left light angle, limestone surface, bas-relief depth simulation,
+  ambient occlusion in recesses, ancient carved stone look"
+provenance:
+  sources:
+    - "Pharr, M., Jakob, W., & Humphreys, G. (2016). Physically Based Rendering. MIT Press."
+version: "1.0"
+created_at: "2026-04-10"

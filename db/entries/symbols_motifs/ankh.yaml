@@ -1,0 +1,54 @@
+id: egy.ankh
+type: symbol_motif
+name: "Ankh"
+aliases: ["Key of Life", "crux ansata", "ansate cross"]
+summary: >
+  The loop-topped cross symbol of life, used ubiquitously across all periods
+  as the Egyptian hieroglyph and emblem for life, immortality, and divine power.
+description: >
+  The ankh is among the most recognisable symbols of ancient Egyptian culture.
+  Its form — a teardrop loop above a T-shaped cross — appears in every medium
+  from the Early Dynastic period to the Roman era. Deities carry ankhs to nose or
+  mouth of the deceased to bestow life; pharaohs receive ankhs from gods as gifts
+  of divine mandate. It features in royal names, jewellery (gold and faience amulets),
+  temple wall paintings, and papyri. The loop may derive from a sandal strap knot,
+  though its precise origin is debated. In funerary contexts, bundles of ankhs
+  symbolise the eternal life of the deceased. Later, the Coptic Christian cross
+  (crux ansata) adopted its form.
+tags:
+  period: [early_dynastic, general_ancient_egypt]
+  medium: [tomb_painting, temple_relief, faience, gold, papyrus]
+  motif_type: [deity, funerary, royal]
+  linework: [ink_outline, carved_relief]
+  palette: [gold_accent, mineral_pigments, lapis_turquoise]
+  mood: [solemn, mythic, luminous]
+  shader_ops: [edge_ink, bloom]
+constraints:
+  do:
+    - "Maintain the characteristic loop-over-T cross proportions."
+    - "Show deities holding ankh at the loop, arm extended forward."
+    - "Use gold or gold-yellow as primary colour; faience turquoise as alternate."
+  avoid:
+    - "Avoid decorating the ankh with non-Egyptian patterns without remix labelling."
+    - "Avoid using as a generic 'Egyptian' filler without contextual grounding."
+    - "Do not confuse with the Latin cross — the loop is structurally essential."
+parameters:
+  loop_to_arm_ratio: 1.0
+  arm_length_equal: true
+  primary_colour: "#C8922A"
+  alternate_colour: "#3B6FA0"
+compat:
+  pairs_with:
+    - egy.was_scepter
+    - egy.djed_pillar
+    - egy.deity_holding_pose
+  avoid_with: []
+prompt_fragment: >
+  "ankh symbol, Egyptian loop-cross, gold on turquoise, carved relief or
+  tomb painting style, held by deity, solemn and luminous, ancient Egypt"
+provenance:
+  sources:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Andrews, C. (1994). Amulets of Ancient Egypt. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

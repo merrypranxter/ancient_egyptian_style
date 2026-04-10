@@ -1,0 +1,82 @@
+id: egy.remix_modern_overlay_pipeline
+type: pipeline
+name: "Egyptian → Modern Remix Overlay Pipeline"
+aliases: ["remix pipeline", "Egyptian modern mashup pipeline", "historical-first overlay workflow"]
+summary: >
+  A pipeline for applying modern remix aesthetics as an overlay on a historically
+  grounded Egyptian base composition, following the "historical-first, remix as
+  overlay" design stance of this database.
+description: >
+  This pipeline implements the core design philosophy of this database: start with
+  an authentic Egyptian composition, then add modern remix elements as a distinct,
+  clearly-overlay layer. The remix does not replace the historical base — it
+  sits on top of it.
+
+  STAGE 1: HISTORICAL BASE
+  - Select a base composition from this DB (e.g., egy.register_composition,
+    egy.bilateral_symmetry_composition, egy.funerary_vignette_composition).
+  - Populate with period-accurate figures, motifs, and palette.
+  - Run through egy.ai_tomb_painting_pipeline for AI-generated base, or
+    egy.shader_relief_render_pipeline for 3D-to-relief base.
+  - Output: a clean, period-accurate Egyptian composition.
+
+  STAGE 2: REMIX LAYER SELECTION
+  Choose one remix entry from remix_modern/:
+  - egy.techno_hieratic_poster_remix (sci-fi/tech overlay)
+  - egy.museum_label_remix (exhibition context overlay)
+  - egy.street_poster_remix (screen print / poster reduction)
+  - egy.digital_glitch_remix (data corruption / historical loss metaphor)
+
+  STAGE 3: OVERLAY APPLICATION
+  - The remix elements are applied as additional layers ABOVE the historical base.
+  - They do not modify the underlying Egyptian composition.
+  - Opacity and blend mode are used to maintain base visibility (base: 100%,
+    overlay: 40–80% depending on effect).
+
+  STAGE 4: TYPOGRAPHY / LABEL
+  - Add contemporary typographic element if the remix calls for it.
+  - Must be clearly in modern typeface — no pseudo-hieroglyphic labelling.
+  - Optional: add clear attribution/artist signature and "inspired by / remix" label.
+
+  STAGE 5: QUALITY AND ETHICS CHECK
+  - Verify: Egyptian base is readable beneath remix overlay.
+  - Verify: no fake sacred texts presented as authentic.
+  - Verify: artwork is clearly labelled as contemporary artistic invention.
+  - Verify: no disrespectful treatment of funerary/sacred themes.
+tags:
+  period: [general_ancient_egypt]
+  remix: [modern_overlay, sci_fi, street_poster, museum_label, digital_glitch]
+  mood: [regal, mythic, luminous]
+  shader_ops: [edge_ink, palette_map, noise, bloom]
+constraints:
+  do:
+    - "Complete the historical base BEFORE adding any remix elements."
+    - "Apply remix as overlay — modifying the historical base layer is not permitted."
+    - "Label all output clearly as contemporary artistic remix."
+    - "Conduct an ethics check before publishing any output involving sacred themes."
+  avoid:
+    - "Avoid 'baking' remix elements into the historical base layer."
+    - "Avoid presenting remix output as authentic historical documentation."
+parameters:
+  base_opacity: 1.0
+  overlay_opacity_range: [0.4, 0.8]
+  ethics_check_required: true
+  attribution_label_required: true
+compat:
+  pairs_with:
+    - egy.ai_tomb_painting_pipeline
+    - egy.techno_hieratic_poster_remix
+    - egy.museum_label_remix
+    - egy.street_poster_remix
+    - egy.digital_glitch_remix
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian historical base composition, authentic period style foundation,
+  modern remix overlay applied above, clearly labelled artistic invention,
+  historical-first design stance, remix as non-destructive layer"
+provenance:
+  notes: >
+    The "historical-first, remix as overlay" principle was established as the
+    design stance for this database in the initial user specification.
+version: "1.0"
+created_at: "2026-04-10"

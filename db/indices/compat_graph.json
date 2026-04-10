@@ -1,0 +1,480 @@
+{
+  "egy.ai_tomb_painting_pipeline": {
+    "pairs_with": [
+      "egy.tomb_painting_style",
+      "egy.palette_map_shader",
+      "egy.edge_ink_shader",
+      "egy.mineral_pigment_palette"
+    ],
+    "avoid_with": []
+  },
+  "egy.amarna_style": {
+    "pairs_with": [
+      "egy.solar_radiance_shader",
+      "egy.winged_sun_disc"
+    ],
+    "avoid_with": [
+      "egy.old_kingdom_relief_style"
+    ]
+  },
+  "egy.ankh": {
+    "pairs_with": [
+      "egy.was_scepter",
+      "egy.djed_pillar",
+      "egy.deity_holding_pose"
+    ],
+    "avoid_with": []
+  },
+  "egy.bilateral_symmetry_composition": {
+    "pairs_with": [
+      "egy.winged_sun_disc",
+      "egy.sphinx",
+      "egy.ptolemaic_temple_style"
+    ],
+    "avoid_with": [
+      "egy.narrative_sequence_composition"
+    ]
+  },
+  "egy.border_frieze_composition": {
+    "pairs_with": [
+      "egy.register_composition",
+      "egy.tomb_painting_style",
+      "egy.temple_relief_style"
+    ],
+    "avoid_with": []
+  },
+  "egy.canopic_set": {
+    "pairs_with": [
+      "egy.funerary_vignette_composition",
+      "egy.scarab",
+      "egy.ankh"
+    ],
+    "avoid_with": []
+  },
+  "egy.cartouche": {
+    "pairs_with": [
+      "egy.hieroglyphic_inspired_marks",
+      "egy.scale_hierarchy_composition",
+      "egy.gold_leaf_gilded_surface"
+    ],
+    "avoid_with": []
+  },
+  "egy.deity_holding_pose": {
+    "pairs_with": [
+      "egy.register_composition",
+      "egy.ankh",
+      "egy.was_scepter",
+      "egy.tomb_painting_style"
+    ],
+    "avoid_with": []
+  },
+  "egy.digital_glitch_remix": {
+    "pairs_with": [
+      "egy.pigment_flake_artifact",
+      "egy.edge_ink_shader",
+      "egy.tomb_painting_style"
+    ],
+    "avoid_with": [
+      "egy.museum_label_remix"
+    ]
+  },
+  "egy.djed_pillar": {
+    "pairs_with": [
+      "egy.ankh",
+      "egy.was_scepter",
+      "egy.register_composition"
+    ],
+    "avoid_with": []
+  },
+  "egy.dust_patina_artifact": {
+    "pairs_with": [
+      "egy.stone_surface_texture",
+      "egy.temple_relief_style",
+      "egy.pigment_flake_artifact"
+    ],
+    "avoid_with": [
+      "egy.papyrus_fiber_artifact"
+    ]
+  },
+  "egy.edge_ink_shader": {
+    "pairs_with": [
+      "egy.tomb_painting_style",
+      "egy.papyrus_scroll_style",
+      "egy.relief_shading_shader"
+    ],
+    "avoid_with": []
+  },
+  "egy.eye_of_horus": {
+    "pairs_with": [
+      "egy.ankh",
+      "egy.scarab",
+      "egy.deity_holding_pose"
+    ],
+    "avoid_with": []
+  },
+  "egy.faience_texture": {
+    "pairs_with": [
+      "egy.scarab",
+      "egy.ankh",
+      "egy.lapis_turquoise_palette"
+    ],
+    "avoid_with": [
+      "egy.stone_surface_texture"
+    ]
+  },
+  "egy.funerary_vignette_composition": {
+    "pairs_with": [
+      "egy.papyrus_scroll_style",
+      "egy.maat_feather",
+      "egy.canopic_set"
+    ],
+    "avoid_with": [
+      "egy.register_composition"
+    ]
+  },
+  "egy.gold_leaf_gilded_surface": {
+    "pairs_with": [
+      "egy.solar_gold_palette",
+      "egy.ptolemaic_temple_style",
+      "egy.winged_sun_disc"
+    ],
+    "avoid_with": []
+  },
+  "egy.hieroglyphic_inspired_marks_rules": {
+    "pairs_with": [
+      "egy.cartouche",
+      "egy.papyrus_scroll_style",
+      "egy.border_frieze_composition"
+    ],
+    "avoid_with": []
+  },
+  "egy.hieroglyphic_layout_rules": {
+    "pairs_with": [
+      "egy.hieroglyphic_inspired_marks_rules",
+      "egy.cartouche",
+      "egy.border_frieze_composition"
+    ],
+    "avoid_with": []
+  },
+  "egy.ink_bleed_artifact": {
+    "pairs_with": [
+      "egy.papyrus_fiber_artifact",
+      "egy.papyrus_scroll_style",
+      "egy.funerary_vignette_composition"
+    ],
+    "avoid_with": [
+      "egy.stone_surface_texture"
+    ]
+  },
+  "egy.lapis_turquoise_palette": {
+    "pairs_with": [
+      "egy.faience_texture",
+      "egy.solar_gold_palette",
+      "egy.ptolemaic_temple_style"
+    ],
+    "avoid_with": [
+      "egy.tomb_red_ochre_palette"
+    ]
+  },
+  "egy.lotus_papyrus": {
+    "pairs_with": [
+      "egy.register_composition",
+      "egy.border_frieze_composition",
+      "egy.mineral_pigment_palette"
+    ],
+    "avoid_with": []
+  },
+  "egy.maat_feather": {
+    "pairs_with": [
+      "egy.papyrus_scroll_style",
+      "egy.narrative_sequence_composition",
+      "egy.ankh"
+    ],
+    "avoid_with": []
+  },
+  "egy.mineral_pigment_palette": {
+    "pairs_with": [
+      "egy.tomb_painting_style",
+      "egy.papyrus_scroll_style",
+      "egy.register_composition"
+    ],
+    "avoid_with": []
+  },
+  "egy.monochrome_black_outline_palette": {
+    "pairs_with": [
+      "egy.papyrus_scroll_style",
+      "egy.hieroglyphic_inspired_marks_rules",
+      "egy.scribe_seated_pose"
+    ],
+    "avoid_with": []
+  },
+  "egy.museum_label_remix": {
+    "pairs_with": [
+      "egy.hieroglyphic_inspired_marks_rules",
+      "egy.funerary_vignette_composition",
+      "egy.mineral_pigment_palette"
+    ],
+    "avoid_with": []
+  },
+  "egy.offering_bearer_pose": {
+    "pairs_with": [
+      "egy.register_composition",
+      "egy.scale_hierarchy_composition",
+      "egy.tomb_painting_style"
+    ],
+    "avoid_with": []
+  },
+  "egy.old_kingdom_relief_style": {
+    "pairs_with": [
+      "egy.register_composition",
+      "egy.profile_canon_pose",
+      "egy.stone_surface_texture"
+    ],
+    "avoid_with": []
+  },
+  "egy.palette_map_shader": {
+    "pairs_with": [
+      "egy.mineral_pigment_palette",
+      "egy.edge_ink_shader",
+      "egy.tomb_painting_style"
+    ],
+    "avoid_with": []
+  },
+  "egy.papyrus_fiber_artifact": {
+    "pairs_with": [
+      "egy.papyrus_scroll_style",
+      "egy.ink_bleed_artifact",
+      "egy.funerary_vignette_composition"
+    ],
+    "avoid_with": [
+      "egy.stone_surface_texture"
+    ]
+  },
+  "egy.papyrus_scroll_style": {
+    "pairs_with": [
+      "egy.papyrus_fiber_artifact",
+      "egy.ink_bleed_artifact",
+      "egy.funerary_vignette_composition"
+    ],
+    "avoid_with": [
+      "egy.stone_surface_texture"
+    ]
+  },
+  "egy.pigment_flake_artifact": {
+    "pairs_with": [
+      "egy.stone_surface_texture",
+      "egy.tomb_painting_style",
+      "egy.dust_patina_artifact"
+    ],
+    "avoid_with": [
+      "egy.papyrus_fiber_artifact"
+    ]
+  },
+  "egy.profile_canon_composition": {
+    "pairs_with": [
+      "egy.register_composition",
+      "egy.scale_hierarchy_composition",
+      "egy.tomb_painting_style"
+    ],
+    "avoid_with": [
+      "egy.amarna_style"
+    ]
+  },
+  "egy.ptolemaic_temple_style": {
+    "pairs_with": [
+      "egy.register_composition",
+      "egy.scale_hierarchy_composition",
+      "egy.winged_sun_disc",
+      "egy.stone_surface_texture"
+    ],
+    "avoid_with": [
+      "egy.amarna_style"
+    ]
+  },
+  "egy.register_composition": {
+    "pairs_with": [
+      "egy.tomb_painting_style",
+      "egy.temple_relief_style",
+      "egy.scale_hierarchy_composition",
+      "egy.profile_canon_pose"
+    ],
+    "avoid_with": [
+      "egy.amarna_style"
+    ]
+  },
+  "egy.relief_shading_shader": {
+    "pairs_with": [
+      "egy.stone_surface_texture",
+      "egy.temple_relief_style",
+      "egy.edge_ink_shader"
+    ],
+    "avoid_with": [
+      "egy.papyrus_scroll_style"
+    ]
+  },
+  "egy.remix_modern_overlay_pipeline": {
+    "pairs_with": [
+      "egy.ai_tomb_painting_pipeline",
+      "egy.techno_hieratic_poster_remix",
+      "egy.museum_label_remix",
+      "egy.street_poster_remix",
+      "egy.digital_glitch_remix"
+    ],
+    "avoid_with": []
+  },
+  "egy.royal_regalia_pose": {
+    "pairs_with": [
+      "egy.scale_hierarchy_composition",
+      "egy.uraeus_cobra",
+      "egy.bilateral_symmetry_composition"
+    ],
+    "avoid_with": []
+  },
+  "egy.scale_hierarchy_composition": {
+    "pairs_with": [
+      "egy.register_composition",
+      "egy.tomb_painting_style",
+      "egy.temple_relief_style",
+      "egy.profile_canon_pose"
+    ],
+    "avoid_with": []
+  },
+  "egy.scarab": {
+    "pairs_with": [
+      "egy.winged_sun_disc",
+      "egy.ankh",
+      "egy.solar_gold_palette"
+    ],
+    "avoid_with": []
+  },
+  "egy.scribe_seated_pose": {
+    "pairs_with": [
+      "egy.papyrus_scroll_style",
+      "egy.register_composition",
+      "egy.instructional_mood"
+    ],
+    "avoid_with": []
+  },
+  "egy.shader_relief_render_pipeline": {
+    "pairs_with": [
+      "egy.relief_shading_shader",
+      "egy.edge_ink_shader",
+      "egy.stone_surface_texture",
+      "egy.palette_map_shader"
+    ],
+    "avoid_with": [
+      "egy.papyrus_scroll_style"
+    ]
+  },
+  "egy.solar_barque": {
+    "pairs_with": [
+      "egy.winged_sun_disc",
+      "egy.register_composition",
+      "egy.papyrus_scroll_style"
+    ],
+    "avoid_with": []
+  },
+  "egy.solar_gold_palette": {
+    "pairs_with": [
+      "egy.winged_sun_disc",
+      "egy.gold_leaf_gilded_surface",
+      "egy.scarab"
+    ],
+    "avoid_with": [
+      "egy.tomb_red_ochre_palette"
+    ]
+  },
+  "egy.sphinx": {
+    "pairs_with": [
+      "egy.bilateral_symmetry_composition",
+      "egy.winged_sun_disc",
+      "egy.stone_surface_texture"
+    ],
+    "avoid_with": []
+  },
+  "egy.stone_surface_texture": {
+    "pairs_with": [
+      "egy.temple_relief_style",
+      "egy.relief_shading_shader",
+      "egy.old_kingdom_relief_style"
+    ],
+    "avoid_with": [
+      "egy.papyrus_scroll_style"
+    ]
+  },
+  "egy.street_poster_remix": {
+    "pairs_with": [
+      "egy.edge_ink_shader",
+      "egy.monochrome_black_outline_palette",
+      "egy.scale_hierarchy_composition"
+    ],
+    "avoid_with": [
+      "egy.mineral_pigment_palette"
+    ]
+  },
+  "egy.techno_hieratic_poster_remix": {
+    "pairs_with": [
+      "egy.edge_ink_shader",
+      "egy.register_composition",
+      "egy.hieroglyphic_inspired_marks_rules"
+    ],
+    "avoid_with": [
+      "egy.mineral_pigment_palette"
+    ]
+  },
+  "egy.temple_relief_style": {
+    "pairs_with": [
+      "egy.register_composition",
+      "egy.scale_hierarchy_composition",
+      "egy.relief_shading_shader",
+      "egy.stone_surface_texture"
+    ],
+    "avoid_with": []
+  },
+  "egy.tomb_painting_style": {
+    "pairs_with": [
+      "egy.register_composition",
+      "egy.profile_canon_pose",
+      "egy.scale_hierarchy_composition",
+      "egy.mineral_pigment_palette",
+      "egy.papyrus_fiber_artifact"
+    ],
+    "avoid_with": [
+      "egy.chiaroscuro_shader"
+    ]
+  },
+  "egy.tomb_red_ochre_palette": {
+    "pairs_with": [
+      "egy.tomb_painting_style",
+      "egy.register_composition",
+      "egy.mineral_pigment_palette"
+    ],
+    "avoid_with": [
+      "egy.solar_gold_palette"
+    ]
+  },
+  "egy.uraeus_cobra": {
+    "pairs_with": [
+      "egy.winged_sun_disc",
+      "egy.royal_regalia_pose",
+      "egy.cartouche"
+    ],
+    "avoid_with": []
+  },
+  "egy.was_scepter": {
+    "pairs_with": [
+      "egy.ankh",
+      "egy.djed_pillar",
+      "egy.deity_holding_pose"
+    ],
+    "avoid_with": []
+  },
+  "egy.winged_sun_disc": {
+    "pairs_with": [
+      "egy.scarab",
+      "egy.ptolemaic_temple_style",
+      "egy.bilateral_symmetry_composition"
+    ],
+    "avoid_with": []
+  }
+}

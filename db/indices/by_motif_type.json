@@ -1,0 +1,100 @@
+{
+  "_untagged": [
+    "egy.ai_tomb_painting_pipeline",
+    "egy.amarna_style",
+    "egy.bilateral_symmetry_composition",
+    "egy.digital_glitch_remix",
+    "egy.dust_patina_artifact",
+    "egy.edge_ink_shader",
+    "egy.faience_texture",
+    "egy.funerary_vignette_composition",
+    "egy.gold_leaf_gilded_surface",
+    "egy.ink_bleed_artifact",
+    "egy.lapis_turquoise_palette",
+    "egy.mineral_pigment_palette",
+    "egy.monochrome_black_outline_palette",
+    "egy.museum_label_remix",
+    "egy.old_kingdom_relief_style",
+    "egy.palette_map_shader",
+    "egy.papyrus_fiber_artifact",
+    "egy.papyrus_scroll_style",
+    "egy.pigment_flake_artifact",
+    "egy.profile_canon_composition",
+    "egy.ptolemaic_temple_style",
+    "egy.reference_academic_core",
+    "egy.register_composition",
+    "egy.relief_shading_shader",
+    "egy.remix_modern_overlay_pipeline",
+    "egy.scale_hierarchy_composition",
+    "egy.shader_relief_render_pipeline",
+    "egy.solar_gold_palette",
+    "egy.stone_surface_texture",
+    "egy.street_poster_remix",
+    "egy.techno_hieratic_poster_remix",
+    "egy.temple_relief_style",
+    "egy.tomb_painting_style",
+    "egy.tomb_red_ochre_palette"
+  ],
+  "deity": [
+    "egy.ankh",
+    "egy.canopic_set",
+    "egy.deity_holding_pose",
+    "egy.djed_pillar",
+    "egy.eye_of_horus",
+    "egy.maat_feather",
+    "egy.scarab",
+    "egy.scribe_seated_pose",
+    "egy.solar_barque",
+    "egy.sphinx",
+    "egy.uraeus_cobra",
+    "egy.was_scepter",
+    "egy.winged_sun_disc"
+  ],
+  "funerary": [
+    "egy.ankh",
+    "egy.canopic_set",
+    "egy.cartouche",
+    "egy.djed_pillar",
+    "egy.eye_of_horus",
+    "egy.maat_feather",
+    "egy.offering_bearer_pose",
+    "egy.scarab",
+    "egy.solar_barque"
+  ],
+  "royal": [
+    "egy.ankh",
+    "egy.cartouche",
+    "egy.eye_of_horus",
+    "egy.lotus_papyrus",
+    "egy.offering_bearer_pose",
+    "egy.royal_regalia_pose",
+    "egy.scribe_seated_pose",
+    "egy.sphinx",
+    "egy.uraeus_cobra",
+    "egy.was_scepter",
+    "egy.winged_sun_disc"
+  ],
+  "border_pattern": [
+    "egy.border_frieze_composition"
+  ],
+  "hieroglyphic_inspired": [
+    "egy.hieroglyphic_inspired_marks_rules",
+    "egy.hieroglyphic_layout_rules"
+  ],
+  "plant": [
+    "egy.lotus_papyrus"
+  ],
+  "celestial": [
+    "egy.lotus_papyrus",
+    "egy.scarab",
+    "egy.solar_barque",
+    "egy.winged_sun_disc"
+  ],
+  "daily_life": [
+    "egy.offering_bearer_pose",
+    "egy.scribe_seated_pose"
+  ],
+  "animal": [
+    "egy.sphinx"
+  ]
+}

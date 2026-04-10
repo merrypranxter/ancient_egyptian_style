@@ -1,0 +1,80 @@
+{
+  "pipeline": [
+    "egy.ai_tomb_painting_pipeline",
+    "egy.remix_modern_overlay_pipeline",
+    "egy.shader_relief_render_pipeline"
+  ],
+  "style": [
+    "egy.amarna_style",
+    "egy.old_kingdom_relief_style",
+    "egy.papyrus_scroll_style",
+    "egy.ptolemaic_temple_style",
+    "egy.temple_relief_style",
+    "egy.tomb_painting_style"
+  ],
+  "symbol_motif": [
+    "egy.ankh",
+    "egy.canopic_set",
+    "egy.cartouche",
+    "egy.djed_pillar",
+    "egy.eye_of_horus",
+    "egy.lotus_papyrus",
+    "egy.maat_feather",
+    "egy.scarab",
+    "egy.solar_barque",
+    "egy.sphinx",
+    "egy.uraeus_cobra",
+    "egy.was_scepter",
+    "egy.winged_sun_disc"
+  ],
+  "composition": [
+    "egy.bilateral_symmetry_composition",
+    "egy.border_frieze_composition",
+    "egy.funerary_vignette_composition",
+    "egy.profile_canon_composition",
+    "egy.register_composition",
+    "egy.scale_hierarchy_composition"
+  ],
+  "canonical_pose": [
+    "egy.deity_holding_pose",
+    "egy.offering_bearer_pose",
+    "egy.royal_regalia_pose",
+    "egy.scribe_seated_pose"
+  ],
+  "remix": [
+    "egy.digital_glitch_remix",
+    "egy.museum_label_remix",
+    "egy.street_poster_remix",
+    "egy.techno_hieratic_poster_remix"
+  ],
+  "print_artifact": [
+    "egy.dust_patina_artifact",
+    "egy.ink_bleed_artifact",
+    "egy.papyrus_fiber_artifact",
+    "egy.pigment_flake_artifact"
+  ],
+  "rendering_shader": [
+    "egy.edge_ink_shader",
+    "egy.palette_map_shader",
+    "egy.relief_shading_shader"
+  ],
+  "material_texture": [
+    "egy.faience_texture",
+    "egy.gold_leaf_gilded_surface",
+    "egy.mineral_pigment_palette",
+    "egy.stone_surface_texture"
+  ],
+  "typography_rule": [
+    "egy.hieroglyphic_inspired_marks_rules",
+    "egy.hieroglyphic_layout_rules"
+  ],
+  "color_system": [
+    "egy.lapis_turquoise_palette",
+    "egy.monochrome_black_outline_palette",
+    "egy.solar_gold_palette",
+    "egy.tomb_red_ochre_palette"
+  ],
+  "reference": [
+    "egy.reference_academic_core"
+  ]
+}

@@ -1,0 +1,55 @@
+id: egy.scarab
+type: symbol_motif
+name: "Scarab"
+aliases: ["Khepri scarab", "scarab beetle", "dung beetle", "heart scarab"]
+summary: >
+  The sacred dung beetle symbol of solar regeneration, self-creation, and rebirth —
+  one of the most prolific amulet forms in ancient Egypt spanning all periods.
+description: >
+  The scarab (dung beetle, genus Scarabaeus) was associated with the god Khepri
+  ("he who comes into being"), the manifestation of the rising sun. Just as the
+  beetle rolls its ball of dung across the ground, Khepri was imagined rolling the
+  solar disc across the sky. Scarab amulets were mass-produced in faience, stone,
+  and precious materials from the Middle Kingdom onward. The underside (base) was
+  often inscribed with names, titles, protective texts, or decorative motifs. Heart
+  scarabs (placed on the chest of mummies) bore Chapter 30B of the Book of the Dead.
+  Visually, the scarab is rendered with a domed carapace, outstretched legs, and
+  sometimes shown with wings spread in the winged scarab form. The winged scarab
+  became a heraldic solar emblem, especially on pectorals and coffin lids.
+tags:
+  period: [middle_kingdom, new_kingdom, general_ancient_egypt]
+  medium: [faience, gold, stone, papyrus, tomb_painting]
+  motif_type: [deity, funerary, celestial]
+  linework: [carved_relief, ink_outline, painted_fill]
+  palette: [lapis_turquoise, gold_accent, mineral_pigments]
+  mood: [solemn, mythic, luminous]
+  shader_ops: [edge_ink, relief_shading, bloom]
+constraints:
+  do:
+    - "Show carapace with segmented wing-case lines for naturalistic reference."
+    - "For winged scarab: spread wings symmetrically, solar disc above or in foreclaws."
+    - "Faience colourway: bright turquoise-blue glaze with black detailing."
+  avoid:
+    - "Avoid depicting as a realistic entomological illustration — stylise to period canon."
+    - "Avoid using base inscription space with actual hieroglyphic text without expertise."
+parameters:
+  winged_variant: true
+  carapace_segments: 3
+  primary_colour_faience: "#3B9EBF"
+  solar_disc_colour: "#D4A82A"
+compat:
+  pairs_with:
+    - egy.winged_sun_disc
+    - egy.ankh
+    - egy.solar_gold_palette
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian scarab beetle symbol, Khepri solar emblem, winged scarab spread,
+  faience turquoise and gold, domed carapace, funerary amulet style,
+  solemn and luminous, ancient Egypt"
+provenance:
+  sources:
+    - "Andrews, C. (1994). Amulets of Ancient Egypt. British Museum Press."
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+version: "1.0"
+created_at: "2026-04-10"

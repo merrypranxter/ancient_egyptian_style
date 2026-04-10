@@ -1,0 +1,55 @@
+id: egy.solar_barque
+type: symbol_motif
+name: "Solar Barque"
+aliases: ["sun boat", "barque of Ra", "Manjet", "Mesektet", "night barque", "day barque"]
+summary: >
+  The divine boat that carries the sun god Ra across the sky by day and through the
+  underworld by night — the fundamental vehicle of Egyptian cosmology.
+description: >
+  In ancient Egyptian cosmology, the sun god Ra (or Amun-Ra) traverses the sky
+  in the solar barque (manjet by day, mesektet by night). The day barque sails
+  east to west across the heavenly ocean (Nun); at sunset, Ra boards the night
+  barque and travels through the twelve hours of the underworld (Duat), confronting
+  Apep/Apophis before sunrise resurrection. The solar barque is depicted as a
+  papyrus-reed boat with high prow and stern, carrying the sun disc (often in a
+  shrine), attended by divine crew including Thoth, Maat, Sia, Heka, and others.
+  The motif appears prominently in the Amduat, Book of Gates, and funerary papyri.
+  Votive model barques were placed in temples. The papyrus-bundle hull and solar disc
+  shrine element are the key identifying visual components.
+tags:
+  period: [new_kingdom, general_ancient_egypt]
+  medium: [tomb_painting, papyrus, temple_relief]
+  motif_type: [deity, celestial, funerary]
+  composition: [registers, narrative_sequence]
+  linework: [ink_outline, painted_fill]
+  palette: [mineral_pigments, gold_accent, lapis_turquoise]
+  mood: [mythic, solemn, luminous]
+  shader_ops: [edge_ink, palette_map, bloom]
+constraints:
+  do:
+    - "Show papyrus-bundle hull with upturned prow and stern."
+    - "Include solar disc (in a shrine or visible on deck) as identifying element."
+    - "Place in register context alongside text/spells for funerary papyrus use."
+  avoid:
+    - "Avoid realistic water rendering — use Egyptian stylised wave patterns."
+    - "Avoid modern naval or nautical design language on the barque hull."
+parameters:
+  hull_material: "papyrus_bundle"
+  solar_disc_on_deck: true
+  crew_count: "variable"
+compat:
+  pairs_with:
+    - egy.winged_sun_disc
+    - egy.register_composition
+    - egy.papyrus_scroll_style
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian solar barque, sun boat of Ra, papyrus-bundle hull, solar disc
+  shrine on deck, divine crew, Book of the Dead vignette, gold and lapis,
+  mythic and luminous, ancient Egypt"
+provenance:
+  sources:
+    - "Hornung, E. (1999). The Ancient Egyptian Books of the Afterlife. Cornell University Press."
+    - "Wilkinson, R.H. (2003). The Complete Gods and Goddesses of Ancient Egypt."
+version: "1.0"
+created_at: "2026-04-10"

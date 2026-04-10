@@ -1,0 +1,64 @@
+id: egy.royal_regalia_pose
+type: canonical_pose
+name: "Pharaoh in Royal Regalia Pose"
+aliases: ["seated pharaoh", "striding pharaoh", "smiting pose", "pharaoh with crook and flail"]
+summary: >
+  The canonical pose set for the pharaoh: seated on throne with crook and flail
+  crossed on chest, striding in the Osiride pose, or in the smiting pose with raised
+  mace — all conveying absolute divine royal authority.
+description: >
+  The pharaoh has three primary canonical poses in Egyptian art:
+  1. Seated throne pose: pharaoh sits on a cube throne, hands on thighs (or
+     holding crook and flail crossed at chest), in frontal-with-profile-face position.
+     This is the most formal, static, and regal pose — used for colossal statues,
+     stelae, and naos shrine figures.
+  2. Striding (Osiride) pose: standing with left leg advanced, arms crossed on
+     chest holding heqa crook and nekhakha flail. This pose is associated with
+     royal power and the Osiris identification of the king, common in
+     procession scenes and mummy form.
+  3. Smiting pose: the pharaoh raises a mace or weapon in one hand above his head
+     while grasping a kneeling enemy by the hair with the other hand. This iconic
+     pose appears on virtually every pylon gate from the Old Kingdom onward as a
+     statement of royal military and divine power.
+  In all poses, the pharaoh wears appropriate royal regalia: double crown (pschent),
+  blue crown (khepresh), nemes headdress, or white/red crown; uraeus on brow;
+  false beard; shendyt kilt; bull's tail at the back.
+tags:
+  period: [general_ancient_egypt]
+  medium: [temple_relief, tomb_painting, stone]
+  motif_type: [royal]
+  composition: [profile_canon, scale_hierarchy, centered_emblem]
+  linework: [carved_relief, ink_outline, painted_fill]
+  palette: [gold_accent, mineral_pigments, lapis_turquoise]
+  mood: [regal, solemn, monumental]
+  shader_ops: [relief_shading, edge_ink]
+constraints:
+  do:
+    - "Crown type must be contextually appropriate: pschent = unified rule; khepresh = military."
+    - "Include uraeus on the crown brow — essential royal identifier."
+    - "In smiting pose, enemy must be smaller (scale hierarchy)."
+    - "Show false beard (straight = living pharaoh; curved = Osiris/divine)."
+  avoid:
+    - "Avoid mixing crown types on a single figure."
+    - "Avoid depicting the pharaoh without royal regalia in formal contexts."
+parameters:
+  pose_variants: ["seated_throne", "striding_osiride", "smiting"]
+  uraeus_present: true
+  false_beard: true
+  headdress_options: ["pschent", "khepresh", "nemes", "white_hedjet", "red_deshret"]
+compat:
+  pairs_with:
+    - egy.scale_hierarchy_composition
+    - egy.uraeus_cobra
+    - egy.bilateral_symmetry_composition
+  avoid_with: []
+prompt_fragment: >
+  "pharaoh in royal regalia, smiting pose with mace, or seated on throne
+  with crook and flail, nemes headdress with uraeus, false beard, scale
+  hierarchy, ancient Egyptian regal and monumental"
+provenance:
+  sources:
+    - "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+    - "Shaw, I. & Nicholson, P. (1995). British Museum Dictionary of Ancient Egypt."
+version: "1.0"
+created_at: "2026-04-10"

@@ -1,0 +1,55 @@
+id: egy.eye_of_horus
+type: symbol_motif
+name: "Eye of Horus"
+aliases: ["Wedjat", "Udjat", "Wadjet eye", "Eye of Ra"]
+summary: >
+  The stylised human eye with falcon markings — one of the most powerful protective
+  and healing symbols in Egyptian religion, representing wholeness, protection, and
+  royal power.
+description: >
+  The Eye of Horus (wedjat, meaning "the sound one") depicts a human eye combined
+  with the facial markings of a peregrine falcon: a teardrop stripe descending from
+  the outer corner and a spiral or curved stroke beneath. Mythologically, Horus's
+  eye was torn out by Set and restored by Thoth; the restored eye became a symbol of
+  healing, protection, and sacrifice. It was used extensively as an amulet, painted
+  on coffin exteriors (to let the mummified deceased see), placed in mummy wrappings,
+  and inscribed on stelae and papyri. Mathematically, the wedjat's sub-divisions
+  were used in the heqat fraction system for grain measures. The left eye is typically
+  Horus; the right eye is sometimes identified as the Eye of Ra (solar).
+tags:
+  period: [old_kingdom, general_ancient_egypt]
+  medium: [tomb_painting, temple_relief, faience, papyrus, gold]
+  motif_type: [deity, funerary, royal]
+  linework: [ink_outline, carved_relief, painted_fill]
+  palette: [mineral_pigments, lapis_turquoise, gold_accent]
+  mood: [solemn, mythic, regal, luminous]
+  shader_ops: [edge_ink, palette_map, bloom]
+constraints:
+  do:
+    - "Include the teardrop stripe below the outer corner and the spiral/hook below."
+    - "The eyebrow above should be thick and angular — a key identifying feature."
+    - "Differentiate left (Horus/moon) from right (Ra/sun) where context demands."
+  avoid:
+    - "Avoid using as a generic decorative eye without the falcon marking details."
+    - "Avoid symmetrical mirror pairs without contextual justification."
+parameters:
+  eye_direction: "right_facing"
+  teardrop_stripe: true
+  eyebrow_present: true
+  pupil_shape: "almond"
+compat:
+  pairs_with:
+    - egy.ankh
+    - egy.scarab
+    - egy.deity_holding_pose
+  avoid_with: []
+prompt_fragment: >
+  "Eye of Horus, wedjat eye, Egyptian falcon eye marking, teardrop stripe
+  and spiral, bold ink outline, gold and lapis palette, protective amulet
+  style, solemn and luminous"
+provenance:
+  sources:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Andrews, C. (1994). Amulets of Ancient Egypt. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

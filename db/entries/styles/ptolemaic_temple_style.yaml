@@ -1,0 +1,61 @@
+id: egy.ptolemaic_temple_style
+type: style
+name: "Ptolemaic Temple Style"
+aliases: ["Graeco-Egyptian style", "late temple style", "Ptolemaic relief"]
+summary: >
+  The dense, hieroglyphically saturated temple relief style of the Ptolemaic
+  period, blending traditional Egyptian conventions with subtle Hellenistic
+  influences under the Greek ruling dynasty.
+description: >
+  The Ptolemaic period (332–30 BCE) saw an extraordinary efflorescence of temple
+  building, producing some of the best-preserved ancient Egyptian temples extant
+  today (Edfu, Dendera, Philae, Kom Ombo). Ptolemaic relief style deliberately
+  adhered to — and in many ways intensified — traditional Egyptian conventions,
+  partly as a political legitimation strategy by the Greek ruling dynasty.
+  Characteristics: extremely dense hieroglyphic inscription coverage on walls
+  and ceilings; finer, more deeply cut relief than New Kingdom work; richer colour
+  including more extensive blue and gold; more complex theological scenes and
+  astronomical ceilings. Subtle Hellenistic influence appears in slightly softer
+  facial modelling and more detailed garments, but the overall effect remains
+  unmistakably Egyptian. These temples are among the best reference sources for
+  intact pigmented relief.
+tags:
+  period: [ptolemaic]
+  medium: [temple_relief, stone]
+  composition: [registers, profile_canon, scale_hierarchy, bilateral_symmetry]
+  linework: [carved_relief, painted_fill, ink_outline]
+  palette: [mineral_pigments, lapis_turquoise, gold_accent, full_period_canonical]
+  surface: [carved, painted, gilded]
+  artifact: [dust_patina, edge_wear]
+  mood: [regal, mythic, monumental, luminous]
+  shader_ops: [relief_shading, edge_ink, palette_map, bloom]
+constraints:
+  do:
+    - "Fill every available wall surface with text and image — density is authentic."
+    - "Use deeper, sharper carving than New Kingdom sunk relief."
+    - "Include astronomical ceiling elements (Nut, zodiac, decanal stars) where appropriate."
+    - "Reference Edfu, Dendera, or Kom Ombo for intact colour reference."
+  avoid:
+    - "Avoid obvious Hellenistic realism in facial features — the style resists assimilation."
+    - "Avoid sparse compositions — Ptolemaic temple walls are saturated with content."
+parameters:
+  key_temples: ["Edfu (Horus)", "Dendera (Hathor)", "Philae (Isis)", "Kom Ombo (Sobek/Haroeris)"]
+  colour_richness: "high"
+compat:
+  pairs_with:
+    - egy.register_composition
+    - egy.scale_hierarchy_composition
+    - egy.winged_sun_disc
+    - egy.stone_surface_texture
+  avoid_with:
+    - egy.amarna_style
+prompt_fragment: >
+  "Ptolemaic Egyptian temple relief, Edfu or Dendera style, densely inscribed
+  walls, deep carved relief, rich lapis and gold pigments, astronomical
+  ceiling, regal and mythic, Graeco-Egyptian fusion"
+provenance:
+  sources:
+    - "Cauville, S. (2012). Dendara. Institut français d'archéologie orientale."
+    - "Arnold, D. (1999). Temples of the Last Pharaohs. Oxford University Press."
+version: "1.0"
+created_at: "2026-04-10"

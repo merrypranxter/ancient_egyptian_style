@@ -1,0 +1,67 @@
+id: egy.gold_leaf_gilded_surface
+type: material_texture
+name: "Gold Leaf and Gilded Surfaces"
+aliases: ["gold leaf", "gilding", "gold foil", "electrum", "gold cartonnage"]
+summary: >
+  The characteristic appearance of ancient Egyptian gold and gilding — from thin
+  gold leaf on wooden objects to solid gold divine figurines and gilt-bronze
+  to electrum obelisk caps.
+description: >
+  Gold (nbw in ancient Egyptian) occupied a unique place in Egyptian cosmology:
+  the flesh of the gods was gold; the sun's light was embodied in gold's permanent
+  gleam. Egyptian goldsmiths were among the world's earliest and most skilled,
+  producing gold leaf as thin as 0.1mm, solid cast gold figures, repousse goldwork
+  on wooden furniture, gold wire inlay, and gold-silver alloy electrum. Key contexts:
+
+  1. Gold leaf on wood: coffins, furniture, divine statuary — the gold is applied
+     over gesso on carved wood, producing a warm, slightly uneven surface with
+     subtle shadow at carved edges.
+
+  2. Solid gold: divine figurines, royal jewellery, heart scarabs — small scale,
+     high detail, intense reflectance.
+
+  3. Electrum (gold-silver alloy): obelisk cap tips to catch and reflect the sun's
+     first rays; characteristic pale gold colour.
+
+  4. Gold cartonnage: mummy masks — layers of linen and plaster covered with gold
+     leaf, with inlaid glass and faience for colour detail.
+
+  Digital simulation: warm amber-gold base (#C8922A to #D4A82A range); subtle
+  directional reflectance; gesso undercoat texture visible through thin leaf;
+  tooled surface marks at decorative borders.
+tags:
+  period: [new_kingdom, general_ancient_egypt]
+  medium: [gold, faience, wood]
+  surface: [gilded]
+  palette: [gold_accent]
+  mood: [luminous, regal, mythic]
+  shader_ops: [bloom, relief_shading, displacement]
+constraints:
+  do:
+    - "Use warm amber-gold tone, not cool yellow gold — ancient gold was high-carat warm."
+    - "Add subtle surface undulation texture (gesso base shows through thin leaf)."
+    - "Apply bloom/glow effect for digital simulation of gold reflectance."
+  avoid:
+    - "Avoid chrome-yellow or acid-yellow gold — not historically representative."
+    - "Avoid perfectly uniform flat gold — the hand-applied leaf has natural variation."
+parameters:
+  gold_hex_range: ["#C8922A", "#D4A82A", "#B8841E"]
+  electrum_hex: "#E8D080"
+  leaf_thickness_mm: 0.1
+  gesso_texture: true
+compat:
+  pairs_with:
+    - egy.solar_gold_palette
+    - egy.ptolemaic_temple_style
+    - egy.winged_sun_disc
+  avoid_with: []
+prompt_fragment: >
+  "ancient Egyptian gold leaf surface, warm amber gold, gilded wood or
+  cartonnage, subtle gesso texture, bloom and reflectance, divine luminous
+  quality, New Kingdom gold craftsmanship"
+provenance:
+  sources:
+    - "Ogden, J. (2000). 'Metals.' In Nicholson & Shaw (eds.), Ancient Egyptian Materials and Technology."
+    - "Aldred, C. (1971). Jewels of the Pharaohs. Thames and Hudson."
+version: "1.0"
+created_at: "2026-04-10"

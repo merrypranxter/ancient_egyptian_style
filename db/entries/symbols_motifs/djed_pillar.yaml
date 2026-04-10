@@ -1,0 +1,54 @@
+id: egy.djed_pillar
+type: symbol_motif
+name: "Djed Pillar"
+aliases: ["Djed column", "backbone of Osiris", "stability pillar"]
+summary: >
+  The multi-ringed column symbol associated with Osiris and stability, representing
+  the god's backbone and the concept of enduring permanence (djed = stability).
+description: >
+  The djed is a pillar-like hieroglyphic sign (Gardiner sign R11) meaning "stability"
+  (Egyptian: dd). It is associated with Osiris — some sources identify it as his
+  backbone or the trunk of the tamarisk tree in which Osiris's body was hidden.
+  The djed consists of a broad column with a distinct capital of horizontal bands
+  surmounted by four vertical ribs or flanges, sometimes with further ring-like
+  elements. It was used as a protective amulet (especially in mummy wrappings),
+  featured in the annual "Raising the Djed" ritual performed by the pharaoh at
+  Memphis, and appeared as a decorative register element on coffins, sarcophagi,
+  and funerary furniture. Often paired with the was scepter and ankh in triadic
+  formulas representing "stability, power, and life."
+tags:
+  period: [old_kingdom, general_ancient_egypt]
+  medium: [tomb_painting, temple_relief, faience, gold, wood]
+  motif_type: [deity, funerary]
+  linework: [ink_outline, carved_relief, painted_fill]
+  palette: [mineral_pigments, gold_accent, lapis_turquoise]
+  mood: [solemn, mythic]
+  shader_ops: [edge_ink, relief_shading]
+constraints:
+  do:
+    - "Show four horizontal ribs/flanges at the capital — this is the defining feature."
+    - "Include a broad rectangular base and stepped column shaft."
+    - "Pair with ankh and was scepter in triadic compositions."
+  avoid:
+    - "Avoid reducing to a simple striped column — the distinct capital ribs identify it."
+    - "Avoid confusing with generic column capital — the djed is a free-standing emblem."
+parameters:
+  capital_ribs: 4
+  ring_elements_below_capital: 3
+  gold_coloured: true
+compat:
+  pairs_with:
+    - egy.ankh
+    - egy.was_scepter
+    - egy.register_composition
+  avoid_with: []
+prompt_fragment: >
+  "djed pillar of Osiris, Egyptian stability column, four-ribbed capital,
+  gold and lapis colourway, funerary amulet form, carved relief or flat
+  painted style, solemn and mythic, ancient Egypt"
+provenance:
+  sources:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Pinch, G. (1994). Magic in Ancient Egypt. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

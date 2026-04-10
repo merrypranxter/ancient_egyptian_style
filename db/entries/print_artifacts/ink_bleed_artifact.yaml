@@ -1,0 +1,57 @@
+id: egy.ink_bleed_artifact
+type: print_artifact
+name: "Ink Bleed and Feathering Artifact"
+aliases: ["ink bleed", "feathering", "paint seep", "pigment spread"]
+summary: >
+  The characteristic spreading and feathering of ink and pigment into the fibrous
+  papyrus or plaster ground — a natural aging artifact that gives Egyptian art its
+  softened, slightly hazy quality around fine lines.
+description: >
+  On papyrus, diluted ink and thin pigment washes spread slightly into the fibrous
+  reed-pith ground when applied, creating a soft halo or feathering effect around
+  line edges. On plaster walls, pigment can seep into cracks or spread along
+  mineral surface variations. Over millennia, this bleed effect becomes more
+  pronounced as the paint layers age and the ground absorbs more moisture over
+  cycles of humidity. The result in aged Egyptian papyri: fine lines are not
+  perfectly crisp but have a slight bloom or haze at their outer edges; colour
+  fills may show gradual soft transitions at their edges; very fine hatching
+  or detail may partially merge together.
+
+  For digital simulation: this effect is applied as a Gaussian blur or
+  directional smear at 2–5% opacity on the line layer, or as a subtle glow
+  at the edges of colour fills. It should be barely perceptible at full scale
+  but add significant authenticity when viewed closely.
+tags:
+  period: [new_kingdom, general_ancient_egypt]
+  medium: [papyrus]
+  artifact: [ink_bleed]
+  shader_ops: [noise, vignette_burn]
+constraints:
+  do:
+    - "Apply very subtly — 2–5% effect; ink bleed should enhance, not obscure."
+    - "Limit to fine line edges and colour fill boundaries."
+    - "Increase effect in areas of lighter, more dilute pigment."
+  avoid:
+    - "Avoid strong blur effects — this reads as out-of-focus, not aged."
+    - "Avoid applying to stone relief contexts — ink bleed is papyrus-specific."
+parameters:
+  blur_radius_px: [1, 3]
+  opacity: 0.05
+  apply_to: ["line_edges", "colour_fill_boundaries"]
+  papyrus_only: true
+compat:
+  pairs_with:
+    - egy.papyrus_fiber_artifact
+    - egy.papyrus_scroll_style
+    - egy.funerary_vignette_composition
+  avoid_with:
+    - egy.stone_surface_texture
+prompt_fragment: >
+  "ink bleed artifact, soft feathering at line edges, papyrus paint seep,
+  slightly hazy and aged, pigment spread into fiber ground, subtle
+  degradation, ancient Egyptian papyrus"
+provenance:
+  sources:
+    - "Lucas, A. (1962). Ancient Egyptian Materials and Industries. Edward Arnold."
+version: "1.0"
+created_at: "2026-04-10"

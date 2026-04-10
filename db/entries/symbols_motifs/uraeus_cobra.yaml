@@ -1,0 +1,56 @@
+id: egy.uraeus_cobra
+type: symbol_motif
+name: "Uraeus Cobra"
+aliases: ["uraeus", "wadjet cobra", "rearing cobra", "royal cobra"]
+summary: >
+  The rearing Egyptian cobra — emblem of divine royal authority, fire, and protection
+  — worn on the headdress of pharaohs and deities, and placed atop crowns and diadems.
+description: >
+  The uraeus (from Greek ouraios, possibly from Egyptian iaret, "the rearing one")
+  is the stylised rearing Egyptian cobra (Naja naja or Naja haje), depicted
+  upright with hood spread and body coiled or looped behind. It is the emblem of
+  the serpent goddess Wadjet of Buto (Lower Egypt) and represents the solar fire
+  that destroys the pharaoh's enemies. It is most commonly shown attached to the
+  front of royal crowns and headdresses (White Crown, Red Crown, Blue Crown, Nemes
+  headdress) as the royal diadem element. Deities also wear the uraeus. Pairs of
+  uraei flank the winged sun disc. Triple uraei appear on some divine headdresses.
+  The uraeus is depicted with naturalistically curled hood, occasionally with solar
+  disc on head, and in gold or polychrome faience. Its distinctive rearing silhouette
+  is instantly recognisable as a royal/divine identifier.
+tags:
+  period: [early_dynastic, general_ancient_egypt]
+  medium: [gold, faience, temple_relief, tomb_painting, stone]
+  motif_type: [deity, royal]
+  linework: [carved_relief, ink_outline, painted_fill]
+  palette: [gold_accent, mineral_pigments, lapis_turquoise]
+  mood: [regal, solemn, mythic]
+  shader_ops: [edge_ink, bloom, relief_shading]
+constraints:
+  do:
+    - "Show in rearing pose with spread cobra hood — not coiled or lying flat."
+    - "Attach to crown or headdress brow for royal/divine figures."
+    - "Depict hood with ribbed or cross-hatched detail for scale texture."
+  avoid:
+    - "Avoid naturalistic snake poses (coiled, hunting) — the rearing upright form is canonical."
+    - "Avoid placing uraeus on non-royal, non-divine figures without specific mythological context."
+parameters:
+  hood_spread: true
+  body_looped: true
+  solar_disc_variant: true
+  primary_colour: "#C8922A"
+compat:
+  pairs_with:
+    - egy.winged_sun_disc
+    - egy.royal_regalia_pose
+    - egy.cartouche
+  avoid_with: []
+prompt_fragment: >
+  "uraeus cobra, Egyptian royal serpent, rearing cobra with spread hood,
+  gold and faience, crown diadem element, divine protection emblem,
+  regal and solemn, ancient Egypt"
+provenance:
+  sources:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Wilkinson, R.H. (2003). The Complete Gods and Goddesses of Ancient Egypt."
+version: "1.0"
+created_at: "2026-04-10"

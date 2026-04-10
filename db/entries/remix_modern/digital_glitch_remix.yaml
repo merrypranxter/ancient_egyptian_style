@@ -1,0 +1,64 @@
+id: egy.digital_glitch_remix
+type: remix
+name: "Digital Glitch / Data Corruption Remix"
+aliases: ["glitch art remix", "databending Egyptian", "pixel corruption overlay", "digital decay"]
+summary: >
+  A contemporary remix that applies digital glitch and data-corruption aesthetics
+  as a metaphor for the degradation of ancient records — pixel displacement, RGB
+  channel splitting, and scan artefacts over period-accurate motifs.
+description: >
+  This remix uses glitch art and data-corruption visual language as a thematic
+  metaphor: the fragmentation of digital data mirrors the physical degradation
+  of ancient Egyptian artefacts. The "historical-first" base: an accurately
+  rendered Egyptian figure, motif, or scene in period style. The remix overlay:
+  horizontal scan-line disruption (mimicking damaged video playback), RGB channel
+  offset (chromatic aberration pushed to extremes), pixel displacement noise,
+  blocky JPEG compression artefacts, and occasional total pixel-block corruption.
+
+  Thematic resonance: the glitch reads as the gaps, lacunae, and fragmentation
+  of the historical record — the parts of the wall that are missing, the papyri
+  that are lost, the names that were erased (damnatio memoriae). This is a high-
+  integrity remix because it treats digital corruption as an analogue for
+  physical destruction rather than as mere decoration.
+
+  Key constraint: the underlying Egyptian element must be readable — the glitch
+  is partial, not total. At least 60% of the base composition must be intact.
+tags:
+  period: [general_ancient_egypt]
+  remix: [digital_glitch, modern_overlay]
+  mood: [mythic, solemn]
+  shader_ops: [chromatic_aberration, noise, displacement]
+  artifact: [lacuna, abrasion]
+constraints:
+  do:
+    - "Maintain at least 60% of the base composition intact and legible."
+    - "Apply glitch as a metaphor for historical loss, not random decoration."
+    - "Use scan-line disruption aligned with the horizontal register structure."
+    - "Reference physical lacunae (missing plaster zones) as glitch block positions."
+  avoid:
+    - "Avoid total glitch covering — the Egyptian base must remain dominant."
+    - "Avoid colourful rainbow glitch that overwhelms the period palette."
+    - "Avoid using glitch to obscure or mock sacred imagery."
+parameters:
+  base_intact_percent: 60
+  channel_offset_px: [3, 8]
+  scan_line_disruption: true
+  jpeg_artefact_block_size: 16
+  displacement_amplitude: 5
+compat:
+  pairs_with:
+    - egy.pigment_flake_artifact
+    - egy.edge_ink_shader
+    - egy.tomb_painting_style
+  avoid_with:
+    - egy.museum_label_remix
+prompt_fragment: >
+  "Egyptian digital glitch remix, scan-line disruption over canonical figure,
+  RGB channel offset, pixel corruption metaphor for historical loss, base
+  motif 60% intact, contemporary data-decay over ancient art"
+provenance:
+  notes: >
+    Reference: Rosa Menkman's glitch art theory, 'The Glitch Moment(um)',
+    Institute of Network Cultures (2011), for thematic grounding.
+version: "1.0"
+created_at: "2026-04-10"

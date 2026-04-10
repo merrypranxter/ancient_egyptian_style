@@ -1,0 +1,58 @@
+id: egy.cartouche
+type: symbol_motif
+name: "Cartouche"
+aliases: ["shenu", "royal name ring", "royal oval"]
+summary: >
+  The oval rope-border enclosure used to frame the birth name and throne name
+  of Egyptian royalty, signifying eternal solar protection of the royal name.
+description: >
+  The cartouche (French: "cartridge") is the ancient Egyptian shenu (from sheni,
+  "to encircle") — an elongated oval formed by a rope tied at its base, encircling
+  and protecting the two primary royal names: the prenomen (throne name, Nesw-bit
+  title) and nomen (birth name, Sa-Ra title). It first appears in the Fourth Dynasty
+  (Old Kingdom) and remains in use through the Roman period. Mythologically, the
+  oval represents the sun's daily circuit — eternal protection for the name.
+  Visually: a stretched oval with a horizontal bar at one end (the knot of the rope).
+  The enclosed name is written in hieroglyphic signs. In artistic contexts, cartouches
+  appear on stelae, temple walls, obelisks, jewellery, and scarab bases. An empty
+  cartouche (for decoration) is a useful compositional framing device; however,
+  filling it with invented or decorative pseudo-glyphs should be clearly labelled
+  as artistic invention.
+tags:
+  period: [old_kingdom, general_ancient_egypt]
+  medium: [stone, gold, papyrus, temple_relief, faience]
+  motif_type: [royal, funerary]
+  composition: [centered_emblem, vignette]
+  linework: [carved_relief, ink_outline, painted_fill]
+  palette: [gold_accent, mineral_pigments]
+  mood: [regal, solemn]
+  shader_ops: [edge_ink, relief_shading, bloom]
+constraints:
+  do:
+    - "Maintain the characteristic elongated oval with a horizontal base bar."
+    - "Leave cartouche empty or use clearly invented abstract forms if filling it."
+    - "Use cartouche as a framing device for names, titles, or abstract emblems."
+  avoid:
+    - "Do not fill a cartouche with random mixed glyphs intended to look like real names."
+    - "Do not reproduce actual royal names in cartouches unless quoting historical record."
+    - "Avoid circular (rather than oval) cartouche shapes — the elongation is essential."
+parameters:
+  shape: "elongated_oval"
+  base_bar: true
+  interior: "empty_or_abstract"
+compat:
+  pairs_with:
+    - egy.hieroglyphic_inspired_marks
+    - egy.scale_hierarchy_composition
+    - egy.gold_leaf_gilded_surface
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian cartouche, royal name oval, rope border with base bar, gold
+  carved relief, empty or abstract interior, solemn and regal, ancient
+  Egypt pharaonic emblem"
+provenance:
+  sources:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Allen, J.P. (2010). Middle Egyptian: An Introduction to the Language and Culture of Hieroglyphs. Cambridge University Press."
+version: "1.0"
+created_at: "2026-04-10"

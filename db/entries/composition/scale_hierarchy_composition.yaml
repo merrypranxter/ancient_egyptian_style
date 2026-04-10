@@ -1,0 +1,55 @@
+id: egy.scale_hierarchy_composition
+type: composition
+name: "Scale Hierarchy"
+aliases: ["hierarchic scale", "conceptual scale", "size hierarchy"]
+summary: >
+  The Egyptian compositional convention where figure size indicates social/divine
+  importance rather than spatial distance — pharaoh and gods are largest, servants
+  smallest.
+description: >
+  Egyptian art does not use linear perspective. Instead, importance determines size
+  — a convention modern scholars call "hierarchic scale." The pharaoh is typically
+  the largest figure in any scene, sometimes twice the height of courtiers. Gods
+  depicted in human scale match the pharaoh in size. Servants, workers, prisoners,
+  and enemies are markedly smaller. Children are tiny regardless of age. This system
+  communicates social and cosmic hierarchy at a glance, independent of spatial
+  arrangement. In battle scenes, the pharaoh in his chariot looms over diminutive
+  enemy kings. In offering scenes, the royal figure dwarfs the priests. The scale
+  difference also applies to animals — the pharaoh's horse may be as large as a
+  human. This convention applies in both registers and single-scene compositions.
+  It gives Egyptian art a deliberate, hierarchically organised visual grammar.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, temple_relief]
+  composition: [scale_hierarchy, registers]
+  mood: [regal, monumental, solemn]
+  shader_ops: [edge_ink]
+constraints:
+  do:
+    - "Make the pharaoh/primary divine figure the largest in the composition."
+    - "Scale servants and minor figures to roughly 1/2 to 1/3 of the royal figure height."
+    - "Apply consistently within a register — do not use perspective foreshortening."
+  avoid:
+    - "Avoid making enemy kings or captured figures the same size as the pharaoh."
+    - "Avoid naturalistic spatial scaling — this breaks the Egyptian conceptual grammar."
+parameters:
+  pharaoh_to_servant_ratio: [2, 3]
+  divine_figure_ratio: 1.0
+  child_figure_ratio: 0.25
+compat:
+  pairs_with:
+    - egy.register_composition
+    - egy.tomb_painting_style
+    - egy.temple_relief_style
+    - egy.profile_canon_pose
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian hierarchic scale, pharaoh figure largest in scene, servants
+  half-size, conceptual importance determines figure height, no perspective,
+  register composition, ancient Egypt"
+provenance:
+  sources:
+    - "Robins, G. (1994). Proportion and Style in Ancient Egyptian Art. University of Texas Press."
+    - "Davis, W. (1989). The Canonical Tradition in Ancient Egyptian Art. Cambridge University Press."
+version: "1.0"
+created_at: "2026-04-10"

@@ -1,0 +1,58 @@
+id: egy.lapis_turquoise_palette
+type: color_system
+name: "Lapis and Turquoise Palette"
+aliases: ["blue-green palette", "lapis lazuli palette", "Egyptian blue palette", "celestial blue"]
+summary: >
+  The cool celestial palette centred on Egyptian blue, faience turquoise, and lapis
+  lazuli — evoking sky, water, divinity, and the colour of Amun's divine skin.
+description: >
+  The lapis and turquoise palette draws on the most cosmologically significant cool
+  colours in Egyptian art: Egyptian blue (the sky, water, and divine field), turquoise
+  (faience, malachite, Sinai turquoise — associated with Hathor), and the imported
+  precious lapis lazuli (Afghanistan-sourced, its golden pyrite inclusions evoking
+  the star-filled night sky). In Egyptian theology, blue was the colour of the sky
+  (Nut), the primeval waters (Nun), the god Amun (hidden, celestial), and divine
+  healing. The palette pairs these blues with gold accents (solar contrast) and
+  black outlines. Its emotional register is divine, celestial, and luminous.
+  Characteristic uses: temple ceiling astronomical elements, divine headdresses
+  and crowns, water/Nile scenes, faience object surfaces.
+tags:
+  period: [new_kingdom, ptolemaic, general_ancient_egypt]
+  medium: [faience, gold, tomb_painting, temple_relief]
+  palette: [lapis_turquoise, gold_accent, mineral_pigments]
+  mood: [luminous, mythic, solemn]
+  shader_ops: [bloom, palette_map]
+constraints:
+  do:
+    - "Use Egyptian blue (#3B6FA0) as the primary blue field."
+    - "Include faience turquoise (#3B9EBF) as a brighter, warmer blue accent."
+    - "Pair with gold (#D4A82A) as solar accent — the blue-gold contrast is iconic."
+    - "Reserve pure white and black for outline and highlight only."
+  avoid:
+    - "Avoid purple or violet — no stable ancient Egyptian purple existed."
+    - "Avoid cool grey as a neutral — Egyptian neutrals are warm-toned."
+parameters:
+  primary_blue: "#3B6FA0"
+  turquoise: "#3B9EBF"
+  malachite_green: "#3A7D44"
+  gold_accent: "#D4A82A"
+  outline: "#1A1208"
+  highlight: "#F5F0E8"
+  palette_hex: ["#3B6FA0", "#3B9EBF", "#3A7D44", "#D4A82A", "#1A1208", "#F5F0E8"]
+compat:
+  pairs_with:
+    - egy.faience_texture
+    - egy.solar_gold_palette
+    - egy.ptolemaic_temple_style
+  avoid_with:
+    - egy.tomb_red_ochre_palette
+prompt_fragment: >
+  "Egyptian lapis and turquoise palette, Egyptian blue and faience turquoise,
+  celestial and divine, gold accent contrast, temple ceiling blue, cool and
+  luminous, ancient Egyptian celestial aesthetic"
+provenance:
+  sources:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Cooney, K.M. (2018). The Good Kings. National Geographic."
+version: "1.0"
+created_at: "2026-04-10"

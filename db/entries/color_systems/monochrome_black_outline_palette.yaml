@@ -1,0 +1,57 @@
+id: egy.monochrome_black_outline_palette
+type: color_system
+name: "Monochrome Black Ink Outline Palette"
+aliases: ["ink drawing palette", "black line palette", "hieratic sketch palette", "red and black"]
+summary: >
+  The minimal black (or red + black) ink-only palette of Egyptian sketch drawings,
+  papyrus hieratic script, and preliminary underdrawings — pure graphic and highly
+  versatile.
+description: >
+  Not all Egyptian art was polychrome. A significant body of drawing exists in
+  pure black ink: satirical papyri (animals playing instruments, mice attacking a
+  cat fortress), ostraca sketches (limestone flakes used as practice surfaces and
+  drafting media), papyrus hieratic script, and preliminary underdrawings. The
+  monochrome ink palette reduces Egyptian visual language to its most essential
+  element: the confident, descriptive contour line. The two-tone red + black
+  variant (used in underdrawings: red chalk preliminary grid and sketches,
+  then black ink final line) is equally characteristic. This palette is the
+  most transferable to modern contexts — ink drawing, vector illustration,
+  printmaking, linocut, screen print — while retaining full Egyptian visual grammar.
+  It is also the most accessible for AI prompt generation and shader rendering.
+tags:
+  period: [new_kingdom, general_ancient_egypt]
+  medium: [papyrus, stone]
+  palette: [black_outline_only]
+  linework: [ink_outline, brush_freehand, red_grid_underdrawing]
+  mood: [instructional, intimate, solemn]
+  shader_ops: [edge_ink]
+constraints:
+  do:
+    - "Use a single consistent line weight for the primary contour."
+    - "Vary line weight for emphasis (thicker for outline, thinner for internal detail)."
+    - "Consider the two-tone variant: red chalk underdrawing + black ink finish."
+  avoid:
+    - "Avoid halftone shading — this palette is defined by line, not tone."
+    - "Avoid filled black zones larger than small details — keep it graphic and open."
+parameters:
+  ink_colour: "#1A1208"
+  ground_colour: "#F5EFD8"
+  underdrawing_colour: "#B94A2C"
+  line_weight_primary: "2px_equiv"
+  line_weight_detail: "1px_equiv"
+compat:
+  pairs_with:
+    - egy.papyrus_scroll_style
+    - egy.hieroglyphic_inspired_marks_rules
+    - egy.scribe_seated_pose
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian black ink outline drawing, monochrome contour line, papyrus
+  ostraca sketch style, confident descriptive line, no colour fill,
+  red underdrawing variant, instructional and intimate, ancient Egypt"
+provenance:
+  sources:
+    - "James, T.G.H. (1985). Egyptian Painting. British Museum Press."
+    - "Parkinson, R. (1999). Cracking Codes: The Rosetta Stone and Decipherment. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

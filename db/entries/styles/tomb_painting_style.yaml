@@ -1,0 +1,73 @@
+id: egy.tomb_painting_style
+type: style
+name: "Egyptian Tomb Painting Style"
+aliases: ["New Kingdom tomb art", "mural painting style"]
+summary: >
+  The canonical flat-colour painted mural style found in New Kingdom rock-cut
+  tombs, characterised by register layouts, composite figures, and mineral
+  pigments on white plaster.
+description: >
+  Ancient Egyptian tomb painting reached its apex in the New Kingdom (c. 1550–1070 BCE),
+  particularly in the Theban necropolis (Valley of the Kings, Tombs of the Nobles).
+  The style is defined by: a white or cream plaster ground; flat areas of mineral
+  pigment (Egyptian blue, red ochre, yellow ochre, green, black, white) bounded by
+  black ink outlines; figures arranged in horizontal registers with a baseline;
+  the composite-profile canon (frontal torso, profile head and legs); and scale
+  hierarchy where size denotes rank. Backgrounds are typically plain, leaving the
+  emphasis on figures and hieroglyphic captions. Scenes cover daily life, funerary
+  ritual, offerings, and mythological journeys.
+tags:
+  period: [new_kingdom, middle_kingdom]
+  medium: [tomb_painting]
+  composition: [registers, profile_canon, scale_hierarchy]
+  linework: [ink_outline, painted_fill]
+  palette: [mineral_pigments, white_ground, limited]
+  surface: [painted]
+  mood: [solemn, instructional, mythic]
+  shader_ops: [edge_ink, palette_map, noise]
+constraints:
+  do:
+    - "Use flat, even colour fills bounded by a confident black ink outline."
+    - "Organise figures in horizontal baseline registers."
+    - "Apply composite-profile canon to all human and divine figures."
+    - "Limit palette to the six canonical mineral pigments of the period."
+    - "Include a white or cream ground to maximise colour legibility."
+  avoid:
+    - "Avoid atmospheric perspective, cast shadows, or volumetric shading."
+    - "Avoid photorealistic rendering — flatness is the aesthetic principle."
+    - "Avoid mixing unrelated cultural motifs into the same register without remix labelling."
+parameters:
+  ground_colour: "#F5EFD8"
+  outline_colour: "#1A1208"
+  canonical_pigments:
+    - name: "Egyptian Blue"
+      hex: "#3B6FA0"
+    - name: "Red Ochre"
+      hex: "#B94A2C"
+    - name: "Yellow Ochre"
+      hex: "#D4A82A"
+    - name: "Malachite Green"
+      hex: "#3A7D44"
+    - name: "Carbon Black"
+      hex: "#1A1208"
+    - name: "Calcite White"
+      hex: "#F5F0E8"
+compat:
+  pairs_with:
+    - egy.register_composition
+    - egy.profile_canon_pose
+    - egy.scale_hierarchy_composition
+    - egy.mineral_pigment_palette
+    - egy.papyrus_fiber_artifact
+  avoid_with:
+    - egy.chiaroscuro_shader
+prompt_fragment: >
+  "ancient Egyptian tomb painting, flat mineral pigment fills, bold black ink
+  outline, horizontal register composition, white plaster ground, New Kingdom,
+  composite profile figures, solemn funerary atmosphere"
+provenance:
+  sources:
+    - "Manniche, L. (1997). Egyptian Art. British Museum Press."
+    - "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

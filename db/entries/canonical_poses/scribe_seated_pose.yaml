@@ -1,0 +1,58 @@
+id: egy.scribe_seated_pose
+type: canonical_pose
+name: "Seated Scribe Pose"
+aliases: ["cross-legged scribe", "scribal pose", "Hapy-scribe posture"]
+summary: >
+  The cross-legged seated pose of the Egyptian scribe — knees up, papyrus scroll
+  stretched across the lap, brush raised — a symbol of intellectual authority and
+  elite status.
+description: >
+  The seated scribe pose is one of the few Egyptian canonical positions that
+  departs from the striding/standing profile: the figure sits cross-legged on the
+  ground with a papyrus scroll stretched taut across the knees and the lap. The
+  upper body is frontal or three-quarter (an unusual allowance in Egyptian canon);
+  the head is in profile. The right hand holds a writing brush, poised or touching
+  the scroll; the left hand steadies the scroll's edge. This pose is found in both
+  sculpture-in-the-round (the famous "Seated Scribe" Cairo Antiquities; Louvre E3023)
+  and in relief/painting contexts where scribes record inventories, tallies, and
+  royal decrees. The pose conveys literacy, administrative authority, and proximity
+  to the king or deity. Palettes, pen cases, and water pots may accompany the figure.
+  The pose is also used for the deity Thoth (as ibis-headed divine scribe).
+tags:
+  period: [old_kingdom, new_kingdom, general_ancient_egypt]
+  medium: [stone, tomb_painting, temple_relief]
+  motif_type: [daily_life, royal, deity]
+  composition: [vignette, registers]
+  linework: [ink_outline, carved_relief, painted_fill]
+  palette: [mineral_pigments, ochre_red, white_ground]
+  mood: [instructional, solemn, intimate]
+  shader_ops: [edge_ink, relief_shading]
+constraints:
+  do:
+    - "Cross-legged seated position with knees up — this is the defining element."
+    - "Stretch papyrus scroll across the lap — it must be taut and clearly readable."
+    - "Include writing implements: brush, palette, water pot."
+  avoid:
+    - "Avoid showing the scribe writing on a table — the lap scroll is the canonical form."
+    - "Avoid filling the scroll with actual hieroglyphic text unless quoting known record."
+parameters:
+  leg_position: "cross_legged"
+  scroll_on_lap: true
+  brush_in_hand: true
+  writing_implement: ["brush_palette", "water_pot"]
+compat:
+  pairs_with:
+    - egy.papyrus_scroll_style
+    - egy.register_composition
+    - egy.instructional_mood
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian seated scribe, cross-legged with papyrus scroll on lap, brush
+  raised, palette and water pot, inscribed detail, Old Kingdom or New Kingdom,
+  intimate and instructional, tomb painting style"
+provenance:
+  sources:
+    - "Strouhal, E. (1992). Life of the Ancient Egyptians. University of Oklahoma Press."
+    - "James, T.G.H. (1985). Egyptian Painting. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

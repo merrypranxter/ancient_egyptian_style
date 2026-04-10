@@ -1,0 +1,85 @@
+id: egy.ai_tomb_painting_pipeline
+type: pipeline
+name: "AI → Egyptian Tomb Painting Pipeline"
+aliases: ["tomb painting AI pipeline", "Egyptian flat art pipeline", "canonical figure pipeline"]
+summary: >
+  A step-by-step pipeline for producing period-accurate Egyptian tomb painting
+  aesthetic output from AI image generation, covering prompt engineering, post-
+  processing shader steps, and quality checks.
+description: >
+  This pipeline produces output in the style of New Kingdom Egyptian tomb wall
+  painting from an AI text-to-image model, then refines it through post-process
+  shader passes to achieve period accuracy.
+
+  STAGE 1: PROMPT CONSTRUCTION
+  Build a composite prompt from entries in this DB:
+  - Base style: egy.tomb_painting_style → prompt_fragment
+  - Composition: egy.register_composition → prompt_fragment
+  - Figure(s): select from egy.profile_canon_composition, egy.deity_holding_pose,
+    egy.offering_bearer_pose as relevant
+  - Motif(s): one or more of egy.ankh, egy.scarab, egy.eye_of_horus, etc.
+  - Palette: egy.mineral_pigment_palette → parameters.canonical_pigments
+  - Mood: solemn, funerary, luminous (select)
+  - Negative prompt: "photorealistic, shadow, perspective, 3D, medieval,
+    Western, decorative scrollwork, purple, gradient"
+
+  STAGE 2: AI GENERATION (1–3 passes)
+  - Generate at 2x target resolution (upscale later).
+  - Use a model with style-lock if available (same seed + style for consistency).
+  - Select the generation closest to: flat fills, visible black outline,
+    register structure, profile figures.
+
+  STAGE 3: PALETTE MAP PASS
+  Apply egy.palette_map_shader to force all colours to the 6-pigment palette.
+  Preserve outline layer separately before mapping.
+
+  STAGE 4: EDGE INK PASS
+  Apply egy.edge_ink_shader to reinforce or regenerate outline at target weight.
+
+  STAGE 5: AGING ARTIFACTS (optional)
+  - Apply egy.papyrus_fiber_artifact or egy.dust_patina_artifact per target medium.
+  - Apply egy.pigment_flake_artifact at 5–15% coverage for aged effect.
+
+  STAGE 6: QUALITY CHECK
+  - Verify: flat fills (no gradients in colour zones).
+  - Verify: black outline present and consistent.
+  - Verify: register structure (horizontal bands readable).
+  - Verify: no anachronistic elements (modern objects, Western perspective).
+  - Verify: palette within 6-colour range (use histogram).
+tags:
+  period: [new_kingdom, general_ancient_egypt]
+  medium: [tomb_painting, papyrus]
+  composition: [registers, profile_canon]
+  mood: [solemn, mythic]
+  remix: [modern_overlay]
+  shader_ops: [palette_map, edge_ink, noise]
+constraints:
+  do:
+    - "Always apply palette map as STAGE 3 — this is the most impactful correction step."
+    - "Check for profile figure canon compliance before final output."
+    - "Document which DB entries were used in the prompt for reproducibility."
+  avoid:
+    - "Avoid skipping the palette map step — AI models produce non-period colours by default."
+    - "Avoid using a single mega-prompt — break into composable fragments from DB entries."
+parameters:
+  generation_resolution_multiplier: 2
+  target_medium: "tomb_painting_or_papyrus"
+  artifact_coverage_percent: [5, 15]
+  quality_checks: ["flat_fills", "black_outline", "register_structure", "no_anachronism", "palette_range"]
+compat:
+  pairs_with:
+    - egy.tomb_painting_style
+    - egy.palette_map_shader
+    - egy.edge_ink_shader
+    - egy.mineral_pigment_palette
+  avoid_with: []
+prompt_fragment: >
+  "ancient Egyptian tomb painting, flat mineral pigment fills, bold black ink
+  outline, horizontal register composition, white plaster ground, New Kingdom,
+  composite profile figures, solemn funerary atmosphere"
+provenance:
+  notes: >
+    This pipeline is a recommended workflow, not a definitive specification.
+    Results will vary by AI model; manual curation of STAGE 2 output is essential.
+version: "1.0"
+created_at: "2026-04-10"
