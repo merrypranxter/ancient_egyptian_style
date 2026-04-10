@@ -1,0 +1,64 @@
+{
+  "pairs": [
+    {
+      "a": "lotus_flower",
+      "b": "papyrus_plant",
+      "relation": "visual_balance",
+      "weight": 0.9
+    },
+    {
+      "a": "scarab_beetle",
+      "b": "solar_disk",
+      "relation": "symbolic_complement",
+      "weight": 0.95
+    },
+    {
+      "a": "ankh_symbol",
+      "b": "was_scepter",
+      "relation": "symbolic_complement",
+      "weight": 0.88
+    },
+    {
+      "a": "djed_pillar",
+      "b": "was_scepter",
+      "relation": "symbolic_complement",
+      "weight": 0.85
+    },
+    {
+      "a": "eye_of_ra",
+      "b": "uraeus_cobra",
+      "relation": "protective_pairing",
+      "weight": 0.82
+    },
+    {
+      "a": "feather_of_maat",
+      "b": "solar_disk",
+      "relation": "narrative_sequence",
+      "weight": 0.78
+    },
+    {
+      "a": "solar_disk",
+      "b": "uraeus_cobra",
+      "relation": "symbolic_complement",
+      "weight": 0.93
+    },
+    {
+      "a": "lotus_flower",
+      "b": "scarab_beetle",
+      "relation": "regeneration_cycle",
+      "weight": 0.75
+    },
+    {
+      "a": "djed_pillar",
+      "b": "ankh_symbol",
+      "relation": "symbolic_complement",
+      "weight": 0.8
+    },
+    {
+      "a": "was_scepter",
+      "b": "feather_of_maat",
+      "relation": "divine_authority_pair",
+      "weight": 0.72
+    }
+  ]
+}

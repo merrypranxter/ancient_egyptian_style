@@ -1,0 +1,445 @@
+{
+  "motifs": [
+    {
+      "id": "lotus_flower",
+      "name": "Lotus Flower",
+      "motif_type": "symbolic",
+      "category": "vegetation",
+      "period": "Old Kingdom",
+      "usage_mode": [
+        "border",
+        "field_fill",
+        "focal_point",
+        "decorative",
+        "cartouche"
+      ],
+      "prompt_tokens": [
+        "Egyptian lotus flower",
+        "blue lotus",
+        "white lotus",
+        "Nymphaea caerulea",
+        "lotus blossom Egypt"
+      ],
+      "visual_description": "An open or closed lotus bloom with long tapering petals, shown in profile or frontal view. Blue and white varieties common. Stem typically shown straight, emerging from water.",
+      "canonical_constraints": [
+        "petals rendered as overlapping pointed forms",
+        "stem shown full length when used as border element",
+        "always appears rooted or held, never floating free"
+      ],
+      "variants": [
+        "open_blue_lotus",
+        "closed_white_lotus",
+        "lotus_on_long_stem",
+        "lotus_with_papyrus_combined"
+      ],
+      "avoid": [
+        "naturalistic shading on petals",
+        "foreshortened stem",
+        "three-quarter view"
+      ],
+      "safe_remix_knobs": [
+        "petal count",
+        "color (blue vs white)",
+        "open vs closed bloom",
+        "single vs cluster"
+      ]
+    },
+    {
+      "id": "scarab_beetle",
+      "name": "Scarab Beetle",
+      "motif_type": "symbolic",
+      "category": "solar_deity",
+      "period": "Old Kingdom",
+      "usage_mode": [
+        "focal_point",
+        "cartouche",
+        "decorative",
+        "costume_element"
+      ],
+      "prompt_tokens": [
+        "Egyptian scarab",
+        "Khepri scarab",
+        "dung beetle Egypt",
+        "scarab amulet",
+        "scarab pushing solar disk"
+      ],
+      "visual_description": "Stylized scarab beetle viewed from above, forewings spread or closed, pushing or holding a solar disk. Compact oval body with segmented legs.",
+      "canonical_constraints": [
+        "body always shown from above (dorsal view)",
+        "legs symmetrically arranged",
+        "solar disk above head when in solar context",
+        "wings flat, not raised"
+      ],
+      "variants": [
+        "winged_scarab",
+        "scarab_with_solar_disk",
+        "cartouche_scarab",
+        "heart_scarab"
+      ],
+      "avoid": [
+        "side view of beetle",
+        "naturalistic leg positioning",
+        "three-dimensional rendering"
+      ],
+      "safe_remix_knobs": [
+        "winged vs wingless",
+        "disk color",
+        "size of disk relative to body",
+        "color of carapace"
+      ]
+    },
+    {
+      "id": "ankh_symbol",
+      "name": "Ankh Symbol",
+      "motif_type": "symbolic",
+      "category": "divine_attribute",
+      "period": "Early Dynastic",
+      "usage_mode": [
+        "focal_point",
+        "costume_element",
+        "decorative",
+        "narrative"
+      ],
+      "prompt_tokens": [
+        "ankh",
+        "Egyptian cross of life",
+        "crux ansata",
+        "Egyptian life symbol",
+        "ankh held by deity"
+      ],
+      "visual_description": "Cross with a teardrop or oval loop at the top. The vertical bar may be slightly longer than the horizontal. Held by gods in offering scenes.",
+      "canonical_constraints": [
+        "loop is closed oval, not heart-shaped",
+        "crossbar is straight horizontal",
+        "vertical bar descends below crossbar",
+        "proportions roughly 3:2 loop height to crossbar width"
+      ],
+      "variants": [
+        "plain_ankh",
+        "ankh_with_was",
+        "ankh_held_to_nose",
+        "ankh_in_cartouche"
+      ],
+      "avoid": [
+        "stylized or modern interpretations",
+        "loop opened or distorted",
+        "3D perspective rendering"
+      ],
+      "safe_remix_knobs": [
+        "filled vs outline",
+        "scale",
+        "color (gold vs turquoise vs red)",
+        "held vs standing"
+      ]
+    },
+    {
+      "id": "eye_of_ra",
+      "name": "Eye of Ra",
+      "motif_type": "symbolic",
+      "category": "solar_deity",
+      "period": "New Kingdom",
+      "usage_mode": [
+        "focal_point",
+        "decorative",
+        "vignette",
+        "costume_element"
+      ],
+      "prompt_tokens": [
+        "Eye of Ra",
+        "Egyptian eye symbol",
+        "Wadjet eye",
+        "solar eye Egypt",
+        "Ra eye with markings"
+      ],
+      "visual_description": "Stylized human eye in profile with an elongated outer corner, drop-shaped iris, bold brow line, and tear-duct marking below. The outer corner may extend into a curved tail.",
+      "canonical_constraints": [
+        "eye shown strictly in profile (left or right)",
+        "brow line bold and arched",
+        "tear marking (teardrop or spiral) below outer corner",
+        "iris round and dark"
+      ],
+      "variants": [
+        "left_eye_ra",
+        "right_eye_horus",
+        "wedjat_with_falcon_markings",
+        "eye_on_solar_disk"
+      ],
+      "avoid": [
+        "frontal eye view",
+        "realistic iris detail",
+        "lash extensions beyond canonical form"
+      ],
+      "safe_remix_knobs": [
+        "left vs right facing",
+        "color fills",
+        "presence of falcon cheek markings",
+        "size of teardrop marking"
+      ]
+    },
+    {
+      "id": "djed_pillar",
+      "name": "Djed Pillar",
+      "motif_type": "symbolic",
+      "category": "funerary",
+      "period": "Old Kingdom",
+      "usage_mode": [
+        "focal_point",
+        "narrative",
+        "decorative",
+        "border"
+      ],
+      "prompt_tokens": [
+        "djed pillar",
+        "Osiris backbone",
+        "djed column Egypt",
+        "stability symbol Egypt",
+        "djed with feathers"
+      ],
+      "visual_description": "A column with a broad base, tapering shaft, and a capital of horizontal bands with vertical striations \u2014 representing the backbone of Osiris. Often shown with was scepter and feathers.",
+      "canonical_constraints": [
+        "four horizontal bands at top are required",
+        "shaft is straight and vertical",
+        "base is wider than shaft",
+        "bilateral symmetry throughout"
+      ],
+      "variants": [
+        "djed_with_arms",
+        "djed_with_atef_crown",
+        "djed_with_was_scepter",
+        "miniature_djed_amulet"
+      ],
+      "avoid": [
+        "asymmetrical banding",
+        "curved or tilted shaft",
+        "naturalistic spine rendering"
+      ],
+      "safe_remix_knobs": [
+        "number of horizontal bands",
+        "color of bands",
+        "presence of flanking feathers",
+        "scale"
+      ]
+    },
+    {
+      "id": "was_scepter",
+      "name": "Was Scepter",
+      "motif_type": "symbolic",
+      "category": "divine_attribute",
+      "period": "Early Dynastic",
+      "usage_mode": [
+        "focal_point",
+        "costume_element",
+        "narrative",
+        "decorative"
+      ],
+      "prompt_tokens": [
+        "was scepter",
+        "Egyptian power scepter",
+        "was staff deity",
+        "Set animal staff",
+        "was with ankh"
+      ],
+      "visual_description": "A long staff with a Set-animal head at the top and a forked or split bottom. Held vertically by deities as a symbol of power and dominion.",
+      "canonical_constraints": [
+        "staff is perfectly vertical when held",
+        "Set animal head is stylized with long straight ears and curved snout",
+        "forked base is bifurcated",
+        "staff proportional to figure height"
+      ],
+      "variants": [
+        "was_alone",
+        "was_with_ankh",
+        "was_with_djed",
+        "miniature_was_amulet"
+      ],
+      "avoid": [
+        "crooked or angled staff",
+        "naturalistic animal head",
+        "rounded bottom"
+      ],
+      "safe_remix_knobs": [
+        "color",
+        "scale",
+        "head detail level",
+        "presence of additional symbols"
+      ]
+    },
+    {
+      "id": "papyrus_plant",
+      "name": "Papyrus Plant",
+      "motif_type": "decorative",
+      "category": "vegetation",
+      "period": "Old Kingdom",
+      "usage_mode": [
+        "border",
+        "field_fill",
+        "decorative",
+        "narrative"
+      ],
+      "prompt_tokens": [
+        "Egyptian papyrus",
+        "papyrus clump",
+        "papyrus marsh Egypt",
+        "papyrus column capital",
+        "papyrus frieze"
+      ],
+      "visual_description": "Tall triangular-sectioned stem topped with a dense umbel of radiating strands. Often shown in clusters rising from a ground line or waterline. Stems always straight.",
+      "canonical_constraints": [
+        "umbel is open fan or tight bud, never drooping",
+        "stem is perfectly vertical",
+        "when in marsh scene, multiple stems shown parallel",
+        "root shown at ground line"
+      ],
+      "variants": [
+        "open_papyrus_umbel",
+        "closed_papyrus_bud",
+        "papyrus_column",
+        "papyrus_clump_with_marsh"
+      ],
+      "avoid": [
+        "drooping or curved stems",
+        "naturalistic bend",
+        "three-quarter view of umbel"
+      ],
+      "safe_remix_knobs": [
+        "open vs closed umbel",
+        "number of stems in cluster",
+        "presence of birds/insects",
+        "color of umbel vs stem"
+      ]
+    },
+    {
+      "id": "feather_of_maat",
+      "name": "Feather of Maat",
+      "motif_type": "symbolic",
+      "category": "divine_attribute",
+      "period": "New Kingdom",
+      "usage_mode": [
+        "focal_point",
+        "costume_element",
+        "vignette",
+        "narrative"
+      ],
+      "prompt_tokens": [
+        "feather of Maat",
+        "ostrich feather Egypt",
+        "Maat feather truth",
+        "weighing of the heart feather",
+        "Maat symbol"
+      ],
+      "visual_description": "A single large ostrich feather shown upright with symmetric vane divisions. Often shown on Maat's headdress or balanced against the heart in judgment scenes.",
+      "canonical_constraints": [
+        "vane divisions are symmetric",
+        "quill is straight",
+        "feather always shown upright, vertical orientation",
+        "central spine (rachis) clearly defined"
+      ],
+      "variants": [
+        "feather_on_maat_headdress",
+        "feather_on_scale",
+        "two_feathers_atef",
+        "feather_amulet"
+      ],
+      "avoid": [
+        "drooping or curved feather",
+        "asymmetric vane",
+        "naturalistic feather barb detail"
+      ],
+      "safe_remix_knobs": [
+        "color (white vs golden)",
+        "size",
+        "vane barb density",
+        "presence of quill extension below binding"
+      ]
+    },
+    {
+      "id": "solar_disk",
+      "name": "Solar Disk",
+      "motif_type": "symbolic",
+      "category": "solar_deity",
+      "period": "Old Kingdom",
+      "usage_mode": [
+        "focal_point",
+        "costume_element",
+        "narrative",
+        "decorative"
+      ],
+      "prompt_tokens": [
+        "Egyptian solar disk",
+        "sun disk Egypt",
+        "Ra disk with uraeus",
+        "winged solar disk",
+        "Aten disk"
+      ],
+      "visual_description": "A perfect circle representing the sun, often red or gold. Frequently flanked by uraeus cobras and/or outstretched falcon wings. Worn as a crown by solar deities.",
+      "canonical_constraints": [
+        "circle is perfectly round",
+        "uraeus cobras hang symmetrically below disk when present",
+        "wings extend horizontally and symmetrically",
+        "disk color is solid (red, gold, or yellow)"
+      ],
+      "variants": [
+        "plain_solar_disk",
+        "solar_disk_with_uraeus",
+        "winged_solar_disk",
+        "aten_disk_with_rays"
+      ],
+      "avoid": [
+        "oval or elliptical disk",
+        "asymmetric wing arrangement",
+        "gradient or glow effects",
+        "shaded sphere"
+      ],
+      "safe_remix_knobs": [
+        "color (red vs gold)",
+        "winged vs plain",
+        "uraeus count",
+        "ray length for Aten variant"
+      ]
+    },
+    {
+      "id": "uraeus_cobra",
+      "name": "Uraeus Cobra",
+      "motif_type": "symbolic",
+      "category": "royalty",
+      "period": "Early Dynastic",
+      "usage_mode": [
+        "costume_element",
+        "focal_point",
+        "decorative",
+        "border"
+      ],
+      "prompt_tokens": [
+        "uraeus cobra Egypt",
+        "rearing cobra crown",
+        "Egyptian cobra headdress",
+        "Wadjet cobra",
+        "uraeus on crown"
+      ],
+      "visual_description": "A rearing cobra with hood fully spread, body coiled below, facing forward. Worn on royal crowns and headdresses as protective symbol of Lower Egypt.",
+      "canonical_constraints": [
+        "hood is symmetrically spread",
+        "body coil visible below hood",
+        "tail may spiral or extend back",
+        "always faces the viewer frontally when on crown"
+      ],
+      "variants": [
+        "single_uraeus",
+        "double_uraeus",
+        "uraeus_with_solar_disk",
+        "uraeus_flanking_winged_disk"
+      ],
+      "avoid": [
+        "naturalistic snake proportion",
+        "side profile (unless decorative frieze)",
+        "open mouth showing fangs (typically closed)"
+      ],
+      "safe_remix_knobs": [
+        "hood size",
+        "body coil count",
+        "crown type it's mounted on",
+        "color (gold vs turquoise)"
+      ]
+    }
+  ]
+}

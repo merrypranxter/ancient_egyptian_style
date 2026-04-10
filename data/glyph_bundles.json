@@ -1,0 +1,59 @@
+{
+  "glyph_bundles": [
+    {
+      "id": "solar_invocation_bundle",
+      "name": "Solar Invocation Bundle",
+      "description": "Glyphs used together in solar hymns and invocations to Ra",
+      "glyphs": [
+        "hieroglyph_n1_sky",
+        "hieroglyph_m17_reed",
+        "hieroglyph_g17_owl"
+      ],
+      "typical_usage": "Opening lines of solar hymns inscribed on tomb walls and papyri"
+    },
+    {
+      "id": "offering_formula_bundle",
+      "name": "Offering Formula Bundle",
+      "description": "Core glyphs comprising the hetep-di-nesu offering formula",
+      "glyphs": [
+        "hieroglyph_r4_loaf",
+        "hieroglyph_t28_bread",
+        "hieroglyph_w24_pot",
+        "hieroglyph_a1_man"
+      ],
+      "typical_usage": "Funerary stelae and offering table inscriptions"
+    },
+    {
+      "id": "numerals_bundle",
+      "name": "Numeral Signs Bundle",
+      "description": "Counting and tally glyphs including rope coil for hundreds",
+      "glyphs": [
+        "hieroglyph_v1_coil"
+      ],
+      "typical_usage": "Accounting papyri, census records, measurement inscriptions"
+    },
+    {
+      "id": "determinatives_bundle",
+      "name": "Human and Animal Determinatives",
+      "description": "Determinative glyphs marking words related to people and animals",
+      "glyphs": [
+        "hieroglyph_a1_man",
+        "hieroglyph_f4_head",
+        "hieroglyph_g17_owl"
+      ],
+      "typical_usage": "End of words denoting humans, cattle, or owls in running text"
+    },
+    {
+      "id": "phonetic_basics_bundle",
+      "name": "Basic Phonetic Signs Bundle",
+      "description": "Common uniliteral phonetic signs used across all periods",
+      "glyphs": [
+        "hieroglyph_d36_arm",
+        "hieroglyph_m17_reed",
+        "hieroglyph_g17_owl",
+        "hieroglyph_t28_bread"
+      ],
+      "typical_usage": "Spelling of words, royal names, and epithets in all inscription types"
+    }
+  ]
+}
