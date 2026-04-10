@@ -1,0 +1,57 @@
+id: egy.sphinx
+type: symbol_motif
+name: "Sphinx"
+aliases: ["sphinx", "Great Sphinx", "human-headed lion", "androsphinx", "criosphinx", "hieracosphinx"]
+summary: >
+  The composite creature with lion body and human (or ram or falcon) head —
+  a symbol of royal power, solar guardianship, and the liminal threshold between
+  worlds.
+description: >
+  The sphinx is the classic Egyptian composite being: the power of the lion combined
+  with the intelligence and divinity of the human head (androsphinx), ram head
+  (criosphinx, associated with Amun), or falcon head (hieracosphinx, associated with
+  Horus). The Great Sphinx at Giza (c. 2500 BCE) is the most famous example — a
+  colossal limestone androsphinx wearing the nemes headdress, facing east to receive
+  the sunrise. Sphinxes appear as avenue figures lining processional routes to
+  temples (criosphinx avenues at Karnak), as tomb guardians, on amulets, and in
+  relief. The recumbent pose (paws extended, body flat) is canonical. The hieracosphinx
+  appears frequently on royal jewellery (pectorals). Compositionally, paired sphinxes
+  frame an entrance or central emblem as heraldic guardians.
+tags:
+  period: [old_kingdom, new_kingdom, general_ancient_egypt]
+  medium: [stone, tomb_painting, temple_relief, gold]
+  motif_type: [royal, deity, animal]
+  composition: [bilateral_symmetry, centered_emblem, vignette]
+  linework: [carved_relief, ink_outline, painted_fill]
+  palette: [ochre_red, gold_accent, mineral_pigments]
+  surface: [carved, weathered]
+  mood: [regal, solemn, monumental, mythic]
+  shader_ops: [relief_shading, edge_ink, noise]
+constraints:
+  do:
+    - "Use recumbent pose (lion body lying down, paws forward) as canonical form."
+    - "Include nemes headdress for androsphinx royal identification."
+    - "Pair as bilateral guardians flanking entrance or central emblem."
+  avoid:
+    - "Avoid standing or crouching poses — the recumbent form is definitively Egyptian."
+    - "Avoid winged variants (more Greek-style) without clear remix/period labelling."
+parameters:
+  variant: "androsphinx"
+  pose: "recumbent"
+  headdress: "nemes"
+compat:
+  pairs_with:
+    - egy.bilateral_symmetry_composition
+    - egy.winged_sun_disc
+    - egy.stone_surface_texture
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian sphinx, recumbent lion body, human head with nemes headdress,
+  carved limestone, paws extended, monumental guardian, regal and solemn,
+  ancient Egypt"
+provenance:
+  sources:
+    - "Lehner, M. (1997). The Complete Pyramids. Thames and Hudson."
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+version: "1.0"
+created_at: "2026-04-10"

@@ -1,0 +1,72 @@
+id: egy.hieroglyphic_inspired_marks_rules
+type: typography_rule
+name: "Hieroglyphic-Inspired Marks: Do / Avoid Guidelines"
+aliases: ["faux hieroglyphs", "glyph-inspired decoration", "pseudo-hieroglyphs", "inspired marks"]
+summary: >
+  Core principles for using glyph-like visual marks inspired by Egyptian hieroglyphs
+  in artistic contexts — emphasising abstraction over reproduction and cultural respect.
+description: >
+  Egyptian hieroglyphic script is a complex, historically grounded writing system
+  with over 700 signs in the classical period (Middle Egyptian), used for real texts
+  in religious, administrative, and funerary contexts. Using hieroglyphs decoratively
+  without understanding their meaning risks creating nonsensical, disrespectful, or
+  accidentally sacrilegious combinations. This entry defines the do/avoid framework
+  for AI generative art, shader art, and design projects that want to evoke the
+  visual aesthetic of hieroglyphic script without reproducing actual inscriptions.
+
+  Core philosophy: use "glyph-inspired abstract marks" — forms that are visually
+  influenced by the hieroglyphic tradition (geometric shapes, profile animals, eye
+  forms, architectural marks) but do not attempt to replicate or compose readable
+  Egyptian text. These marks can be arranged in grid columns, cartouches, friezes,
+  and label blocks as a visual texture, as long as they are clearly presented as
+  contemporary artistic invention rather than authentic ancient text.
+
+  For projects that DO want to include real hieroglyphic elements, consult a trained
+  Egyptologist and use only accurately documented signs with known meaning.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, papyrus, temple_relief]
+  motif_type: [hieroglyphic_inspired]
+  mood: [instructional, solemn]
+  remix: [modern_overlay, museum_label, street_poster]
+constraints:
+  do:
+    - "Use glyph-inspired abstract marks as visual texture rather than legible text."
+    - "Arrange marks in column or grid format to evoke the visual rhythm of inscription."
+    - "Reference documented Gardiner sign list shapes for visual inspiration."
+    - "Label any artwork clearly as 'inspired by' or 'abstract marks' rather than reproduced text."
+    - "If using actual hieroglyphs, verify meaning with an Egyptologist or authoritative source."
+    - "Prefer well-known emblematic signs (ankh, eye, bird silhouettes) as abstracted motifs."
+    - "Use empty cartouches or clearly invented interior signs rather than mixing real signs randomly."
+  avoid:
+    - "Do not combine real hieroglyphic signs randomly — this may produce offensive or nonsensical text."
+    - "Do not present invented marks as if they are authentic ancient inscriptions."
+    - "Do not reproduce actual sacred funerary texts (Pyramid Texts, Coffin Texts, Book of the Dead spells) as decoration."
+    - "Do not claim that AI-generated glyph sequences reproduce historical Egyptian writing."
+    - "Avoid using religious or funerary texts from living/practicing religious traditions without specific permission."
+    - "Do not present generated text as a 'translation' of any name or phrase without expert verification."
+parameters:
+  abstraction_level: "inspired_not_reproduced"
+  expert_review_required: true
+  cartouche_interior: "empty_or_abstract_only"
+  gardiner_reference: "https://en.wikipedia.org/wiki/Gardiner%27s_sign_list"
+compat:
+  pairs_with:
+    - egy.cartouche
+    - egy.papyrus_scroll_style
+    - egy.border_frieze_composition
+  avoid_with: []
+prompt_fragment: >
+  "abstract glyph-inspired marks, Egyptian aesthetic visual texture, column
+  arrangement, profile bird and eye forms, geometric sign shapes, clearly
+  artistic invention not authentic text, ancient Egyptian visual language"
+provenance:
+  sources:
+    - "Allen, J.P. (2010). Middle Egyptian: An Introduction to the Language and Culture of Hieroglyphs. Cambridge University Press."
+    - "Gardiner, A.H. (1957). Egyptian Grammar. Griffith Institute."
+  notes: >
+    This entry provides guidelines, not linguistic instruction. For any project
+    using actual hieroglyphic text, consultation with a trained Egyptologist is
+    strongly recommended.
+version: "1.0"
+created_at: "2026-04-10"

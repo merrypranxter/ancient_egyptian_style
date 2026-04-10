@@ -1,0 +1,62 @@
+id: egy.deity_holding_pose
+type: canonical_pose
+name: "Deity Holding Scepter Pose"
+aliases: ["divine holding pose", "god standing with scepter", "standard deity pose"]
+summary: >
+  The canonical standing pose for deities: profile stance, one arm extended forward
+  holding an ankh or was scepter, the other arm hanging with a second scepter —
+  expressing divine authority and the gift of life.
+description: >
+  The standard deity standing pose in Egyptian art has been remarkably consistent
+  across 3,000 years. The figure stands in canonical profile with left foot advanced
+  (the conventional "walking" or active stance). One hand (typically the one facing
+  the viewer) is raised or extended forward, holding an ankh; the trailing hand
+  holds a was scepter (or staff, crook, flail). The figure may face left or right
+  depending on orientation relative to the scene's central figure or shrine.
+  The deity's identity is conveyed primarily by the headdress and specific attributes
+  (falcon head = Horus/Ra; ibis head = Thoth; cow horns + disc = Hathor/Isis; etc.).
+  The body follows the composite-profile canon. Skin colours vary by deity: Osiris
+  green or black; Amun blue-black; male gods red-brown; goddesses yellow-ochre.
+  Garment: typically a white or colour-banded kilt (shendyt) for male deities,
+  a tight sheath dress for female deities.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, temple_relief, papyrus]
+  motif_type: [deity]
+  composition: [profile_canon, registers]
+  linework: [ink_outline, painted_fill]
+  palette: [mineral_pigments, gold_accent]
+  mood: [solemn, regal, mythic]
+  shader_ops: [edge_ink]
+constraints:
+  do:
+    - "Left foot forward in the canonical active/walking stance."
+    - "Identify deity by headdress — do not rely on generic 'Egyptian look' alone."
+    - "Hold appropriate attributes in each hand (ankh + was is standard)."
+    - "Apply period-correct skin colour per deity identity."
+  avoid:
+    - "Avoid Western standing pose with weight on one hip — this breaks the Egyptian canon."
+    - "Avoid casual hand positions — every hand in Egyptian art holds something or gestures formally."
+parameters:
+  foot_forward: "left"
+  primary_hand_item: "ankh"
+  secondary_hand_item: "was_scepter"
+  garment_male: "shendyt_kilt"
+  garment_female: "sheath_dress"
+compat:
+  pairs_with:
+    - egy.register_composition
+    - egy.ankh
+    - egy.was_scepter
+    - egy.tomb_painting_style
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian deity standing pose, profile stance, left foot forward, holding
+  ankh and was scepter, canonical figure, headdress identity, tomb painting
+  or temple relief, solemn and divine"
+provenance:
+  sources:
+    - "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+    - "Wilkinson, R.H. (2003). The Complete Gods and Goddesses of Ancient Egypt."
+version: "1.0"
+created_at: "2026-04-10"

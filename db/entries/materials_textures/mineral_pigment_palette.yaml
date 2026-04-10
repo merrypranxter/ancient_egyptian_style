@@ -1,0 +1,89 @@
+id: egy.mineral_pigment_palette
+type: material_texture
+name: "Ancient Egyptian Mineral Pigments"
+aliases: ["Egyptian pigments", "ancient pigment palette", "tomb paint materials"]
+summary: >
+  The six canonical mineral pigments of ancient Egyptian wall painting and papyrus
+  illustration — their historical composition, characteristic colours, and digital
+  simulation values.
+description: >
+  Egyptian painters worked with a remarkably stable palette of six mineral-based
+  pigments, which they ground and mixed with binding agents (egg white, gum arabic,
+  animal glue). These pigments are the foundation of the characteristic Egyptian
+  colour palette:
+
+  1. Egyptian Blue (cuprorivaite, CaCuSi₂O₆): The world's first synthetic pigment,
+     produced by firing a mixture of silica, lime, and copper compounds with quartz.
+     Intense, stable blue-green. Characteristic of New Kingdom work.
+
+  2. Malachite Green (Cu₂(CO₃)(OH)₂): Ground malachite, producing a variable
+     blue-green. Can shift to turquoise in some contexts.
+
+  3. Red Ochre (Fe₂O₃): Iron oxide in red; used for male skin, red outlines, and
+     warm accents.
+
+  4. Yellow Ochre (FeO(OH)): Goethite-based yellow; used for female skin, yellow
+     backgrounds, and warm grounds. Orpiment (arsenic trisulfide, As₂S₃) was used
+     for intense yellows later.
+
+  5. Carbon Black: Charcoal or lampblack; the primary outline and detail pigment.
+
+  6. Calcite White (CaCO₃): Ground limestone or calcite; used for white grounds and
+     white garments. Also Huntite (Mg₃Ca(CO₃)₄) for brighter whites.
+
+  These pigments do not include purple (no stable ancient Egyptian purple), orange
+  as a primary colour, or bright cool whites. Their characteristic blends and
+  mutual incompatibilities define the authentic Egyptian palette.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, temple_relief, papyrus]
+  palette: [mineral_pigments, full_period_canonical]
+  surface: [painted]
+  mood: [solemn, instructional]
+  shader_ops: [palette_map]
+constraints:
+  do:
+    - "Limit palette to these six pigments for historical accuracy."
+    - "Use Egyptian Blue for sky, water, and divine colour fields."
+    - "Apply red-brown for male skin, yellow-ochre for female skin."
+    - "Carbon black for all outlines and detail marks."
+  avoid:
+    - "Avoid saturated purple, orange, or magenta — these have no authentic Egyptian pigment equivalent."
+    - "Avoid cool bright white — calcite white has a warm, slightly chalky quality."
+    - "Avoid mixing pigments to get colours outside the canonical range without remix labelling."
+parameters:
+  pigments:
+    - name: "Egyptian Blue"
+      material: "cuprorivaite"
+      hex: "#3B6FA0"
+    - name: "Malachite Green"
+      material: "malachite"
+      hex: "#3A7D44"
+    - name: "Red Ochre"
+      material: "iron_oxide_red"
+      hex: "#B94A2C"
+    - name: "Yellow Ochre"
+      material: "goethite"
+      hex: "#D4A82A"
+    - name: "Carbon Black"
+      material: "charcoal"
+      hex: "#1A1208"
+    - name: "Calcite White"
+      material: "calcite"
+      hex: "#F5F0E8"
+compat:
+  pairs_with:
+    - egy.tomb_painting_style
+    - egy.papyrus_scroll_style
+    - egy.register_composition
+  avoid_with: []
+prompt_fragment: >
+  "ancient Egyptian mineral pigment palette, Egyptian blue, malachite green,
+  red ochre, yellow ochre, carbon black, calcite white, historically accurate
+  tomb paint colours, six canonical pigments"
+provenance:
+  sources:
+    - "Lee, L. & Quirke, S. (2000). 'Painting materials.' In Nicholson & Shaw (eds.), Ancient Egyptian Materials and Technology."
+    - "Scott, D.A. (2016). 'A Review of Copper Chlorides and Related Salts in Bronze Corrosion and as Painting Pigments.' Studies in Conservation."
+version: "1.0"
+created_at: "2026-04-10"

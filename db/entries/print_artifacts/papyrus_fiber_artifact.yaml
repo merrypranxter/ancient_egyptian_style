@@ -1,0 +1,57 @@
+id: egy.papyrus_fiber_artifact
+type: print_artifact
+name: "Papyrus Fiber Texture Artifact"
+aliases: ["papyrus grain", "papyrus weave", "reed fiber texture"]
+summary: >
+  The distinctive surface texture of papyrus — interlaid strips of Cyperus papyrus
+  reed pith — visible as a grid-like fibrous pattern through painted surfaces.
+description: >
+  Papyrus is made from the pith of the Cyperus papyrus plant: thin horizontal and
+  vertical strips are laid perpendicular, pressed together, dried, and polished
+  with a smooth stone. The resulting surface shows a subtle but distinct grid-weave
+  pattern of fibrous stripes. This texture is visible through thin washes of ink
+  and pigment, especially in areas where the paint layer is thin or degraded.
+  In digital simulation: the texture appears as a subtle directional weave with
+  slightly warmer stripes where the reed strips lap over each other. The overall
+  ground colour is amber-warm (#D4A84B range); the fiber pattern adds a darker
+  texture grid at roughly 0.5–2mm spacing (scaled to image resolution). This
+  texture is one of the most recognisable authenticating details of papyrus art
+  simulation. It should be subtle — readable but not dominant — visible primarily
+  in lighter colour areas and margins.
+tags:
+  period: [new_kingdom, general_ancient_egypt]
+  medium: [papyrus]
+  surface: [painted]
+  artifact: [papyrus_fiber]
+  shader_ops: [noise, displacement]
+constraints:
+  do:
+    - "Apply fiber texture as a subtle overlay — not a dominant pattern."
+    - "Warm the ground colour to amber-yellow (#D4A84B) before applying fiber texture."
+    - "Scale fiber spacing to image resolution (finer at higher resolution)."
+  avoid:
+    - "Avoid making the fiber texture too dark or high-contrast — it should feel aged, not new."
+    - "Avoid perfectly regular grid — papyrus fiber is organic and slightly irregular."
+parameters:
+  ground_hex: "#D4A84B"
+  fiber_hex: "#B8923A"
+  fiber_direction: "orthogonal_weave"
+  fiber_spacing_mm: [0.5, 2.0]
+  opacity: 0.3
+compat:
+  pairs_with:
+    - egy.papyrus_scroll_style
+    - egy.ink_bleed_artifact
+    - egy.funerary_vignette_composition
+  avoid_with:
+    - egy.stone_surface_texture
+prompt_fragment: >
+  "papyrus fiber texture, woven reed strip surface, amber warm ground,
+  subtle orthogonal fiber grid, aged papyrus, visible through thin paint,
+  ancient Egyptian scroll material"
+provenance:
+  sources:
+    - "Lucas, A. (1962). Ancient Egyptian Materials and Industries. Edward Arnold."
+    - "Nicholson, P.T. & Shaw, I. (eds.) (2000). Ancient Egyptian Materials and Technology."
+version: "1.0"
+created_at: "2026-04-10"

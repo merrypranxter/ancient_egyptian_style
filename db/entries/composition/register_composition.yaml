@@ -1,0 +1,59 @@
+id: egy.register_composition
+type: composition
+name: "Register Composition"
+aliases: ["horizontal registers", "banded registers", "tier layout"]
+summary: >
+  The fundamental Egyptian compositional system of stacking narrative scenes in
+  horizontal bands (registers) separated by baseline rules — the universal wall
+  organisation format.
+description: >
+  The register system is the defining structural logic of Egyptian wall art. A wall
+  surface is divided into horizontal bands (registers), each with its own baseline
+  on which figures stand. Scenes progress from the bottom (most grounded, earthly)
+  to the top (more celestial/divine), or from left to right within each register
+  as narrative sequence. The number of registers varies by wall size and content;
+  tomb walls typically have 3–6 registers. Each register is a self-contained scene
+  separated from adjacent registers by a thin painted or incised line. Important
+  figures may span two registers (scale hierarchy override). Register baselines
+  are not perspective — all figures stand at the same size regardless of depth.
+  The format gives Egyptian wall art its characteristic "layered narrative" quality
+  that modern eyes read almost like a comic strip or storyboard.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, temple_relief, papyrus]
+  composition: [registers, narrative_sequence]
+  mood: [instructional, solemn]
+  shader_ops: [edge_ink]
+constraints:
+  do:
+    - "Divide composition into clear horizontal bands with visible or implied baseline."
+    - "Progress narrative left-to-right within each register."
+    - "Stack registers bottom-to-top with earthly content at base, celestial at top."
+    - "Maintain consistent figure scale within each register (except scale hierarchy figures)."
+  avoid:
+    - "Avoid diagonal or zigzag scene boundaries — registers are strictly horizontal."
+    - "Avoid overlapping figures across register lines without clear intent."
+    - "Avoid Western single-scene perspective composition in this format."
+parameters:
+  register_count_typical: [3, 6]
+  separator_line: "thin_painted_or_incised"
+  reading_direction: "left_to_right"
+  vertical_progression: "bottom_earthly_to_top_celestial"
+compat:
+  pairs_with:
+    - egy.tomb_painting_style
+    - egy.temple_relief_style
+    - egy.scale_hierarchy_composition
+    - egy.profile_canon_pose
+  avoid_with:
+    - egy.amarna_style
+prompt_fragment: >
+  "Egyptian register composition, horizontal banded scenes, baseline figures,
+  left-to-right narrative, stacked registers, tomb wall layout, instructional
+  and solemn, ancient Egypt wall art"
+provenance:
+  sources:
+    - "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+    - "Hartwig, M.K. (2004). Tomb Painting and Identity in Ancient Thebes. Brepols."
+version: "1.0"
+created_at: "2026-04-10"

@@ -1,0 +1,57 @@
+id: egy.tomb_red_ochre_palette
+type: color_system
+name: "Tomb Ochre Palette"
+aliases: ["ochre and black palette", "red tomb palette", "warm earth palette"]
+summary: >
+  The warm earth-toned palette of ochre red, yellow ochre, carbon black, and
+  calcite white — the workhorse colour system of Egyptian tomb painting.
+description: >
+  The tomb ochre palette is the everyday colour system of Egyptian funerary wall
+  painting, emphasising warm mineral earths over the more festive gold and lapis
+  tones. It draws on red ochre for male skin and warm accents, yellow ochre for
+  female skin and grounds, carbon black for outlines and detail, and calcite white
+  for garments and highlights. Egyptian blue and malachite green appear as accents
+  for divine colour zones and vegetation, but the dominant warmth is earth-based.
+  This palette reads as grounded, solemn, and historically authentic at a glance.
+  It is the most legible at small scale and in reproduction, making it useful for
+  print and low-resolution contexts. The palette also includes the warm cream of
+  the plaster ground, which glows through thin paint washes.
+tags:
+  period: [old_kingdom, new_kingdom, general_ancient_egypt]
+  medium: [tomb_painting, papyrus]
+  palette: [mineral_pigments, ochre_red, limited]
+  surface: [painted]
+  mood: [solemn, instructional]
+  shader_ops: [palette_map, noise, vignette_burn]
+constraints:
+  do:
+    - "Use red-brown (#B94A2C) for male skin, yellow-ochre (#C8922A) for female skin."
+    - "Keep the warm plaster-cream ground visible at borders and thin paint zones."
+    - "Add Egyptian blue and malachite green sparingly as divine accents only."
+  avoid:
+    - "Avoid cool blue-dominated overall palette — this palette is warm-earth led."
+    - "Avoid pure black backgrounds — use warm dark brown for depth."
+parameters:
+  male_skin: "#8B3A1A"
+  female_skin: "#C8922A"
+  outline: "#1A1208"
+  ground_colour: "#F5EFD8"
+  accent_blue: "#3B6FA0"
+  accent_green: "#3A7D44"
+  palette_hex: ["#8B3A1A", "#C8922A", "#B94A2C", "#D4A82A", "#1A1208", "#F5EFD8", "#3B6FA0", "#3A7D44"]
+compat:
+  pairs_with:
+    - egy.tomb_painting_style
+    - egy.register_composition
+    - egy.mineral_pigment_palette
+  avoid_with:
+    - egy.solar_gold_palette
+prompt_fragment: >
+  "Egyptian tomb ochre palette, warm red-brown and yellow ochre, male and
+  female skin tones, carbon black outline, white plaster ground, solemn and
+  earthy, ancient Egyptian wall painting"
+provenance:
+  sources:
+    - "Lee, L. & Quirke, S. (2000). 'Painting materials.' In Nicholson & Shaw (eds.), Ancient Egyptian Materials and Technology."
+version: "1.0"
+created_at: "2026-04-10"

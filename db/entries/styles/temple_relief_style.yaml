@@ -1,0 +1,56 @@
+id: egy.temple_relief_style
+type: style
+name: "Temple Relief Style"
+aliases: ["bas-relief", "raised relief", "sunken relief", "sunk relief"]
+summary: >
+  Carved and pigmented stone relief work found on temple walls, combining
+  sculptural depth with painted colour, spanning Old Kingdom through Ptolemaic periods.
+description: >
+  Temple relief is the monumental public face of Egyptian art. Two techniques
+  dominate: raised relief (figures project above the background) and sunken/sunk
+  relief (figures are carved below the surface, ideal for bright desert sunlight
+  which casts crisp shadows). Both were typically painted after carving. The style
+  is characterised by crisp carved edges, directional side-lighting that reads as
+  line, flat pigment colour zones, and hierarchical composition. Ptolemaic temple
+  reliefs (Edfu, Dendera, Philae) show increased technical complexity with finer
+  detail. The formal register system and composite-profile canon apply throughout.
+tags:
+  period: [old_kingdom, middle_kingdom, new_kingdom, ptolemaic, general_ancient_egypt]
+  medium: [temple_relief, stone]
+  composition: [registers, profile_canon, scale_hierarchy, bilateral_symmetry]
+  linework: [carved_relief, painted_fill, ink_outline]
+  palette: [mineral_pigments, gold_accent, limited]
+  surface: [carved, painted, weathered]
+  artifact: [edge_wear, abrasion, lacuna, dust_patina]
+  mood: [regal, monumental, mythic, solemn]
+  shader_ops: [relief_shading, edge_ink, palette_map, noise]
+constraints:
+  do:
+    - "Use directional side-lighting (typically from upper-left) to read carved edges."
+    - "Apply flat pigment colour fields within carved contour lines."
+    - "Maintain register baseline structure on continuous wall surfaces."
+    - "Add weathering (abrasion, dust patina) for historical grounding."
+  avoid:
+    - "Avoid soft shadow gradients — keep shadow sharp at carved edges."
+    - "Avoid decorative detail that would be unreadable at architectural scale."
+parameters:
+  light_direction: "upper_left"
+  stone_types: ["limestone", "sandstone", "granite", "quartzite"]
+  relief_depth_mm: [2, 15]
+compat:
+  pairs_with:
+    - egy.register_composition
+    - egy.scale_hierarchy_composition
+    - egy.relief_shading_shader
+    - egy.stone_surface_texture
+  avoid_with: []
+prompt_fragment: >
+  "ancient Egyptian temple relief carving, raised relief, painted stone,
+  directional side-lighting, flat pigment fills, monumental register composition,
+  Ptolemaic temple style, weathered limestone, regal and mythic"
+provenance:
+  sources:
+    - "Hawass, Z. (2003). Secrets of the Valley of the Kings. National Geographic."
+    - "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

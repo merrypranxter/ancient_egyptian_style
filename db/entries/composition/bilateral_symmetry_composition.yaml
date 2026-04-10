@@ -1,0 +1,53 @@
+id: egy.bilateral_symmetry_composition
+type: composition
+name: "Bilateral Symmetry Composition"
+aliases: ["heraldic symmetry", "mirror composition", "antithetical grouping"]
+summary: >
+  Mirror-symmetrical arrangements used for heraldic emblems, divine throne scenes,
+  and protective motifs — the two sides reflecting each other across a central axis.
+description: >
+  Bilateral (left-right mirror) symmetry is a fundamental compositional principle
+  in Egyptian formal art, particularly for emblematic and divine contexts. Classic
+  examples: two sphinxes flanking an entrance; two uraei flanking a winged sun disc;
+  two Nile gods performing sema-tawy (union of two lands) on a throne base; paired
+  deities presenting offerings to a central pharaoh; the double-Maat seated on either
+  side of the solar barque. The central axis is typically occupied by the highest-
+  ranking figure (pharaoh, deity) or an abstract emblem (disc, pillar). Symmetrical
+  compositions convey stability, divine order (maat), and cosmic balance. The
+  convention applies at multiple scales: full wall scenes, architectural elements,
+  jewellery, stelae, and amulets. It is especially characteristic of apotropaic
+  (protective) imagery where balance = protection.
+tags:
+  period: [general_ancient_egypt]
+  medium: [temple_relief, tomb_painting, stone, gold]
+  composition: [bilateral_symmetry, centered_emblem]
+  mood: [regal, solemn, mythic, monumental]
+  shader_ops: [edge_ink, relief_shading]
+constraints:
+  do:
+    - "Place the primary emblem or figure on the central vertical axis."
+    - "Mirror flanking elements precisely — same pose, same scale, same detail."
+    - "Use for heraldic and formal scenes: entrance gates, throne bases, stelae headers."
+  avoid:
+    - "Avoid near-symmetry where small differences read as error — be precise or fully asymmetric."
+    - "Avoid applying bilateral symmetry to narrative/action scenes (battle, hunting) — those are asymmetric."
+parameters:
+  axis: "vertical_centre"
+  flanking_elements: "mirrored_pair"
+  typical_contexts: ["entrance_lintel", "stela_header", "throne_base", "jewelry_pectoral"]
+compat:
+  pairs_with:
+    - egy.winged_sun_disc
+    - egy.sphinx
+    - egy.ptolemaic_temple_style
+  avoid_with:
+    - egy.narrative_sequence_composition
+prompt_fragment: >
+  "Egyptian bilateral symmetry, heraldic mirror composition, central axis
+  emblem, flanking matched figures, formal and divine, ancient Egypt stela
+  or temple relief"
+provenance:
+  sources:
+    - "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

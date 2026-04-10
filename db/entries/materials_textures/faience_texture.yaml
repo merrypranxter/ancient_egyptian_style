@@ -1,0 +1,64 @@
+id: egy.faience_texture
+type: material_texture
+name: "Faience Glaze Texture"
+aliases: ["Egyptian faience", "faience glaze", "glazed composition", "tjehenet"]
+summary: >
+  The characteristic surface quality of ancient Egyptian faience — a quartz-based
+  ceramic covered with a vitreous alkaline glaze that produces brilliant turquoise-
+  blue, green, and blue-grey tones.
+description: >
+  Egyptian faience (tjehenet = "the dazzling one") is a non-clay ceramic composed
+  of crushed quartz or sand body with an alkaline silica glaze fired to a brilliant
+  vitreous finish. It is not porcelain or earthenware but a distinct material
+  developed in Egypt (and Mesopotamia) from at least the Predynastic period.
+  Faience was associated with fertility, rebirth, and the sun's light due to its
+  brilliant blue-green colour — the colour of the Nile, turquoise, malachite, and
+  the sky. Used extensively for: amulets (ankhs, scarabs, djed pillars, uraei);
+  shabtis (funerary servant figurines); tiles (Saqqara's Step Pyramid faience tiles);
+  bowls, cups, and vessels; inlay in jewellery and composite objects.
+
+  Characteristic surface qualities: semi-gloss to high-gloss vitreous finish;
+  slight crazing (fine surface cracking) in aged examples; brilliant colour that
+  may fade or shift in hue over millennia; sometimes polychrome (multiple colours
+  in different zones, separated by incised lines). The most common colour is
+  turquoise-blue (copper-based), followed by green, blue, white, black, and red.
+tags:
+  period: [predynastic, general_ancient_egypt]
+  medium: [faience]
+  surface: [painted, layered]
+  artifact: [cracks, dust_patina]
+  palette: [lapis_turquoise, mineral_pigments]
+  mood: [luminous, solemn]
+  shader_ops: [noise, bloom, chromatic_aberration]
+constraints:
+  do:
+    - "Use semi-gloss to high-gloss surface quality — not matte like pottery."
+    - "Apply characteristic turquoise-blue as the dominant colour (#3B9EBF base)."
+    - "Add fine crazing crack network for aged pieces."
+    - "Use black incised line to separate colour zones in polychrome pieces."
+  avoid:
+    - "Avoid matte or clay-like surface — faience gleams."
+    - "Avoid warm or brown-toned glazes — faience is cool and brilliant."
+parameters:
+  dominant_colour: "#3B9EBF"
+  secondary_colour: "#3A7D44"
+  surface_quality: "semi_gloss"
+  crazing: true
+  fired_temperature_c: [850, 950]
+compat:
+  pairs_with:
+    - egy.scarab
+    - egy.ankh
+    - egy.lapis_turquoise_palette
+  avoid_with:
+    - egy.stone_surface_texture
+prompt_fragment: >
+  "Egyptian faience glaze, brilliant turquoise-blue vitreous surface,
+  fine crazing, semi-gloss, faience amulet texture, cool and luminous,
+  ancient Egyptian ceramic material"
+provenance:
+  sources:
+    - "Nicholson, P.T. (2000). 'Faience and glass.' In Nicholson & Shaw (eds.), Ancient Egyptian Materials and Technology."
+    - "Friedman, F.D. (1998). Gifts of the Nile: Ancient Egyptian Faience. Brown University."
+version: "1.0"
+created_at: "2026-04-10"

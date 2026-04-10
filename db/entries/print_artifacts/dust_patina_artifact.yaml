@@ -1,0 +1,60 @@
+id: egy.dust_patina_artifact
+type: print_artifact
+name: "Dust Patina and Calcium Bloom Artifact"
+aliases: ["dust deposit", "calcium carbonate bloom", "desert patina", "surface deposit"]
+summary: >
+  The pale, muting deposit of dust, calcium carbonate, and mineral residue that
+  settles on and into Egyptian stone surfaces — desaturating colour and softening
+  detail over centuries.
+description: >
+  In the dry desert environment of Egypt, surfaces accumulate fine dust, wind-blown
+  sand particles, and mineral deposits over centuries. Additionally, water evaporating
+  through porous stone leaves behind calcium carbonate deposits (calcite bloom) that
+  form a pale, slightly whitish or yellowish veil over painted surfaces. Together,
+  these deposits desaturate and lighten pigment colours, blur fine detail slightly,
+  and create an even, atmospheric haze particularly visible in shadowed zones.
+
+  Characteristically: areas not regularly cleaned show a pale buff or yellowish
+  grey veil; deeper recesses (carved letters, incised lines) trap darker accumulation;
+  the overall effect is a gentle desaturation and lightening toward a neutral buff-grey.
+
+  For digital simulation: a multiply-blended pale warm-grey or buff layer at
+  low opacity (10–30%) over the entire image, with slightly denser accumulation
+  in recessed zones. Colour saturation reduction of 15–25% produces the characteristic
+  muted palette of in-situ photography of Egyptian monuments.
+tags:
+  period: [general_ancient_egypt]
+  medium: [temple_relief, stone]
+  surface: [weathered]
+  artifact: [dust_patina, abrasion]
+  shader_ops: [noise, vignette_burn]
+constraints:
+  do:
+    - "Apply as a layer over entire surface — dust is uniform, not localized."
+    - "Desaturate underlying colour by 15–25% for in-situ simulation."
+    - "Increase density in recesses and lower wall zones."
+  avoid:
+    - "Avoid cold grey deposits — desert dust is warm buff/ochre toned."
+    - "Avoid overapplication — heavy patina simulation completely masks the art underneath."
+parameters:
+  deposit_colour: "#E0D4B0"
+  blend_mode: "multiply"
+  opacity: 0.20
+  saturation_reduction_percent: 20
+compat:
+  pairs_with:
+    - egy.stone_surface_texture
+    - egy.temple_relief_style
+    - egy.pigment_flake_artifact
+  avoid_with:
+    - egy.papyrus_fiber_artifact
+prompt_fragment: >
+  "dust patina artifact, calcium bloom deposit, desert surface haze,
+  desaturated muted palette, pale buff veil over painted stone,
+  in-situ Egyptian monument aged look"
+provenance:
+  sources:
+    - "Mora, P., Mora, L., & Philippot, P. (1984). Conservation of Wall Paintings. Butterworths."
+    - "Weeks, K.R. (ed.) (2001). The Valley of the Kings: A Site Management Handbook."
+version: "1.0"
+created_at: "2026-04-10"

@@ -1,0 +1,57 @@
+id: egy.amarna_style
+type: style
+name: "Amarna Style"
+aliases: ["Akhenaten period style", "Amarna art", "Atenist art"]
+summary: >
+  The revolutionary naturalistic style of the Amarna Period under Akhenaten
+  (c. 1353–1336 BCE), marked by elongated forms, soft contours, and solar intimacy.
+description: >
+  The Amarna Period produced the most dramatic stylistic rupture in Egyptian art
+  history. Under Akhenaten (Amenhotep IV), royal iconography was transformed:
+  figures became elongated with large heads, full lips, distended bellies, and
+  wide hips. Compositions introduced informal domestic scenes — the royal family
+  playing, eating, sitting beneath the Aten sun disc. Light and divine radiance
+  were depicted as the Aten's rays ending in hands holding ankhs. Contour lines
+  became softer and more curved; the rigid Old Kingdom angularity was replaced
+  with organic fluidity. After Akhenaten's death the style was suppressed and
+  destroyed by subsequent rulers, making it rare and controversial. Surviving
+  examples include the Amarna palace frescoes, stelae, and colossi.
+tags:
+  period: [new_kingdom]
+  medium: [tomb_painting, temple_relief, stone]
+  composition: [centered_emblem, vignette, radial]
+  linework: [ink_outline, carved_relief, painted_fill]
+  palette: [mineral_pigments, gold_accent, ochre_red, lapis_turquoise]
+  surface: [painted, carved]
+  mood: [luminous, intimate, mythic]
+  shader_ops: [bloom, edge_ink, palette_map]
+constraints:
+  do:
+    - "Elongate head, neck, and limbs — especially the cranium and chin."
+    - "Show the Aten as a disc with radiating rays ending in human hands."
+    - "Include intimate domestic scenes as thematic grounding."
+    - "Use softer, more rounded contours than canonical Egyptian style."
+  avoid:
+    - "Avoid the strict angular rigidity of Old/Middle Kingdom canon."
+    - "Avoid traditional multi-deity iconography — Aten monotheism excludes other gods."
+    - "Do not exaggerate deformity for shock value — the forms are idealised, not grotesque."
+parameters:
+  figure_elongation_ratio: 1.35
+  aten_rays_end_in_hands: true
+  cranium_exaggeration: "prominent"
+compat:
+  pairs_with:
+    - egy.solar_radiance_shader
+    - egy.winged_sun_disc
+  avoid_with:
+    - egy.old_kingdom_relief_style
+prompt_fragment: >
+  "Amarna Period Egyptian art, Akhenaten style, elongated figures, soft
+  rounded contours, Aten sun disc with hand rays, intimate royal domestic
+  scene, luminous and warm, New Kingdom revolutionary style"
+provenance:
+  sources:
+    - "Aldred, C. (1988). Akhenaten: King of Egypt. Thames and Hudson."
+    - "Kemp, B. (2012). The City of Akhenaten and Nefertiti. Thames and Hudson."
+version: "1.0"
+created_at: "2026-04-10"

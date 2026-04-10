@@ -1,0 +1,74 @@
+id: egy.stone_surface_texture
+type: material_texture
+name: "Egyptian Stone Surface Texture"
+aliases: ["limestone texture", "sandstone grain", "granite surface", "carved stone"]
+summary: >
+  The characteristic surface qualities of carved Egyptian stonework — limestone,
+  sandstone, and granite — with their grain, colour, and weathering profiles for
+  digital simulation.
+description: >
+  Egyptian monumental art is primarily executed in three stone types, each with
+  distinct surface characteristics:
+
+  1. Limestone: The most common medium for tomb and temple relief in the Memphis
+     region (Giza, Saqqara). Cream-to-warm-white base colour; fine grain;
+     excellent for shallow relief carving; weathers to warm ochre with dust patina.
+     Nummulitic limestone (with visible fossil inclusions) is characteristic of
+     Giza blocks.
+
+  2. Sandstone: Dominant in Upper Egypt (Luxor, Karnak, Edfu, Aswan). Warm ochre-
+     to-buff colour; coarser grain than limestone; suitable for deeply cut relief;
+     slightly friable surface. Nubian sandstone (brown-red) at Aswan and Nubian sites.
+
+  3. Granite (red/grey): Used for statuary, obelisks, sarcophagi, and high-wear
+     architectural elements. Deep red-pink (Aswan red granite) or grey-blue;
+     crystalline grain visible at close range; highly resistant to weathering.
+
+  Surface aging: all three stone types develop dust/calcium patina in desert
+  conditions; limestone erodes more quickly than sandstone; granite retains
+  sharpness the longest. Modern conservation treatments (consolidants) can
+  give an artificially bright surface.
+tags:
+  period: [general_ancient_egypt]
+  medium: [stone, temple_relief]
+  surface: [carved, weathered]
+  artifact: [dust_patina, edge_wear, abrasion, lacuna]
+  shader_ops: [noise, displacement, relief_shading]
+constraints:
+  do:
+    - "Warm the base colour: limestone = cream/ochre, sandstone = buff/amber, granite = red-pink."
+    - "Add dust patina and edge wear as default aging simulation."
+    - "Use directional side-lighting to read carved surface as relief."
+  avoid:
+    - "Avoid cold grey stone colour — Egyptian stone is almost always warm-toned."
+    - "Avoid over-polished surfaces for relief work — most Egyptian stone carving is matte."
+parameters:
+  stone_types:
+    - name: "limestone"
+      base_hex: "#D8C9A3"
+      grain: "fine"
+      patina_hex: "#BFA878"
+    - name: "sandstone"
+      base_hex: "#C4A26A"
+      grain: "medium"
+      patina_hex: "#A88A50"
+    - name: "granite_red"
+      base_hex: "#8B4E4E"
+      grain: "crystalline"
+      patina_hex: "#7A4040"
+compat:
+  pairs_with:
+    - egy.temple_relief_style
+    - egy.relief_shading_shader
+    - egy.old_kingdom_relief_style
+  avoid_with:
+    - egy.papyrus_scroll_style
+prompt_fragment: >
+  "Egyptian carved limestone surface, warm cream-ochre stone, dust patina,
+  directional side-lighting relief, edge wear, sandstone or granite variant,
+  ancient monumental texture"
+provenance:
+  sources:
+    - "Nicholson, P.T. & Shaw, I. (eds.) (2000). Ancient Egyptian Materials and Technology. Cambridge University Press."
+version: "1.0"
+created_at: "2026-04-10"

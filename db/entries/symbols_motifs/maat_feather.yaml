@@ -1,0 +1,57 @@
+id: egy.maat_feather
+type: symbol_motif
+name: "Maat Feather"
+aliases: ["feather of Maat", "ostrich feather of truth", "feather of justice"]
+summary: >
+  The ostrich feather of the goddess Maat — symbol of cosmic order, truth, justice,
+  and the moral standard against which the deceased's heart is weighed in the afterlife.
+description: >
+  Maat is the ancient Egyptian concept of cosmic order, truth, justice, and harmony.
+  The goddess Maat is depicted as a woman wearing a single ostrich feather on her
+  head (her identifying attribute). In the weighing of the heart ceremony (psychostasia),
+  the heart of the deceased is weighed against the feather of Maat on a balance scale
+  in the Hall of Two Truths; if the heart is lighter (less burdened by sin), the
+  deceased passes to eternal life. The feather alone (without the goddess) functions
+  as a hieroglyphic ideogram for Maat and as a decorative motif on friezes, stelae,
+  papyri, and jewellery. The ostrich feather form is tall and symmetrically barbed,
+  often rendered in white/cream with a gold quill. In the weighing scene, the jackal-
+  headed Anubis holds the balance, Thoth records the verdict, and Ammit the devourer
+  waits to consume failed hearts.
+tags:
+  period: [new_kingdom, general_ancient_egypt]
+  medium: [papyrus, tomb_painting, temple_relief, gold]
+  motif_type: [deity, funerary]
+  composition: [vignette, narrative_sequence]
+  linework: [ink_outline, painted_fill]
+  palette: [mineral_pigments, gold_accent, white_ground]
+  mood: [solemn, mythic, instructional]
+  shader_ops: [edge_ink, palette_map]
+constraints:
+  do:
+    - "Show feather with symmetrical barbs and a clear quill/rachis."
+    - "Include in weighing-of-the-heart scenes with the balance scale."
+    - "Show the goddess Maat with feather headdress in full-figure depictions."
+  avoid:
+    - "Avoid generic feather depiction — the ostrich feather with symmetric barbs is specific."
+    - "Avoid over-decorating the feather with non-Egyptian patterns."
+parameters:
+  feather_type: "ostrich"
+  barbing: "symmetric"
+  feather_colour: "#F5F0E0"
+  quill_colour: "#C8922A"
+compat:
+  pairs_with:
+    - egy.papyrus_scroll_style
+    - egy.narrative_sequence_composition
+    - egy.ankh
+  avoid_with: []
+prompt_fragment: >
+  "feather of Maat, ostrich feather of truth and justice, Egyptian cosmic
+  order symbol, white feather with gold quill, weighing of the heart scene,
+  papyrus vignette, solemn and mythic, ancient Egypt"
+provenance:
+  sources:
+    - "Assmann, J. (2001). The Search for God in Ancient Egypt. Cornell University Press."
+    - "Taylor, J.H. (2001). Death and the Afterlife in Ancient Egypt. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

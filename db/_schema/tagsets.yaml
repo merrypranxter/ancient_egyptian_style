@@ -1,0 +1,147 @@
+# db/_schema/tagsets.yaml
+# Canonical tag axes for the Ancient Egyptian Style Database.
+# Each axis name is used as a key in entry `tags:` blocks.
+# Values listed under each axis are the allowed vocabulary terms.
+
+version: "1.0"
+prefix: "egy."
+
+axes:
+
+  period:
+    description: "Chronological period of ancient Egypt the entry primarily references."
+    values:
+      - predynastic           # Before c. 3100 BCE
+      - early_dynastic        # c. 3100–2686 BCE
+      - old_kingdom           # c. 2686–2181 BCE
+      - first_intermediate    # c. 2181–2055 BCE
+      - middle_kingdom        # c. 2055–1650 BCE
+      - second_intermediate   # c. 1650–1550 BCE
+      - new_kingdom           # c. 1550–1070 BCE
+      - third_intermediate    # c. 1070–664 BCE
+      - late_period           # c. 664–332 BCE
+      - ptolemaic             # 332–30 BCE
+      - roman_egypt           # 30 BCE – 641 CE
+      - general_ancient_egypt # Applies across multiple periods or pan-dynastic
+
+  medium:
+    description: "Primary physical medium or surface the entry describes."
+    values:
+      - tomb_painting         # Pigment on plastered tomb wall
+      - temple_relief         # Carved and painted relief on temple walls
+      - papyrus               # Painting or writing on papyrus scroll
+      - faience               # Glazed ceramic / faience figurines and tiles
+      - gold                  # Gold leaf, gold foil, goldwork
+      - stone                 # Carved stone (limestone, granite, sandstone, quartzite)
+      - wood                  # Wooden panels, coffins, furniture
+      - linen                 # Painted linen shrouds or banners
+      - bronze                # Cast bronze figures and vessels
+      - ivory                 # Ivory carvings and inlay
+      - glass                 # Egyptian glass and glazing
+
+  motif_type:
+    description: "Semantic category of the motif or symbol."
+    values:
+      - deity                 # Netjer (god/goddess) imagery
+      - animal                # Sacred animals, zoomorphic forms
+      - royal                 # Pharaonic, crown, cartouche, throne imagery
+      - funerary              # Burial, afterlife, Book of the Dead imagery
+      - plant                 # Lotus, papyrus, floral vegetation
+      - celestial             # Sun, moon, stars, Nut/sky imagery
+      - border_pattern        # Decorative borders, banding, frieze patterns
+      - hieroglyphic_inspired # Glyph-like marks (not reproduction of real glyphs)
+      - architectural         # Pylons, columns, temple facades
+      - daily_life            # Scenes of agriculture, hunting, feasting
+
+  composition:
+    description: "Compositional structure or layout principle."
+    values:
+      - registers             # Horizontal banded registers stacked vertically
+      - profile_canon         # Composite profile figure (frontal torso, profile head/legs)
+      - scale_hierarchy       # Larger = more important/divine
+      - centered_emblem       # Single focal emblem on centered axis
+      - frieze                # Continuous horizontal decorative band
+      - bilateral_symmetry    # Mirror-symmetrical left/right layout
+      - radial                # Radiating from a central point (solar disc, etc.)
+      - vignette              # Isolated figure or scene on blank or minimal ground
+      - narrative_sequence    # Left-to-right or top-to-bottom scene progression
+
+  linework:
+    description: "Line-making technique or style."
+    values:
+      - ink_outline           # Painted ink contour line
+      - carved_relief         # Incised or raised contour in stone
+      - painted_fill          # Flat colour fill within outline
+      - brush_freehand        # Loose brush strokes, papyrus sketch style
+      - red_grid_underdrawing # Preliminary red-grid canon layout marks
+      - ink_wash              # Tonal wash of diluted pigment
+
+  palette:
+    description: "Colour palette character of the entry."
+    values:
+      - mineral_pigments      # Historically grounded ancient pigments only
+      - lapis_turquoise       # Deep blue/turquoise dominant (lapis lazuli, Egyptian blue)
+      - ochre_red             # Warm ochre, iron-oxide red, brown dominant
+      - gold_accent           # Gold or yellow as key accent or highlight
+      - black_outline_only    # Monochrome black ink / silhouette
+      - white_ground          # Figures on bright white plaster/papyrus
+      - limited               # Restricted 3–5 colour palette in general
+      - full_period_canonical # All six canonical pigments of a period
+
+  surface:
+    description: "Surface quality or treatment."
+    values:
+      - painted               # Surface is painted/pigmented
+      - carved                # Surface is cut/incised stone or wood
+      - gilded                # Surface has gold leaf or gold paint
+      - weathered             # Shows visible aging, erosion, fading
+      - pristine              # Museum-restoration or ideal clean state
+      - layered               # Multiple layers (plaster, paint, varnish)
+
+  artifact:
+    description: "Physical aging or degradation artifacts present."
+    values:
+      - pigment_flake         # Paint flaking or spalling
+      - cracks                # Surface cracking (drying, age, earthquake)
+      - ink_bleed             # Ink bleeding into fibrous ground (papyrus)
+      - edge_wear             # Worn or rounded edges
+      - papyrus_fiber         # Visible papyrus reed fiber texture
+      - dust_patina           # Settled dust or calcium carbonate bloom
+      - abrasion              # Rubbed or abraded zones
+      - lacuna                # Missing areas or voids
+
+  mood:
+    description: "Intended emotional or aesthetic register."
+    values:
+      - solemn                # Formal, grave, ceremonial
+      - regal                 # Authoritative, majestic, royal power
+      - mythic                # Divine drama, cosmic scale
+      - luminous              # Light-filled, radiant, gold/turquoise glow
+      - instructional         # Didactic, diagrammatic, clear
+      - intimate              # Small-scale, personal, votive quality
+      - monumental            # Large-scale grandeur, architecture-aligned
+
+  remix:
+    description: "Modern or cross-cultural remix layer applied as overlay."
+    values:
+      - modern_overlay        # Generic contemporary visual language overlay
+      - sci_fi                # Science fiction / futurism aesthetic overlay
+      - popculture            # Pop culture iconography overlay
+      - museum_label          # Museum exhibition / archival label aesthetic
+      - street_poster         # Street art / screen-print / propaganda poster style
+      - editorial             # Magazine / editorial illustration style
+      - digital_glitch        # Digital corruption / pixel glitch effects
+      - isometric_3d          # Isometric or 3D rendered interpretation
+
+  shader_ops:
+    description: "Rendering / shader operations applicable to this entry."
+    values:
+      - relief_shading        # Directional light simulating carved relief depth
+      - edge_ink              # Ink-like edge/outline pass
+      - palette_map           # Colour-map / LUT applied over greyscale base
+      - noise                 # Procedural noise (grain, surface texture)
+      - halftone              # Halftone dot pattern overlay
+      - displacement          # Displacement map for surface undulation
+      - bloom                 # Glow / bloom on bright pigments or gold
+      - vignette_burn         # Darkened edges burn effect
+      - chromatic_aberration  # Slight colour fringing for aged look

@@ -1,0 +1,74 @@
+id: egy.edge_ink_shader
+type: rendering_shader
+name: "Edge Ink Shader"
+aliases: ["ink outline shader", "contour extraction shader", "ink line pass", "cartoon outline"]
+summary: >
+  A post-process shader that extracts and renders the characteristic bold black
+  ink contour lines of Egyptian flat-colour painting, applicable to 3D renders
+  or photographic sources to produce an Egyptian wall-art style.
+description: >
+  The ink outline is the defining visual element of Egyptian painted art —
+  a consistent-weight black line that bounds every figure and major internal
+  form. This shader extracts or synthesises that line pass:
+
+  Inputs: a colour image or 3D render, optionally a separate normal/depth map.
+
+  Operations:
+  1. Sobel or Laplacian edge detection on the colour/depth image.
+  2. Threshold the edge map to a binary mask.
+  3. Dilate or process to achieve target line weight (typically 1.5–3px at 300dpi).
+  4. Tint line to near-black (carbon black #1A1208, not pure black).
+  5. Optionally: blend the outline over a flat-colour simplified version
+     of the source image for full Egyptian flat-art effect.
+
+  Advanced variant: detect edge direction and taper line weight (thicker at
+  outer contour, thinner at internal detail) to match the natural variation
+  of a brush-drawn ink line. Add slight jitter for organic quality.
+
+  This shader can also be applied as a style-transfer step in AI pipelines
+  to "Egyptian-ise" generated imagery.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, papyrus, temple_relief]
+  linework: [ink_outline]
+  shader_ops: [edge_ink, palette_map]
+  mood: [solemn, instructional]
+constraints:
+  do:
+    - "Use warm near-black (#1A1208) not pure #000000 for the outline — matches carbon black ink."
+    - "Target 1.5–3px line at final output resolution for correct visual weight."
+    - "Taper at detail interiors — outer contour heavier than inner form lines."
+  avoid:
+    - "Avoid uniform single-weight lines for all edges — varies with distance and detail level."
+    - "Avoid cold blue-black — the ink is warm charcoal-black."
+parameters:
+  edge_algorithm: "sobel_or_laplacian"
+  line_colour: "#1A1208"
+  line_weight_outer_px: 3.0
+  line_weight_inner_px: 1.5
+  threshold: 0.3
+  jitter_amplitude: 0.5
+shader_code_reference: |
+  // Fragment shader pseudocode
+  // uniform sampler2D colourTex;
+  // uniform vec2 texelSize;
+  // const vec3 inkColour = vec3(0.098, 0.071, 0.031); // #1A1208
+  //
+  // float edge = sobelEdge(colourTex, uv, texelSize);
+  // float line = step(0.3, edge);
+  // gl_FragColor = mix(texture2D(colourTex, uv), vec4(inkColour, 1.0), line);
+compat:
+  pairs_with:
+    - egy.tomb_painting_style
+    - egy.papyrus_scroll_style
+    - egy.relief_shading_shader
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian ink outline shader, bold black contour lines, carbon black ink,
+  edge detection pass, flat colour with ink line, warm dark outline,
+  tomb painting or papyrus style rendering"
+provenance:
+  sources:
+    - "Rasband, W.S. (2021). ImageJ documentation: edge detection filters."
+version: "1.0"
+created_at: "2026-04-10"

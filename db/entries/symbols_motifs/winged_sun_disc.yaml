@@ -1,0 +1,59 @@
+id: egy.winged_sun_disc
+type: symbol_motif
+name: "Winged Sun Disc"
+aliases: ["Behdety", "winged solar disc", "Horus of Behdet", "winged disk"]
+summary: >
+  The solar disc flanked by spread falcon wings — an ancient emblem of divine
+  kingship, solar power, and celestial protection displayed above temple doorways.
+description: >
+  The winged sun disc (Egyptian: Behdety) represents Horus of Behdet, a solar hawk
+  deity, and by extension the divine power of the sun and the pharaoh. In its
+  canonical form: a central red-brown or gold sun disc, flanked by two spread
+  falcon wings (coloured in banded feather patterns of blue, green, and ochre), and
+  often flanked by two erect cobras (uraeus) wearing the crowns of Upper and Lower
+  Egypt. It appears above virtually every temple doorway and entrance as an apotropaic
+  emblem, on the lintels of naos shrines, on coffin lids, and on royal pectorals.
+  The form is among the most architectural of Egyptian motifs — it functions as a
+  horizontal capstone element. The Assyrians, Persians, and other Near Eastern
+  cultures adopted similar winged-disc iconography, reflecting Egyptian cultural
+  influence.
+tags:
+  period: [old_kingdom, new_kingdom, ptolemaic, general_ancient_egypt]
+  medium: [temple_relief, stone, gold, papyrus]
+  motif_type: [deity, royal, celestial]
+  composition: [centered_emblem, bilateral_symmetry]
+  linework: [carved_relief, painted_fill, ink_outline]
+  palette: [mineral_pigments, gold_accent, lapis_turquoise, ochre_red]
+  surface: [painted, carved, gilded]
+  mood: [regal, mythic, monumental, luminous]
+  shader_ops: [edge_ink, bloom, palette_map, relief_shading]
+constraints:
+  do:
+    - "Centre the disc on a bilateral axis — the wings must be symmetric."
+    - "Include banded feather detail on both wings."
+    - "Include paired uraeus cobras flanking the disc where historically accurate."
+    - "Use above doorways/lintels as architectural capstone element."
+  avoid:
+    - "Avoid asymmetric wing poses — symmetry is structurally essential to this emblem."
+    - "Avoid omitting the disc — wings alone without centre disc lose the solar identity."
+parameters:
+  disc_colour: "#C8922A"
+  wing_banding_colours: ["#3B6FA0", "#3A7D44", "#D4A82A"]
+  uraeus_pair: true
+  placement: "lintel_capstone"
+compat:
+  pairs_with:
+    - egy.scarab
+    - egy.ptolemaic_temple_style
+    - egy.bilateral_symmetry_composition
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian winged sun disc, Behdety solar emblem, symmetric falcon wings,
+  banded feather detail, gold disc and lapis blue, uraeus cobras, temple
+  lintel, monumental and luminous, ancient Egypt"
+provenance:
+  sources:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Quirke, S. & Spencer, J. (1992). The British Museum Book of Ancient Egypt."
+version: "1.0"
+created_at: "2026-04-10"

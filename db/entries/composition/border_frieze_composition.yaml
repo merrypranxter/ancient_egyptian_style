@@ -1,0 +1,61 @@
+id: egy.border_frieze_composition
+type: composition
+name: "Border Frieze and Banding"
+aliases: ["kheker frieze", "frieze band", "decorative border", "ceiling band"]
+summary: >
+  Horizontal decorative banding systems used to frame, separate, and enrich
+  Egyptian wall surfaces — from the kheker frieze at the top of tomb walls to
+  coloured stripe registers below baselines.
+description: >
+  Egyptian architectural surfaces use a sophisticated system of decorative bands
+  and friezes to organise and enrich the visual field. Key elements:
+  - Kheker frieze: a row of tied reed or plant forms at the top of a wall,
+    derived from actual plant bundles tied to early wooden/reed architecture.
+    The kheker appears as a row of stylised bundled tops, often in alternating colours.
+  - Cavetto cornice: the characteristic concave-curved molding at the top of pylons,
+    naos shrines, and stelae, often with a torus roll below.
+  - Ceiling bands: strips of stars (five-pointed in yellow on blue), vulture wings,
+    or serpentine patterns across ceiling surfaces.
+  - Baseline stripes: coloured horizontal bands (typically alternating black, red,
+    and green strips) below figure baselines, often representing the earth or ground.
+  - Dado panels: the lower wall zone often features a coloured dado (ochre, red)
+    below the figural register zone.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, temple_relief]
+  motif_type: [border_pattern]
+  composition: [frieze, registers]
+  linework: [painted_fill, ink_outline]
+  palette: [mineral_pigments, gold_accent, lapis_turquoise]
+  mood: [solemn, instructional]
+  shader_ops: [edge_ink, palette_map]
+constraints:
+  do:
+    - "Place kheker frieze at the top of register zone, below the ceiling band."
+    - "Include cavetto cornice on architectural elements (pylons, naos, stelae top)."
+    - "Use star bands (yellow on blue) for ceiling decoration."
+    - "Layer baselines with coloured stripe bands below figures."
+  avoid:
+    - "Avoid organic/curvilinear border forms — Egyptian banding is geometric and repetitive."
+    - "Avoid mixing border systems from wildly different periods in a single surface."
+parameters:
+  kheker_pattern: "tied_reed_tops"
+  cavetto_present: true
+  star_band_colour: "#D4A82A"
+  star_band_background: "#3B6FA0"
+compat:
+  pairs_with:
+    - egy.register_composition
+    - egy.tomb_painting_style
+    - egy.temple_relief_style
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian border frieze, kheker frieze band, cavetto cornice, star ceiling
+  band, coloured baseline stripes, tomb or temple wall banding, decorative
+  register frame, ancient Egypt"
+provenance:
+  sources:
+    - "Arnold, D. (1991). Building in Egypt. Oxford University Press."
+    - "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

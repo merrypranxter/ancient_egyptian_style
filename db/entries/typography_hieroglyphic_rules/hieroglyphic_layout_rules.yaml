@@ -1,0 +1,77 @@
+id: egy.hieroglyphic_layout_rules
+type: typography_rule
+name: "Hieroglyphic Layout and Column Conventions"
+aliases: ["inscription layout", "glyph column rules", "sign orientation rules", "reading direction"]
+summary: >
+  Visual layout rules for hieroglyphic-inspired typographic columns and sign grids —
+  covering reading direction, sign stacking, column/row spacing, and sign orientation
+  conventions that give the correct Egyptian visual rhythm.
+description: >
+  Authentic Egyptian hieroglyphic inscriptions follow specific layout conventions
+  that create their characteristic visual rhythm. Understanding these conventions
+  allows glyph-inspired artwork to read as visually coherent even when the marks
+  are abstract. Key layout principles:
+
+  1. Reading direction: Hieroglyphs can read right-to-left or left-to-right.
+     The direction is indicated by the orientation of animal/human signs — they
+     face toward the beginning of the text. Most commonly, columns read right-to-left.
+
+  2. Column vs. row format: Classic inscriptions use narrow vertical columns or
+     horizontal rows. Columns are narrow (2–3 signs wide, many signs deep).
+     Horizontal bands fill the full width in registers.
+
+  3. Sign grouping: Signs are grouped into compact "blocks" of 2–4 signs that fill
+     a roughly square space, rather than evenly spaced one per line.
+
+  4. Sign stacking: Tall thin signs (birds, humans) may share a column space with
+     small signs placed above or below them in the same column slot.
+
+  5. Determinatives: Real hieroglyphic text ends words with a silent "determinative"
+     sign indicating semantic category (a seated man for person words, etc.).
+
+  6. Ground line and column rules: Columns are typically separated by vertical lines.
+     The column height is set by the register height.
+
+  These layout rules are applicable to decorative inscription-like banding in
+  artwork even when using abstract marks — they give the correct visual density
+  and rhythm.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, temple_relief, papyrus, stone]
+  motif_type: [hieroglyphic_inspired]
+  composition: [registers, frieze]
+  linework: [ink_outline]
+  mood: [instructional]
+  remix: [modern_overlay, museum_label]
+constraints:
+  do:
+    - "Orient all signs consistently — facing toward the reading start (left or right)."
+    - "Use compact sign-block grouping rather than uniform single-sign per row."
+    - "Separate inscription columns with vertical rules."
+    - "Make columns narrow relative to height (tall, not wide)."
+    - "Vary sign sizes within a block — tall birds, small determinatives, etc."
+  avoid:
+    - "Avoid equal-sized signs in a rigid grid — this does not resemble real inscription."
+    - "Avoid mixing reading directions within a single inscription column."
+    - "Avoid oversized isolated signs — multiple small grouped signs read as text."
+parameters:
+  primary_reading_direction: "right_to_left"
+  column_aspect_ratio: "tall_narrow"
+  signs_per_block: [2, 4]
+  column_separator: "vertical_rule"
+compat:
+  pairs_with:
+    - egy.hieroglyphic_inspired_marks_rules
+    - egy.cartouche
+    - egy.border_frieze_composition
+  avoid_with: []
+prompt_fragment: >
+  "Egyptian hieroglyphic column layout, narrow vertical inscription columns,
+  compact sign blocks, right-to-left orientation, column separators,
+  varied sign sizes, visual text rhythm, abstract marks as decoration"
+provenance:
+  sources:
+    - "Gardiner, A.H. (1957). Egyptian Grammar. Griffith Institute."
+    - "Allen, J.P. (2010). Middle Egyptian: An Introduction. Cambridge University Press."
+version: "1.0"
+created_at: "2026-04-10"

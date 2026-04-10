@@ -1,0 +1,59 @@
+id: egy.funerary_vignette_composition
+type: composition
+name: "Funerary Vignette"
+aliases: ["Book of the Dead vignette", "spell vignette", "isolated funerary scene"]
+summary: >
+  Small illustrative scenes placed above or alongside spell texts in funerary papyri —
+  isolated compositions that illustrate the accompanying text without a full register
+  context.
+description: >
+  Vignettes in Egyptian funerary papyri (particularly the Book of the Dead) are
+  compact, self-contained illustrated scenes that accompany specific spells or
+  chapters. Unlike full register compositions, vignettes may be isolated with minimal
+  ground lines, or placed in a narrow strip above a text column. Key types include:
+  the weighing of the heart (Chapter 125); the deceased adoring the sun disc;
+  the fields of Iaru (paradise fields); Osiris on his throne; the Opening of the Mouth
+  ceremony; transformation spells illustrated by the deceased as a bird, scarab, or
+  lotus. Vignette compositions are more compact and gestural than wall-scale work,
+  often without full environmental context. The format allows for tight, symbolic
+  compositions where only the essential iconographic elements are present.
+  This compositional format is highly adaptable for modern AI prompt design:
+  tight symbolic scenes on a plain ground.
+tags:
+  period: [new_kingdom, third_intermediate, ptolemaic]
+  medium: [papyrus]
+  composition: [vignette, registers]
+  linework: [ink_outline, painted_fill, brush_freehand]
+  palette: [mineral_pigments, gold_accent, white_ground, ochre_red]
+  mood: [solemn, mythic, instructional]
+  artifact: [ink_bleed, papyrus_fiber, edge_wear]
+  shader_ops: [edge_ink, vignette_burn, noise]
+constraints:
+  do:
+    - "Isolate scene on minimal ground line — vignette format does not need full environment."
+    - "Keep composition compact and symbolic — only essential iconographic elements."
+    - "Warm the ground to papyrus amber if using digital simulation."
+  avoid:
+    - "Avoid full landscape context — vignettes are extract/highlight scenes."
+    - "Avoid over-stuffing with detail — clarity at small scale is the goal."
+parameters:
+  ground_line: "minimal_or_none"
+  text_column_present: true
+  scene_isolation: true
+compat:
+  pairs_with:
+    - egy.papyrus_scroll_style
+    - egy.maat_feather
+    - egy.canopic_set
+  avoid_with:
+    - egy.register_composition
+prompt_fragment: >
+  "Egyptian funerary vignette, Book of the Dead papyrus scene, weighing of
+  the heart, isolated symbolic composition, warm amber papyrus ground,
+  fine ink outline, solemn and mythic, ancient Egypt"
+provenance:
+  sources:
+    - "Taylor, J.H. (2010). Journey Through the Afterlife. British Museum Press."
+    - "Faulkner, R.O. (1972). The Egyptian Book of the Dead. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

@@ -1,0 +1,60 @@
+id: egy.papyrus_scroll_style
+type: style
+name: "Papyrus Scroll Style"
+aliases: ["Book of the Dead style", "funerary papyrus style", "New Kingdom scroll art"]
+summary: >
+  The intimate illustrated manuscript style of painted papyrus scrolls, combining
+  vignette scenes with hieroglyphic text columns in a warm, amber-toned palette.
+description: >
+  Illustrated papyri — especially funerary texts such as the Book of the Dead
+  (Spell collections dating from the New Kingdom onward) — represent a distinct
+  aesthetic register. Figures are smaller and more gestural than temple art;
+  compositions use a mixture of registers and isolated vignettes. The warm amber-
+  yellow of the papyrus ground is integral to the aesthetic: pigments sit against
+  it rather than against white plaster. Black ink lines are finer and more fluid.
+  Colour is applied more thinly, sometimes allowing the ground to show through.
+  Text and image alternate or interweave, with hieroglyphic columns acting as
+  compositional elements. Ink bleed and papyrus fibre texture are characteristic
+  aging artifacts.
+tags:
+  period: [new_kingdom, third_intermediate, late_period, ptolemaic]
+  medium: [papyrus]
+  composition: [registers, vignette, narrative_sequence]
+  linework: [ink_outline, brush_freehand, painted_fill]
+  palette: [mineral_pigments, ochre_red, gold_accent, limited]
+  surface: [painted]
+  artifact: [ink_bleed, papyrus_fiber, cracks, edge_wear]
+  mood: [solemn, mythic, instructional]
+  shader_ops: [edge_ink, palette_map, noise, vignette_burn]
+constraints:
+  do:
+    - "Warm the ground colour with a papyrus amber-yellow base layer."
+    - "Allow ink bleed and papyrus fibre texture as authentic aging artifacts."
+    - "Use thinner, more gestural ink lines than tomb/temple wall styles."
+    - "Interweave hieroglyphic-inspired text columns with vignette scenes."
+  avoid:
+    - "Avoid cold white grounds — the papyrus amber warmth is essential."
+    - "Avoid thick impasto or heavy paint — papyrus painting is delicate."
+    - "Do not reproduce actual hieroglyphic spell texts as decoration."
+parameters:
+  ground_colour: "#D4A84B"
+  outline_colour: "#1A0E05"
+  ink_line_weight: "fine"
+  ground_texture: "papyrus_fiber"
+compat:
+  pairs_with:
+    - egy.papyrus_fiber_artifact
+    - egy.ink_bleed_artifact
+    - egy.funerary_vignette_composition
+  avoid_with:
+    - egy.stone_surface_texture
+prompt_fragment: >
+  "ancient Egyptian papyrus scroll painting, Book of the Dead vignette,
+  warm amber papyrus ground, fine ink line, hieroglyphic columns, register
+  and vignette layout, New Kingdom funerary art, intimate and mythic"
+provenance:
+  sources:
+    - "Taylor, J.H. (2010). Journey Through the Afterlife: Ancient Egyptian Book of the Dead. British Museum Press."
+    - "Quirke, S. (1993). Ancient Egyptian Religion. British Museum Press."
+version: "1.0"
+created_at: "2026-04-10"

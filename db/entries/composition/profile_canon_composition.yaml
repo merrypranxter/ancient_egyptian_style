@@ -1,0 +1,62 @@
+id: egy.profile_canon_composition
+type: composition
+name: "Egyptian Profile Canon (Composite Figure)"
+aliases: ["composite view", "profile canon", "twisted perspective", "canonical figure"]
+summary: >
+  The Egyptian compositional convention for depicting the human figure: profile head
+  and legs combined with a frontal torso and eye — showing the "most informative"
+  aspect of each body part simultaneously.
+description: >
+  The Egyptian canonical figure is a composite representation that shows each part
+  of the body from its most recognisable or informative angle, regardless of spatial
+  consistency. Rules (from the New Kingdom standardisation): head in strict profile;
+  eye depicted frontally in the profile head; shoulders and torso shown frontally
+  (both shoulders visible); navel and belly button at three-quarter view; arms hanging
+  at sides with both hands visible; hips and lower body in profile; legs in profile
+  with both feet shown from the inside arch (no foreshortened foot). This convention
+  was not a failure of perspective — it was a deliberate informational encoding
+  strategy. A red-grid underdrawing (18-square grid in Old/Middle Kingdom, 21-square
+  grid from Late Period) was used to maintain proportional canon. The result is the
+  immediately recognisable "walking figure" that defines Egyptian art.
+tags:
+  period: [general_ancient_egypt]
+  medium: [tomb_painting, temple_relief, papyrus]
+  composition: [profile_canon]
+  linework: [ink_outline, red_grid_underdrawing, painted_fill]
+  palette: [mineral_pigments, ochre_red]
+  mood: [solemn, instructional, regal]
+  shader_ops: [edge_ink]
+constraints:
+  do:
+    - "Profile head with frontal eye — both elements present simultaneously."
+    - "Both shoulders shown (frontal torso) even when figure faces right or left."
+    - "Both feet shown from inner arch — no foreshortened or perspective foot."
+    - "Male skin: warm red-brown. Female skin: yellow-ochre. These are period conventions."
+  avoid:
+    - "Avoid three-quarter facial views — the profile + frontal eye is the canonical form."
+    - "Avoid Western anatomical foreshortening — it breaks the Egyptian convention."
+    - "Avoid casual or relaxed postures unless specifically referencing Amarna period."
+parameters:
+  head_angle: "profile"
+  eye_angle: "frontal"
+  torso_angle: "frontal"
+  leg_angle: "profile"
+  grid_squares_old_kingdom: 18
+  grid_squares_late_period: 21
+compat:
+  pairs_with:
+    - egy.register_composition
+    - egy.scale_hierarchy_composition
+    - egy.tomb_painting_style
+  avoid_with:
+    - egy.amarna_style
+prompt_fragment: >
+  "Egyptian canonical profile figure, composite view, profile head with
+  frontal eye, frontal shoulders, profile legs, red-brown male skin,
+  flat ink outline, tomb painting style, instructional and solemn"
+provenance:
+  sources:
+    - "Robins, G. (1994). Proportion and Style in Ancient Egyptian Art. University of Texas Press."
+    - "Davis, W. (1989). The Canonical Tradition in Ancient Egyptian Art. Cambridge University Press."
+version: "1.0"
+created_at: "2026-04-10"

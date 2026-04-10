@@ -1,0 +1,43 @@
+id: egy.reference_academic_core
+type: reference
+name: "Core Academic References for Ancient Egyptian Art"
+summary: >
+  A curated list of authoritative academic references underpinning the entries
+  in this database — covering art history, iconography, materials, and language.
+description: >
+  These works are the primary scholarly foundations for the historical content
+  in this database. Entries should cite from this list where applicable.
+tags:
+  period: [general_ancient_egypt]
+  mood: [instructional]
+references:
+  art_history:
+    - "Robins, G. (1997). The Art of Ancient Egypt. British Museum Press."
+    - "Robins, G. (1994). Proportion and Style in Ancient Egyptian Art. University of Texas Press."
+    - "Smith, W.S. (1981). The Art and Architecture of Ancient Egypt. Penguin."
+    - "Davis, W. (1989). The Canonical Tradition in Ancient Egyptian Art. Cambridge University Press."
+    - "Hartwig, M.K. (2004). Tomb Painting and Identity in Ancient Thebes. Brepols."
+  iconography:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Wilkinson, R.H. (2003). The Complete Gods and Goddesses of Ancient Egypt. Thames and Hudson."
+    - "Andrews, C. (1994). Amulets of Ancient Egypt. British Museum Press."
+    - "Pinch, G. (1994). Magic in Ancient Egypt. British Museum Press."
+  materials:
+    - "Nicholson, P.T. & Shaw, I. (eds.) (2000). Ancient Egyptian Materials and Technology. Cambridge University Press."
+    - "Lucas, A. (1962). Ancient Egyptian Materials and Industries. Edward Arnold."
+    - "Lee, L. & Quirke, S. (2000). 'Painting materials.' In Nicholson & Shaw (eds.)."
+  funerary:
+    - "Taylor, J.H. (2010). Journey Through the Afterlife: Ancient Egyptian Book of the Dead. British Museum Press."
+    - "Taylor, J.H. (2001). Death and the Afterlife in Ancient Egypt. British Museum Press."
+    - "Hornung, E. (1999). The Ancient Egyptian Books of the Afterlife. Cornell University Press."
+    - "Faulkner, R.O. (1972). The Egyptian Book of the Dead. British Museum Press."
+  language_epigraphy:
+    - "Allen, J.P. (2010). Middle Egyptian: An Introduction to the Language and Culture of Hieroglyphs. Cambridge University Press."
+    - "Gardiner, A.H. (1957). Egyptian Grammar. Griffith Institute."
+  general:
+    - "Shaw, I. & Nicholson, P. (1995). British Museum Dictionary of Ancient Egypt. British Museum Press."
+    - "Quirke, S. & Spencer, J. (1992). The British Museum Book of Ancient Egypt. Thames and Hudson."
+    - "Aldred, C. (1988). Akhenaten: King of Egypt. Thames and Hudson."
+    - "Lehner, M. (1997). The Complete Pyramids. Thames and Hudson."
+version: "1.0"
+created_at: "2026-04-10"

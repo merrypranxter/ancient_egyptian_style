@@ -1,0 +1,53 @@
+id: egy.was_scepter
+type: symbol_motif
+name: "Was Scepter"
+aliases: ["Was staff", "wadj scepter", "power scepter"]
+summary: >
+  The animal-headed staff symbol of divine power and dominion, carried by gods
+  and pharaohs as an emblem of authority over sky, earth, and underworld.
+description: >
+  The was scepter is a long staff with a distinctive canid animal head at the top
+  (resembling the Seth animal or a stylised dog/jackal) and a forked base that
+  rests on the ground. The hieroglyphic sign (Gardiner S40) carries the meaning
+  "power" or "dominion." In tomb and temple art, was scepters are carried by
+  virtually all major deities — Amun, Ra, Thoth, Hathor — often alongside the ankh
+  (in the other hand) or the djed pillar. The pharaoh's throne may rest on a was
+  sign. The staff appears in triadic group formulas (ankh + djed + was = life +
+  stability + power) carved on furniture, coffins, and architectural elements.
+  The animal head shape distinguishes it from the simpler heqa crook scepter.
+tags:
+  period: [old_kingdom, general_ancient_egypt]
+  medium: [tomb_painting, temple_relief, gold, stone]
+  motif_type: [deity, royal]
+  linework: [ink_outline, carved_relief, painted_fill]
+  palette: [gold_accent, mineral_pigments]
+  mood: [regal, mythic, solemn]
+  shader_ops: [edge_ink, relief_shading]
+constraints:
+  do:
+    - "Show the distinctive canid animal head at the top with upright ears."
+    - "Include a forked or bifurcated base foot — essential identifying feature."
+    - "Typically gold-yellow or paired with teal/green staff colour."
+  avoid:
+    - "Avoid confusing with the heqa crook — the was is straight with an animal head."
+    - "Avoid generic staff designs without the canid head and forked base."
+parameters:
+  head_type: "canid_seth_animal"
+  base_type: "forked"
+  staff_colour: "#C8922A"
+compat:
+  pairs_with:
+    - egy.ankh
+    - egy.djed_pillar
+    - egy.deity_holding_pose
+  avoid_with: []
+prompt_fragment: >
+  "was scepter, Egyptian power staff, canid animal head, forked base,
+  gold colour, held by deity, tomb painting or temple relief style,
+  regal and mythic, ancient Egypt"
+provenance:
+  sources:
+    - "Wilkinson, R.H. (1992). Reading Egyptian Art. Thames and Hudson."
+    - "Wilkinson, R.H. (2003). The Complete Gods and Goddesses of Ancient Egypt. Thames and Hudson."
+version: "1.0"
+created_at: "2026-04-10"

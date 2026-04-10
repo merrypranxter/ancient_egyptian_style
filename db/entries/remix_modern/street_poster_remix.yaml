@@ -1,0 +1,66 @@
+id: egy.street_poster_remix
+type: remix
+name: "Street Poster / Screen Print Remix"
+aliases: ["Egyptian street art", "propaganda poster style", "screen print remix", "linocut remix"]
+summary: >
+  A bold, high-contrast remix placing Egyptian canonical figures and symbols
+  in the visual language of screen print, linocut, or propaganda poster design —
+  using limited flat colour, heavy ink, and typographic overlays.
+description: >
+  This remix channels the poster and print traditions — Soviet constructivism,
+  WPA prints, Shepard Fairey-style stencil work, and risograph zine culture —
+  to create large-format statement pieces grounded in Egyptian visual language.
+  The "historical-first" base: canonical profile figures, register composition,
+  and authentic motifs. The remix layer: dramatic flat-colour reduction (2–4 inks),
+  heavy grain texture from screen print halftone or risograph raster, bold slab-
+  serif or condensed display type, and oversized motifs that bleed to the edge.
+
+  Colour palette options:
+  - 2-colour: black + ochre gold (most powerful)
+  - 3-colour: black + ochre + turquoise
+  - 4-colour: full split-fountain or risograph CMYK-adjacent
+
+  The grammar: Egyptian register structures become horizontal poster divisions;
+  scale hierarchy drives the primary focal point; hieroglyphic-inspired marks
+  fill border bands as texture (not text). The result reads as a political poster
+  but with an ancient Egyptian soul.
+tags:
+  period: [general_ancient_egypt]
+  remix: [street_poster, modern_overlay, popculture]
+  composition: [registers, scale_hierarchy, bilateral_symmetry]
+  linework: [ink_outline]
+  palette: [limited, gold_accent, lapis_turquoise]
+  mood: [regal, monumental, mythic]
+  shader_ops: [halftone, edge_ink, noise]
+constraints:
+  do:
+    - "Reduce to 2–4 flat ink colours — screen print discipline."
+    - "Apply coarse halftone or risograph grain texture for print authenticity."
+    - "Maintain Egyptian canonical figure proportions even in simplified form."
+    - "Include bold typographic element (title, phrase) using period-adjacent slab or condensed type."
+  avoid:
+    - "Avoid photorealism — screen print is flat, graphic, and high-contrast."
+    - "Avoid more than 4 inks unless specifically targeting full-colour poster look."
+    - "Avoid fake hieroglyphic text in the typographic elements."
+parameters:
+  ink_count: [2, 4]
+  halftone_lpi: 55
+  grain_type: "risograph_or_screenprint"
+  type_style: "condensed_slab_serif"
+compat:
+  pairs_with:
+    - egy.edge_ink_shader
+    - egy.monochrome_black_outline_palette
+    - egy.scale_hierarchy_composition
+  avoid_with:
+    - egy.mineral_pigment_palette
+prompt_fragment: >
+  "Egyptian screen print poster remix, 2-3 flat colour inks, black and gold
+  ochre, risograph grain texture, canonical profile figure, bold condensed
+  type overlay, register composition, graphic and monumental"
+provenance:
+  notes: >
+    Reference: WPA Federal Art Project posters (1930s), Shepard Fairey's
+    stencil work, and the Risograph poster community for stylistic grounding.
+version: "1.0"
+created_at: "2026-04-10"
